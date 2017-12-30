@@ -1,3 +1,1 @@
-I edited this!
-
-Check the GroupMe for the Unity GIT tutorial that works.
+We're in class now, learning about procedural generation.
