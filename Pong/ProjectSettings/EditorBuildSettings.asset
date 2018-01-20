@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/UI Scenes/SplashScene.unity
+    guid: d63de981ef521aa42b47ba1cb51b104e
+  - enabled: 1
+    path: Assets/Scenes/UI Scenes/Main Menu Scene.unity
+    guid: 96753eb45f98f614bb3865701d56b40f
+  - enabled: 1
+    path: Assets/Scenes/Gameplay Scenes/Pong Scene.unity
+    guid: 8e2c44dfd7fc079419ca0b64c4e73156
