@@ -20,11 +20,7 @@ public class WallPopIn : MonoBehaviour
         {
             timer -= Time.deltaTime;
             m.material.color = new Color(m.material.color.r, m.material.color.g, m.material.color.b, timer);
-            if (timer < 0)
-            {
-                mr.enabled = false;
-            }
-
+            if (timer < 0) mr.enabled = false;
         }
 	}
 
