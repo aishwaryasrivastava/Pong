@@ -15,6 +15,7 @@ public class BallController : MonoBehaviour
     // State of the environment
     private bool environmentDimming, environmentLightingUp;
     public Light MainLight;
+    public ScorekeeperScript scorekeeper;
 
     public void toggleDarkMode(bool newValue){
         darkMode = newValue;
@@ -71,14 +72,22 @@ public class BallController : MonoBehaviour
         if (tmp.z < zMin)
         {
             //player 2 scored
+            scorekeeper.P2ScoreOne();
             nextDir = 1;
-            ResetBall();
+            if (!scorekeeper.GameOver)
+            {
+                ResetBall();
+            }
         }
         else if (tmp.z > zMax)
         {
             //player 1 scored
+            scorekeeper.P1ScoreOne();
             nextDir = -1;
-            ResetBall();
+            if (!scorekeeper.GameOver)
+            {
+                ResetBall();
+            }
         }
 
         // Glowing the ball in dark mode
