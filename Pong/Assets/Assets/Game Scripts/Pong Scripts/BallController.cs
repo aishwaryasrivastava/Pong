@@ -6,7 +6,7 @@ public class BallController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 direction;
-    private int nextDir = 1;
+    private int nextDir = 1;   
 
 	void Start ()
     {
