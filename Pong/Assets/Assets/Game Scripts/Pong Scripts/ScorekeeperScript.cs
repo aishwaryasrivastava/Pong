@@ -8,13 +8,12 @@ public class ScorekeeperScript : MonoBehaviour {
     private int P1Score, P2Score;
     public Text LeftScore, RightScore, Center;
     public bool GameOver { private set; get; }
+    public GameObject resetButton;
+    public int ScoreToWin;
 
 	// Use this for initialization
 	void Start () {
-        P1Score = 0;
-        P2Score = 0;
-        Center.text = "";
-        GameOver = false;
+        ResetScore();
 	}
 	
 	// Update is called once per frame
@@ -34,19 +33,42 @@ public class ScorekeeperScript : MonoBehaviour {
         SetCountText();
     }
 
+    public void ResetScore()
+    {
+        Center.text = "";
+        P1Score = 0;
+        P2Score = 0;
+        SetCountText();
+        GameOver = false;
+        resetButton.enabled = false;
+
+    }
+
     void SetCountText()
     {
         LeftScore.text = "P1: " + P1Score.ToString();
         RightScore.text = "P2: " + P2Score.ToString();
-        if (P1Score >= 5)
+        if (P1Score >= ScoreToWin)
         {
             Center.text = "goo djobe p1";
-            GameOver = true;
+            EndGame();
         }
-        if (P2Score >= 5)
+        if (P2Score >= ScoreToWin)
         {
             Center.text = "youd one it p2";
-            GameOver = true;
+            EndGame();
         }
+    }
+
+    void EndGame()
+    {
+        GameOver = true;
+        resetButton.GetComponent<Button>.enabled = true;
+
+    }
+
+    void DisplayRestartButton()
+    {
+        //resetButton.SetActive(true);
     }
 }

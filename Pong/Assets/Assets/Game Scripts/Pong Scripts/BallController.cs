@@ -32,6 +32,12 @@ public class BallController : MonoBehaviour
 
     }
 
+    public void RestartGame()
+    {
+        scorekeeper.ResetScore();
+        ResetBall();
+    }
+
     void ResetBall()
     {
         //just debug right now
