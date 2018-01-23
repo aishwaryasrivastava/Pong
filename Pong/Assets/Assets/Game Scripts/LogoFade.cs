@@ -6,44 +6,60 @@ using UnityEngine.UI;using UnityEngine.SceneManagement;
 public class LogoFade : MonoBehaviour
 {
 
-    public Image firstLogo;
-    public Image secondLogo;
+    public Image schoolLogo;
+    public Image teamLogo;
 
-    public Image thirdLogo;//team
+    public Image teamPicture;//team
+
+    public Image teamName;
+
+    public Image Curtain;
     // Next level to load will most likely be main menu.  Explore possibilities of making this modular and having multiple Splash Scenes for better OOP instead of all in one
 
     IEnumerator Start()
     {
-        firstLogo.canvasRenderer.SetAlpha(0.0f);
-        secondLogo.canvasRenderer.SetAlpha(0.0f);
-        thirdLogo.canvasRenderer.SetAlpha(0.0f);
-        // Fade in/out first logo
-        FadeIn(firstLogo);
-        yield return new WaitForSeconds(2.0f);
-        
-        // Fade in/out second logo
-        FadeIn(secondLogo);
-        yield return new WaitForSeconds(2.0f);
-        
-        // Fade in/out third logo
-        FadeIn(thirdLogo);
-        yield return new WaitForSeconds(2.0f);
+        schoolLogo.canvasRenderer.SetAlpha(0.0f);
+        teamLogo.canvasRenderer.SetAlpha(0.0f);
+        teamPicture.canvasRenderer.SetAlpha(0.0f);
+        teamName.canvasRenderer.SetAlpha(0.0f);
 
-        FadeOut(firstLogo);
-        FadeOut(secondLogo);
-        FadeOut(thirdLogo);
-        yield return new WaitForSeconds(1.0f);
+        // Fade in first logo
+        FadeIn(schoolLogo, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+        
+        // Fade in second logo
+        FadeIn(teamLogo, 1.5f);
+        FadeIn(teamName, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+        
+        // Fade in third logo
+        FadeIn(teamPicture, 1.5f);       
+        yield return new WaitForSeconds(1.5f);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // transition to next scene
+        //Fade everything out
+        FadeOut(schoolLogo, 1.5f);
+        FadeOut(teamLogo, 1.5f);
+        FadeOut(teamPicture, 1.5f);
+        FadeOut(teamName, 1.5f);
+        FadeOut(Curtain, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+
+        schoolLogo.enabled = false;
+        teamLogo.enabled = false;
+        teamName.enabled = false;
+        teamPicture.enabled = false;
+        Curtain.enabled = false;
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // transition to next scene
     }
 
-    void FadeIn(Image img)
+    void FadeIn(Image img, float time)
     {
-        img.CrossFadeAlpha(1.0f, 1.0f, false);
+        img.CrossFadeAlpha(1.0f, time, false);
     }
 
-    void FadeOut(Image img)
+    void FadeOut(Image img, float time)
     {
-        img.CrossFadeAlpha(0.0f, 1.0f, false);
+        img.CrossFadeAlpha(0.0f, time, false);
     }
 }
