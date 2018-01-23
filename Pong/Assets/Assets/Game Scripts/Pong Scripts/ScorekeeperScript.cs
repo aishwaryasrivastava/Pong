@@ -7,18 +7,14 @@ public class ScorekeeperScript : MonoBehaviour {
 
     private int P1Score, P2Score;
     public Text LeftScore, RightScore, Center;
+    
     public bool GameOver { private set; get; }
-    public GameObject resetButton;
+    public Button resetButton;
     public int ScoreToWin;
 
 	// Use this for initialization
 	void Start () {
         ResetScore();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void P1ScoreOne()
@@ -50,12 +46,12 @@ public class ScorekeeperScript : MonoBehaviour {
         RightScore.text = "P2: " + P2Score.ToString();
         if (P1Score >= ScoreToWin)
         {
-            Center.text = "goo djobe p1";
+            Center.text = "good job p1";
             EndGame();
         }
         if (P2Score >= ScoreToWin)
         {
-            Center.text = "youd one it p2";
+            Center.text = "you won it p2";
             EndGame();
         }
     }
@@ -63,7 +59,7 @@ public class ScorekeeperScript : MonoBehaviour {
     void EndGame()
     {
         GameOver = true;
-        resetButton.GetComponent<Button>.enabled = true;
+        resetButton.enabled = true;
 
     }
 
