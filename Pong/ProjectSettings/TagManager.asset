@@ -9,6 +9,7 @@ TagManager:
   - Hwall
   - Zwall
   - Zwall2
+  - Light Source
   layers:
   - Default
   - TransparentFX
