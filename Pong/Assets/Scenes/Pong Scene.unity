@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &11995693
 Light:
   m_ObjectHideFlags: 0
@@ -2466,10 +2466,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cdc896689d4fa4184dacdb5094183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: -11.5
-  xMax: 11.5
-  yMin: -1
-  yMax: 21
+  xMin: -12
+  xMax: 12
+  yMin: -1.5
+  yMax: 21.5
   PaddleSpeed: 1
 --- !u!23 &255377501
 MeshRenderer:
@@ -4790,7 +4790,7 @@ GameObject:
   - component: {fileID: 538456368}
   m_Layer: 0
   m_Name: P2paddle
-  m_TagString: Zwall
+  m_TagString: Zwall2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4820,12 +4820,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AiActive: 1
-  xMin: -11.5
-  xMax: 11.5
-  yMin: -1
-  yMax: 21
+  xMin: -12
+  xMax: 12
+  yMin: -1.5
+  yMax: 21.5
   PaddleSpeed: 1
-  AiSpeedMult: 0.875
+  AiSpeedMult: 1
   Ball: {fileID: 965839116}
 --- !u!54 &538456369
 Rigidbody:
@@ -8518,7 +8518,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1940083225}
   m_Father: {fileID: 1169008194}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8535,7 +8536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zMin: -12
   zMax: 32
-  Speed: 1.2
+  Speed: 1
+  BounceMult: 1.05
 --- !u!1001 &973566694
 Prefab:
   m_ObjectHideFlags: 0
@@ -15782,6 +15784,71 @@ Transform:
   m_Father: {fileID: 1188423913}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1940083224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1940083225}
+  - component: {fileID: 1940083226}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940083225
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1940083224}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 965839121}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &1940083226
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1940083224}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 5
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!4 &1942297086 stripped
 Transform:
   m_PrefabParentObject: {fileID: 436578, guid: 5d1af32b190f8e44690741c9848080fd, type: 2}

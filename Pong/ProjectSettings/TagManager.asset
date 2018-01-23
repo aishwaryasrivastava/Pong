@@ -8,6 +8,7 @@ TagManager:
   - Vwall
   - Hwall
   - Zwall
+  - Zwall2
   layers:
   - Default
   - TransparentFX

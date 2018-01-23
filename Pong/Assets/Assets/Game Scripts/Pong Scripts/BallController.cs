@@ -2,8 +2,10 @@
 
 public class BallController : MonoBehaviour
 {
-    public float zMin, zMax, Speed;
+    public float zMin, zMax, Speed, BounceMult;
 
+    private const float zMove = 1;
+    private float localSpeed;
     private Rigidbody rb;
     private Vector3 direction;
     private int nextDir = 1;   
@@ -17,8 +19,9 @@ public class BallController : MonoBehaviour
     void ResetBall()
     {
         //just debug right now
-        direction = new Vector3(2, 3, nextDir*2).normalized; //test velocity
+        direction = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), nextDir *2).normalized; //test velocity
         transform.localPosition = new Vector3(0, 10, 10 - nextDir*10); //center
+        localSpeed = Speed;
     }
 
     void Update()
@@ -40,7 +43,7 @@ public class BallController : MonoBehaviour
 
     void FixedUpdate ()
     {
-        rb.velocity = Speed*direction;
+        rb.velocity = localSpeed * direction;
     }
 
     void OnTriggerEnter(Collider other)
@@ -53,10 +56,13 @@ public class BallController : MonoBehaviour
         {
             direction = new Vector3(-direction.x, direction.y, direction.z);
         }
-        else if (other.gameObject.CompareTag("Zwall"))
+        else if ((other.gameObject.CompareTag("Zwall") && rb.velocity.z < 0) || //p1
+                 (other.gameObject.CompareTag("Zwall2") && rb.velocity.z > 0))  //p2
         {
-            //this should probably do something more unique
-            direction = new Vector3(direction.x, direction.y, -direction.z);
+            var diff = (transform.localPosition - other.transform.localPosition);
+            var norm = new Vector2(diff.x, diff.y).normalized;
+            direction = new Vector3(norm.x, norm.y, -direction.z);
+            localSpeed *= BounceMult;
         }
     }
 }
