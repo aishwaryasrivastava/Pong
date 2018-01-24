@@ -10763,9 +10763,10 @@ GameObject:
   - component: {fileID: 1169008196}
   - component: {fileID: 1169008195}
   - component: {fileID: 1169008197}
+  - component: {fileID: 1169008198}
   m_Layer: 0
   m_Name: Table
-  m_TagString: Untagged
+  m_TagString: table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10833,6 +10834,18 @@ MonoBehaviour:
   resetButton: {fileID: 981687940}
   lightMode: {fileID: 2017483159}
   ScoreToWin: 10
+--- !u!114 &1169008198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169008193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c845241e4b0f41bf384427d81b541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUp: {fileID: 1473726256493718, guid: 3c022b9604be2634b9cb75c2c355582e, type: 2}
 --- !u!1001 &1169043932
 Prefab:
   m_ObjectHideFlags: 0
