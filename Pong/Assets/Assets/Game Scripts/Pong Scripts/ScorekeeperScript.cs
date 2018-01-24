@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ScorekeeperScript : MonoBehaviour {
@@ -10,10 +8,12 @@ public class ScorekeeperScript : MonoBehaviour {
     
     public bool GameOver { private set; get; }
     public Button resetButton;
+    public Toggle lightMode;
     public int ScoreToWin;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         ResetScore();
 	}
 
@@ -36,22 +36,22 @@ public class ScorekeeperScript : MonoBehaviour {
         P2Score = 0;
         SetCountText();
         GameOver = false;
-        resetButton.enabled = false;
-
+        resetButton.interactable = false;
+        lightMode.interactable = true;
     }
 
     void SetCountText()
     {
-        LeftScore.text = "P1: " + P1Score.ToString();
-        RightScore.text = "P2: " + P2Score.ToString();
+        LeftScore.text = "P1: " + P1Score;
+        RightScore.text = "P2: " + P2Score;
         if (P1Score >= ScoreToWin)
         {
-            Center.text = "good job p1";
+            Center.text = "P1 is the winner";
             EndGame();
         }
         if (P2Score >= ScoreToWin)
         {
-            Center.text = "you won it p2";
+            Center.text = "P2 is the winner";
             EndGame();
         }
     }
@@ -59,12 +59,7 @@ public class ScorekeeperScript : MonoBehaviour {
     void EndGame()
     {
         GameOver = true;
-        resetButton.enabled = true;
-
-    }
-
-    void DisplayRestartButton()
-    {
-        //resetButton.SetActive(true);
+        resetButton.interactable = true;
+        lightMode.interactable = false;
     }
 }

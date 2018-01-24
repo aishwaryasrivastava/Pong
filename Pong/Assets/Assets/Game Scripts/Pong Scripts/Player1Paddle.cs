@@ -12,21 +12,7 @@ public class Player1Paddle : MonoBehaviour
 	{
 	    rb = GetComponent<Rigidbody>();
 	}
-
-    private bool paused;
-    private void CheckKeys()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            paused = !paused;
-            Time.timeScale = paused ? 0 : 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 1;
-            SceneManager.LoadScene(0);
-        }
-    }
+    
     void Update()
     {
         var tmp = transform.localPosition;
@@ -42,8 +28,6 @@ public class Player1Paddle : MonoBehaviour
             transform.localPosition = new Vector3(tmp.x, yMin + size, tmp.z);
         else if (tmp.y + size > yMax)
             transform.localPosition = new Vector3(tmp.x, yMax - size, tmp.z);
-
-        CheckKeys();
     }
 
 	void FixedUpdate ()
