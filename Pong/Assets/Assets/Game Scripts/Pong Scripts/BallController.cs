@@ -13,9 +13,9 @@ public class BallController : MonoBehaviour
     public float zMin, zMax, Speed, BounceMult;
     private bool darkMode, paused, waitForPress;
     private const float zMove = 1;
-    private float localSpeed;
+    public float localSpeed;
     private Rigidbody rb;
-    private Vector3 direction;
+    public Vector3 direction;
     private int nextDir = 1;
 
     private Light halo;
@@ -27,13 +27,15 @@ public class BallController : MonoBehaviour
     public Light MainLight;
     public ScorekeeperScript scorekeeper;
 
-    public void toggleDarkMode(bool newValue){
+    public void toggleDarkMode(bool newValue)
+    {
         darkMode = !newValue;
         environmentDimming = darkMode;
         environmentLightingUp = !darkMode;
     }
 
-	void Awake(){
+	void Awake()
+    {
 		source = GetComponent<AudioSource> ();
 	}
 
@@ -59,7 +61,7 @@ public class BallController : MonoBehaviour
         localSpeed = Speed;
         glowingUp = glowingDown = environmentDimming = environmentLightingUp = false;
         waitForPress = true;
-        message.text = "Press any key to start";
+        message.text = "Press any key to launch";
     }
 
     private void SmoothDim()
@@ -204,11 +206,8 @@ public class BallController : MonoBehaviour
             localSpeed *= BounceMult;
 
             halo.color = z ? Color.red : Color.blue;
+            source.PlayOneShot(hit, 1.0f);
         }
-		if (z || z2) {
-			source.PlayOneShot (hit, 1.0f);
-		}
 
     }
-
 }
