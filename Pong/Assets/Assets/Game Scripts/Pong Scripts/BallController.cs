@@ -11,7 +11,8 @@ public class BallController : MonoBehaviour
 	private AudioSource source;
 
     public float zMin, zMax, Speed, BounceMult;
-    private bool darkMode, paused, waitForPress;
+    private bool darkMode;
+    public bool paused, waitForPress;
     private const float zMove = 1;
     public float localSpeed;
     private Rigidbody rb;
@@ -29,7 +30,7 @@ public class BallController : MonoBehaviour
 
     public void toggleDarkMode(bool newValue)
     {
-        darkMode = !newValue;
+        darkMode = newValue;
         environmentDimming = darkMode;
         environmentLightingUp = !darkMode;
     }
@@ -120,7 +121,7 @@ public class BallController : MonoBehaviour
 
     private void CheckKeys()
     {
-        if (waitForPress && Input.anyKeyDown)
+        if (waitForPress && Input.anyKeyDown && !Input.GetMouseButtonDown(0))
         {
             message.text = "";
             waitForPress = false;
@@ -129,6 +130,7 @@ public class BallController : MonoBehaviour
         {
             paused = !paused;
             Time.timeScale = paused ? 0 : 1;
+            message.text = paused ? "Paused" : "";
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {

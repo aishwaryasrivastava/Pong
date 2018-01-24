@@ -8,15 +8,19 @@ public class PowerUpManager : MonoBehaviour
     private float timeCount;
     public float spd = 2;
 
+    public BallController ball; //for halting
+
 	void Start ()
     {
         tmp = Instantiate(powerUp, transform);
+        tmp.transform.localPosition = new Vector3(0, 0, -100);
         timeCount = freq;
 	}
 	
 	void Update ()
 	{
 	    if (Input.GetKeyDown(KeyCode.Alpha0)) timeCount = 0;
+	    if (ball.waitForPress || ball.paused) return;
         timeCount -= Time.deltaTime;
         if (timeCount < 0)
         {
