@@ -5,6 +5,11 @@ using UnityEngine.UI;
 public class BallController : MonoBehaviour
 {
     public Text message;
+
+	public AudioClip hit;
+	public AudioClip bounce;
+	private AudioSource source;
+
     public float zMin, zMax, Speed, BounceMult;
     private bool darkMode, paused, waitForPress;
     private const float zMove = 1;
@@ -27,6 +32,10 @@ public class BallController : MonoBehaviour
         environmentDimming = darkMode;
         environmentLightingUp = !darkMode;
     }
+
+	void Awake(){
+		source = GetComponent<AudioSource> ();
+	}
 
 	void Start ()
     {
@@ -185,6 +194,7 @@ public class BallController : MonoBehaviour
                 : direction = new Vector3(-direction.x, direction.y, direction.z);
 
              halo.color = Color.white;
+			source.PlayOneShot (bounce, 1.0f);
         }
         else if (z && rb.velocity.z < 0 /* P1 */ || z2 && rb.velocity.z > 0 /* P2 */)
         {
@@ -195,6 +205,10 @@ public class BallController : MonoBehaviour
 
             halo.color = z ? Color.red : Color.blue;
         }
+		if (z || z2) {
+			source.PlayOneShot (hit, 1.0f);
+		}
+
     }
 
 }
