@@ -10832,7 +10832,7 @@ MonoBehaviour:
   Center: {fileID: 1351006676}
   resetButton: {fileID: 981687940}
   lightMode: {fileID: 2017483159}
-  ScoreToWin: 1
+  ScoreToWin: 10
 --- !u!1001 &1169043932
 Prefab:
   m_ObjectHideFlags: 0
