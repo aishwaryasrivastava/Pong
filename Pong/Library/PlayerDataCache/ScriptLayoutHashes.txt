@@ -1,6 +1,7 @@
 WindowsStandalone
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
+Assets/Scenes/Credits.unity
 Assets/Scenes/Pong.unity
 SceneListEnd?
 392cbd49afbb18c71c83d97398046bdf Assembly-CSharp.dll:.BallController
@@ -143,6 +144,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 4c4a7e3e2cf6bdd5193db3bd4975ffc2 Assembly-CSharp.dll:.LogoFade
+32e11e60cc2ca74995af49bc39b4d408 Assembly-CSharp.dll:.CreditRoll
 739a0e295f5bf732676f62e8ee9a421c Assembly-CSharp.dll:.StateHolder
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
