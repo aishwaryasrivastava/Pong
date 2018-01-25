@@ -29,17 +29,17 @@ public class Player1Paddle : MonoBehaviour
     {
         var tmp = transform.localPosition;
 
-        if (tmp.x - curX < xMin)
-            transform.localPosition = new Vector3(xMin + curX, tmp.y, tmp.z);
-        else if (tmp.x + curX > xMax)
-            transform.localPosition = new Vector3(xMax - curX, tmp.y, tmp.z);
+        if (tmp.x - curX/2 < xMin)
+            transform.localPosition = new Vector3(xMin + curX/2, tmp.y, tmp.z);
+        else if (tmp.x + curX/2 > xMax)
+            transform.localPosition = new Vector3(xMax - curX/2, tmp.y, tmp.z);
 
         tmp = transform.localPosition;
 
-        if (tmp.y - curY < yMin)
-            transform.localPosition = new Vector3(tmp.x, yMin + curY, tmp.z);
-        else if (tmp.y + curY > yMax)
-            transform.localPosition = new Vector3(tmp.x, yMax - curY, tmp.z);
+        if (tmp.y - curY/2 < yMin)
+            transform.localPosition = new Vector3(tmp.x, yMin + curY/2, tmp.z);
+        else if (tmp.y + curY/2 > yMax)
+            transform.localPosition = new Vector3(tmp.x, yMax - curY/2, tmp.z);
 
         if (powerUpCounter > 0)
         {

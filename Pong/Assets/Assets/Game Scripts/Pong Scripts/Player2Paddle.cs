@@ -19,27 +19,27 @@ public class Player2Paddle : MonoBehaviour
     {
         var tmp = transform.localPosition;
 
-        if (tmp.x - size < xMin)
+        if (tmp.x - size/2 < xMin)
         {
-            transform.localPosition = new Vector3(xMin + size, tmp.y, tmp.z);
+            transform.localPosition = new Vector3(xMin + size / 2, tmp.y, tmp.z);
             if (AiActive) rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
         else if (tmp.x + size > xMax)
         {
-            transform.localPosition = new Vector3(xMax - size, tmp.y, tmp.z);
+            transform.localPosition = new Vector3(xMax - size / 2, tmp.y, tmp.z);
             if (AiActive) rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
 
         tmp = transform.localPosition;
 
-        if (tmp.y - size < yMin)
+        if (tmp.y - size / 2 < yMin)
         {
-            transform.localPosition = new Vector3(tmp.x, yMin + size, tmp.z);
+            transform.localPosition = new Vector3(tmp.x, yMin + size / 2, tmp.z);
             if (AiActive) rb.velocity = new Vector3(rb.velocity.x, 0, 0);
         }
-        else if (tmp.y + size > yMax)
+        else if (tmp.y + size / 2 > yMax)
         {
-            transform.localPosition = new Vector3(tmp.x, yMax - size, tmp.z);
+            transform.localPosition = new Vector3(tmp.x, yMax - size / 2, tmp.z);
             if (AiActive) rb.velocity = new Vector3(rb.velocity.x, 0, 0);
         }
     }

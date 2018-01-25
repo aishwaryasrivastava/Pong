@@ -135,7 +135,7 @@ public class BallController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene("Scenes/MainMenu");
+            SceneManager.LoadSceneAsync("Scenes/MainMenu");
         }
     }
 
