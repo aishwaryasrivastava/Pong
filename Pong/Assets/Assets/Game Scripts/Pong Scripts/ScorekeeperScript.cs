@@ -55,7 +55,10 @@ public class ScorekeeperScript : MonoBehaviour {
             EndGame();
         }
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) { ScreenCapture.CaptureScreenshot("screenshot.png", 2); }
+    }
     void EndGame()
     {
         GameOver = true;
