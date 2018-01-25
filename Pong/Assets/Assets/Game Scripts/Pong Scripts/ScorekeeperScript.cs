@@ -31,7 +31,7 @@ public class ScorekeeperScript : MonoBehaviour {
 
     public void ResetScore()
     {
-        Center.text = "";
+        //Center.text = "";
         P1Score = 0;
         P2Score = 0;
         SetCountText();
@@ -55,7 +55,10 @@ public class ScorekeeperScript : MonoBehaviour {
             EndGame();
         }
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) { ScreenCapture.CaptureScreenshot("screenshot.png", 2); }
+    }
     void EndGame()
     {
         GameOver = true;
