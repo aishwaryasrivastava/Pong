@@ -28,6 +28,11 @@ public class MainMenuControl : MonoBehaviour
         StartCoroutine(LoadAsyncScene());
     }
 
+    public void PlayCredits()
+    {
+        SceneManager.LoadScene("Scenes/Credits");
+    }
+
     public void Quit()
     {
         // Add desired logic for quit here
