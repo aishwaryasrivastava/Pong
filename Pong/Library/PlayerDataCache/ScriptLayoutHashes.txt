@@ -122,6 +122,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 0c91f805dd060f93ec0eb8b0cb0bfab1 Assembly-CSharp.dll:.FloorGenerator
 392c5e8c3e3a721dac8d18661fdc0e87 Assembly-CSharp.dll:.Player1Paddle
+29ccbd56e2e07b78483572683c017410 Assembly-CSharp.dll:.DJ
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 347d58500b83292dafd6123eb96695f9 Assembly-CSharp.dll:.Player2Paddle
@@ -154,4 +155,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CloudManager
-29ccbd56e2e07b78483572683c017410 Assembly-CSharp.dll:.DJ

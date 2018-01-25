@@ -24,7 +24,7 @@ public class Player2Paddle : MonoBehaviour
             transform.localPosition = new Vector3(xMin + size / 2, tmp.y, tmp.z);
             if (AiActive) rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
-        else if (tmp.x + size > xMax)
+        else if (tmp.x + size/2 > xMax)
         {
             transform.localPosition = new Vector3(xMax - size / 2, tmp.y, tmp.z);
             if (AiActive) rb.velocity = new Vector3(0, rb.velocity.y, 0);

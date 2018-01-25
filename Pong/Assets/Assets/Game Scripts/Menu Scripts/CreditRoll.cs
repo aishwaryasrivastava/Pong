@@ -27,7 +27,7 @@ public class CreditRoll : MonoBehaviour
         time += Time.deltaTime;
         if (time>duration)
         {
-            SceneManager.LoadScene("Scenes/MainMenu");
+            SceneManager.LoadSceneAsync("Scenes/MainMenu");
         }
     }
 }
