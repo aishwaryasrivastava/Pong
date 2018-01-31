@@ -35,6 +35,7 @@ public class MainMenuControl : MonoBehaviour
 
     public void Quit()
     {
+		//merge test
         // Add desired logic for quit here
         Application.Quit();
     }
