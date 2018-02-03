@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
 	    maxInvSize = 16;
         curEquip = 0;
 
-        // Setup L Scroller
+        // Setup L Scroller for future development
         lScroller = new Image[7]; //0 = -3, 1 = -2, 2 = -1, 3 = 0, 4 = 1, 5 = 2, 6 = 3
 	    for (int i = -3; i < 3; i++)
 	    {
@@ -42,7 +42,19 @@ public class Inventory : MonoBehaviour
 
     }
 
-    /* Movement Command */
+    /* Main Inventory Commands */
+
+    void DisplayInventory()
+    {
+        
+    }
+
+    void UndisplayInventory()
+    {
+        
+    }
+
+    /* L-Scroll Commands */
 
     void ScrollLeft()
     {

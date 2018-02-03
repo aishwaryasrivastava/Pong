@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 currentRotation;
     private Rigidbody rb;
 
+    public Inventory Inventory;
+
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
