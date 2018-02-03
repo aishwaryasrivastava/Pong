@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 currentRotation;
     private Rigidbody rb;
 
+    private bool inInventory;
+
     public Inventory Inventory;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-
+        inInventory = false;
     }
 
     void SetMovementVector()
@@ -60,11 +62,25 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate ()
     {
-        SetMovementVector();
-        MoveWithMouse();
-        var f = transform.forward;
-        transform.Translate(new Vector3(rightward, 0, forward));
-        CheckJump();
+        // needs cleaned up to proper input controller
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inInventory = !inInventory;
+            Inventory.Swap(inInventory);
+        }
+        if (!inInventory)
+        {
+            SetMovementVector();
+            MoveWithMouse();
+            var f = transform.forward;
+            transform.Translate(new Vector3(rightward, 0, forward));
+            CheckJump();
+        }
+        else
+        {
+            // main inventory controls here
+            // cycling item controls outside of main static inventory will go in previous if block
+        }
     }
 
     void OnTriggerEnter(Collider other)
