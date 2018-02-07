@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 using System.Xml;
@@ -17,12 +16,12 @@ public class DialogueManager : MonoBehaviour {
 
 	void Start () {
 		GameObject player = GameObject.Find (playerObject);
-		PlayerController script = player.GetComponent<PlayerController> ();
+		//PlayerMovementController script = player.GetComponent<PlayerMovementController> ();
 
 		XmlDocument xmlDoc = new XmlDocument(); // xmlDoc is the new xml document.
 		xmlDoc.LoadXml(xml.text);
 		dialog = CreateTree (xmlDoc.FirstChild);
-		Screen.lockCursor = true;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	Dialogue CreateTree(XmlNode xml) {
@@ -45,8 +44,8 @@ public class DialogueManager : MonoBehaviour {
 			if (talking) {
 				EndDialogue ();
 			} else {
-				Screen.lockCursor = false;
-			}
+			    Cursor.lockState = CursorLockMode.Locked;
+            }
 		}
 	}
 
@@ -91,8 +90,8 @@ public class DialogueManager : MonoBehaviour {
 
 	void StartDialogue() {
 		talking = true;
-		Screen.lockCursor = false;
-		currentdialog = dialog;
+	    Cursor.lockState = CursorLockMode.None;
+        currentdialog = dialog;
 	}
 
 	void ContinueDialogue(int i) {
@@ -101,6 +100,6 @@ public class DialogueManager : MonoBehaviour {
 
 	void EndDialogue() {
 		talking = false;
-		Screen.lockCursor = true;
-	}
+	    Cursor.lockState = CursorLockMode.Locked;
+    }
 }

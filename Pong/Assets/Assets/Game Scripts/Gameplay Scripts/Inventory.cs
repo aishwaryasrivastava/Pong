@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
     public GameObject invBackground;
 
     // Used in L-scroller
-    private Image[] lScroller;
+    private Sprite[] lScroller;
     private int lScrollerSize = 7;
     private int curEquip;
 
@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
 		inventory = new List<Pickup>();
 	    maxInvSize = 8;
         curEquip = 0;
-	    onScreenInv.SetActive(false);
+	    //onScreenInv.SetActive(false);
 	    invBackground.SetActive(false);
         
         // Setup L Scroller for future development
@@ -60,15 +60,25 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    void UpdateInventoryDisplay()
+    {
+        for(var i = 0; i<inventory.Count; i++)
+        {
+            var image = inventory[i].uiImage;
+            var slot = onScreenInv.transform.GetChild(i).GetChild(1);
+            slot.GetComponent<Image>().sprite = image;
+        }
+
+    }
+
     void DisplayInventory()
     {
-        onScreenInv.SetActive(true);
         invBackground.SetActive(true);
+        UpdateInventoryDisplay();
     }
 
     void UndisplayInventory()
     {
-        onScreenInv.SetActive(false);
         invBackground.SetActive(false);
     }
 
@@ -83,14 +93,14 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < lScrollerSize - 1; i++)
         {
             lScroller[i] = lScroller[i + 1];
-            if (i < 3) lScroller[i].GetComponent<RectTransform>().position += new Vector3(0, 50);
-            else
+            //if (i < 3) lScroller[i].GetComponent<RectTransform>().position += new Vector3(0, 50);
+            //else
             {
-                lScroller[i].GetComponent<RectTransform>().position += new Vector3(100, 0);
+            //    lScroller[i].GetComponent<RectTransform>().position += new Vector3(100, 0);
             }
         }
         lScroller[lScrollerSize - 1] = ItemImageLookup(ItemAt(curEquip + lScrollerSize / 2)); // new rightmost
-        lScroller[6].GetComponent<RectTransform>().position = new Vector3(-150, -150);
+        //lScroller[6].GetComponent<RectTransform>().position = new Vector3(-150, -150);
 
     }
 
@@ -103,14 +113,14 @@ public class Inventory : MonoBehaviour
         for (int i = lScrollerSize - 1; i > 0; i--)
         {
             lScroller[i] = lScroller[i - 1];
-            if (i < 3) lScroller[i].GetComponent<RectTransform>().position -= new Vector3(0, 50);
-            else
+            //if (i < 3) lScroller[i].GetComponent<RectTransform>().position -= new Vector3(0, 50);
+            //else
             {
-                lScroller[i].GetComponent<RectTransform>().position -= new Vector3(100, 0);
+               // lScroller[i].GetComponent<RectTransform>().position -= new Vector3(100, 0);
             }
         }
         lScroller[0] = ItemImageLookup(ItemAt(curEquip + lScrollerSize / 2)); // new leftmost
-        lScroller[0].GetComponent<RectTransform>().position = new Vector3(-450, 0);
+        //lScroller[0].GetComponent<RectTransform>().position = new Vector3(-450, 0);
     }
 
     Pickup ItemAt(int loc)
@@ -122,7 +132,7 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Pickup itemToAdd)
     {
-        if (inventory.Count > maxInvSize) return false;
+        if (inventory.Count >= maxInvSize) return false;
         inventory.Add(itemToAdd);
         return true;
     }
@@ -135,7 +145,7 @@ public class Inventory : MonoBehaviour
     }
 
     /* Lookup Item Image for L-Scroller */
-    Image ItemImageLookup(Pickup tempItem)
+    Sprite ItemImageLookup(Pickup tempItem)
     {
         return tempItem.uiImage;
     }

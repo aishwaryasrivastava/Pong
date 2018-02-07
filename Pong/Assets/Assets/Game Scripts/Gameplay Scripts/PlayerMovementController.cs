@@ -35,6 +35,11 @@ public class PlayerMovementController : MonoBehaviour
         {
             rightward += MovementMult;
         }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            forward *= 2;
+            rightward *= 2;
+        }
         rb.velocity -= new Vector3(rb.velocity.x, 0, rb.velocity.z);
     }
 

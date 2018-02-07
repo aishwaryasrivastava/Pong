@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Pickup
 {
     public int itemID;
-    public Image uiImage;
+    public Sprite uiImage;
 
     public Pickup(ItemAttributeInformation info)
     {
@@ -54,6 +54,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckInventoryControls()
     {
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             
@@ -68,24 +69,38 @@ public class PlayerInteractionController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void CheckInteractionControls()
+    {
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (lookingAt != null)
+            {
+                var mtp = inventory.AddItem(new Pickup(lookingAt.GetComponent<ItemAttributeInformation>()));
+                if (mtp)
+                {
+                    Destroy(lookingAt.gameObject);
+                }
+            }
+            //Debug.Log("Trying to pick something up");
+        }
+    }
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryActive = !InventoryActive;
             inventory.Swap(InventoryActive);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if(!InventoryActive)
         {
-            //if (lookingAt != null)
-                //inventory.AddItem(new Pickup(lookingAt.GetComponent<ItemAttributeInformation>()));
-            Debug.Log("Trying to pick something up");
+            CheckInteractionControls();
         }
-        if (InventoryActive)
-        {
-            CheckInventoryControls();
-        }
-        else
+    }
+    void FixedUpdate()
+    {
+        if(!InventoryActive)
         {
             CheckForItem();
         }

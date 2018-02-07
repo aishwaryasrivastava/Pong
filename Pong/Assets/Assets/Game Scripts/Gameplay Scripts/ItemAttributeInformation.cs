@@ -7,16 +7,18 @@ public static class UniRand
     public static Random rnd = new Random();
 }
 
-public class ItemAttributeInformation : Component
+public class ItemAttributeInformation : MonoBehaviour
 {
     public enum Type { Weapon, Key, Cake }
 
     public Type type;
 
-    public Image image = Instantiate(Resources.Load("temp")) as Image;
+    public Sprite image;
 
     void Start()
     {
+        //image = (Sprite)Resources.Load("temp/temp");
+        
         switch (UniRand.rnd.Next(0, 3))
         {
             case 0:
