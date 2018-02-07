@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Prison.unity
+- path: Assets/Scenes/LockDown Demo.unity
   isLoaded: 1
   isActive: 1

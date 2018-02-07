@@ -60,6 +60,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        
+    }
+
 	void FixedUpdate ()
     {
         // needs cleaned up to proper input controller
