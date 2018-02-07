@@ -59,4 +59,11 @@ public class GroundInmateScript : MonoBehaviour
     {
         turnAway();
     }
+
+	void OnCollisionEnter (Collision col)
+	{
+		
+			turnAway();
+
+	}
 }

@@ -11,6 +11,7 @@ TagManager:
   - DeadEnd
   - Illegal
   - Door
+  - Wall
   layers:
   - Default
   - TransparentFX

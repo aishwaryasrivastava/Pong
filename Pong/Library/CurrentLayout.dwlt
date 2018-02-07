@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 137
+  controlID: 78
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 342}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 28
+  controlID: 57
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -202,8 +202,8 @@ MonoBehaviour:
     y: 0
     width: 483
     height: 540
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -325,14 +325,14 @@ MonoBehaviour:
     - {fileID: 110782256, guid: 84f9d613a6aa6934d8510a542fadac39, type: 2}
     - {fileID: 1107180596555401838, guid: b755efdae8e54584bbcf579916779599, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.88297874
+    - e00: 0.84893614
       e01: 0
       e02: 0
-      e03: -483.58624
+      e03: -448.98773
       e10: 0
-      e11: 0.88297874
+      e11: 0.84893614
       e12: 0
-      e13: 152.74469
+      e13: 147.43405
       e20: 0
       e21: 0
       e22: 1
@@ -373,14 +373,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.6848185
+    - e00: 0.65841585
       e01: 0
       e02: 0
-      e03: 30.764008
+      e03: -2.0594177
       e10: 0
-      e11: 0.6848185
+      e11: 0.65841585
       e12: 0
-      e13: 1.3036194
+      e13: 1.8316803
       e20: 0
       e21: 0
       e22: 1
@@ -554,23 +554,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e8950200
-    m_LastClickedID: 0
-    m_ExpandedIDs: e821f8ffd623f8ffaa16f9fff018f9ff3c17faffa818faff7c0bfbff3c0dfbff2e10fbff0e28fbff000000002af3040050f30400
+    m_SelectedIDs: 164c0000
+    m_LastClickedID: 19478
+    m_ExpandedIDs: 9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: PlayerMan
-      m_OriginalName: PlayerMan
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 324432
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
@@ -652,7 +652,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Assets/Sounds
+    - Assets/Assets/Game Scripts/AnimationControllers
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders: []
@@ -663,7 +663,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: f6570000
     m_LastClickedID: 22518
-    m_ExpandedIDs: 00000000663b000076550000647e0000147f00003c7f00004c8100007c8100008482000064840000248500007e860000ec870000147c02001c80020054820200188302008e830200928302007a840200c68402007686020092860200aa86020092880200b88802001a890200b4890200ee890200f4890200528a0200ce8a0200348c02003c8d0200088e0200f08e02001e8f0200408f02001e920200569202007c9202000093020090930200f8930200c6950200c8950200ca950200cc950200
+    m_ExpandedIDs: 00000000f6270000ee280000622b00008a2c00001e2d00003e2d0000462d00000e2f0000882f00006a320000aa3200000e33000032330000a4360000d836000074370000e63700006e380000a6380000ea38000068390000e03900003c3a0000083d0000223d0000283f0000963f00000e40000060400000a0400000fe410000544200008842000006430000ae4700000e4800007e4800003c4900003e490000d4490000704a00000c4b0000cc530000ce530000d0530000d2530000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -691,7 +691,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000663b000076550000647e0000147f00003c7f00004c8100007c8100008482000064840000248500007e860000ec870000147c02001c80020054820200188302008e830200928302007a840200c68402007686020092860200aa86020092880200b88802001a890200b4890200f4890200528a0200ce8a0200348c02003c8d0200ba8d0200088e0200f08e02001e8f0200408f02001e920200569202007c9202000093020090930200c6950200c8950200ca950200cc950200
+    m_ExpandedIDs: 00000000f6270000ee280000622b00008a2c00001e2d00003e2d00000e2f0000882f00006a320000aa3200000e33000032330000a4360000d836000074370000e63700006e380000a6380000ea38000068390000e03900003c3a0000083d0000223d0000283f00007c3f0000963f00000e40000060400000a0400000fe410000544200008842000006430000ae4700000e4800007e4800003c4900003e490000d4490000704a00000c4b0000cc530000ce530000d0530000d2530000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
