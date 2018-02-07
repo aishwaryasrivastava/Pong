@@ -8,15 +8,15 @@ public class GroundInmateScript : MonoBehaviour
     private float myDirection;
     private Vector3 mySpeed;
     private int time = 0;
-    private float timeout = 0;
+    private float timeout = 3000;
 
     // Use this for initialization
     void Start()
     {
         InmateAnimator = GetComponent<Animator>();
-        InmateAnimator.SetBool("Walking", true);
+        InmateAnimator.SetBool("Walk", true);
         myDirection = Random.Range(0, 360);
-        timeout = Random.Range(100, 150);
+        //timeout = Random.Range(100, 150);
 
 
     }
