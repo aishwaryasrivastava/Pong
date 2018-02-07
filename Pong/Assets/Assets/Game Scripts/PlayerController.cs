@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         inInventory = false;
+        Cursor.visible = false;
     }
 
     void SetMovementVector()

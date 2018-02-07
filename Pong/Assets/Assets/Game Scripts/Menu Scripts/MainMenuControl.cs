@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,10 +11,11 @@ public class MainMenuControl : MonoBehaviour
     void Start()
     {
         load.enabled = load2.enabled = false;
+        Cursor.visible = true;
     }
     IEnumerator LoadAsyncScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/Pong");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/LockDown Demo");
         while (!asyncLoad.isDone)
         {
             yield return null;
