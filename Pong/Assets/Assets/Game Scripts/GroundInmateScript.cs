@@ -57,13 +57,7 @@ public class GroundInmateScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        turnAway();
+        turnAround();
     }
 
-	void OnCollisionEnter (Collision col)
-	{
-		
-			turnAway();
-
-	}
 }

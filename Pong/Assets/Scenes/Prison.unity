@@ -1314,26 +1314,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 354282701}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &381064552 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1472871419210154, guid: 8a87c18c615443843a3248fd0036dda5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1233799424}
---- !u!54 &381064554
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 381064552}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &397520293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,7 +1642,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 720812563}
-  - component: {fileID: 720812564}
   m_Layer: 0
   m_Name: Cell 2
   m_TagString: Untagged
@@ -1687,21 +1666,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &720812564
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 720812562}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &764301560
 Prefab:
   m_ObjectHideFlags: 0
@@ -2827,7 +2791,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1317099225}
-  - component: {fileID: 1317099226}
   m_Layer: 0
   m_Name: Cell 4
   m_TagString: Untagged
@@ -2852,21 +2815,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1317099226
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1317099224}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1317689909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,7 +2971,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1366183713}
-  - component: {fileID: 1366183714}
   m_Layer: 0
   m_Name: Cell 3
   m_TagString: Untagged
@@ -3048,21 +2995,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1366183714
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1366183712}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1555963839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3587,7 +3519,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4703804780881668, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.7798586
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 4703804780881668, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3595,7 +3527,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4703804780881668, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 17.294224
+      value: 36.4
       objectReference: {fileID: 0}
     - target: {fileID: 4703804780881668, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
       propertyPath: m_LocalRotation.x
