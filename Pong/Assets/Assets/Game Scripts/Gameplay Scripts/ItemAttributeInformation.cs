@@ -13,22 +13,25 @@ public class ItemAttributeInformation : MonoBehaviour
 
     public Type type;
 
+    public Sprite weapon, key, cake;
+
     public Sprite image;
 
     void Start()
-    {
-        //image = (Sprite)Resources.Load("temp/temp");
-        
+    { 
         switch (UniRand.rnd.Next(0, 3))
         {
             case 0:
                 type = Type.Weapon;
+                image = weapon;
                 break;
             case 1:
                 type = Type.Key;
+                image = key;
                 break;
             case 2:
                 type = Type.Cake;
+                image = cake;
                 break;
         }
         //in the future set the image (icon) here
