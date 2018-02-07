@@ -631,13 +631,13 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 4708d326-9b49-4e3d-b67b-bd7043500624
+  cloudProjectId: 1a5b1283-c4d6-4622-8082-d14c7d87cc2f
   projectName: Pong
-  organizationId: ericzhang1
+  organizationId: alicefaere
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

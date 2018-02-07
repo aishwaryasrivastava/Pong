@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void CheckJump()
     {
-        if (Math.Abs(transform.position.y) > 0.1) return;
+        if (Math.Abs(rb.velocity.y) > 0.01) return;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity += JumpForce * Vector3.up;

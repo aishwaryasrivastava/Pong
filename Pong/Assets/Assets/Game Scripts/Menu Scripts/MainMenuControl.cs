@@ -15,7 +15,7 @@ public class MainMenuControl : MonoBehaviour
     }
     IEnumerator LoadAsyncScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/LockDown Demo");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/Prison");
         while (!asyncLoad.isDone)
         {
             yield return null;
