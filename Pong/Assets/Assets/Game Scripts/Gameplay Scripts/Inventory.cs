@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public static class ItemIDchip
+{
+    public static int CurrentChip = 1;
+}
+
 public class Inventory : MonoBehaviour
 {
     // Used in keeping track of overall items
-    private List<Item> inventory;
+    private List<Pickup> inventory;
     private int maxInvSize;
     public GameObject onScreenInv;
     public GameObject invBackground;
@@ -18,7 +23,7 @@ public class Inventory : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		inventory = new List<Item>();
+		inventory = new List<Pickup>();
 	    maxInvSize = 8;
         curEquip = 0;
 	    onScreenInv.SetActive(false);
@@ -69,7 +74,7 @@ public class Inventory : MonoBehaviour
 
     /* L-Scroll Commands */
 
-    void ScrollLeft()
+    public void ScrollLeft()
     {
         // move curEquip to right item
         curEquip = (curEquip + 1) % maxInvSize;
@@ -89,7 +94,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    void ScrollRight()
+    public void ScrollRight()
     {
         // move curEquip to left item
         curEquip = (curEquip - 1) % maxInvSize;
@@ -108,21 +113,21 @@ public class Inventory : MonoBehaviour
         lScroller[0].GetComponent<RectTransform>().position = new Vector3(-450, 0);
     }
 
-    Item ItemAt(int loc)
+    Pickup ItemAt(int loc)
     {
         return inventory[loc % maxInvSize];
     }
 
     /* Add and Drop Commands */
 
-    bool AddItem(Item itemToAdd)
+    public bool AddItem(Pickup itemToAdd)
     {
         if (inventory.Count > maxInvSize) return false;
         inventory.Add(itemToAdd);
         return true;
     }
 
-    bool DropItem(int loc)
+    public bool DropItem(int loc)
     {
         if (inventory.Count <= 0) return false;
         inventory.RemoveAt(loc);
@@ -130,7 +135,7 @@ public class Inventory : MonoBehaviour
     }
 
     /* Lookup Item Image for L-Scroller */
-    Image ItemImageLookup(Item tempItem)
+    Image ItemImageLookup(Pickup tempItem)
     {
         return tempItem.uiImage;
     }

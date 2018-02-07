@@ -1,21 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour
 {
     public float MovementMult = 0.5f, MouseSensitivity = 3, JumpForce = 5;
     private float forward, rightward;
     private Vector2 currentRotation;
     private Rigidbody rb;
 
-    private bool inInventory;
-
-    public Inventory Inventory;
+    public PlayerInteractionController interact;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        inInventory = false;
         Cursor.visible = false;
     }
 
@@ -61,32 +58,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
 	void FixedUpdate ()
-    {
-        // needs cleaned up to proper input controller
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inInventory = !inInventory;
-            Inventory.Swap(inInventory);
-        }
-        if (!inInventory)
-        {
-            SetMovementVector();
-            MoveWithMouse();
-            var f = transform.forward;
-            transform.Translate(new Vector3(rightward, 0, forward));
-            CheckJump();
-        }
-        else
-        {
-            // main inventory controls here
-            // cycling item controls outside of main static inventory will go in previous if block
-        }
+	{
+	    if (interact.InventoryActive) return;
+        SetMovementVector();
+        MoveWithMouse();
+        //var f = transform.forward;
+        transform.Translate(new Vector3(rightward, 0, forward));
+        CheckJump();
+        rb.angularVelocity = Vector3.zero; //no falling over
     }
 
     void OnTriggerEnter(Collider other)
