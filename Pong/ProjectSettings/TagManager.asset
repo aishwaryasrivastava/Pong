@@ -10,6 +10,9 @@ TagManager:
   - Zwall
   - Zwall2
   - Light Source
+  - Turn Point
+  - Corner
+  - DeadEnd
   layers:
   - Default
   - TransparentFX
