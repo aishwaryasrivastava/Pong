@@ -8,6 +8,8 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 currentRotation;
     private Rigidbody rb;
 
+    public bool inTheRed;
+
     public PlayerInteractionController interact;
     public DialogueManager dialog;
 
@@ -101,6 +103,17 @@ public class PlayerMovementController : MonoBehaviour
         if(transform.position.y < -10) transform.position = new Vector3(0, 2, 0);
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Illegal"))
+        {
+            inTheRed = true;
+        }
+        else if (other.collider.CompareTag("Floor Tile"))
+        {
+            inTheRed = false;
+        }
+    }
 }
 
 public static class PauseManager
