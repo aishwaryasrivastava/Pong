@@ -36,7 +36,7 @@ public class NPCScript : MonoBehaviour
         time = Random.Range(1f, timeoutLength);
         halt = true;
         prisonAnim.SetBool("Walking", false);
-        prisonAnim.CrossFadeInFixedTime("Idle", 0);
+        //prisonAnim.CrossFadeInFixedTime("Idle", 0);
         source.Pause();
         goalAngle = (int) Mathf.Repeat(myAngle + Random.Range(90, 270), 360);
         shortestPath = ClockwiseIdeal(goalAngle, myAngle) ? 1 : -1;
