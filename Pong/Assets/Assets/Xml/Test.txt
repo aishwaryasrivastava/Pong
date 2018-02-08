@@ -1,8 +1,8 @@
 <node text="Hi!" option="N/A">
 	<node option="What's up?" text="They sky!">
-		<node option="Ha ha, very funny" text="..."></node>
-		<node option="*Stare at him*" text="..."></node>
+		<node option="Haha, very funny" text="You're lying aren't you"></node>
+		<node option="*Stare at him*" text="...hello?"></node>
 	</node>
-	<node option="You still owe me money" text="I'll get to it eventually"></node>
-	<node option="Hi" text="Hi to you too."></node>
+	<node option="You still owe me money" text="We're in prison now, dude"></node>
+	<node option="Hi" text="Don't you have homework to do?"></node>
 </node>

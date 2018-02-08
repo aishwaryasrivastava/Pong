@@ -3,19 +3,24 @@ using UnityEngine.UI;
 
 public class Pickup
 {
-    public int itemID;
-    public Sprite uiImage;
+    public int ItemId;
+    public Sprite UiImage;
+    public ItemAttributeInformation.Type Type;
 
     public Pickup(ItemAttributeInformation info)
     {
-        itemID = ItemIDchip.CurrentChip++;
-        uiImage = info.image;
+        ItemId = ItemIDchip.CurrentChip++;
+        UiImage = info.image;
+        Type = info.type;
     }
 }
 
 public class PlayerInteractionController : MonoBehaviour
 {
-    public float armReach = 10;
+
+    public SoundController sounds;
+
+    public float armReach = 8;
 
     public PlayerMovementController movement;
     public Camera mainCamera;
@@ -73,24 +78,22 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckInventoryControls()
     {
-
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            
+            inventory.Scroll(-1);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-
+            inventory.Scroll(1);
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Delete))
         {
-            
+            inventory.DropSelectedItem();
         }
     }
 
     void CheckInteractionControls()
-    {
-        
+    {       
         if (Input.GetMouseButtonDown(0))
         {
             if (activeItem != null)
@@ -99,35 +102,39 @@ public class PlayerInteractionController : MonoBehaviour
                 if (mtp)
                 {
                     Destroy(activeItem.gameObject);
+                    sounds.PlayDing();
                 }
             }
             else if (activeDoor != null)
             {
-                activeDoor.GetComponent<DoorToggle>().Toggle();
+                var tmp = activeDoor.GetComponent<DoorToggle>();
+                tmp.Toggle(inventory.HaveKeyItem());
+                if (tmp.Locked) sounds.PlayLocked();
             }
             else if (activeHuman != null)
             {
                 //talk to this person
-                Debug.Log("pretend they had something interesting to say");
+                //this activates somewhere else 
             }
         }
     }
 
     void Update()
     {
+        if (PauseManager.Paused) return;
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryActive = !InventoryActive;
             inventory.Swap(InventoryActive);
+            sounds.PlayInventory();
         }
-        if(!InventoryActive)
-        {
-            CheckInteractionControls();
-        }
+        if (!InventoryActive) CheckInteractionControls();
+        else CheckInventoryControls();
     }
     void FixedUpdate()
     {
-        if(!InventoryActive)
+        if (PauseManager.Paused) return;
+        if (!InventoryActive)
         {
             CheckForEnt();
         }

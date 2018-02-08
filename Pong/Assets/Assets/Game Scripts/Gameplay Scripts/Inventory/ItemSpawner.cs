@@ -21,4 +21,19 @@ public class ItemSpawner : MonoBehaviour
 
 	}
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            var item = Resources.Load("Prefabs/Item");
+
+            var newItem = Instantiate(item, transform) as GameObject;
+            if (newItem != null)
+            {
+                newItem.transform.position = new Vector3(Random.Range(x, xMax), Random.Range(y, yMax),
+                    Random.Range(z, zMax));
+            }
+
+        }
+    }
 }
