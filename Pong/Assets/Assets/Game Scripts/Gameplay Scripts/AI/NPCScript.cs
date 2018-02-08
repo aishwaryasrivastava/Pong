@@ -1,61 +1,102 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NPCScript : MonoBehaviour
 {
     Animator prisonAnim = new Animator();
     // Keeps track of how long ago NPC changed directions
-    int time = 0;
-    Vector3 myPosition, mySpeed = new Vector3();
-    float myAngle;
-    public float speed;
-    public int timeout;
-    private bool inHall;
+    private float time;
+    private Vector3 myPosition, mySpeed;
+    private int myAngle, goalAngle, shortestPath;
+    public float speed, movementLength, timeoutLength;
+    private bool halt;
+    public int AngleStep;
 
     // Use this for initialization
     void Start()
     {
         prisonAnim = gameObject.GetComponent<Animator>();
-        prisonAnim.SetBool("Walking", true);
-        inHall = false;
-
+        
+        halt = true;
+        time = Random.Range(0.5f, timeoutLength);
     }
 
-    void turn()
+    void TurnAndHalt()
     {
-        time = 0;
-        myAngle = myAngle - Random.Range(180, 270);
+        time = Random.Range(1f, timeoutLength);
+        halt = true;
+        prisonAnim.SetBool("Walking", false);
+        prisonAnim.CrossFadeInFixedTime("Idle", 0);
+
+        goalAngle = (int) Mathf.Repeat(myAngle + Random.Range(90, 270), 360);
+        shortestPath = ClockwiseIdeal(goalAngle, myAngle) ? 1 : -1;
+    }
+
+    bool ClockwiseIdeal(int goal, int current)
+    {
+        return Mathf.Repeat(goal - current, 360) < Mathf.Repeat(current - goal, 360);
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log(inHall);
-        time = time + 1;
-        myPosition = transform.position;
-        // Calculate walking speed using current angle
-        mySpeed.x = speed * Mathf.Sin(Mathf.PI * myAngle / 180);
-        mySpeed.z = speed * Mathf.Cos(Mathf.PI * myAngle / 180);
-
+        time -= Time.deltaTime;
 
         // If it's been a while since NPC turned, then turn them again
-        if(time > timeout)
+        if (halt)
         {
-            turn();
+            if (time < 0)
+            {
+                halt = false;
+
+                prisonAnim.SetBool("Walking", true);
+                prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                time = Random.Range(1f, movementLength);
+            }
+            if (myAngle != goalAngle)
+            {
+                myAngle = (int)Mathf.Repeat(myAngle + shortestPath * AngleStep, 360);
+                transform.eulerAngles = new Vector3(0, myAngle, 0);
+                if (Math.Abs(myAngle - goalAngle) < AngleStep)
+                {
+                    transform.eulerAngles = new Vector3(0, goalAngle, 0);
+                    myAngle = goalAngle;
+                }
+            }
         }
-
-        myPosition = myPosition + mySpeed;
-        transform.position = myPosition;
-        transform.eulerAngles = new Vector3(0, myAngle, 0);
-
+        else
+        {
+            if (time < 0)
+            {
+                TurnAndHalt();
+            }
+            else
+            {
+                myPosition = transform.position;
+                // Calculate walking speed using current angle
+                mySpeed.x = speed * Mathf.Sin(Mathf.PI * myAngle / 180);
+                mySpeed.z = speed * Mathf.Cos(Mathf.PI * myAngle / 180);
+                myPosition = myPosition + (halt ? 0 : 1) * mySpeed;
+                transform.position = myPosition;               
+            }
+        }
+        
     }
+
     private void OnCollisionEnter(Collision other)
-
-
     {
-        if (other.collider.CompareTag("Wall")){
-            turn();
+        if (halt) return;
+        if (other.collider.CompareTag("Wall"))
+        {
+            TurnAndHalt();
+        }
+        else if (other.collider.CompareTag("Door"))
+        {
+            var tmp = other.collider.gameObject.GetComponent<DoorToggle>();
+            if (tmp.Locked) TurnAndHalt();
+            else tmp.Toggle(false);
         }
 
     }
