@@ -1,6 +1,4 @@
-﻿
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using System.Xml;
 
 public class DialogueManager : MonoBehaviour {
@@ -9,8 +7,8 @@ public class DialogueManager : MonoBehaviour {
 	private Dialogue dialog;
 	private Dialogue currentdialog;
 
-	private bool talking = false;
-	private bool mouseover = false;
+	public bool talking;
+	private bool mouseover;
 
 	private string playerObject = "PlayerMan";
 

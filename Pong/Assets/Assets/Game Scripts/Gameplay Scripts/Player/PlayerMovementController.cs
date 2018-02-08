@@ -9,6 +9,7 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody rb;
 
     public PlayerInteractionController interact;
+    public DialogueManager dialog;
 
     void Start ()
     {
@@ -66,16 +67,13 @@ public class PlayerMovementController : MonoBehaviour
 	void FixedUpdate ()
 	{
 	    if (interact.InventoryActive) return;
+	    if (dialog.talking) return;
+
         SetMovementVector();
         MoveWithMouse();
-        //var f = transform.forward;
         transform.Translate(new Vector3(rightward, 0, forward));
         CheckJump();
         rb.angularVelocity = Vector3.zero; //no falling over
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        
-    }
 }

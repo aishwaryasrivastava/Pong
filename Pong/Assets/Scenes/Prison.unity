@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xml: {fileID: 4900000, guid: e4b66f1c6b894d94c8813ba41e01bda3, type: 3}
+  talking: 0
 --- !u!114 &68556763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +161,7 @@ MonoBehaviour:
   xlBound: -20
   zuBound: 50
   zlBound: 30
+  dialog: {fileID: 68556762}
 --- !u!4 &68556764 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4703804780881668, guid: b6a1ebed15b361547a23f7cb28c9afb2,
@@ -418,7 +420,7 @@ GameObject:
   - component: {fileID: 238554255}
   m_Layer: 0
   m_Name: Upper North Wall R
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,7 +907,7 @@ GameObject:
   - component: {fileID: 273583215}
   m_Layer: 0
   m_Name: East Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1075,7 +1077,7 @@ GameObject:
   - component: {fileID: 308807661}
   m_Layer: 0
   m_Name: Pillar 1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1267,7 +1269,7 @@ GameObject:
   - component: {fileID: 584888624}
   m_Layer: 0
   m_Name: Upper North Wall L
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1487,7 +1489,7 @@ GameObject:
   - component: {fileID: 683304720}
   m_Layer: 0
   m_Name: West Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2091,7 +2093,7 @@ GameObject:
   - component: {fileID: 991334813}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2386,7 +2388,7 @@ GameObject:
   - component: {fileID: 1123768247}
   m_Layer: 0
   m_Name: Lower North Wall R
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2762,7 +2764,7 @@ GameObject:
   - component: {fileID: 1646161049}
   m_Layer: 0
   m_Name: Lower North Wall L
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2869,6 +2871,7 @@ MonoBehaviour:
   MouseSensitivity: 3
   JumpForce: 10
   interact: {fileID: 1667146007}
+  dialog: {fileID: 68556762}
 --- !u!54 &1667146003
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3165,7 +3168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4703804780881668, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4703804780881668, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3238,7 +3241,7 @@ GameObject:
   - component: {fileID: 1829477179}
   m_Layer: 0
   m_Name: South Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

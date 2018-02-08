@@ -12,6 +12,8 @@ public class GroundInmateScript : MonoBehaviour
     private int time = 0;
     private float timeout = 3000;
 
+    public DialogueManager dialog;
+
     // Use this for initialization
     void Start()
     {
@@ -26,7 +28,7 @@ public class GroundInmateScript : MonoBehaviour
     void TurnAway()
     {
         time = 0;
-        myDirection = Random.Range(0, 360);
+        myDirection = myDirection - 180 + Random.Range(-90, 90);
     }
 
     void TurnAround()
@@ -43,7 +45,8 @@ public class GroundInmateScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(time);
+        if (dialog.talking) return;
+
         time = time + 1;
         Vector3 myPosition = transform.position;
         mySpeed = new Vector3((float)0.05 * Mathf.Sin(myDirection * Mathf.PI / 180), 0, (float)0.05 * Mathf.Cos(myDirection * Mathf.PI / 180));
@@ -51,21 +54,23 @@ public class GroundInmateScript : MonoBehaviour
 
         if (time > timeout)
         {
-            TurnAway();
+            //TurnAway();
         }
 
         if ((myPosition.x < xlBound || xuBound < myPosition.x || myPosition.z < zlBound || zuBound < myPosition.z) && (time > timeout/50))
         {
-            TurnAway();
-            myPosition = Constraint(myPosition);
+            //TurnAway();
+            //myPosition = Constraint(myPosition);
         }
         transform.position = myPosition;
         transform.eulerAngles = new Vector3(0, myDirection, 0);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        //turnAround();
+        //TurnAround();
+        if(collision.collider.CompareTag("Wall") || collision.collider.CompareTag("Door"))
+            TurnAway();
     }
 
 }
