@@ -94,6 +94,12 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public void Clear()
+    {
+        inventory.Clear();
+        UpdateInventoryDisplay();
+    }
+
     public bool HaveKeyItem()
     {
         return inventory.Any(g => g.Type == ItemAttributeInformation.Type.Key);

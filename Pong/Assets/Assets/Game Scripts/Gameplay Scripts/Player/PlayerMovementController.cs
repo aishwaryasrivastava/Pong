@@ -114,6 +114,12 @@ public class PlayerMovementController : MonoBehaviour
             inTheRed = false;
         }
     }
+
+    public void Die()
+    {
+        transform.position = new Vector3(0, 2, 0);
+        interact.inventory.Clear();
+    }
 }
 
 public static class PauseManager

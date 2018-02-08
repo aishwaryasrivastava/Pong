@@ -65,7 +65,7 @@ public class GuardScript2 : MonoBehaviour
             }
 
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
-            transform.forward = Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, 4, 10);
+            transform.forward = Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, (float)AngleStep/360, 10);
         }
         else if (halt)
         {
@@ -124,7 +124,7 @@ public class GuardScript2 : MonoBehaviour
         }
         else if (other.collider.CompareTag("Player"))
         {
-            other.collider.transform.position = new Vector3(0, 2, 0); //put this somewhere else later
+            if(player.inTheRed) player.Die();
         }
 
     }
