@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPCScript : MonoBehaviour
 {
@@ -52,11 +50,11 @@ public class NPCScript : MonoBehaviour
         transform.eulerAngles = new Vector3(0, myAngle, 0);
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
 
 
     {
-        if (other.gameObject.tag=="Wall"){
+        if (other.collider.CompareTag("Wall")){
             turn();
         }
 

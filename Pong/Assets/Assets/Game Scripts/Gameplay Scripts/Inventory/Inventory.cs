@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,7 +50,7 @@ public class Inventory : MonoBehaviour
     {
         for (var i = 0; i < lScrollerSize; i++)
         {
-            var image = inventory.Count > i ? inventory[i].uiImage : null;
+            var image = inventory.Count > i ? inventory[i].UiImage : null;
             var slot = onScreenInv.transform.GetChild(i).GetChild(1);          
             slot.GetComponent<Image>().sprite = image;           
         }
@@ -91,5 +92,10 @@ public class Inventory : MonoBehaviour
         inventory.RemoveAt(curEquip);
         UpdateInventoryDisplay();
         return true;
+    }
+
+    public bool HaveKeyItem()
+    {
+        return inventory.Any(g => g.Type == ItemAttributeInformation.Type.Key);
     }
 }

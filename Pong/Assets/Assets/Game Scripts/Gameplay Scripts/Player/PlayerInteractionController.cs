@@ -3,13 +3,15 @@ using UnityEngine.UI;
 
 public class Pickup
 {
-    public int itemID;
-    public Sprite uiImage;
+    public int ItemId;
+    public Sprite UiImage;
+    public ItemAttributeInformation.Type Type;
 
     public Pickup(ItemAttributeInformation info)
     {
-        itemID = ItemIDchip.CurrentChip++;
-        uiImage = info.image;
+        ItemId = ItemIDchip.CurrentChip++;
+        UiImage = info.image;
+        Type = info.type;
     }
 }
 
@@ -101,7 +103,7 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else if (activeDoor != null)
             {
-                activeDoor.GetComponent<DoorToggle>().Toggle();
+                activeDoor.GetComponent<DoorToggle>().Toggle(inventory.HaveKeyItem());
             }
             else if (activeHuman != null)
             {

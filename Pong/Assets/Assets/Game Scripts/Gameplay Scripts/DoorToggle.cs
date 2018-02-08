@@ -3,12 +3,14 @@
 public class DoorToggle : MonoBehaviour
 {
     private bool Open;
+    public bool Locked;
 
     private readonly float[] closed = {5, 0, -90};
     private readonly float[] open = {1, 4, 90};
 
-    public void Toggle()
+    public void Toggle(bool IHaveAKey)
     {
+        if (Locked && !IHaveAKey) return;
         Open = !Open;
         if (Open)
         {

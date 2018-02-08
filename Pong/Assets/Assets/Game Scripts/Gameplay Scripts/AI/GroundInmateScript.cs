@@ -14,7 +14,7 @@ public class GroundInmateScript : MonoBehaviour
     void Start()
     {
         InmateAnimator = GetComponent<Animator>();
-        InmateAnimator.SetBool("Walk", true);
+        InmateAnimator.SetBool("Walking", true);
         myDirection = Random.Range(0, 360);
         //timeout = Random.Range(100, 150);
 
@@ -57,7 +57,11 @@ public class GroundInmateScript : MonoBehaviour
         if (collision.collider.CompareTag("Wall"))
             TurnAway();
         else if (collision.collider.CompareTag("Door"))
-            collision.collider.gameObject.GetComponent<DoorToggle>().Toggle();
+        {
+            var tmp = collision.collider.gameObject.GetComponent<DoorToggle>();
+            if (tmp.Locked) TurnAway();
+            else tmp.Toggle(false);
+        }
     }
 
 }
