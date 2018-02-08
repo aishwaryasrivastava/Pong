@@ -5,8 +5,8 @@ using UnityEngine;
 public class GuardScript : MonoBehaviour {
 
 	public Transform player;
-	public float attackDistance = 0.1f;
-	public float runningDistance = 0.2f;
+	public float attackDistance = 3.0f;
+	public float runningDistance = 20.0f;
 
 	private Vector3 position;
 	private Animator anim;
@@ -21,6 +21,7 @@ public class GuardScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (Vector3.Distance (player.position, transform.position));
 		time = time + 1;
 		/*
 		if (time > limit) {

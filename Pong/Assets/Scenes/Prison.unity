@@ -2805,7 +2805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2c7b336e8070242ac97a679c70c059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1667146006}
+  player: {fileID: 253107745}
   attackDistance: 0.1
   runningDistance: 0.03
 --- !u!1 &1646161047
