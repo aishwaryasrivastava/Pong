@@ -20,7 +20,7 @@ public class PlayerMovementController : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        //Cursor.visible = false;
+        Cursor.visible = false;
         source.volume = 1;
     }
 

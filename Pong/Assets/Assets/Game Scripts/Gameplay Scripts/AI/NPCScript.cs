@@ -13,6 +13,8 @@ public class NPCScript : MonoBehaviour
     private bool halt;
     public int AngleStep;
 
+    public DialogueManager diag;
+
     public AudioSource source;
     void Awake()
     {
@@ -48,6 +50,8 @@ public class NPCScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseManager.Paused) return;
+        if (diag.talking) return;
         time -= Time.deltaTime;
 
         // If it's been a while since NPC turned, then turn them again
