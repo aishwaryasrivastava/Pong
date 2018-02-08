@@ -103,8 +103,7 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else if (activeDoor != null)
             {
-                //open the door
-                Debug.Log("pretend the door opened");
+                activeDoor.GetComponent<DoorToggle>().Toggle();
             }
             else if (activeHuman != null)
             {
