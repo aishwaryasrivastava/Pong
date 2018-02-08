@@ -35,8 +35,9 @@ public class GuardScript2 : MonoBehaviour
     {
         time = Random.Range(1f, timeoutLength);
         halt = true;
-        prisonAnim.SetBool("Walking", false);
-        prisonAnim.CrossFadeInFixedTime("Idle", 0);
+        prisonAnim.SetBool("isWalking", false);
+        prisonAnim.SetBool("isIdle", true);
+        prisonAnim.CrossFadeInFixedTime("Idle2", 2);
         source.Pause();
         goalAngle = (int)Mathf.Repeat(myAngle + Random.Range(90, 270), 360);
         shortestPath = ClockwiseIdeal(goalAngle, myAngle) ? 1 : -1;
@@ -59,8 +60,9 @@ public class GuardScript2 : MonoBehaviour
             if (halt)
             {
                 halt = false;
-                prisonAnim.SetBool("Walking", true);
-                prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                prisonAnim.SetBool("isWalking", true);
+                prisonAnim.SetBool("isIdle", false);
+                prisonAnim.CrossFadeInFixedTime("Walk", 2);
                 source.Play();
             }
 
@@ -73,8 +75,9 @@ public class GuardScript2 : MonoBehaviour
             {
                 halt = false;
 
-                prisonAnim.SetBool("Walking", true);
-                prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                prisonAnim.SetBool("isWalking", true);
+                prisonAnim.SetBool("isIdle", false);
+                prisonAnim.CrossFadeInFixedTime("Walk", 1);
                 time = Random.Range(1f, movementLength);
                 source.Play();
             }
