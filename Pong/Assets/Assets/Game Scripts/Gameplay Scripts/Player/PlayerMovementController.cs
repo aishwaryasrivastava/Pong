@@ -11,10 +11,17 @@ public class PlayerMovementController : MonoBehaviour
     public PlayerInteractionController interact;
     public DialogueManager dialog;
 
+    public AudioSource source;
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.visible = false;
+        //Cursor.visible = false;
+        source.volume = 1;
     }
 
     void SetMovementVector()
@@ -42,6 +49,11 @@ public class PlayerMovementController : MonoBehaviour
             rightward *= 2;
         }
         rb.velocity -= new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        if (Math.Abs(rightward) > 0 || Math.Abs(forward) > 0)
+        {
+            if(!source.isPlaying) source.Play();
+        }
+        else source.Stop();
     }
 
     void MoveWithMouse()
@@ -66,6 +78,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
+        rb.angularVelocity = Vector3.zero; //no falling over 
         if (Input.GetKeyDown(KeyCode.P))
         {
             PauseManager.Paused = !PauseManager.Paused;
@@ -73,7 +86,7 @@ public class PlayerMovementController : MonoBehaviour
         if (PauseManager.Paused) return;
 
         CheckJump();
-        rb.angularVelocity = Vector3.zero; //no falling over       
+              
     }
 
 	void FixedUpdate ()
@@ -84,7 +97,8 @@ public class PlayerMovementController : MonoBehaviour
 
         SetMovementVector();
         MoveWithMouse();
-        transform.Translate(new Vector3(rightward, 0, forward));       
+        transform.Translate(new Vector3(rightward, 0, forward));    
+        if(transform.position.y < -10) transform.position = new Vector3(0, 2, 0);
     }
 
 }

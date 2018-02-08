@@ -13,11 +13,18 @@ public class NPCScript : MonoBehaviour
     private bool halt;
     public int AngleStep;
 
+    public AudioSource source;
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
+
     // Use this for initialization
     void Start()
     {
         prisonAnim = gameObject.GetComponent<Animator>();
-        
+        source.volume = 1f;
         halt = true;
         time = Random.Range(0.5f, timeoutLength);
     }
@@ -28,7 +35,7 @@ public class NPCScript : MonoBehaviour
         halt = true;
         prisonAnim.SetBool("Walking", false);
         prisonAnim.CrossFadeInFixedTime("Idle", 0);
-
+        source.Pause();
         goalAngle = (int) Mathf.Repeat(myAngle + Random.Range(90, 270), 360);
         shortestPath = ClockwiseIdeal(goalAngle, myAngle) ? 1 : -1;
     }
@@ -37,7 +44,6 @@ public class NPCScript : MonoBehaviour
     {
         return Mathf.Repeat(goal - current, 360) < Mathf.Repeat(current - goal, 360);
     }
-
 
     // Update is called once per frame
     void Update()
@@ -54,6 +60,7 @@ public class NPCScript : MonoBehaviour
                 prisonAnim.SetBool("Walking", true);
                 prisonAnim.CrossFadeInFixedTime("Walk", 0);
                 time = Random.Range(1f, movementLength);
+                source.Play();
             }
             if (myAngle != goalAngle)
             {
@@ -82,7 +89,7 @@ public class NPCScript : MonoBehaviour
                 transform.position = myPosition;               
             }
         }
-        
+
     }
 
     private void OnCollisionEnter(Collision other)

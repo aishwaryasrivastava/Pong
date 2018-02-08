@@ -17,6 +17,9 @@ public class Pickup
 
 public class PlayerInteractionController : MonoBehaviour
 {
+
+    public SoundController sounds;
+
     public float armReach = 8;
 
     public PlayerMovementController movement;
@@ -99,11 +102,14 @@ public class PlayerInteractionController : MonoBehaviour
                 if (mtp)
                 {
                     Destroy(activeItem.gameObject);
+                    sounds.PlayDing();
                 }
             }
             else if (activeDoor != null)
             {
-                activeDoor.GetComponent<DoorToggle>().Toggle(inventory.HaveKeyItem());
+                var tmp = activeDoor.GetComponent<DoorToggle>();
+                tmp.Toggle(inventory.HaveKeyItem());
+                if (tmp.Locked) sounds.PlayLocked();
             }
             else if (activeHuman != null)
             {
@@ -120,6 +126,7 @@ public class PlayerInteractionController : MonoBehaviour
         {
             InventoryActive = !InventoryActive;
             inventory.Swap(InventoryActive);
+            sounds.PlayInventory();
         }
         if (!InventoryActive) CheckInteractionControls();
         else CheckInventoryControls();
