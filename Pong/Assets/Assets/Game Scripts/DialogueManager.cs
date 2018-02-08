@@ -1,6 +1,4 @@
-﻿
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using System.Xml;
 
 public class DialogueManager : MonoBehaviour {
@@ -9,8 +7,8 @@ public class DialogueManager : MonoBehaviour {
 	private Dialogue dialog;
 	private Dialogue currentdialog;
 
-	private bool talking = false;
-	private bool mouseover = false;
+	public bool talking;
+	private bool mouseover;
 
 	private string playerObject = "PlayerMan";
 
@@ -44,8 +42,8 @@ public class DialogueManager : MonoBehaviour {
 			if (talking) {
 				EndDialogue ();
 			} else {
-			    Cursor.lockState = CursorLockMode.Locked;
-            }
+				Cursor.lockState = CursorLockMode.Locked;
+			}
 		}
 	}
 
@@ -80,7 +78,7 @@ public class DialogueManager : MonoBehaviour {
 				}
 			}
 			for (int i = 0; i < currentdialog.Children().Count; i++) {
-				if (GUI.Button (new Rect (20, 60 + 40 * i, 200, 40), currentdialog.Children () [i].Option)) {
+				if (GUI.Button (new Rect (20, 70 + 40 * i, 200, 40), currentdialog.Children () [i].Option)) {
 					ContinueDialogue (i);
 					break;
 				}
@@ -90,8 +88,9 @@ public class DialogueManager : MonoBehaviour {
 
 	void StartDialogue() {
 		talking = true;
-	    Cursor.lockState = CursorLockMode.None;
-        currentdialog = dialog;
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+		currentdialog = dialog;
 	}
 
 	void ContinueDialogue(int i) {
@@ -100,6 +99,7 @@ public class DialogueManager : MonoBehaviour {
 
 	void EndDialogue() {
 		talking = false;
-	    Cursor.lockState = CursorLockMode.Locked;
-    }
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
 }

@@ -13,8 +13,7 @@ TagManager:
   - Door
   - Wall
   - Item
-  - Hall
-  - 4Way
+  - Human
   layers:
   - Default
   - TransparentFX
