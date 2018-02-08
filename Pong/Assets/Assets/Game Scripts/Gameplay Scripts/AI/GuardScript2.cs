@@ -36,6 +36,7 @@ public class GuardScript2 : MonoBehaviour
         time = Random.Range(1f, timeoutLength);
         halt = true;
         prisonAnim.SetBool("isWalking", false);
+        prisonAnim.SetBool("isRunning", false);
         prisonAnim.SetBool("isIdle", true);
         prisonAnim.CrossFadeInFixedTime("Idle2", 2);
         source.Pause();
@@ -57,17 +58,24 @@ public class GuardScript2 : MonoBehaviour
         // Player is bad
         if (player.inTheRed)
         {
+
+            prisonAnim.SetBool("isRunning", true);
             if (halt)
             {
                 halt = false;
-                prisonAnim.SetBool("isWalking", true);
+                
+                 prisonAnim.SetBool("isWalking", false);
                 prisonAnim.SetBool("isIdle", false);
-                prisonAnim.CrossFadeInFixedTime("Walk", 2);
+                prisonAnim.SetBool("isRunning", true);
+                prisonAnim.CrossFadeInFixedTime("Run", .5f);
                 source.Play();
             }
 
+            prisonAnim.SetBool("isWalking", false);
+            prisonAnim.SetBool("isIdle", false);
+
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
-            transform.forward = Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, (float)AngleStep/360, 10);
+            transform.forward = Vector3.RotateTowards(transform.forward, player.transform.position - transform.position, (float)AngleStep/360, 60);
         }
         else if (halt)
         {
@@ -77,6 +85,7 @@ public class GuardScript2 : MonoBehaviour
 
                 prisonAnim.SetBool("isWalking", true);
                 prisonAnim.SetBool("isIdle", false);
+                prisonAnim.SetBool("isRunning", false);
                 prisonAnim.CrossFadeInFixedTime("Walk", 1);
                 time = Random.Range(1f, movementLength);
                 source.Play();
