@@ -64,16 +64,32 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PauseManager.Paused = !PauseManager.Paused;
+        }
+        if (PauseManager.Paused) return;
+
+        CheckJump();
+        rb.angularVelocity = Vector3.zero; //no falling over       
+    }
+
 	void FixedUpdate ()
 	{
 	    if (interact.InventoryActive) return;
 	    if (dialog.talking) return;
+	    if (PauseManager.Paused) return;
 
         SetMovementVector();
         MoveWithMouse();
-        transform.Translate(new Vector3(rightward, 0, forward));
-        CheckJump();
-        rb.angularVelocity = Vector3.zero; //no falling over
+        transform.Translate(new Vector3(rightward, 0, forward));       
     }
 
+}
+
+public static class PauseManager
+{
+    public static bool Paused;
 }

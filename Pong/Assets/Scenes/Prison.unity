@@ -157,10 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2742d3c2fd54fa495947e3a30a84f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xuBound: 20
-  xlBound: -20
-  zuBound: 50
-  zlBound: 30
   dialog: {fileID: 68556762}
 --- !u!4 &68556764 stripped
 Transform:

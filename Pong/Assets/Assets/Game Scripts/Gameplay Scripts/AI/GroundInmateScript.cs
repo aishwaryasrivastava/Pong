@@ -1,11 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroundInmateScript : MonoBehaviour
 {
-    public float xuBound, xlBound, zuBound, zlBound;
-
     private Animator InmateAnimator;
     private float myDirection;
     private Vector3 mySpeed;
@@ -22,7 +18,6 @@ public class GroundInmateScript : MonoBehaviour
         myDirection = Random.Range(0, 360);
         //timeout = Random.Range(100, 150);
 
-
     }
 
     void TurnAway()
@@ -37,14 +32,10 @@ public class GroundInmateScript : MonoBehaviour
         myDirection = myDirection - 180;
     }
 
-    Vector3 Constraint(Vector3 on)
-    {
-        return new Vector3(Mathf.Clamp(on.x, xlBound, xuBound), on.y, Mathf.Clamp(on.z, zlBound, zuBound));
-    }
-
     // Update is called once per frame
     void Update()
     {
+        if (PauseManager.Paused) return;
         if (dialog.talking) return;
 
         time = time + 1;
@@ -54,23 +45,19 @@ public class GroundInmateScript : MonoBehaviour
 
         if (time > timeout)
         {
-            //TurnAway();
+            TurnAway();
         }
 
-        if ((myPosition.x < xlBound || xuBound < myPosition.x || myPosition.z < zlBound || zuBound < myPosition.z) && (time > timeout/50))
-        {
-            //TurnAway();
-            //myPosition = Constraint(myPosition);
-        }
         transform.position = myPosition;
         transform.eulerAngles = new Vector3(0, myDirection, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        //TurnAround();
-        if(collision.collider.CompareTag("Wall") || collision.collider.CompareTag("Door"))
+        if (collision.collider.CompareTag("Wall"))
             TurnAway();
+        else if (collision.collider.CompareTag("Door"))
+            collision.collider.gameObject.GetComponent<DoorToggle>().Toggle();
     }
 
 }

@@ -15,7 +15,7 @@ public class Pickup
 
 public class PlayerInteractionController : MonoBehaviour
 {
-    public float armReach = 10;
+    public float armReach = 8;
 
     public PlayerMovementController movement;
     public Camera mainCamera;
@@ -73,24 +73,22 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckInventoryControls()
     {
-
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            
+            inventory.Scroll(-1);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-
+            inventory.Scroll(1);
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Delete))
         {
-            
+            inventory.DropSelectedItem();
         }
     }
 
     void CheckInteractionControls()
-    {
-        
+    {       
         if (Input.GetMouseButtonDown(0))
         {
             if (activeItem != null)
@@ -108,26 +106,26 @@ public class PlayerInteractionController : MonoBehaviour
             else if (activeHuman != null)
             {
                 //talk to this person
-                Debug.Log("pretend they had something interesting to say");
+                //this activates somewhere else 
             }
         }
     }
 
     void Update()
     {
+        if (PauseManager.Paused) return;
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryActive = !InventoryActive;
             inventory.Swap(InventoryActive);
         }
-        if(!InventoryActive)
-        {
-            CheckInteractionControls();
-        }
+        if (!InventoryActive) CheckInteractionControls();
+        else CheckInventoryControls();
     }
     void FixedUpdate()
     {
-        if(!InventoryActive)
+        if (PauseManager.Paused) return;
+        if (!InventoryActive)
         {
             CheckForEnt();
         }

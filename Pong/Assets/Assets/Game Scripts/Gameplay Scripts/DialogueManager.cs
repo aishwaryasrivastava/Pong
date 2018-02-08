@@ -38,24 +38,21 @@ public class DialogueManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.Escape)){
-			if (talking) {
-				EndDialogue ();
-			} else {
-				Cursor.lockState = CursorLockMode.Locked;
-			}
+		if(Input.GetKey(KeyCode.Escape))
+        {
+			if (talking) EndDialogue ();
 		}
 	}
 
 	void OnMouseEnter() {
-		Debug.Log ("enter");
+		//Debug.Log ("enter");
 		if (!talking) {
 			mouseover = true;
 		}
 	}
 
 	void OnMouseExit() {
-		Debug.Log ("exit");
+		//Debug.Log ("exit");
 		mouseover = false;
 	}
 
