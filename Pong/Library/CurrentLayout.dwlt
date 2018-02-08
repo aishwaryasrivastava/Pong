@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 9}
-  m_MinSize: {x: 950, y: 521}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -40,8 +40,8 @@ MonoBehaviour:
     y: 677
     width: 1251
     height: 624
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -166,10 +166,10 @@ MonoBehaviour:
     y: 30
     width: 2544
     height: 1301
-  m_MinSize: {x: 713, y: 471}
-  m_MaxSize: {x: 18008, y: 14021}
+  m_MinSize: {x: 711, y: 471}
+  m_MaxSize: {x: 18006, y: 14021}
   vertical: 0
-  controlID: 10
+  controlID: 144
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,8 +188,8 @@ MonoBehaviour:
     y: 0
     width: 1008
     height: 1301
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -217,7 +217,7 @@ MonoBehaviour:
     y: 0
     width: 2544
     height: 1351
-  m_MinSize: {x: 950, y: 521}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &10
 MonoBehaviour:
@@ -278,8 +278,8 @@ MonoBehaviour:
     y: 0
     width: 1251
     height: 677
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -413,7 +413,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Assets/Game Scripts/Menu Scripts
+    - Assets/Assets/Game Scripts/Gameplay Scripts/AI
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders:
@@ -425,7 +425,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 44280000
     m_LastClickedID: 10308
-    m_ExpandedIDs: 0000000004280000fc280000a42c0000382d0000582d0000602d0000282f0000a42f00006e3200008e320000ce32000056330000ca360000fe3600009a3700000c38000096380000ce38000012390000903900000c3a0000683a0000383d0000523d0000ca3f000094400000d4400000624100006e410000364200008c420000c0420000ee470000a8480000be48000082490000184a0000b44a0000524b0000bc4b00007e4f0000804f0000824f0000844f0000864f0000884f00008a4f00008c4f0000
+    m_ExpandedIDs: 0000000000280000f8280000a02c0000a22c0000342d0000542d00005c2d0000242f0000a02f00006a3200008a320000ca32000052330000c6360000fa360000963700000838000092380000ca3800000e3900008c390000083a0000643a0000343d00004e3d0000c63f000090400000d04000005e4100006a4100003242000088420000bc420000ea470000a4480000ba4800007e490000144a0000b04a00004e4b0000b84b00007c4f00007e4f0000804f0000824f0000844f0000864f0000884f00008a4f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -453,7 +453,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000004280000fc280000a42c0000a62c0000382d0000582d0000602d0000282f0000a42f00006e3200008e320000ce32000056330000ca360000fe3600009a3700000c38000096380000ce38000012390000903900000c3a0000683a0000383d0000523d0000ca3f000094400000d4400000624100006e410000364200008c420000c0420000ee470000a8480000be48000082490000184a0000b44a0000524b0000bc4b00007e4f0000804f0000824f0000844f0000864f0000884f00008a4f00008c4f0000
+    m_ExpandedIDs: 0000000000280000f828000008290000a02c0000342d0000542d00005c2d0000242f0000a02f00006a3200008a320000ca32000052330000c6360000fa360000963700000838000092380000ca3800000e3900008c390000083a0000643a0000343d00004e3d0000c63f000090400000d04000005e4100006a4100003242000088420000bc420000ea470000a4480000ba4800007e490000144a0000b04a00004e4b0000b84b00007c4f00007e4f0000804f0000824f0000844f0000864f0000884f00008a4f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -571,9 +571,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6c070000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 98fbffff00000000
+    m_ExpandedIDs: 86d0ffff76d1ffff94d2ffffa2d2ffffb8d2ffff8ceaffff86ebffffa4ecffffb2ecffffc8ecffff9efbffff00000000545a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

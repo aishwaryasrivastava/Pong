@@ -2776,6 +2776,7 @@ MonoBehaviour:
   movementLength: 0
   timeoutLength: 0
   AngleStep: 0
+  diag: {fileID: 0}
   source: {fileID: 0}
 --- !u!122 &1643742561
 Halo:
@@ -3319,6 +3320,11 @@ Prefab:
       propertyPath: m_Height
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114876435259789792, guid: b6a1ebed15b361547a23f7cb28c9afb2,
+        type: 2}
+      propertyPath: diag
+      value: 
+      objectReference: {fileID: 68556762}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
   m_IsPrefabParent: 0
