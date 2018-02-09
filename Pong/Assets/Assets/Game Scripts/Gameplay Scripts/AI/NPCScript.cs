@@ -7,13 +7,13 @@ public class NPCScript : MonoBehaviour
     Animator prisonAnim = new Animator();
     // Keeps track of how long ago NPC changed directions
     private float time;
-    private Vector3 myPosition, mySpeed;
-    private int myAngle, goalAngle, shortestPath;
+    private Vector3 myPosition, mySpeed, myGoalHeading;
     public float speed, movementLength, timeoutLength;
     private bool halt;
     public int AngleStep;
 
     public DialogueManager diag;
+    private Rigidbody rb;
 
     public AudioSource source;
     void Awake()
@@ -25,10 +25,18 @@ public class NPCScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         prisonAnim = gameObject.GetComponent<Animator>();
         source.volume = 1f;
         halt = true;
-        time = Random.Range(0.5f, timeoutLength);
+        time = Random.Range(timeoutLength/2, timeoutLength);
+        prisonAnim.SetBool("Walking", false);
+    }
+
+    Vector3 GetRandomLocalPoint()
+    {
+        return new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1), transform.position.y,
+            Random.Range(transform.position.z - 1, transform.position.z + 1));
     }
 
     void TurnAndHalt()
@@ -36,22 +44,28 @@ public class NPCScript : MonoBehaviour
         time = Random.Range(1f, timeoutLength);
         halt = true;
         prisonAnim.SetBool("Walking", false);
-        //prisonAnim.CrossFadeInFixedTime("Idle", 0);
+        prisonAnim.CrossFadeInFixedTime("Idle2", 0);
         source.Pause();
-        goalAngle = (int) Mathf.Repeat(myAngle + Random.Range(90, 270), 360);
-        shortestPath = ClockwiseIdeal(goalAngle, myAngle) ? 1 : -1;
+        myGoalHeading = GetRandomLocalPoint() - transform.position;
     }
 
-    bool ClockwiseIdeal(int goal, int current)
+    void HaltAndTurn()
     {
-        return Mathf.Repeat(goal - current, 360) < Mathf.Repeat(current - goal, 360);
+        TurnAndHalt();
+        var deg = Random.Range(90, 180) * (Random.Range(0, 2) == 0 ? -1 : 1);
+        myGoalHeading = Vector3.RotateTowards(transform.forward, -transform.forward, Mathf.Deg2Rad*deg, 100);
     }
 
     // Update is called once per frame
     void Update()
     {
+        rb.angularVelocity = Vector3.zero; //no falling over 
         if (PauseManager.Paused) return;
-        if (diag.talking) return;
+        if (diag.talking)
+        {
+            if(!halt)TurnAndHalt();
+            return;
+        }
         time -= Time.deltaTime;
 
         // If it's been a while since NPC turned, then turn them again
@@ -63,37 +77,25 @@ public class NPCScript : MonoBehaviour
 
                 prisonAnim.SetBool("Walking", true);
                 prisonAnim.CrossFadeInFixedTime("Walk", 0);
-                time = Random.Range(1f, movementLength);
+                time = Random.Range(movementLength/2, movementLength);
                 source.Play();
             }
-            if (myAngle != goalAngle)
-            {
-                myAngle = (int)Mathf.Repeat(myAngle + shortestPath * AngleStep, 360);
-                transform.eulerAngles = new Vector3(0, myAngle, 0);
-                if (Math.Abs(myAngle - goalAngle) < AngleStep)
-                {
-                    transform.eulerAngles = new Vector3(0, goalAngle, 0);
-                    myAngle = goalAngle;
-                }
-            }
+            
         }
-        else
+        else if (time < 0)
         {
-            if (time < 0)
-            {
-                TurnAndHalt();
-            }
-            else
-            {
-                myPosition = transform.position;
-                // Calculate walking speed using current angle
-                mySpeed.x = speed * Mathf.Sin(Mathf.PI * myAngle / 180);
-                mySpeed.z = speed * Mathf.Cos(Mathf.PI * myAngle / 180);
-                myPosition = myPosition + (halt ? 0 : 1) * mySpeed;
-                transform.position = myPosition;               
-            }
+            TurnAndHalt();
         }
 
+    }
+
+    void FixedUpdate()
+    {
+        if (halt) return;
+        if (PauseManager.Paused) return;
+        if (diag.talking) return;
+        transform.position += speed * new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
+        transform.forward = Vector3.RotateTowards(transform.forward, myGoalHeading, Mathf.Deg2Rad * AngleStep, 60);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -101,12 +103,15 @@ public class NPCScript : MonoBehaviour
         if (halt) return;
         if (other.collider.CompareTag("Wall"))
         {
-            TurnAndHalt();
+            HaltAndTurn();
         }
         else if (other.collider.CompareTag("Door"))
         {
             var tmp = other.collider.gameObject.GetComponent<DoorToggle>();
-            if (tmp.Locked) TurnAndHalt();
+            if (tmp.Locked)
+            {
+                HaltAndTurn();
+            }
             else tmp.Toggle(false);
         }
 
