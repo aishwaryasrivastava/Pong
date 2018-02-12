@@ -521,7 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySound: {fileID: 8300000, guid: c4b8bbe29c0e2b240957742ea0eaf470, type: 3}
   lockedSound: {fileID: 8300000, guid: 4b75a48008aa8264086eaca098cfc6a6, type: 3}
-  ding: {fileID: 8300000, guid: 68d38c4d98bda7a489f8fa79ccc8222b, type: 3}
+  ding: {fileID: 8300000, guid: cc6de04835faf654eac17db031a4fdb4, type: 3}
   source: {fileID: 253107747}
 --- !u!82 &253107747
 AudioSource:
@@ -2684,6 +2684,8 @@ MonoBehaviour:
   player: {fileID: 1667146006}
   attackDistance: 5
   runningDistance: 20
+  speed: 0.2
+  walkingSpeed: 0.1
 --- !u!4 &1643742557 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4251658240464624, guid: cd77d0009c970bc4e93ce44d67a67f79,
