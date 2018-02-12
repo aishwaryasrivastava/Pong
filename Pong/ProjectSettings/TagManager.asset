@@ -5,11 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor Tile
-  - Vwall
-  - Hwall
-  - Zwall
-  - Zwall2
   - Light Source
+  - Turn Point
+  - Corner
+  - DeadEnd
+  - Illegal
+  - Door
+  - Wall
+  - Item
+  - Human
   layers:
   - Default
   - TransparentFX

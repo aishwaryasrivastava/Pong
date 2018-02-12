@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 3304482}
   - component: {fileID: 2391594}
   - component: {fileID: 6448672}
+  - component: {fileID: 65727179816042064}
   m_Layer: 18
   m_Name: CellGate
   m_TagString: Untagged
@@ -1432,7 +1433,7 @@ MeshCollider:
   m_GameObject: {fileID: 194538}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -1547,3 +1548,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 183302}
   m_IsPrefabParent: 1
+--- !u!65 &65727179816042064
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 3, z: 0.25}
+  m_Center: {x: 1.25, y: 1.5, z: 0.125}

@@ -10,10 +10,11 @@ public class MainMenuControl : MonoBehaviour
     void Start()
     {
         load.enabled = load2.enabled = false;
+        Cursor.visible = true;
     }
     IEnumerator LoadAsyncScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/Pong");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/Prison");
         while (!asyncLoad.isDone)
         {
             yield return null;
