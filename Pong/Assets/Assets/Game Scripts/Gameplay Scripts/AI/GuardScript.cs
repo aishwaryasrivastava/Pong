@@ -9,38 +9,25 @@ public class GuardScript : MonoBehaviour {
 	public float walkingSpeed = 0.01f;
 
 	private Vector3 position;
-	private Animator anim;
+    GuardAnimHandler anim;
 	private Vector3 direction;
 
 	void Start () {
-		anim = GetComponent<Animator> ();
+		anim = GetComponent<GuardAnimHandler> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if ((Vector3.Distance (player.position, transform.position) < runningDistance) && (Vector3.Distance (player.position, transform.position) > attackDistance)) {
-			anim.SetBool ("isRunning", true);
-			anim.SetBool ("isAttacking", false);
-			anim.SetBool ("isIdle", false);
-			anim.SetBool ("switching", false);
-			anim.SetBool ("isWalking", false);
+            anim.ToRunning();
 			direction = player.position - transform.position;
 			direction.y = 0;
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(direction), 0.9f);
 			transform.Translate (0, 0, speed);
 		} else if (Vector3.Distance (player.position, transform.position) <= attackDistance) {
-			anim.SetBool ("isAttacking", true);
-			anim.SetBool ("isRunning", false);
-			anim.SetBool ("switching", true);
-			anim.SetBool ("isIdle", false);
-			anim.SetBool ("switching", false);
-			anim.SetBool ("isWalking", false);
+            anim.ToAttacking();
 		}else if (Vector3.Distance (player.position, transform.position) > runningDistance) {
-			anim.SetBool ("isRunning", false);
-			anim.SetBool ("isAttacking", false);
-			anim.SetBool ("isIdle", false);
-			anim.SetBool ("switching", false);
-			anim.SetBool ("isWalking", true);
+            anim.ToWalking();
 			transform.Translate (0, 0, walkingSpeed);
 		}
 	}

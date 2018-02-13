@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class NPCScript : MonoBehaviour
 {
-    Animator prisonAnim = new Animator();
+    PrisonerAnimHandler prisonAnim;
     // Keeps track of how long ago NPC changed directions
     private float time;
     private Vector3 myPosition, mySpeed, myGoalHeading;
@@ -26,11 +26,11 @@ public class NPCScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        prisonAnim = gameObject.GetComponent<Animator>();
+        prisonAnim = gameObject.GetComponent<PrisonerAnimHandler>();
         source.volume = 1f;
         halt = true;
         time = Random.Range(timeoutLength/2, timeoutLength);
-        prisonAnim.SetBool("Walking", false);
+        prisonAnim.ToIdle();
     }
 
     Vector3 GetRandomLocalPoint()
@@ -43,8 +43,7 @@ public class NPCScript : MonoBehaviour
     {
         time = Random.Range(1f, timeoutLength);
         halt = true;
-        prisonAnim.SetBool("Walking", false);
-        prisonAnim.CrossFadeInFixedTime("Idle2", 0);
+        prisonAnim.ToIdle();
         source.Pause();
         myGoalHeading = GetRandomLocalPoint() - transform.position;
     }
@@ -75,8 +74,8 @@ public class NPCScript : MonoBehaviour
             {
                 halt = false;
 
-                prisonAnim.SetBool("Walking", true);
-                prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                prisonAnim.ToWalking();
+
                 time = Random.Range(movementLength/2, movementLength);
                 source.Play();
             }

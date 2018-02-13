@@ -44,7 +44,7 @@ public class GuardScript2 : MonoBehaviour
     {
         time = Random.Range(1f, timeoutLength);
         halt = true;
-        prisonAnim.SetBool("Walking", false);
+        prisonAnim.SetBool("isWalking", false);
         prisonAnim.CrossFadeInFixedTime("Idle2", 0);
         source.Pause();
         myGoalHeading = GetRandomLocalPoint() - transform.position;
@@ -71,7 +71,7 @@ public class GuardScript2 : MonoBehaviour
             {
                 halt = false;
 
-                prisonAnim.SetBool("Walking", true);
+                prisonAnim.SetBool("isWalking", true);
                 prisonAnim.CrossFadeInFixedTime("Walk", 0);
                 source.Play();
             }
@@ -84,7 +84,7 @@ public class GuardScript2 : MonoBehaviour
             {
                 halt = false;
 
-                prisonAnim.SetBool("Walking", true);
+                prisonAnim.SetBool("isWalking", true);
                 prisonAnim.CrossFadeInFixedTime("Walk", 0);
                 time = Random.Range(1f, movementLength);
                 source.Play();
