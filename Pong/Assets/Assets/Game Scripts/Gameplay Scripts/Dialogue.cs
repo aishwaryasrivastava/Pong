@@ -6,6 +6,7 @@ public class Dialogue {
 
 	public string Text { get; set; }
 	public string Option { get; set; }
+	public string Req { get; set; }
 	List<Dialogue> children = new List<Dialogue>();
 
 	public void AddChild(Dialogue d) {

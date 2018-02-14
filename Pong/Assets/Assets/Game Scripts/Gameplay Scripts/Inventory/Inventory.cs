@@ -104,4 +104,9 @@ public class Inventory : MonoBehaviour
     {
         return inventory.Any(g => g.Type == ItemAttributeInformation.Type.Key);
     }
+
+	public bool HaveCakeItem()
+	{
+		return inventory.Any(g => g.Type == ItemAttributeInformation.Type.Cake);
+	}
 }

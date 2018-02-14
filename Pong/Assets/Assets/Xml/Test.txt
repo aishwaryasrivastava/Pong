@@ -4,5 +4,5 @@
 		<node option="*Stare at him*" text="...hello?"></node>
 	</node>
 	<node option="You still owe me money" text="We're in prison now, dude"></node>
-	<node option="Hi" text="Don't you have homework to do?"></node>
+	<node option="Have any cake?" require="cake" text="Thank you!"></node>
 </node>

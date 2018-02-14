@@ -11,11 +11,12 @@ public class DialogueManager : MonoBehaviour {
 	private bool mouseover;
 
 	private string playerObject = "PlayerMan";
-    public PlayerMovementController control;
+	public PlayerMovementController control;
+    private Inventory inventory;
 
 	void Start () {
 		GameObject player = GameObject.Find (playerObject);
-		//PlayerMovementController script = player.GetComponent<PlayerMovementController> ();
+		inventory = player.GetComponent<Inventory> ();
 
 		XmlDocument xmlDoc = new XmlDocument(); // xmlDoc is the new xml document.
 		xmlDoc.LoadXml(xml.text);
@@ -28,6 +29,11 @@ public class DialogueManager : MonoBehaviour {
 		XmlAttributeCollection attr = xml.Attributes;
 		d.Text = attr ["text"].Value;
 		d.Option = attr["option"].Value;
+		if (attr ["require"] != null) {
+			d.Req = attr ["require"].Value;
+		} else {
+			d.Req = "none";
+		}
 
 		if (xml.HasChildNodes) {
 			for (int i = 0; i < xml.ChildNodes.Count; i++) {
@@ -75,10 +81,14 @@ public class DialogueManager : MonoBehaviour {
 					EndDialogue ();
 				}
 			}
+			int count = 0;
 			for (int i = 0; i < currentdialog.Children().Count; i++) {
-				if (GUI.Button (new Rect (20, 70 + 40 * i, 200, 40), currentdialog.Children () [i].Option)) {
-					ContinueDialogue (i);
-					break;
+				if (InventoryCheck (currentdialog.Children () [i].Req)) {
+					if (GUI.Button (new Rect (20, 70 + 40 * count, 200, 40), currentdialog.Children () [i].Option)) {
+						ContinueDialogue (i);
+						break;
+					}
+					count++;
 				}
 			}
 		}
@@ -101,5 +111,17 @@ public class DialogueManager : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
         control.LeaveConversation();
+	}
+
+	bool InventoryCheck(string req) {
+		switch (req) {
+		case "none":
+			return true;
+		case "key":
+			return inventory.HaveKeyItem ();
+		case "cake":
+			return inventory.HaveCakeItem ();
+		}
+		return true;
 	}
 }
