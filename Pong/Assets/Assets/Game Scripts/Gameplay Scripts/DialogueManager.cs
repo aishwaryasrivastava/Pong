@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour {
 	private bool mouseover;
 
 	private string playerObject = "PlayerMan";
+    public PlayerMovementController control;
 
 	void Start () {
 		GameObject player = GameObject.Find (playerObject);
@@ -88,6 +89,7 @@ public class DialogueManager : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		currentdialog = dialog;
+        control.EnterConversation(this);
 	}
 
 	void ContinueDialogue(int i) {
@@ -98,5 +100,6 @@ public class DialogueManager : MonoBehaviour {
 		talking = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+        control.LeaveConversation();
 	}
 }

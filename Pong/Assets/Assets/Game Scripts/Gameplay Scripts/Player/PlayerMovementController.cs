@@ -94,7 +94,7 @@ public class PlayerMovementController : MonoBehaviour
 	void FixedUpdate ()
 	{
 	    if (interact.InventoryActive) return;
-	    if (dialog.talking) return;
+	    if (dialog != null && dialog.talking) return;
 	    if (PauseManager.Paused) return;
 
         SetMovementVector();
@@ -119,6 +119,16 @@ public class PlayerMovementController : MonoBehaviour
     {
         transform.position = new Vector3(0, 2, 0);
         interact.inventory.Clear();
+    }
+
+    public void EnterConversation(DialogueManager diag)
+    {
+        dialog = diag;
+    }
+
+    public void LeaveConversation()
+    {
+        dialog = null;
     }
 }
 
