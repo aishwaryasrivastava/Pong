@@ -28,9 +28,7 @@ public class NPCScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         prisonAnim = gameObject.GetComponent<PrisonerAnimHandler>();
         source.volume = 1f;
-        halt = true;
-        time = Random.Range(timeoutLength/2, timeoutLength);
-        prisonAnim.ToIdle();
+        TurnAndHalt();
     }
 
     Vector3 GetRandomLocalPoint()
@@ -40,8 +38,8 @@ public class NPCScript : MonoBehaviour
     }
 
     void TurnAndHalt()
-    {
-        time = Random.Range(1f, timeoutLength);
+    { //natural turn
+        time = Random.Range(timeoutLength/2, timeoutLength);
         halt = true;
         prisonAnim.ToIdle();
         source.Pause();
@@ -49,7 +47,7 @@ public class NPCScript : MonoBehaviour
     }
 
     void HaltAndTurn()
-    {
+    { //instant turn
         TurnAndHalt();
         var deg = Random.Range(90, 180) * (Random.Range(0, 2) == 0 ? -1 : 1);
         myGoalHeading = Vector3.RotateTowards(transform.forward, -transform.forward, Mathf.Deg2Rad*deg, 100);
@@ -94,6 +92,7 @@ public class NPCScript : MonoBehaviour
         if (PauseManager.Paused) return;
         if (diag.talking) return;
         transform.position += speed * new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
+        if (Math.Abs(myGoalHeading.magnitude) < 0.0001) return;
         transform.forward = Vector3.RotateTowards(transform.forward, myGoalHeading, Mathf.Deg2Rad * AngleStep, 60);
     }
 

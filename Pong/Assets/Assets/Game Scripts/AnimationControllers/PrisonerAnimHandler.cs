@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PrisonerAnimHandler : MonoBehaviour {
-
-
-    Animator prisonerAnim;
+public class PrisonerAnimHandler : MonoBehaviour
+{
+    private Animator prisonerAnim;
 
     // Use this for initialization
     void Start ()
     {
         prisonerAnim = GetComponent<Animator>();
+        if(prisonerAnim == null) Debug.Log("???");
     }
 	
 	// Update is called once per frame

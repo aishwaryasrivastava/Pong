@@ -6,7 +6,7 @@ public class SoundController : MonoBehaviour {
 	public AudioClip inventorySound, lockedSound, ding;
 	public AudioSource source;
 
-	private float highVol = 1f;
+	//private float highVol = 1f;
 	private float lowVol = 0.2f;
 
 	private bool input_down;

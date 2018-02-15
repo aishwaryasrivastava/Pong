@@ -4,7 +4,8 @@ using Random = UnityEngine.Random;
 
 public class GuardScript2 : MonoBehaviour
 {
-    Animator prisonAnim = new Animator();
+   // Animator prisonAnim = new Animator();
+    private PrisonerAnimHandler prisonerAnim;
 
     public PlayerMovementController player;
     // Keeps track of how long ago NPC changed directions
@@ -20,6 +21,7 @@ public class GuardScript2 : MonoBehaviour
     void Awake()
     {
         source = GetComponent<AudioSource>();
+        prisonerAnim = GetComponent<PrisonerAnimHandler>();
     }
 
 
@@ -27,11 +29,10 @@ public class GuardScript2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        prisonAnim = gameObject.GetComponent<Animator>();
+        //prisonAnim = gameObject.GetComponent<Animator>();
         source.volume = 1f;
-        halt = true;
-        time = Random.Range(0.5f, timeoutLength);
-        prisonAnim.SetBool("Walking", false);
+        TurnAndHalt();
+        //prisonAnim.SetBool("Walking", false);
     }
 
     Vector3 GetRandomLocalPoint()
@@ -42,10 +43,11 @@ public class GuardScript2 : MonoBehaviour
 
     void TurnAndHalt()
     {
-        time = Random.Range(1f, timeoutLength);
+        time = Random.Range(timeoutLength/2, timeoutLength);
         halt = true;
-        prisonAnim.SetBool("isWalking", false);
-        prisonAnim.CrossFadeInFixedTime("Idle2", 0);
+        //prisonAnim.SetBool("isWalking", false);
+        //prisonAnim.CrossFadeInFixedTime("Idle2", 0);
+        prisonerAnim.ToIdle();
         source.Pause();
         myGoalHeading = GetRandomLocalPoint() - transform.position;
     }
@@ -71,8 +73,9 @@ public class GuardScript2 : MonoBehaviour
             {
                 halt = false;
 
-                prisonAnim.SetBool("isWalking", true);
-                prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                //prisonAnim.SetBool("isWalking", true);
+                //prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                prisonerAnim.ToWalking();
                 source.Play();
             }
             time = 1;
@@ -84,8 +87,9 @@ public class GuardScript2 : MonoBehaviour
             {
                 halt = false;
 
-                prisonAnim.SetBool("isWalking", true);
-                prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                //prisonAnim.SetBool("isWalking", true);
+                //prisonAnim.CrossFadeInFixedTime("Walk", 0);
+                prisonerAnim.ToWalking();
                 time = Random.Range(1f, movementLength);
                 source.Play();
             }
@@ -102,6 +106,7 @@ public class GuardScript2 : MonoBehaviour
         if (halt) return;
         if (PauseManager.Paused) return;
         transform.position += speed * new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
+        if (Math.Abs(myGoalHeading.magnitude) < 0.0001) return;
         transform.forward = Vector3.RotateTowards(transform.forward, myGoalHeading, Mathf.Deg2Rad * AngleStep, 60);
     }
 

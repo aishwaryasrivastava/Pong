@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Pickup
@@ -21,6 +22,8 @@ public class PlayerInteractionController : MonoBehaviour
     public SoundController sounds;
 
     public float armReach = 8;
+    private const float lookCheckTimer = 0.5f;
+    private float timer;
 
     public PlayerMovementController movement;
     public Camera mainCamera;
@@ -28,17 +31,11 @@ public class PlayerInteractionController : MonoBehaviour
     public bool InventoryActive;
     public Inventory inventory;
 
-    private Object tmp;
     private Transform activeItem, activeDoor, activeHuman;
-
-
-	void Start ()
-	{
-	    tmp = Resources.Load("temp");
-	}
 
     void CheckForEnt()
     {
+        //this is semi expensive
         if (activeItem != null)
         {
             ((Behaviour)activeItem.GetComponent("Halo")).enabled = false;
@@ -55,25 +52,26 @@ public class PlayerInteractionController : MonoBehaviour
             activeHuman = null;
         }
 
-        var a = Physics.RaycastAll(new Ray(mainCamera.transform.position, mainCamera.transform.forward), armReach);
-        foreach (var item in a)
+        var hits = Physics.RaycastAll(new Ray(mainCamera.transform.position, mainCamera.transform.forward), armReach).OrderBy(h => h.distance).ToArray();
+        if (hits.Length == 0) return;
+        var item = hits[0];
+
+        if (item.transform.CompareTag("Item"))
         {
-            if (item.transform.CompareTag("Item"))
-            {
-                activeItem = item.transform;
-                ((Behaviour) activeItem.GetComponent("Halo")).enabled = true;
-            }
-            else if (item.transform.CompareTag("Door"))
-            {
-                activeDoor = item.transform;
-                ((Behaviour)activeDoor.GetComponent("Halo")).enabled = true;
-            }
-            else if (item.transform.CompareTag("Human"))
-            {
-                activeHuman = item.transform;
-                ((Behaviour)activeHuman.GetComponent("Halo")).enabled = true;
-            }
+            activeItem = item.transform;
+            ((Behaviour) activeItem.GetComponent("Halo")).enabled = true;
         }
+        else if (item.transform.CompareTag("Door"))
+        {
+            activeDoor = item.transform;
+            ((Behaviour)activeDoor.GetComponent("Halo")).enabled = true;
+        }
+        else if (item.transform.CompareTag("Human"))
+        {
+            activeHuman = item.transform;
+            ((Behaviour)activeHuman.GetComponent("Halo")).enabled = true;
+        }
+
     }
 
     void CheckInventoryControls()
@@ -128,15 +126,16 @@ public class PlayerInteractionController : MonoBehaviour
             inventory.Swap(InventoryActive);
             sounds.PlayInventory();
         }
-        if (!InventoryActive) CheckInteractionControls();
-        else CheckInventoryControls();
-    }
-    void FixedUpdate()
-    {
-        if (PauseManager.Paused) return;
         if (!InventoryActive)
         {
-            CheckForEnt();
+            CheckInteractionControls();
+            timer += Time.deltaTime;
+            if (timer > lookCheckTimer)
+            {
+                timer -= lookCheckTimer;
+                CheckForEnt();
+            }
         }
+        else CheckInventoryControls();
     }
 }
