@@ -19,21 +19,26 @@ public class ItemAttributeInformation : MonoBehaviour
 
     void Start()
     { 
-        switch (UniRand.rnd.Next(0, 3))
-        {
-            case 0:
-                type = Type.Weapon;
-                image = weapon;
-                break;
-            case 1:
-                type = Type.Key;
-                image = key;
-                break;
-            case 2:
-                type = Type.Cake;
-                image = cake;
-                break;
-        }
-        //in the future set the image (icon) here
+		SetType (UniRand.rnd.Next (0, 3));
+        
     }
+
+	public void SetType(int t) {
+		switch (t)
+		{
+		case 0:
+			type = Type.Weapon;
+			image = weapon;
+			break;
+		case 1:
+			type = Type.Key;
+			image = key;
+			break;
+		case 2:
+			type = Type.Cake;
+			image = cake;
+			break;
+		}
+	}
+	//in the future set the image (icon) here
 }
