@@ -89,9 +89,11 @@ GameObject:
   - component: {fileID: 33344796447532748}
   - component: {fileID: 23394935329241416}
   - component: {fileID: 95584344079245730}
+  - component: {fileID: 65785281710887884}
+  - component: {fileID: 122085338187406532}
   m_Layer: 18
   m_Name: CellGateDoor
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967294
@@ -569,8 +571,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1187197145801140}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4697464898793700}
@@ -1351,8 +1353,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 3, z: 0.25}
-  m_Center: {x: 1.25, y: 1.5, z: 0.125}
+  m_Size: {x: 1.2507001, y: 3, z: 0.25}
+  m_Center: {x: 0.62535006, y: 1.5, z: 0.125}
 --- !u!65 &65582949055527086
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1377,6 +1379,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3.1999998, z: 0.25}
   m_Center: {x: 1.5, y: 1.5999999, z: 0.125}
+--- !u!65 &65785281710887884
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269607282424948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1694489, y: 2.9498239, z: 0.125}
+  m_Center: {x: 0.56478095, y: 1.4749119, z: 0.06250048}
 --- !u!65 &65865812643280524
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1466,3 +1480,14 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!122 &122085338187406532
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269607282424948}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4288190691
+  m_Size: 1
