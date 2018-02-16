@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour {
 	public int width = 20;
 	public int height = 20;
 
-	GUIStyle custombutton = new GUIStyle("button");
+    private GUIStyle custombutton;
 	public int fontSize = 15;
 
 	void Start () {
@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour {
 		width = width * Screen.width / 100;
 		height = height * Screen.height / 100;
 
-		custombutton.fontSize = this.fontSize;
+		
 	}
 
 	Dialogue CreateTree(XmlNode xml) {
@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour {
 		if (attr ["item"] != null) {
 			var item = Resources.Load("Prefabs/Item");
 			var newItem = Instantiate(item, transform) as GameObject;
-			newItem.active = false;
+			newItem.SetActive(false);
 
 			ItemAttributeInformation iaInfo = newItem.GetComponent<ItemAttributeInformation>();
 			iaInfo.SetType (Int32.Parse(attr ["item"].Value));	//Should be int to line up with ItemAttributeInformation options
@@ -98,8 +98,11 @@ public class DialogueManager : MonoBehaviour {
 		if (mouseover) {
 			GUI.Box (new Rect (20, 20, 120, 20), "Click to interact");
 		}
-		if (talking) {
-			GUI.Box (new Rect (20, 20, width, height), currentdialog.Text,custombutton);
+		if (talking)
+		{
+		    if(custombutton == null) custombutton = new GUIStyle("button") {fontSize = fontSize};
+
+		    GUI.Box (new Rect (20, 20, width, height), currentdialog.Text,custombutton);
 			if (currentdialog.Children ().Count == 0) {
 				if (GUI.Button (new Rect (20, height + 20, width, height), "End",custombutton)) {
 					EndDialogue ();
