@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Xml;
 
 public class DialogueManager : MonoBehaviour {
@@ -14,6 +15,12 @@ public class DialogueManager : MonoBehaviour {
 	public PlayerMovementController control;
     private Inventory inventory;
 
+	public int width = 20;
+	public int height = 20;
+
+    private GUIStyle custombutton;
+	public int fontSize = 15;
+
 	void Start () {
 		GameObject player = GameObject.Find (playerObject);
 		inventory = player.GetComponent<Inventory> ();
@@ -22,6 +29,11 @@ public class DialogueManager : MonoBehaviour {
 		xmlDoc.LoadXml(xml.text);
 		dialog = CreateTree (xmlDoc.FirstChild);
 		Cursor.lockState = CursorLockMode.Locked;
+
+		width = width * Screen.width / 100;
+		height = height * Screen.height / 100;
+
+		
 	}
 
 	Dialogue CreateTree(XmlNode xml) {
@@ -33,6 +45,18 @@ public class DialogueManager : MonoBehaviour {
 			d.Req = attr ["require"].Value;
 		} else {
 			d.Req = "none";
+		}
+		if (attr ["item"] != null) {
+			var item = Resources.Load("Prefabs/Item");
+			var newItem = Instantiate(item, transform) as GameObject;
+			newItem.SetActive(false);
+
+			ItemAttributeInformation iaInfo = newItem.GetComponent<ItemAttributeInformation>();
+			iaInfo.SetType (Int32.Parse(attr ["item"].Value));	//Should be int to line up with ItemAttributeInformation options
+																//As of 2/15: 0 is weapon, 1 is key, 2 is cake
+			d.GiveItem = new Pickup(iaInfo);
+		} else {
+			d.GiveItem = null;
 		}
 
 		if (xml.HasChildNodes) {
@@ -74,17 +98,23 @@ public class DialogueManager : MonoBehaviour {
 		if (mouseover) {
 			GUI.Box (new Rect (20, 20, 120, 20), "Click to interact");
 		}
-		if (talking) {
-			GUI.Box (new Rect (20, 20, 200, 40), currentdialog.Text);
+		if (talking)
+		{
+		    if(custombutton == null) custombutton = new GUIStyle("button") {fontSize = fontSize};
+
+		    GUI.Box (new Rect (20, 20, width, height), currentdialog.Text,custombutton);
 			if (currentdialog.Children ().Count == 0) {
-				if (GUI.Button (new Rect (20, 60, 200, 40), "End")) {
+				if (GUI.Button (new Rect (20, height + 20, width, height), "End",custombutton)) {
 					EndDialogue ();
 				}
 			}
 			int count = 0;
 			for (int i = 0; i < currentdialog.Children().Count; i++) {
 				if (InventoryCheck (currentdialog.Children () [i].Req)) {
-					if (GUI.Button (new Rect (20, 70 + 40 * count, 200, 40), currentdialog.Children () [i].Option)) {
+					if (GUI.Button (new Rect (20, 30 + height * (count+1), width, height), currentdialog.Children () [i].Option,custombutton)) {
+						if (currentdialog.Children () [i].GiveItem != null) {
+							inventory.AddItem (currentdialog.Children () [i].GiveItem);
+						}
 						ContinueDialogue (i);
 						break;
 					}
