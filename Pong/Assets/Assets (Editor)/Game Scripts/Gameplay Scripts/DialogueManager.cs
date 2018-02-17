@@ -76,17 +76,18 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
-	void OnMouseEnter() {
-		//Debug.Log ("enter");
-		if (!talking) {
-			mouseover = true;
-		}
-	}
+    public void LookingAt()
+    {
+        if (!talking)
+        {
+            mouseover = true;
+        }
+    }
 
-	void OnMouseExit() {
-		//Debug.Log ("exit");
-		mouseover = false;
-	}
+    public void NoLongerLookingAt()
+    {
+        mouseover = false;
+    }
 
 	void OnGUI() {
 		if (mouseover) {
@@ -125,9 +126,7 @@ public class DialogueManager : MonoBehaviour {
 		talking = true;
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
-		currentdialog = dialog;
-        control.EnterConversation(this);
-        owner.TurnTowardsMe(control.transform.position);
+		currentdialog = dialog;     
 	}
 
 	void ContinueDialogue(int i) {

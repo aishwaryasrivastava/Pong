@@ -22,33 +22,55 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckForEnt()
     {
-        //this is possibly semi expensive
-
-        activeItem = activeDoor = activeHuman = null;
-        UIConfirm.gameObject.SetActive(false);
-
+        //this is possibly semi expensive      
+        
         var hits = Physics.RaycastAll(new Ray(mainCamera.transform.position, mainCamera.transform.forward), armReach).OrderBy(h => h.distance).ToArray();
-        if (hits.Length == 0) return;
-        var item = hits[0];
+        if (hits.Length == 0)
+        {
+            //not looking at anything at all
+            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
+            activeItem = activeDoor = activeHuman = null;
+            UIConfirm.gameObject.SetActive(false);
+            return;
+        }
 
-        if (item.transform.CompareTag("Item") && !item.transform.Equals(activeItem))
+        var item = hits[0];
+        if (item.transform.Equals(activeItem) ||  item.transform.Equals(activeDoor) || item.transform.Equals(activeHuman))
+        {
+            //still looking at the same item
+            return;
+        }
+        if (item.transform.CompareTag("Item"))
         {
             activeItem = item.transform;
             UIConfirm.gameObject.SetActive(true);
             UIConfirm.color = inventory.Full() ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
+            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
+            activeDoor = activeHuman = null;
         }
-        else if (item.transform.CompareTag("Door") && !item.transform.Equals(activeDoor))
+        else if (item.transform.CompareTag("Door"))
         {
             activeDoor = item.transform;
             UIConfirm.gameObject.SetActive(true);
             var door = activeDoor.GetComponent<DoorToggle>();
             UIConfirm.color = (door.Locked && !inventory.HaveKeyItem()) || door.PermaLock ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
+            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
+            activeItem = activeHuman = null;
         }
-        else if (item.transform.CompareTag("Human") && !item.transform.Equals(activeHuman))
+        else if (item.transform.CompareTag("Human"))
         {
             activeHuman = item.transform;
             UIConfirm.gameObject.SetActive(true);
             UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
+            activeHuman.GetComponent<DialogueManager>().LookingAt();
+            activeItem = activeDoor = null;
+        }
+        else
+        {
+            //not looking at anything interactable
+            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
+            activeItem = activeDoor = activeHuman = null;
+            UIConfirm.gameObject.SetActive(false);
         }
     }
 
@@ -89,7 +111,10 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else if (activeHuman != null)
             {
-                activeHuman.GetComponent<DialogueManager>().StartDialogue();
+                activeHuman.GetComponent<NPCScript>().TurnTowardsMe(transform.position);
+                var dia = activeHuman.GetComponent<DialogueManager>();
+                movement.EnterConversation(dia);
+                dia.StartDialogue();                
             }
         }
     }

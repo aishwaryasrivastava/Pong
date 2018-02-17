@@ -6723,6 +6723,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1034753922947230, guid: 8a82249e677064cc3b98548e7dc8a4cc, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a82249e677064cc3b98548e7dc8a4cc, type: 2}
   m_IsPrefabParent: 0
@@ -10642,6 +10646,10 @@ Prefab:
       propertyPath: PermaLock
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 148044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
   m_IsPrefabParent: 0
@@ -12014,6 +12022,10 @@ Prefab:
     - target: {fileID: 448044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 148044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3819d73d704add245a21ffb570bc7792, type: 2}

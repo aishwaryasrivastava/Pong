@@ -30,10 +30,8 @@ public class GuardScript2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //prisonAnim = gameObject.GetComponent<Animator>();
         source.volume = 1f;
         TurnAndHalt();
-        //prisonAnim.SetBool("Walking", false);
     }
 
     Vector3 GetRandomLocalPoint()
@@ -44,10 +42,8 @@ public class GuardScript2 : MonoBehaviour
 
     void TurnAndHalt()
     {
-        time = Random.Range(timeoutLength/2, timeoutLength);
+        time = Random.Range(-timeoutLength, timeoutLength);
         halt = true;
-        //prisonAnim.SetBool("isWalking", false);
-        //prisonAnim.CrossFadeInFixedTime("Idle2", 0);
         prisonerAnim.ToIdle();
         source.Pause();
         myGoalHeading = GetRandomLocalPoint() - transform.position;
@@ -56,15 +52,14 @@ public class GuardScript2 : MonoBehaviour
     void HaltAndTurn()
     {
         TurnAndHalt();
-        var deg = Random.Range(90, 180) * (Random.Range(0, 2) == 0 ? -1 : 1);
-        myGoalHeading = Vector3.RotateTowards(transform.forward, new Vector3(retreatX, transform.forward.y, retreatZ), Mathf.Deg2Rad * deg, 100);
+        var tmp = new Vector3(retreatX, transform.position.y, retreatZ) - transform.position;
+        myGoalHeading = Vector3.RotateTowards(transform.forward, new Vector3(tmp.x, transform.forward.y, tmp.z), 5, 100);
         transform.forward = myGoalHeading;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.angularVelocity = Vector3.zero; //no falling over 
         if (PauseManager.Paused) return;
         time -= Time.deltaTime;
 
@@ -74,9 +69,6 @@ public class GuardScript2 : MonoBehaviour
             if (halt)
             {
                 halt = false;
-
-                //prisonAnim.SetBool("isWalking", true);
-                //prisonAnim.CrossFadeInFixedTime("Walk", 0);
                 prisonerAnim.ToWalking();
                 source.Play();
             }
@@ -88,9 +80,6 @@ public class GuardScript2 : MonoBehaviour
             if (time < 0)
             {
                 halt = false;
-
-                //prisonAnim.SetBool("isWalking", true);
-                //prisonAnim.CrossFadeInFixedTime("Walk", 0);
                 prisonerAnim.ToWalking();
                 time = Random.Range(1f, movementLength);
                 source.Play();
@@ -117,7 +106,6 @@ public class GuardScript2 : MonoBehaviour
         if (halt) return;
         if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door"))
         {
-            //Debug.Log("someone hit the wall");
             HaltAndTurn();
         }
         else if (other.collider.CompareTag("Player"))

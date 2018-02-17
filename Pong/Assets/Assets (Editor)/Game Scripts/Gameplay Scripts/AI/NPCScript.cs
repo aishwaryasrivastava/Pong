@@ -39,7 +39,7 @@ public class NPCScript : MonoBehaviour
 
     void TurnAndHalt()
     { //natural turn
-        time = Random.Range(timeoutLength/2, timeoutLength);
+        time = Random.Range(-timeoutLength, timeoutLength);
         halt = true;
         prisonAnim.ToIdle();
         source.Pause();
@@ -49,27 +49,26 @@ public class NPCScript : MonoBehaviour
     void HaltAndTurn()
     { //turn backwards
         TurnAndHalt();
-        var deg = Random.Range(90, 180) * (Random.Range(0, 2) == 0 ? -1 : 1);
-        myGoalHeading = Vector3.RotateTowards(transform.forward, new Vector3(retreatX, transform.forward.y, retreatZ), Mathf.Deg2Rad * deg, 100);
+        var tmp = new Vector3(retreatX, transform.position.y, retreatZ) - transform.position;
+        myGoalHeading = Vector3.RotateTowards(transform.forward, new Vector3(tmp.x, transform.forward.y, tmp.z), 5, 100);
         transform.forward = myGoalHeading;
     }
 
     public void TurnTowardsMe(Vector3 me)
     {
+        TurnAndHalt();
         var goal = me - transform.position;
         goal.y = transform.forward.y;
-        transform.forward = Vector3.RotateTowards(transform.forward, goal, 180, 100);
+        transform.forward = Vector3.RotateTowards(transform.forward, goal, 5, 100);
+        time = 1;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (PauseManager.Paused) return;
-        if (diag.talking)
-        {
-            if(!halt)TurnAndHalt();
-            return;
-        }
+        if (diag.talking) return;
         time -= Time.deltaTime;
 
         // If it's been a while since NPC turned, then turn them again
@@ -78,13 +77,10 @@ public class NPCScript : MonoBehaviour
             if (time < 0)
             {
                 halt = false;
-
                 prisonAnim.ToWalking();
-
                 time = Random.Range(movementLength/2, movementLength);
                 source.Play();
-            }
-            
+            }           
         }
         else if (time < 0)
         {
