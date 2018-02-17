@@ -56,7 +56,9 @@ public class GuardScript2 : MonoBehaviour
     {
         TurnAndHalt();
         var deg = Random.Range(90, 180) * (Random.Range(0, 2) == 0 ? -1 : 1);
+        deg = 90;
         myGoalHeading = Vector3.RotateTowards(transform.forward, -transform.forward, Mathf.Deg2Rad * deg, 100);
+        //transform.forward = myGoalHeading;
     }
 
     // Update is called once per frame
@@ -113,18 +115,10 @@ public class GuardScript2 : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (halt) return;
-        if (other.collider.CompareTag("Wall"))
+        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door"))
         {
+            //Debug.Log("someone hit the wall");
             HaltAndTurn();
-        }
-        else if (other.collider.CompareTag("Door"))
-        {
-            var tmp = other.collider.gameObject.GetComponent<DoorToggle>();
-            if (tmp.Locked)
-            {
-                HaltAndTurn();
-            }
-            else tmp.Toggle(false);
         }
         else if (other.collider.CompareTag("Player"))
         {

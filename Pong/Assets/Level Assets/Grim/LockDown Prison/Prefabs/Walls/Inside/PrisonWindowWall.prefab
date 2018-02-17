@@ -10,10 +10,10 @@ GameObject:
   - component: {fileID: 428206}
   - component: {fileID: 3328206}
   - component: {fileID: 2328206}
-  - component: {fileID: 6428206}
+  - component: {fileID: 65978032946053160}
   m_Layer: 0
   m_Name: PrisonWindowWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,14 +42,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -6.340015, y: -0.85, z: 0.206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 428208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &428208
 Transform:
   m_ObjectHideFlags: 1
@@ -145,20 +145,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128208}
   m_Mesh: {fileID: 4300002, guid: 8e4768dab1a8f374e90e1429c0217e6e, type: 3}
---- !u!64 &6428206
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 8e4768dab1a8f374e90e1429c0217e6e, type: 3}
 --- !u!64 &6428208
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -184,3 +170,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128206}
   m_IsPrefabParent: 1
+--- !u!65 &65978032946053160
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.33743295, y: 3, z: 4.000002}
+  m_Center: {x: 0.12611583, y: 1.5, z: 2.0000014}

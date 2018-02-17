@@ -2,30 +2,37 @@
 
 public class DoorToggle : MonoBehaviour
 {
-    private bool Open;
-    public bool Locked;
+    public enum DoorType { Swing, Slide }
 
-    private readonly float[] closed = {5, 0, -90};
-    private readonly float[] open = {1, 4, 90};//this needs to be changed later
+    public DoorType Type;
+
+    private bool Open;
+    public bool Locked, PermaLock;
     private Animator Door;
 
     public void Toggle(bool IHaveAKey)
     {
-        Door = gameObject.GetComponent<Animator>();
+        if (PermaLock) return;
         if (Locked && IHaveAKey)
         {
             Locked = false;
             Open = true;
-            return;
+            //return;
         }
         if (Locked) return;
-        
-        if (Open)
+
+        Door = gameObject.GetComponent<Animator>();
+        switch (Type)
         {
-            Door.Play("gate-toggle");
-            Open = false;
-            Locked = true;
+            case DoorType.Slide:
+                Door.Play("gate-toggle");
+                break;
+            case DoorType.Swing:
+                Door.Play("door-open");
+                break;
         }
+        Open = false;
+        //Locked = true;
 
     }
 }

@@ -13,7 +13,6 @@ public class NPCScript : MonoBehaviour
     public int AngleStep;
 
     public DialogueManager diag;
-    private Rigidbody rb;
 
     public AudioSource source;
     void Awake()
@@ -25,7 +24,6 @@ public class NPCScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         prisonAnim = gameObject.GetComponent<PrisonerAnimHandler>();
         source.volume = 1f;
         TurnAndHalt();
@@ -47,16 +45,24 @@ public class NPCScript : MonoBehaviour
     }
 
     void HaltAndTurn()
-    { //instant turn
+    { //turn backwards
         TurnAndHalt();
         var deg = Random.Range(90, 180) * (Random.Range(0, 2) == 0 ? -1 : 1);
+        deg = 90;
         myGoalHeading = Vector3.RotateTowards(transform.forward, -transform.forward, Mathf.Deg2Rad*deg, 100);
+        //transform.forward = myGoalHeading;
+    }
+
+    public void TurnTowardsMe(Vector3 me)
+    {
+        var goal = me - transform.position;
+        goal.y = transform.forward.y;
+        transform.forward = Vector3.RotateTowards(transform.forward, goal, 180, 100);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.angularVelocity = Vector3.zero; //no falling over 
         if (PauseManager.Paused) return;
         if (diag.talking)
         {
@@ -99,18 +105,10 @@ public class NPCScript : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (halt) return;
-        if (other.collider.CompareTag("Wall"))
+        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door"))
         {
+            //Debug.Log("someone hit the wall");
             HaltAndTurn();
-        }
-        else if (other.collider.CompareTag("Door"))
-        {
-            var tmp = other.collider.gameObject.GetComponent<DoorToggle>();
-            if (tmp.Locked)
-            {
-                HaltAndTurn();
-            }
-            else tmp.Toggle(false);
         }
 
     }

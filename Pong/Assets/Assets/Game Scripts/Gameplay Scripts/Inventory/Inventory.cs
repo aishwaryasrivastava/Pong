@@ -4,11 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public static class ItemIDchip
-{
-    public static int CurrentChip = 1;
-}
-
 public class Inventory : MonoBehaviour
 {
     // Used in keeping track of overall items
@@ -81,8 +76,9 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Pickup itemToAdd)
     {
-        if (inventory.Count >= maxInvSize) return false;
+        if (Full()) return false;
         inventory.Add(itemToAdd);
+        //Debug.Log(itemToAdd.Type);
         return true;
     }
 
@@ -109,4 +105,9 @@ public class Inventory : MonoBehaviour
 	{
 		return inventory.Any(g => g.Type == ItemAttributeInformation.Type.Cake);
 	}
+
+    public bool Full()
+    {
+        return inventory.Count >= maxInvSize;
+    }
 }

@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using Random = System.Random;
-
-public static class UniRand
-{
-    public static Random rnd = new Random();
-}
 
 public class ItemAttributeInformation : MonoBehaviour
 {
-    public enum Type { Weapon, Key, Cake }
+    public enum Type { Weapon, Key, Cake, None = -1 }
 
     public Type type;
 
@@ -18,9 +11,9 @@ public class ItemAttributeInformation : MonoBehaviour
     public Sprite image;
 
     void Start()
-    { 
-		SetType (UniRand.rnd.Next (0, 3));
-        
+    {
+        if (type == Type.None) SetType(Random.Range(0, 3));
+        else SetType((int) type);
     }
 
 	public void SetType(int t) {
@@ -40,5 +33,25 @@ public class ItemAttributeInformation : MonoBehaviour
 			break;
 		}
 	}
-	//in the future set the image (icon) here
+
 }
+
+public static class ItemIDchip
+{
+    public static int CurrentChip = 1;
+}
+
+public class Pickup
+{
+    public int ItemId;
+    public Sprite UiImage;
+    public ItemAttributeInformation.Type Type;
+
+    public Pickup(ItemAttributeInformation info)
+    {
+        ItemId = ItemIDchip.CurrentChip++;
+        UiImage = info.image;
+        Type = info.type;
+    }
+}
+

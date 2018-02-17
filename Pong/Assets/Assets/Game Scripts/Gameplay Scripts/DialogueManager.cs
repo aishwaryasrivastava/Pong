@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour {
 
 	private string playerObject = "PlayerMan";
 	public PlayerMovementController control;
+    public NPCScript owner;
     private Inventory inventory;
 
 	public int width = 20;
@@ -87,13 +88,6 @@ public class DialogueManager : MonoBehaviour {
 		mouseover = false;
 	}
 
-	void OnMouseDown() {
-		mouseover = false;
-		if (!talking) {
-			StartDialogue ();
-		}
-	}
-
 	void OnGUI() {
 		if (mouseover) {
 			GUI.Box (new Rect (20, 20, 120, 20), "Click to interact");
@@ -124,12 +118,16 @@ public class DialogueManager : MonoBehaviour {
 		}
 	} 
 
-	void StartDialogue() {
+	public void StartDialogue()
+	{
+	    if (talking) return;
+	    mouseover = false;
 		talking = true;
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		currentdialog = dialog;
         control.EnterConversation(this);
+        owner.TurnTowardsMe(control.transform.position);
 	}
 
 	void ContinueDialogue(int i) {
@@ -152,6 +150,6 @@ public class DialogueManager : MonoBehaviour {
 		case "cake":
 			return inventory.HaveCakeItem ();
 		}
-		return true;
+		return false;
 	}
 }

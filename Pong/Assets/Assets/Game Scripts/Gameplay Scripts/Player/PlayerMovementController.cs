@@ -78,9 +78,20 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+    void CheckCrouch()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+
+        }
+    }
+
     void Update()
     {
-        rb.angularVelocity = Vector3.zero; //no falling over 
         if (Input.GetKeyDown(KeyCode.P))
         {
             PauseManager.Paused = !PauseManager.Paused;
@@ -88,7 +99,7 @@ public class PlayerMovementController : MonoBehaviour
         if (PauseManager.Paused) return;
 
         CheckJump();
-              
+        CheckCrouch();      
     }
 
 	void FixedUpdate ()
@@ -129,6 +140,11 @@ public class PlayerMovementController : MonoBehaviour
     public void LeaveConversation()
     {
         dialog = null;
+    }
+
+    public bool AmBusy()
+    {
+        return dialog != null && dialog.talking;
     }
 }
 

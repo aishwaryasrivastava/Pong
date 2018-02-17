@@ -8,7 +8,7 @@ public class PrisonerAnimHandler : MonoBehaviour
     void Start ()
     {
         prisonerAnim = GetComponent<Animator>();
-        if(prisonerAnim == null) Debug.Log("???");
+        
     }
 	
 	// Update is called once per frame
@@ -23,6 +23,7 @@ public class PrisonerAnimHandler : MonoBehaviour
 
     public void ToIdle()
     {
+        if (prisonerAnim == null) return;
         prisonerAnim.SetBool("Walking", false);
     }
 }

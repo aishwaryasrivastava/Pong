@@ -2,27 +2,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Pickup
-{
-    public int ItemId;
-    public Sprite UiImage;
-    public ItemAttributeInformation.Type Type;
-
-    public Pickup(ItemAttributeInformation info)
-    {
-        ItemId = ItemIDchip.CurrentChip++;
-        UiImage = info.image;
-        Type = info.type;
-    }
-}
-
 public class PlayerInteractionController : MonoBehaviour
 {
+    public Image UIConfirm;
 
     public SoundController sounds;
 
     public float armReach = 8;
-    private const float lookCheckTimer = 0.5f;
+    private const float lookCheckTimer = 0.25f;
     private float timer;
 
     public PlayerMovementController movement;
@@ -35,43 +22,34 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckForEnt()
     {
-        //this is semi expensive
-        if (activeItem != null)
-        {
-            ((Behaviour)activeItem.GetComponent("Halo")).enabled = false;
-            activeItem = null;
-        }
-        if (activeDoor != null)
-        {
-            ((Behaviour)activeDoor.GetComponent("Halo")).enabled = false;
-            activeDoor = null;
-        }
-        if (activeHuman != null)
-        {
-            ((Behaviour)activeHuman.GetComponent("Halo")).enabled = false;
-            activeHuman = null;
-        }
+        //this is possibly semi expensive
+
+        activeItem = activeDoor = activeHuman = null;
+        UIConfirm.gameObject.SetActive(false);
 
         var hits = Physics.RaycastAll(new Ray(mainCamera.transform.position, mainCamera.transform.forward), armReach).OrderBy(h => h.distance).ToArray();
         if (hits.Length == 0) return;
         var item = hits[0];
 
-        if (item.transform.CompareTag("Item"))
+        if (item.transform.CompareTag("Item") && !item.transform.Equals(activeItem))
         {
             activeItem = item.transform;
-            ((Behaviour) activeItem.GetComponent("Halo")).enabled = true;
+            UIConfirm.gameObject.SetActive(true);
+            UIConfirm.color = inventory.Full() ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
         }
-        else if (item.transform.CompareTag("Door"))
+        else if (item.transform.CompareTag("Door") && !item.transform.Equals(activeDoor))
         {
             activeDoor = item.transform;
-            ((Behaviour)activeDoor.GetComponent("Halo")).enabled = true;
+            UIConfirm.gameObject.SetActive(true);
+            var door = activeDoor.GetComponent<DoorToggle>();
+            UIConfirm.color = (door.Locked && !inventory.HaveKeyItem()) || door.PermaLock ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
         }
-        else if (item.transform.CompareTag("Human"))
+        else if (item.transform.CompareTag("Human") && !item.transform.Equals(activeHuman))
         {
             activeHuman = item.transform;
-            ((Behaviour)activeHuman.GetComponent("Halo")).enabled = true;
+            UIConfirm.gameObject.SetActive(true);
+            UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
         }
-
     }
 
     void CheckInventoryControls()
@@ -91,7 +69,7 @@ public class PlayerInteractionController : MonoBehaviour
     }
 
     void CheckInteractionControls()
-    {       
+    {      
         if (Input.GetMouseButtonDown(0))
         {
             if (activeItem != null)
@@ -111,8 +89,7 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else if (activeHuman != null)
             {
-                //talk to this person
-                //this activates somewhere else 
+                activeHuman.GetComponent<DialogueManager>().StartDialogue();
             }
         }
     }
@@ -120,9 +97,12 @@ public class PlayerInteractionController : MonoBehaviour
     void Update()
     {
         if (PauseManager.Paused) return;
+        if (movement.AmBusy()) return;
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryActive = !InventoryActive;
+            if(InventoryActive) UIConfirm.gameObject.SetActive(false);
             inventory.Swap(InventoryActive);
             sounds.PlayInventory();
         }
