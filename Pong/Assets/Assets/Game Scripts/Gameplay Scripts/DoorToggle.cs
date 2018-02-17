@@ -11,22 +11,21 @@ public class DoorToggle : MonoBehaviour
 
     public void Toggle(bool IHaveAKey)
     {
+        Door = gameObject.GetComponent<Animator>();
         if (Locked && IHaveAKey)
         {
             Locked = false;
-            transform.gameObject.SetActive(false);
+            Open = true;
             return;
         }
         if (Locked) return;
         
-        Open = !Open;
         if (Open)
         {
-            Door.SetBool("Open Cell",true);
+            Door.Play("gate-toggle");
+            Open = false;
+            Locked = true;
         }
-        else
-        {
-            Door.SetBool("Open Cell",false);
-        }
+
     }
 }

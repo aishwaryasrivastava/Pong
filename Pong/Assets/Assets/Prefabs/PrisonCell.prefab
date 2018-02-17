@@ -91,12 +91,13 @@ GameObject:
   - component: {fileID: 95584344079245730}
   - component: {fileID: 65785281710887884}
   - component: {fileID: 122085338187406532}
+  - component: {fileID: 114907089988801380}
   m_Layer: 18
   m_Name: CellGateDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1311678457906030
 GameObject:
@@ -1480,6 +1481,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114907089988801380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269607282424948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0224ff353ba21941a01166a75022436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Locked: 1
 --- !u!122 &122085338187406532
 Halo:
   m_ObjectHideFlags: 1
