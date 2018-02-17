@@ -4,7 +4,8 @@ using Random = UnityEngine.Random;
 
 public class GuardScript2 : MonoBehaviour
 {
-   // Animator prisonAnim = new Animator();
+    public float retreatX, retreatZ;
+
     private PrisonerAnimHandler prisonerAnim;
 
     public PlayerMovementController player;
@@ -56,9 +57,8 @@ public class GuardScript2 : MonoBehaviour
     {
         TurnAndHalt();
         var deg = Random.Range(90, 180) * (Random.Range(0, 2) == 0 ? -1 : 1);
-        deg = 90;
-        myGoalHeading = Vector3.RotateTowards(transform.forward, -transform.forward, Mathf.Deg2Rad * deg, 100);
-        //transform.forward = myGoalHeading;
+        myGoalHeading = Vector3.RotateTowards(transform.forward, new Vector3(retreatX, transform.forward.y, retreatZ), Mathf.Deg2Rad * deg, 100);
+        transform.forward = myGoalHeading;
     }
 
     // Update is called once per frame

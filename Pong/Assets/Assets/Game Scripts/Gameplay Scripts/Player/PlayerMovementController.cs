@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    public float MovementMult = 0.5f, MouseSensitivity = 3, JumpForce = 5;
+    public float MovementMult, MouseSensitivity, JumpForce, crouchShift;
     private float forward, rightward;
     private Vector2 currentRotation;
     private Rigidbody rb;
 
+    public CapsuleCollider head;
+
     public bool inTheRed;
+    public bool crouched;
 
     public PlayerInteractionController interact;
     public DialogueManager dialog;
@@ -28,7 +31,9 @@ public class PlayerMovementController : MonoBehaviour
 
     void SetMovementVector()
     {
-        forward = rightward=0;
+        forward = rightward = 0;
+        if (Math.Abs(rb.velocity.y) > 0.001) return;
+
         if (Input.GetKey(KeyCode.W))
         {
             forward += MovementMult;
@@ -50,12 +55,11 @@ public class PlayerMovementController : MonoBehaviour
             forward *= 2;
             rightward *= 2;
         }
-        rb.velocity -= new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        if (Math.Abs(rightward) > 0 || Math.Abs(forward) > 0)
-        {
-            if(!source.isPlaying) source.Play();
-        }
-        else source.Stop();
+
+        if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
+
+        var tmp = transform.TransformDirection(new Vector3(rightward, 0, forward));      
+        rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
     }
 
     void MoveWithMouse()
@@ -71,22 +75,35 @@ public class PlayerMovementController : MonoBehaviour
 
     void CheckJump()
     {
+        if (crouched) return;
         if (Math.Abs(rb.velocity.y) > 0.01) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity += JumpForce * Vector3.up;
+            source.Stop();
         }
     }
 
     void CheckCrouch()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
+        if (Math.Abs(rb.velocity.y) > 0.01) return;
 
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !crouched)
+        {
+            crouched = true;
+            var cameraT = Camera.main.transform;
+            cameraT.localPosition -= new Vector3(0, crouchShift, 0);
+            head.center -= new Vector3(0, crouchShift/2, 0);
+            head.height -= crouchShift;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl) && crouched)
+        {
+            crouched = false;
+            var cameraT = Camera.main.transform;
+            cameraT.localPosition += new Vector3(0, crouchShift, 0);
+            head.center += new Vector3(0, crouchShift / 2, 0);
+            head.height += crouchShift;
         }
     }
 
@@ -108,10 +125,19 @@ public class PlayerMovementController : MonoBehaviour
 	    if (dialog != null && dialog.talking) return;
 	    if (PauseManager.Paused) return;
 
+	    MoveWithMouse();
         SetMovementVector();
-        MoveWithMouse();
-        transform.Translate(new Vector3(rightward, 0, forward));    
-        if(transform.position.y < -10) transform.position = new Vector3(0, 2, 0);
+	    if (Math.Abs(rightward) > 0 || Math.Abs(forward) > 0)
+	    {
+	        if (!source.isPlaying) source.Play();
+	    }
+	    else source.Stop();
+        
+        if(transform.position.y < -10) //fell out of the world
+        {
+            transform.position = new Vector3(0, 2, 0);
+            rb.velocity = Vector3.zero;
+        }
     }
 
     void OnCollisionEnter(Collision other)
