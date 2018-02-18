@@ -138,7 +138,8 @@ public class PlayerMovementController : MonoBehaviour
             transform.position = new Vector3(0, 2, 0);
             rb.velocity = Vector3.zero;
         }
-    }
+	    
+	}
 
     void OnCollisionEnter(Collision other)
     {

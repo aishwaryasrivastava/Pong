@@ -67,10 +67,10 @@ GameObject:
   - component: {fileID: 3348044}
   - component: {fileID: 2348044}
   - component: {fileID: 65477685089352420}
-  - component: {fileID: 64744413533090488}
+  - component: {fileID: 65634352975339070}
   m_Layer: 0
   m_Name: PrisonCellDoorWay
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,20 +479,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888791393973324}
   m_Mesh: {fileID: 4300000, guid: 33dd12f3cd434e34b91482f040de17c0, type: 3}
---- !u!64 &64744413533090488
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148044}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: d88f18a8e8bc14044a62abfcf8fd2904, type: 3}
 --- !u!65 &65198657804962368
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -513,10 +499,22 @@ BoxCollider:
   m_GameObject: {fileID: 148044}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33530244, y: 3.000008, z: 3.000004}
-  m_Center: {x: -0.12504983, y: 1.4999962, z: 1.5000025}
+  m_Size: {x: 0.33530244, y: 3.000008, z: 0.937269}
+  m_Center: {x: -0.12504983, y: 1.4999962, z: 2.5313702}
+--- !u!65 &65634352975339070
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.33530244, y: 3.000008, z: 0.9478279}
+  m_Center: {x: -0.12504983, y: 1.4999962, z: 0.4739143}
 --- !u!65 &65725482813448170
 BoxCollider:
   m_ObjectHideFlags: 1

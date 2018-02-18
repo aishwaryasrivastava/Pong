@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4965914257256484}
   m_Layer: 19
   m_Name: SolitaryCell
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 33197671549558956}
   - component: {fileID: 23522782125350058}
   - component: {fileID: 65727294785931286}
-  - component: {fileID: 64488947309013308}
+  - component: {fileID: 65929213850760466}
   m_Layer: 19
   m_Name: PrisonCellDoorWay
   m_TagString: Untagged
@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 33602860302640318}
   - component: {fileID: 23543842858743666}
   - component: {fileID: 65253569746918882}
+  - component: {fileID: 114978221404642030}
   m_Layer: 19
   m_Name: PrisonCellDoorWayDoor
   m_TagString: Door
@@ -463,7 +464,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4473158707199002}
-  - component: {fileID: 65849413534037838}
   m_Layer: 19
   m_Name: Floor
   m_TagString: Untagged
@@ -1852,20 +1852,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721232845000324}
   m_Mesh: {fileID: 4300000, guid: 262931d0ce5b2d44a9ffe959397975d4, type: 3}
---- !u!64 &64488947309013308
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1092771797495702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: d88f18a8e8bc14044a62abfcf8fd2904, type: 3}
 --- !u!65 &65253569746918882
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1946,10 +1932,10 @@ BoxCollider:
   m_GameObject: {fileID: 1092771797495702}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33530235, y: 3.000008, z: 3.0000033}
-  m_Center: {x: -0.1250498, y: 1.4999962, z: 1.5000021}
+  m_Size: {x: 0.33530235, y: 3.000008, z: 0.93575287}
+  m_Center: {x: -0.1250498, y: 1.4999962, z: 2.5321274}
 --- !u!65 &65809309596137080
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1962,18 +1948,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25000012, y: 3, z: 4.000002}
   m_Center: {x: -0.12499982, y: 1.5, z: 2.000001}
---- !u!65 &65849413534037838
+--- !u!65 &65929213850760466
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1920615340130660}
+  m_GameObject: {fileID: 1092771797495702}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.073393, y: 0.34837246, z: 3.0479736}
-  m_Center: {x: -1.0007162, y: 0.09308863, z: 1.4894352}
+  m_Size: {x: 0.33530235, y: 3.000008, z: 0.9660764}
+  m_Center: {x: -0.1250498, y: 1.4999962, z: 0.48303866}
 --- !u!95 &95519619040351574
 Animator:
   serializedVersion: 3
@@ -2027,3 +2013,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114978221404642030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240641978475058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0224ff353ba21941a01166a75022436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Locked: 1
+  PermaLock: 1
