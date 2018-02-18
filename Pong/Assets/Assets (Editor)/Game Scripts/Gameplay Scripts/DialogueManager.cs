@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour {
     public NPCScript owner;
     private Inventory inventory;
 
+    public GameObject itemToGive; // this will be ripped out and made a part of prisoners to whom a dialogue is attached, fine for now
+
 	public int width = 20;
 	public int height = 20;
 
@@ -48,8 +50,12 @@ public class DialogueManager : MonoBehaviour {
 			d.Req = "none";
 		}
 		if (attr ["item"] != null) {
-			var item = Resources.Load("Prefabs/Item");
-			var newItem = Instantiate(item, transform) as GameObject;
+
+			//var item = Resources.Load("Prefabs/Item");
+			//var newItem = Instantiate(item, transform) as GameObject;
+
+		    var newItem = itemToGive;
+
 			newItem.SetActive(false);
 
 			ItemAttributeInformation iaInfo = newItem.GetComponent<ItemAttributeInformation>();

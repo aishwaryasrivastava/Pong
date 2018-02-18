@@ -858,6 +858,12 @@ Prefab:
       propertyPath: retreatZ
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114934346166740880, guid: b6a1ebed15b361547a23f7cb28c9afb2,
+        type: 2}
+      propertyPath: itemToGive
+      value: 
+      objectReference: {fileID: 1901522446047046, guid: 5a6c162918f4b5149b59a49c4b590ee5,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 122913695506716460, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
