@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65685955286164282}
   - component: {fileID: 23057956406184326}
   - component: {fileID: 54267170528881714}
-  - component: {fileID: 122958896836562388}
   - component: {fileID: 114935585319156278}
   m_Layer: 0
   m_Name: Item
@@ -40,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1901522446047046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -124,19 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077eef509a0195741a030d49c841971b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: -1
   weapon: {fileID: 21300000, guid: 50d42b6b54216d743bc82af0dd6c28fe, type: 3}
   key: {fileID: 21300000, guid: e93b0c931d035684882513243dfe5393, type: 3}
   cake: {fileID: 21300000, guid: 028b26a13da02a14e8d93bf87c3aa43e, type: 3}
   image: {fileID: 21300000, guid: f780aecd7adfea044a83edfcae8f13e7, type: 3}
---- !u!122 &122958896836562388
-Halo:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1901522446047046}
-  m_Enabled: 0
-  m_Color:
-    serializedVersion: 2
-    rgba: 4280661519
-  m_Size: 2
