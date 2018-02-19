@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckForEnt()
     {
-        //this is possibly semi expensive      
+        //this is fairly expensive      
         
         var hits = Physics.RaycastAll(new Ray(mainCamera.transform.position, mainCamera.transform.forward), armReach).OrderBy(h => h.distance).ToArray();
         if (hits.Length == 0)
@@ -53,7 +54,7 @@ public class PlayerInteractionController : MonoBehaviour
             activeDoor = item.transform;
             UIConfirm.gameObject.SetActive(true);
             var door = activeDoor.GetComponent<DoorToggle>();
-            UIConfirm.color = (door.Locked && !inventory.HaveKeyItem()) || door.PermaLock ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
+            UIConfirm.color = door.Locked && !inventory.HaveItem(door.code) ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
             if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
             activeItem = activeHuman = null;
         }
@@ -96,7 +97,7 @@ public class PlayerInteractionController : MonoBehaviour
         {
             if (activeItem != null)
             {
-                var mtp = inventory.AddItem(new Pickup(activeItem.GetComponent<ItemAttributeInformation>()));
+                var mtp = inventory.AddItem(new Pickup(activeItem.GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>()));
                 if (mtp)
                 {
                     Destroy(activeItem.gameObject);
@@ -106,7 +107,7 @@ public class PlayerInteractionController : MonoBehaviour
             else if (activeDoor != null)
             {
                 var tmp = activeDoor.GetComponent<DoorToggle>();
-                tmp.Toggle(inventory.HaveKeyItem());
+                tmp.Toggle(inventory.HaveItem(tmp.code));
                 if (tmp.Locked) sounds.PlayLocked();
             }
             else if (activeHuman != null)
@@ -142,5 +143,54 @@ public class PlayerInteractionController : MonoBehaviour
             }
         }
         else CheckInventoryControls();
+    }
+}
+
+public class Pickup
+{
+    public string ItemId;
+    public Sprite UiImage;
+    public ItemAttributeInformation.Type Type;
+
+    public Pickup(ItemAttributeInformation info, ItemIconHolder c)
+    {
+        ItemId = info.id;
+        Type = info.type;
+        AssignImage(c);
+    }
+
+    public Pickup(string id, ItemAttributeInformation.Type t, ItemIconHolder c)
+    {
+        ItemId = id;
+        Type = t;
+        AssignImage(c);
+    }
+
+    private void AssignImage(ItemIconHolder container)
+    {
+        switch (Type)
+        {
+            case ItemAttributeInformation.Type.Axe:
+                UiImage = container.axe;
+                break;
+            case ItemAttributeInformation.Type.Key:
+                UiImage = container.key;
+                break;
+            case ItemAttributeInformation.Type.Keys:
+                UiImage = container.keys;
+                break;
+            case ItemAttributeInformation.Type.Keycode:
+                UiImage = container.keycode;
+                break;
+            case ItemAttributeInformation.Type.Cake:
+                UiImage = container.cake;
+                break;
+            case ItemAttributeInformation.Type.GunWeapon:
+                UiImage = container.none;
+                break;
+            default:
+                UiImage = container.none;
+                break;
+        }
     }
 }

@@ -16,8 +16,6 @@ public class GuardScript2 : MonoBehaviour
     private bool halt;
     public int AngleStep;
 
-    private Rigidbody rb;
-
     public AudioSource source;
     void Awake()
     {
@@ -29,7 +27,7 @@ public class GuardScript2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         source.volume = 1f;
         TurnAndHalt();
     }

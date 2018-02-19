@@ -6,5 +6,5 @@
 	<node option="You still owe me money" text="We're in prison now, dude"></node>
 	<node option="Have any cake?" require="cake" text="Thank you!"></node>
 	<node option="Give me an axe" text="No"></node>
-	<node option="Give me an axe, please" item="0" text="Here you go"></node>
+	<node option="Give me an axe, please" item="0" id="axe" text="Here you go"></node>
 </node>

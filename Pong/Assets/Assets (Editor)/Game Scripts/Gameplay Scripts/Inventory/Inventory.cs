@@ -96,15 +96,10 @@ public class Inventory : MonoBehaviour
         UpdateInventoryDisplay();
     }
 
-    public bool HaveKeyItem()
+    public bool HaveItem(string id)
     {
-        return inventory.Any(g => g.Type == ItemAttributeInformation.Type.Key);
+        return inventory.Any(g => g.ItemId.Equals(id));
     }
-
-	public bool HaveCakeItem()
-	{
-		return inventory.Any(g => g.Type == ItemAttributeInformation.Type.Cake);
-	}
 
     public bool Full()
     {

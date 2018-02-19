@@ -13,10 +13,11 @@ public class DialogueManager : MonoBehaviour {
 
 	private string playerObject = "PlayerMan";
 	public PlayerMovementController control;
+    public PlayerInteractionController interact;
     public NPCScript owner;
     private Inventory inventory;
 
-    public GameObject itemToGive; // this will be ripped out and made a part of prisoners to whom a dialogue is attached, fine for now
+    //public GameObject itemToGive; // this will be ripped out and made a part of prisoners to whom a dialogue is attached, fine for now
 
 	public int width = 20;
 	public int height = 20;
@@ -44,30 +45,20 @@ public class DialogueManager : MonoBehaviour {
 		XmlAttributeCollection attr = xml.Attributes;
 		d.Text = attr ["text"].Value;
 		d.Option = attr["option"].Value;
-		if (attr ["require"] != null) {
-			d.Req = attr ["require"].Value;
-		} else {
-			d.Req = "none";
-		}
-		if (attr ["item"] != null) {
+		d.Req = attr ["require"] != null ? attr ["require"].Value : "none";
 
-			//var item = Resources.Load("Prefabs/Item");
-			//var newItem = Instantiate(item, transform) as GameObject;
+		if (attr ["item"] != null)
+		{
+                //Should be int to line up with ItemAttributeInformation options. This is for inventory icons mostly
+                //this is the name of the item basically (or the identifier for key-door connection)             
+		    d.GiveItem = new Pickup(attr["id"].Value, (ItemAttributeInformation.Type)int.Parse(attr["item"].Value), interact.GetComponent<ItemIconHolder>());
+        }
+        else d.GiveItem = null;		
 
-		    var newItem = itemToGive;
-
-			newItem.SetActive(false);
-
-			ItemAttributeInformation iaInfo = newItem.GetComponent<ItemAttributeInformation>();
-			iaInfo.SetType (Int32.Parse(attr ["item"].Value));	//Should be int to line up with ItemAttributeInformation options
-																//As of 2/15: 0 is weapon, 1 is key, 2 is cake
-			d.GiveItem = new Pickup(iaInfo);
-		} else {
-			d.GiveItem = null;
-		}
-
-		if (xml.HasChildNodes) {
-			for (int i = 0; i < xml.ChildNodes.Count; i++) {
+		if (xml.HasChildNodes)
+        {
+			for (int i = 0; i < xml.ChildNodes.Count; i++)
+            {
 				d.AddChild (CreateTree (xml.ChildNodes [i]));
 			}
 		}
@@ -146,15 +137,8 @@ public class DialogueManager : MonoBehaviour {
         control.LeaveConversation();
 	}
 
-	bool InventoryCheck(string req) {
-		switch (req) {
-		case "none":
-			return true;
-		case "key":
-			return inventory.HaveKeyItem ();
-		case "cake":
-			return inventory.HaveCakeItem ();
-		}
-		return false;
+	bool InventoryCheck(string id)
+	{
+	    return id.Length == 0 || inventory.HaveItem(id);
 	}
 }

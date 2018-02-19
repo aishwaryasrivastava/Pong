@@ -6,13 +6,13 @@ public class DoorToggle : MonoBehaviour
 
     public DoorType Type;
 
-    public bool Locked, PermaLock;
+    public bool Locked;
+    public string code = "";
     private Animator Door;
 
-    public void Toggle(bool IHaveAKey)
+    public void Toggle(bool IHaveTheKey)
     {
-        if (PermaLock) return;
-        if (Locked && IHaveAKey) Locked = false;
+        if (Locked && IHaveTheKey) Locked = false;
         if (Locked) return;
 
         Door = gameObject.GetComponent<Animator>();
