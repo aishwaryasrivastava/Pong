@@ -11,6 +11,8 @@ public class GuardScript : MonoBehaviour {
 	GuardAnimHandler anim;
 	public BoxCollider vision;
 	public GameObject target;
+	public GameObject playerMan;
+	public int dmg = 0;
 
 	private Vector3 position;
     
@@ -42,6 +44,12 @@ public class GuardScript : MonoBehaviour {
 		}else if (!found) {
             anim.ToWalking();
 			walking ();
+		}
+
+		if (dmg == 3) {
+			PlayerMovementController script = playerMan.GetComponent<PlayerMovementController> ();
+			script.Die ();
+			found = false;
 		}
 	}
 
@@ -93,6 +101,10 @@ public class GuardScript : MonoBehaviour {
 	private void beat(){
 		CameraShaker script = target.GetComponent<CameraShaker> ();
 		script.hit ();
+	}
+
+	private void kill(){
+		dmg++;
 	}
 
 	private void walking(){
