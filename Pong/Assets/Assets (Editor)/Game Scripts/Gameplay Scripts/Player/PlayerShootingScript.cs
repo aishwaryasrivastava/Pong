@@ -33,7 +33,7 @@ public class PlayerShootingScript : MonoBehaviour
         if (timer <= 0)
         {
             flare.SetActive(false);
-            if (Input.GetButton("Fire1"))
+            if (Input.GetMouseButton(0))
             {
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                 {

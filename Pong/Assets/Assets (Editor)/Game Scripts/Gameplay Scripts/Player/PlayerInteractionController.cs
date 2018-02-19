@@ -93,7 +93,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckInteractionControls()
     {      
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (activeItem != null)
             {

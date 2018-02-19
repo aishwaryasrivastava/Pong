@@ -990,6 +990,11 @@ Prefab:
       propertyPath: interact
       value: 
       objectReference: {fileID: 113493815}
+    - target: {fileID: 114934346166740880, guid: b6a1ebed15b361547a23f7cb28c9afb2,
+        type: 2}
+      propertyPath: XML
+      value: 
+      objectReference: {fileID: 4900000, guid: e4b66f1c6b894d94c8813ba41e01bda3, type: 3}
     m_RemovedComponents:
     - {fileID: 122913695506716460, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
@@ -5143,6 +5148,10 @@ Prefab:
     - target: {fileID: 400000, guid: 895d63c2571c89d428ca3bc34ca53ca4, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 895d63c2571c89d428ca3bc34ca53ca4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11100000, guid: 895d63c2571c89d428ca3bc34ca53ca4, type: 3}

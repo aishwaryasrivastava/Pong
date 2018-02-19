@@ -4,7 +4,7 @@ using System.Xml;
 
 public class DialogueManager : MonoBehaviour {
 
-	public TextAsset xml;
+	public TextAsset XML;
 	private Dialogue dialog;
 	private Dialogue currentdialog;
 
@@ -30,7 +30,7 @@ public class DialogueManager : MonoBehaviour {
 		inventory = player.GetComponent<Inventory> ();
 
 		XmlDocument xmlDoc = new XmlDocument(); // xmlDoc is the new xml document.
-		xmlDoc.LoadXml(xml.text);
+		xmlDoc.LoadXml(XML.text);
 		dialog = CreateTree (xmlDoc.FirstChild);
 		Cursor.lockState = CursorLockMode.Locked;
 
@@ -43,10 +43,10 @@ public class DialogueManager : MonoBehaviour {
 	Dialogue CreateTree(XmlNode xml) {
 		Dialogue d = new Dialogue ();
 		XmlAttributeCollection attr = xml.Attributes;
-		d.Text = attr ["text"].Value;
+		d.Text = attr["text"].Value;
 		d.Option = attr["option"].Value;
-		d.Req = attr ["require"] != null ? attr ["require"].Value : "none";
-
+		d.Req = attr ["require"] != null ? attr ["require"].Value : "";
+        
 		if (attr ["item"] != null)
 		{
                 //Should be int to line up with ItemAttributeInformation options. This is for inventory icons mostly
@@ -102,7 +102,7 @@ public class DialogueManager : MonoBehaviour {
 			}
 			int count = 0;
 			for (int i = 0; i < currentdialog.Children().Count; i++) {
-				if (InventoryCheck (currentdialog.Children () [i].Req)) {
+				if (InventoryCheck (currentdialog.Children()[i].Req)) {
 					if (GUI.Button (new Rect (20, 30 + height * (count+1), width, height), currentdialog.Children () [i].Option,custombutton)) {
 						if (currentdialog.Children () [i].GiveItem != null) {
 							inventory.AddItem (currentdialog.Children () [i].GiveItem);
@@ -126,7 +126,8 @@ public class DialogueManager : MonoBehaviour {
 		currentdialog = dialog;     
 	}
 
-	void ContinueDialogue(int i) {
+	void ContinueDialogue(int i)
+    {
 		currentdialog = currentdialog.Children () [i];
 	}
 
