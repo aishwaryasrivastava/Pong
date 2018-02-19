@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 
 public class GuardScript : MonoBehaviour {
 
@@ -41,8 +41,8 @@ public class GuardScript : MonoBehaviour {
 		}
 	}
 
-	private void OnCollisionEnter(Collision other){
-		if (other.collider.CompareTag ("cp1")) {
+	private void OnTriggerEnter(Collider other){
+		if (other.CompareTag ("cp1")) {
 			if (south) {
 				transform.Rotate (0, -90, 0);
 				south = false;
@@ -53,7 +53,7 @@ public class GuardScript : MonoBehaviour {
 				north = true;
 			}
 
-		} else if (other.collider.CompareTag ("cp2")) {
+		} else if (other.CompareTag ("cp2")) {
 			if (north) {
 				transform.Rotate (0, 90, 0);
 				north = false;
@@ -63,7 +63,7 @@ public class GuardScript : MonoBehaviour {
 				west = false;
 				south = true;
 			}
-		}else if (other.collider.CompareTag ("cp3")) {
+		}else if (other.CompareTag ("cp3")) {
 			if (south) {
 				transform.Rotate (0, 90, 0);
 				south = false;
@@ -73,7 +73,7 @@ public class GuardScript : MonoBehaviour {
 				east = false;
 				north = true;
 			}
-		}else if (other.collider.CompareTag ("cp4")) {
+		}else if (other.CompareTag ("cp4")) {
 			if (east) {
 				transform.Rotate (0, 90, 0);
 				east = false;
@@ -82,24 +82,6 @@ public class GuardScript : MonoBehaviour {
 				transform.Rotate (0, -90, 0);
 				north = false;
 				west = true;
-			}
-		}else if ((other.collider.CompareTag ("hg")) || (other.collider.CompareTag ("hg2"))){
-			if (north) {
-				transform.Rotate (0, 180, 0);
-				north = false;
-				south = true;
-			} else if(south){
-				transform.Rotate (0, 180, 0);
-				south = false;
-				north = true;
-			}else if(east){
-				transform.Rotate (0, 180, 0);
-				east = false;
-				west = true;
-			}else if(west){
-				transform.Rotate (0, 180, 0);
-				west = false;
-				east = true;
 			}
 		}
 	}
