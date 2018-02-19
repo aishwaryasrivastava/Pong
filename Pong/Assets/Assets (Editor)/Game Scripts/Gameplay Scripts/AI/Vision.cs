@@ -18,9 +18,11 @@ public class Vision : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
+		GuardScript script = guard.GetComponents<GuardScript> () [0];
 		if (other.CompareTag ("Player")) {
-			GuardScript script = guard.GetComponents<GuardScript> ()[0];
 			script.found = true;
+		} else {
+			//script.found = false;
 		}
 	}
 }

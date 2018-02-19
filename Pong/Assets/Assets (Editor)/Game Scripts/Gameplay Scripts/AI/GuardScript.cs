@@ -3,13 +3,14 @@
 public class GuardScript : MonoBehaviour {
 
 	public Transform player;
-	public float attackDistance = 7.0f;
-	public float runningDistance = 10.0f;
+	public float attackDistance = 5.0f;
+	public float runningDistance = 8.0f;
 	public float speed = 0.4f;
 	public float walkingSpeed = 0.01f;
 	public bool found;
 	GuardAnimHandler anim;
 	public BoxCollider vision;
+	public GameObject target;
 
 	private Vector3 position;
     
@@ -30,15 +31,15 @@ public class GuardScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Vector3.Distance (player.position, transform.position) < runningDistance) && (Vector3.Distance (player.position, transform.position) > attackDistance)) {
+		if (found && (Vector3.Distance (player.position, transform.position) > attackDistance)) {
             anim.ToRunning();
 			direction = player.position - transform.position;
 			direction.y = 0;
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(direction), 0.9f);
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(direction), 0.5f);
 			transform.Translate (0, 0, speed);
 		} else if (Vector3.Distance (player.position, transform.position) <= attackDistance) {
             anim.ToAttacking();
-		}else if (Vector3.Distance (player.position, transform.position) >= runningDistance) {
+		}else if (!found) {
             anim.ToWalking();
 			walking ();
 		}
@@ -89,6 +90,10 @@ public class GuardScript : MonoBehaviour {
 			}
 	}
 
+	private void beat(){
+		CameraShaker script = target.GetComponent<CameraShaker> ();
+		script.hit ();
+	}
 
 	private void walking(){
 		if (north) {
