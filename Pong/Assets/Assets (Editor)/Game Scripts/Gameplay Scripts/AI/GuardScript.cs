@@ -7,9 +7,12 @@ public class GuardScript : MonoBehaviour {
 	public float runningDistance = 10.0f;
 	public float speed = 0.4f;
 	public float walkingSpeed = 0.01f;
+	public bool found;
+	GuardAnimHandler anim;
+	public BoxCollider vision;
 
 	private Vector3 position;
-    GuardAnimHandler anim;
+    
 	private Vector3 direction;
 
 	bool north;
@@ -42,48 +45,48 @@ public class GuardScript : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other){
-		if (other.CompareTag ("cp1")) {
-			if (south) {
-				transform.Rotate (0, -90, 0);
-				south = false;
-				east = true;
-			} else if(west){
-				transform.Rotate (0, 90, 0);
-				east = false;
-				north = true;
-			}
+			if (other.CompareTag ("cp1")) {
+				if (south) {
+					transform.Rotate (0, -90, 0);
+					south = false;
+					east = true;
+				} else if (west) {
+					transform.Rotate (0, 90, 0);
+					east = false;
+					north = true;
+				}
 
-		} else if (other.CompareTag ("cp2")) {
-			if (north) {
-				transform.Rotate (0, 90, 0);
-				north = false;
-				east = true;
-			} else if(west){
-				transform.Rotate (0, -90, 0);
-				west = false;
-				south = true;
+			} else if (other.CompareTag ("cp2")) {
+				if (north) {
+					transform.Rotate (0, 90, 0);
+					north = false;
+					east = true;
+				} else if (west) {
+					transform.Rotate (0, -90, 0);
+					west = false;
+					south = true;
+				}
+			} else if (other.CompareTag ("cp3")) {
+				if (south) {
+					transform.Rotate (0, 90, 0);
+					south = false;
+					west = true;
+				} else if (east) {
+					transform.Rotate (0, -90, 0);
+					east = false;
+					north = true;
+				}
+			} else if (other.CompareTag ("cp4")) {
+				if (east) {
+					transform.Rotate (0, 90, 0);
+					east = false;
+					south = true;
+				} else if (north) {
+					transform.Rotate (0, -90, 0);
+					north = false;
+					west = true;
+				}
 			}
-		}else if (other.CompareTag ("cp3")) {
-			if (south) {
-				transform.Rotate (0, 90, 0);
-				south = false;
-				west = true;
-			} else if(east){
-				transform.Rotate (0, -90, 0);
-				east = false;
-				north = true;
-			}
-		}else if (other.CompareTag ("cp4")) {
-			if (east) {
-				transform.Rotate (0, 90, 0);
-				east = false;
-				south = true;
-			} else if(north){
-				transform.Rotate (0, -90, 0);
-				north = false;
-				west = true;
-			}
-		}
 	}
 
 
