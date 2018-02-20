@@ -108,7 +108,16 @@ public class PlayerInteractionController : MonoBehaviour
             {
                 var tmp = activeDoor.GetComponent<DoorToggle>();
                 tmp.Toggle(inventory.HaveItem(tmp.code));
-                if (tmp.Locked) sounds.PlayLocked();
+
+				if (tmp.Locked){
+					sounds.PlayLocked ();
+				}else{
+					if (tmp.Type == DoorToggle.DoorType.Slide) {
+						sounds.PlaySlide ();
+					} else if (tmp.Type == DoorToggle.DoorType.Swing) {
+						sounds.PlaySwing ();
+					}
+				}
             }
             else if (activeHuman != null)
             {

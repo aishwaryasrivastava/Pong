@@ -3,7 +3,7 @@
 public class SoundController : MonoBehaviour {
 
 	//public AudioClip walkingSound;
-	public AudioClip inventorySound, lockedSound, ding;
+	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound;
 	public AudioSource source;
 
 	//private float highVol = 1f;
@@ -30,4 +30,14 @@ public class SoundController : MonoBehaviour {
     {
         source.PlayOneShot(ding, lowVol);
     }
+
+	public void PlaySwing()
+	{
+		source.PlayOneShot(swingSound, lowVol);
+	}
+
+	public void PlaySlide()
+	{
+		source.PlayOneShot(slideSound, lowVol);
+	}
 }

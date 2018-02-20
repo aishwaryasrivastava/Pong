@@ -18,11 +18,11 @@ public class DoorToggle : MonoBehaviour
         Door = gameObject.GetComponent<Animator>();
         switch (Type)
         {
-            case DoorType.Slide:
-                Door.Play("gate-toggle");
+			case DoorType.Slide:
+				Door.Play ("gate-toggle");
                 break;
-            case DoorType.Swing:
-                Door.Play("door-open");
+			case DoorType.Swing:
+				Door.Play ("door-open");
                 break;
         }
 

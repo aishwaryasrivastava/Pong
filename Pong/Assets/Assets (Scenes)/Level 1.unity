@@ -8442,6 +8442,21 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114907089988801380, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: swingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b7a4b9747b5af544f80b184b3d57ce93, type: 3}
+    - target: {fileID: 114907089988801380, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907089988801380, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: slideSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 21488aa6d8160fe40a6d8b6c1a90d694, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -17861,6 +17876,8 @@ MonoBehaviour:
   inventorySound: {fileID: 8300000, guid: c4b8bbe29c0e2b240957742ea0eaf470, type: 3}
   lockedSound: {fileID: 8300000, guid: 4b75a48008aa8264086eaca098cfc6a6, type: 3}
   ding: {fileID: 8300000, guid: cc6de04835faf654eac17db031a4fdb4, type: 3}
+  slideSound: {fileID: 8300000, guid: a3b1a3da6aaae6144b179029ba4eb2dd, type: 3}
+  swingSound: {fileID: 8300000, guid: b7a4b9747b5af544f80b184b3d57ce93, type: 3}
   source: {fileID: 1312321915}
 --- !u!114 &1312321920
 MonoBehaviour:
