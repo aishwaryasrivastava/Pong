@@ -45,7 +45,7 @@ public class PlayerShootingScript : MonoBehaviour
                 flare.SetActive(true);
                 recoil += damage / 10f;
                 transform.Rotate(damage / -10f, 0, 0);
-                gun.RotateAround(Vector3.zero, Vector3.right, damage / -10f);
+                gun.Rotate(damage / -10f, 0, 0);
             }
         }
         else
@@ -57,7 +57,7 @@ public class PlayerShootingScript : MonoBehaviour
         {
             recoil -= Time.deltaTime * 20;
             transform.Rotate(Time.deltaTime * 20, 0, 0);
-            gun.RotateAround(Vector3.zero, Vector3.right, Time.deltaTime * 20);
+            gun.Rotate(Time.deltaTime * 20, 0, 0);
         }
     }
 }
