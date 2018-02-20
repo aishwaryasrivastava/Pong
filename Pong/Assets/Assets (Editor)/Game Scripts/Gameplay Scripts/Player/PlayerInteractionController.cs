@@ -25,42 +25,42 @@ public class PlayerInteractionController : MonoBehaviour
     {
         //this is fairly expensive      
         
-        var hits = Physics.RaycastAll(new Ray(mainCamera.transform.position, mainCamera.transform.forward), armReach).OrderBy(h => h.distance).ToArray();
-        if (hits.Length == 0)
+        RaycastHit hit;
+        var something = Physics.Raycast(new Ray(mainCamera.transform.position, mainCamera.transform.forward), out hit);
+        if (!something || hit.distance > armReach)
         {
-            //not looking at anything at all
+            //not looking at anything in range
             if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
             activeItem = activeDoor = activeHuman = null;
             UIConfirm.gameObject.SetActive(false);
             return;
         }
 
-        var item = hits[0];
-        if (item.transform.Equals(activeItem) ||  item.transform.Equals(activeDoor) || item.transform.Equals(activeHuman))
+        if (hit.transform.Equals(activeItem) || hit.transform.Equals(activeDoor) || hit.transform.Equals(activeHuman))
         {
             //still looking at the same item
             return;
         }
-        if (item.transform.CompareTag("Item"))
+        if (hit.transform.CompareTag("Item"))
         {
-            activeItem = item.transform;
+            activeItem = hit.transform;
             UIConfirm.gameObject.SetActive(true);
             UIConfirm.color = inventory.Full() ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
             if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
             activeDoor = activeHuman = null;
         }
-        else if (item.transform.CompareTag("Door"))
+        else if (hit.transform.CompareTag("Door"))
         {
-            activeDoor = item.transform;
+            activeDoor = hit.transform;
             UIConfirm.gameObject.SetActive(true);
             var door = activeDoor.GetComponent<DoorToggle>();
             UIConfirm.color = door.Locked && !inventory.HaveItem(door.code) ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
             if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
             activeItem = activeHuman = null;
         }
-        else if (item.transform.CompareTag("Human"))
+        else if (hit.transform.CompareTag("Human"))
         {
-            activeHuman = item.transform;
+            activeHuman = hit.transform;
             UIConfirm.gameObject.SetActive(true);
             UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
             activeHuman.GetComponent<DialogueManager>().LookingAt();

@@ -38,7 +38,8 @@ public class PlayerShootingScript : MonoBehaviour
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
                 {
                     flare.SetActive(true);
-                    Shot.transform.SendMessage("shotAt", damage * transform.TransformDirection(Vector3.forward), SendMessageOptions.DontRequireReceiver);
+                    var tmp = Shot.transform.GetComponent<ShotAtScript>();//SendMessage("shotAt", damage * transform.TransformDirection(Vector3.forward), SendMessageOptions.DontRequireReceiver);
+                    if (tmp != null) tmp.ShotAt(damage * transform.TransformDirection(Vector3.forward));
                 }
                 timer = fireGap;
                 flare.SetActive(true);
