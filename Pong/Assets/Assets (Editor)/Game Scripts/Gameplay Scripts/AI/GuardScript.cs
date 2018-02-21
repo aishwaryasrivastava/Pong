@@ -15,14 +15,19 @@ public class GuardScript : MonoBehaviour {
 	public int dmg = 0;
 
 	private Vector3 position;
-    
 	private Vector3 direction;
+	public Vector3 initialPos;
+	public Quaternion initialRot;
+
+	private PlayerMovementController tmp;
 
 	bool north;
 	bool south;
 	bool east;
 	bool west;
 
+	void awake(){
+	}
 	void Start () {
 		anim = GetComponent<GuardAnimHandler> ();
 		north = true;
@@ -42,7 +47,7 @@ public class GuardScript : MonoBehaviour {
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(direction), 0.5f);
 			transform.Translate (0, 0, speed);
 		}
-        else if (Vector3.Distance (player.position, transform.position) <= attackDistance)
+		else if ((Vector3.Distance (player.position, transform.position) <= attackDistance) && found)
         {
             anim.ToAttacking();
 		}
@@ -52,12 +57,19 @@ public class GuardScript : MonoBehaviour {
 			walking ();
 		}
 
+		tmp = GetComponent<PlayerMovementController> ();
 		if (dmg == 3)
         {
 			var script = playerMan.GetComponent<PlayerInteractionController> ();
 			script.Die();
 			found = false;
             dmg = 0;
+			transform.position = initialPos;
+			transform.rotation = initialRot;
+			north = true;
+			south = false;
+			east = false;
+			west = false;
         }
 	}
 

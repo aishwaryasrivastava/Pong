@@ -18,6 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     public DialogueManager dialog;
 
     public AudioSource source;
+	public int dmg = 0;
     void Awake()
     {
         source = GetComponent<AudioSource>();
