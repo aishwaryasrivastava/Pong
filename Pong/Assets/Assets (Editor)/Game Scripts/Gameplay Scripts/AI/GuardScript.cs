@@ -32,25 +32,33 @@ public class GuardScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (found && (Vector3.Distance (player.position, transform.position) > attackDistance)) {
+	void Update ()
+    {
+		if (found && (Vector3.Distance (player.position, transform.position) > attackDistance))
+        {
             anim.ToRunning();
 			direction = player.position - transform.position;
 			direction.y = 0;
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(direction), 0.5f);
 			transform.Translate (0, 0, speed);
-		} else if (Vector3.Distance (player.position, transform.position) <= attackDistance) {
+		}
+        else if (Vector3.Distance (player.position, transform.position) <= attackDistance)
+        {
             anim.ToAttacking();
-		}else if (!found) {
+		}
+        else if (!found)
+        {
             anim.ToWalking();
 			walking ();
 		}
 
-		if (dmg == 3) {
-			PlayerMovementController script = playerMan.GetComponent<PlayerMovementController> ();
-			script.Die ();
+		if (dmg == 3)
+        {
+			var script = playerMan.GetComponent<PlayerInteractionController> ();
+			script.Die();
 			found = false;
-		}
+            dmg = 0;
+        }
 	}
 
 	private void OnTriggerEnter(Collider other){
@@ -98,16 +106,19 @@ public class GuardScript : MonoBehaviour {
 			}
 	}
 
-	private void beat(){
+	private void beat()
+    {
 		CameraShaker script = target.GetComponent<CameraShaker> ();
 		script.hit ();
 	}
 
-	private void kill(){
+	private void kill()
+    {
 		dmg++;
 	}
 
-	private void walking(){
+	private void walking()
+    {
 		if (north) {
 			position = transform.position;
 			position += new Vector3(0, 0, walkingSpeed);

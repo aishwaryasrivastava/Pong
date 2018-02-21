@@ -10,7 +10,7 @@ public class NPCScript : MonoBehaviour
     // Keeps track of how long ago NPC changed directions
     private float time;
     private Vector3 myPosition, mySpeed, myGoalHeading;
-    public float speed, movementLength, timeoutLength;
+    public float speed, movementLength, timeoutLength, soundArea;
     private bool halt;
     public int AngleStep;
 
@@ -86,7 +86,7 @@ public class NPCScript : MonoBehaviour
         {
             TurnAndHalt();
         }
-
+        
     }
 
     void FixedUpdate()
@@ -94,9 +94,16 @@ public class NPCScript : MonoBehaviour
         if (halt) return;
         if (PauseManager.Paused) return;
         if (diag.talking) return;
+
         transform.position += speed * new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
         if (Math.Abs(myGoalHeading.magnitude) < 0.0001) return;
         transform.forward = Vector3.RotateTowards(transform.forward, myGoalHeading, Mathf.Deg2Rad * AngleStep, 60);
+
+        if (source.isPlaying)
+        {
+            var tmp = (Camera.main.transform.position - transform.position).magnitude;
+            source.volume = tmp > soundArea ? 0 : 1- tmp / soundArea;
+        }
     }
 
     private void OnCollisionEnter(Collision other)

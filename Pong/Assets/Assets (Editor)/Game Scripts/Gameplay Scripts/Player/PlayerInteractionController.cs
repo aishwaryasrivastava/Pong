@@ -1,12 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerInteractionController : MonoBehaviour
 {
     public Image UIConfirm;
-
     public SoundController sounds;
 
     public float armReach = 8;
@@ -20,6 +18,8 @@ public class PlayerInteractionController : MonoBehaviour
     public Inventory inventory;
 
     private Transform activeItem, activeDoor, activeHuman;
+
+    private List<Transform> resettables = new List<Transform>();
 
     void CheckForEnt()
     {
@@ -100,24 +100,25 @@ public class PlayerInteractionController : MonoBehaviour
                 var mtp = inventory.AddItem(new Pickup(activeItem.GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>()));
                 if (mtp)
                 {
-                    Destroy(activeItem.gameObject);
+                    activeItem.gameObject.SetActive(false);
+                    resettables.Add(activeItem);
                     sounds.PlayDing();
                 }
             }
             else if (activeDoor != null)
             {
                 var tmp = activeDoor.GetComponent<DoorToggle>();
+                var lockedBefore = tmp.Locked;
                 tmp.Toggle(inventory.HaveItem(tmp.code));
 
-				if (tmp.Locked){
-					sounds.PlayLocked ();
-				}else{
-					if (tmp.Type == DoorToggle.DoorType.Slide) {
-						sounds.PlaySlide ();
-					} else if (tmp.Type == DoorToggle.DoorType.Swing) {
-						sounds.PlaySwing ();
-					}
-				}
+                if (tmp.Locked) sounds.PlayLocked();
+                else
+                {
+                    if (tmp.Type == DoorToggle.DoorType.Slide) sounds.PlaySlide();
+                    else if (tmp.Type == DoorToggle.DoorType.Swing) sounds.PlaySwing();
+
+                    if (lockedBefore) resettables.Add(activeDoor);
+                }
             }
             else if (activeHuman != null)
             {
@@ -127,6 +128,29 @@ public class PlayerInteractionController : MonoBehaviour
                 dia.StartDialogue();                
             }
         }
+    }
+
+    void ResetPlayerChanges()
+    {
+        foreach (var r in resettables)
+        {
+            if (r.CompareTag("Door"))
+            {
+                r.GetComponent<DoorToggle>().Locked = true;
+            }
+            else if (r.CompareTag("Item"))
+            {
+                r.gameObject.SetActive(true);
+            }
+        }
+        resettables.Clear();
+    }
+
+    public void Die()
+    {
+        transform.position = new Vector3(0, 3.5f, 0);
+        inventory.Clear();
+        ResetPlayerChanges();
     }
 
     void Update()
@@ -140,6 +164,10 @@ public class PlayerInteractionController : MonoBehaviour
             if(InventoryActive) UIConfirm.gameObject.SetActive(false);
             inventory.Swap(InventoryActive);
             sounds.PlayInventory();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Die();
         }
         if (!InventoryActive)
         {

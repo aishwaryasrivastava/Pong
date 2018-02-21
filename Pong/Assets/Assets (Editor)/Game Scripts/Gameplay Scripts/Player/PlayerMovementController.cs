@@ -14,6 +14,7 @@ public class PlayerMovementController : MonoBehaviour
     public bool crouched;
 
     public PlayerInteractionController interact;
+    public PlayerShootingScript shootGun;
     public DialogueManager dialog;
 
     public AudioSource source;
@@ -70,7 +71,7 @@ public class PlayerMovementController : MonoBehaviour
         currentRotation.y = Mathf.Clamp(currentRotation.y, -80, 80);
         
         transform.localRotation = Quaternion.Euler(0, currentRotation.x, 0);
-        Camera.main.transform.localRotation = Quaternion.Euler(currentRotation.y, 0, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(currentRotation.y-shootGun.recoil, 0, 0);
     }
 
     void CheckJump()
@@ -83,6 +84,8 @@ public class PlayerMovementController : MonoBehaviour
             rb.velocity += JumpForce * Vector3.up;
             source.Stop();
         }
+
+        
     }
 
     void CheckCrouch()
@@ -153,11 +156,7 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    public void Die()
-    {
-        transform.position = new Vector3(0, 2, 0);
-        interact.inventory.Clear();
-    }
+    
 
     public void EnterConversation(DialogueManager diag)
     {

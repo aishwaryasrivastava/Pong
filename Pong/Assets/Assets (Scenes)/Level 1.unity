@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 17631046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 1.353, y: 3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 383257924}
@@ -867,7 +867,7 @@ BoxCollider:
   m_GameObject: {fileID: 50836221}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 5.145958, y: 0.34191275, z: 5.124016}
   m_Center: {x: 2.489767, y: 0.10968137, z: 2.632351}
@@ -1142,6 +1142,11 @@ Prefab:
       propertyPath: XML
       value: 
       objectReference: {fileID: 4900000, guid: e4b66f1c6b894d94c8813ba41e01bda3, type: 3}
+    - target: {fileID: 114876435259789792, guid: b6a1ebed15b361547a23f7cb28c9afb2,
+        type: 2}
+      propertyPath: soundArea
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 122913695506716460, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
@@ -1353,11 +1358,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
@@ -1367,6 +1372,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735065522378400, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -1618,11 +1627,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
@@ -1632,6 +1641,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735065522378400, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -2382,6 +2395,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -2535,7 +2552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIConfirm: {fileID: 1890883905}
   sounds: {fileID: 1312321919}
-  armReach: 2
+  armReach: 2.5
   movement: {fileID: 113493816}
   mainCamera: {fileID: 1312321914}
   InventoryActive: 0
@@ -2559,6 +2576,7 @@ MonoBehaviour:
   inTheRed: 0
   crouched: 0
   interact: {fileID: 113493815}
+  shootGun: {fileID: 1312321920}
   dialog: {fileID: 0}
   source: {fileID: 0}
 --- !u!54 &113493817
@@ -2609,7 +2627,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.53, y: 3.372, z: 13.45}
+  m_LocalPosition: {x: 4.5, y: 3.5, z: 13.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -3304,6 +3322,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -5769,6 +5791,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 895d63c2571c89d428ca3bc34ca53ca4, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 895d63c2571c89d428ca3bc34ca53ca4, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11100000, guid: 895d63c2571c89d428ca3bc34ca53ca4, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 895d63c2571c89d428ca3bc34ca53ca4, type: 3}
@@ -6297,8 +6327,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 22.530094, y: 0.28318572, z: 45.156147}
-  m_Center: {x: 1.9593525, y: 0.09698093, z: 22.569223}
+  m_Size: {x: 27.28326, y: 0.28318572, z: 45.156147}
+  m_Center: {x: -0.4172306, y: 0.09698093, z: 22.569223}
 --- !u!1001 &387016971
 Prefab:
   m_ObjectHideFlags: 0
@@ -6451,6 +6481,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -7110,7 +7144,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4428855863635702, guid: f1969aa933674184f96150009e134a2e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1484310771902508, guid: f1969aa933674184f96150009e134a2e, type: 2}
       propertyPath: m_Name
@@ -7134,6 +7168,11 @@ Prefab:
         type: 2}
       propertyPath: retreatZ
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909468267526780, guid: f1969aa933674184f96150009e134a2e,
+        type: 2}
+      propertyPath: soundArea
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 122296593969093670, guid: f1969aa933674184f96150009e134a2e, type: 2}
@@ -7344,18 +7383,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1188588226082148, guid: 133fcd21548600d46b3aa445d501a040,
     type: 2}
   m_PrefabInternal: {fileID: 1864808867}
---- !u!65 &478164770
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 478164769}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 8}
-  m_Center: {x: 0, y: 0, z: 4}
 --- !u!114 &478164771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7576,6 +7603,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -8535,11 +8566,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
@@ -8549,6 +8580,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735065522378400, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -8870,6 +8905,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -8916,6 +8955,10 @@ Prefab:
     - target: {fileID: 400002, guid: fa345e5e9a8ba874ab76990096fddb44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: fa345e5e9a8ba874ab76990096fddb44, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa345e5e9a8ba874ab76990096fddb44, type: 3}
@@ -9122,6 +9165,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -10208,6 +10255,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.9983245
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -10854,6 +10905,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: f83c34d0396e0204e8b718449ba07391, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f83c34d0396e0204e8b718449ba07391, type: 3}
   m_IsPrefabParent: 0
@@ -10916,6 +10971,22 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3c432f008e89b0643a56b2b0656b05da, type: 2}
   m_PrefabInternal: {fileID: 696349408}
+--- !u!1 &700178834 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 8ff1c1b9cf5b7a04cb138065aa8fbce1, type: 3}
+  m_PrefabInternal: {fileID: 1718795930}
+--- !u!65 &700178836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700178834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.375, y: 1.125, z: 0.66494405}
+  m_Center: {x: 0, y: 0, z: 0.032472}
 --- !u!1001 &701057568
 Prefab:
   m_ObjectHideFlags: 0
@@ -12223,6 +12294,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -14832,6 +14907,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -15697,7 +15776,7 @@ Transform:
   m_LocalScale: {x: 1.1111112, y: 1.1111112, z: 1.1111112}
   m_Children: []
   m_Father: {fileID: 1850971834}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1033853110
 MonoBehaviour:
@@ -15801,7 +15880,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 370142219}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!122 &1045112398
 Halo:
@@ -17047,11 +17126,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
@@ -17061,6 +17140,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735065522378400, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -17775,11 +17858,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
@@ -17789,6 +17872,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735065522378400, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -17886,52 +17973,6 @@ Transform:
   m_Father: {fileID: 953562396}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1196322924
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1291365354}
-    m_Modifications:
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 416208, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ca97fb5273ba02943b18341d28abb72d, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1197302091
 Prefab:
   m_ObjectHideFlags: 0
@@ -18034,71 +18075,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 476048, guid: d7144b3c6133fbb45808a248894e9db3, type: 2}
   m_PrefabInternal: {fileID: 1766457390}
---- !u!1001 &1212375527
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1850971834}
-    m_Modifications:
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1188588226082148, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_Name
-      value: Guard Hostile
-      objectReference: {fileID: 0}
-    - target: {fileID: 114950427649894646, guid: 133fcd21548600d46b3aa445d501a040,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 113493820}
-    - target: {fileID: 114950427649894646, guid: 133fcd21548600d46b3aa445d501a040,
-        type: 2}
-      propertyPath: speed
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1188588226082148, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1188588226082148, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 122834324295440548, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1218440587
 Prefab:
   m_ObjectHideFlags: 0
@@ -19027,27 +19003,6 @@ Prefab:
       propertyPath: m_Name
       value: PrisonCell (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4115218626155404, guid: c292071541f02479e914258e80b03aaa, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 64206945482050884, guid: c292071541f02479e914258e80b03aaa,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -19306,7 +19261,6 @@ GameObject:
   - component: {fileID: 1312321919}
   - component: {fileID: 1312321920}
   - component: {fileID: 1312321921}
-  - component: {fileID: 1312321922}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19359,7 +19313,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e5d10eb598108a4468739dcea939e027, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19474,6 +19428,7 @@ MonoBehaviour:
   ding: {fileID: 8300000, guid: cc6de04835faf654eac17db031a4fdb4, type: 3}
   slideSound: {fileID: 8300000, guid: a3b1a3da6aaae6144b179029ba4eb2dd, type: 3}
   swingSound: {fileID: 8300000, guid: b7a4b9747b5af544f80b184b3d57ce93, type: 3}
+  ShootingSound: {fileID: 8300000, guid: 8c6d0c7ddda21494ea09a02d01f7eead, type: 3}
   source: {fileID: 1312321915}
 --- !u!114 &1312321920
 MonoBehaviour:
@@ -19486,13 +19441,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a494db88a14d9d842be264e0d2ba08cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoil: 0
+  sounds: {fileID: 1312321919}
+  movement: {fileID: 113493816}
 --- !u!114 &1312321921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312321913}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65c4e56742a75db448cd42126ec02b95, type: 3}
   m_Name: 
@@ -19502,19 +19460,6 @@ MonoBehaviour:
   camera: {fileID: 1312321918}
   slowDown: 0.5
   shake: 0
---- !u!114 &1312321922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1312321913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b9e157d02777645b09e64f32197d38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShootingSound: {fileID: 8300000, guid: 8c6d0c7ddda21494ea09a02d01f7eead, type: 3}
-  source: {fileID: 1312321915}
 --- !u!1001 &1313657618
 Prefab:
   m_ObjectHideFlags: 0
@@ -20034,6 +19979,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: 12a15325867fc724fb7a4c8bf88f8b70, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12a15325867fc724fb7a4c8bf88f8b70, type: 3}
   m_IsPrefabParent: 0
@@ -20295,6 +20244,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -22233,7 +22186,7 @@ BoxCollider:
   m_GameObject: {fileID: 1454167725}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -22678,6 +22631,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -22825,7 +22782,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
       propertyPath: m_LocalScale.x
@@ -22873,6 +22830,10 @@ Prefab:
       propertyPath: playerMan
       value: 
       objectReference: {fileID: 113493812}
+    - target: {fileID: 1188588226082148, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
   m_IsPrefabParent: 0
@@ -24581,6 +24542,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -24687,6 +24652,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -24752,11 +24721,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
@@ -24766,6 +24735,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735065522378400, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -26005,6 +25978,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: 8ff1c1b9cf5b7a04cb138065aa8fbce1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ff1c1b9cf5b7a04cb138065aa8fbce1, type: 3}
   m_IsPrefabParent: 0
@@ -26118,6 +26095,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -26196,6 +26177,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -27449,7 +27434,7 @@ Transform:
   m_LocalScale: {x: 1.1111112, y: 1.1111112, z: 1.1111112}
   m_Children: []
   m_Father: {fileID: 1850971834}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1812619607
 MonoBehaviour:
@@ -27990,6 +27975,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -28346,7 +28335,6 @@ Transform:
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 59446741}
-  - {fileID: 2102417662}
   - {fileID: 1022174253}
   - {fileID: 31502178}
   - {fileID: 1538219675}
@@ -28392,7 +28380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
       propertyPath: m_LocalScale.x
@@ -28424,7 +28412,7 @@ Prefab:
         type: 2}
       propertyPath: vision
       value: 
-      objectReference: {fileID: 478164770}
+      objectReference: {fileID: 0}
     - target: {fileID: 136942090118176140, guid: 133fcd21548600d46b3aa445d501a040,
         type: 2}
       propertyPath: m_Enabled
@@ -29129,7 +29117,12 @@ Prefab:
       propertyPath: playerMan
       value: 
       objectReference: {fileID: 113493812}
-    m_RemovedComponents: []
+    - target: {fileID: 1188588226082148, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 122834324295440548, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
   m_IsPrefabParent: 0
 --- !u!82 &1864808868 stripped
@@ -29395,6 +29388,10 @@ Prefab:
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
       value: PrisonInsideWallTwo (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -32275,11 +32272,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4338437946672038, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4059391760707884, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4680528915478750, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_RootOrder
@@ -32289,6 +32286,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735065522378400, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -32502,6 +32503,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonInsideWallTwo (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -32590,11 +32595,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3c432f008e89b0643a56b2b0656b05da, type: 2}
   m_PrefabInternal: {fileID: 2098529979}
---- !u!4 &2102417662 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040,
-    type: 2}
-  m_PrefabInternal: {fileID: 1212375527}
 --- !u!1001 &2112342497
 Prefab:
   m_ObjectHideFlags: 0
