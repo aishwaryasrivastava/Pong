@@ -12,14 +12,13 @@ public class GuardScript : MonoBehaviour {
 	public BoxCollider vision;
 	public GameObject target;
 	public GameObject playerMan;
-	public int dmg = 0;
+	public GameObject friend;
 
 	private Vector3 position;
 	private Vector3 direction;
 	public Vector3 initialPos;
 	public Quaternion initialRot;
-
-	private PlayerMovementController tmp;
+	private int count;
 
 	bool north;
 	bool south;
@@ -51,25 +50,29 @@ public class GuardScript : MonoBehaviour {
         {
             anim.ToAttacking();
 		}
-        else if (!found)
+		else if( (!found) || (Vector3.Distance (player.position, transform.position) > runningDistance))
         {
             anim.ToWalking();
 			walking ();
 		}
 
-		tmp = GetComponent<PlayerMovementController> ();
-		if (dmg == 3)
+
+		var tmp = playerMan.GetComponent<PlayerMovementController> ();
+		if (tmp.Dmg () == 3)
         {
-			var script = playerMan.GetComponent<PlayerInteractionController> ();
-			script.Die();
-			found = false;
-            dmg = 0;
-			transform.position = initialPos;
-			transform.rotation = initialRot;
-			north = true;
-			south = false;
-			east = false;
-			west = false;
+				var script = playerMan.GetComponent<PlayerInteractionController> ();
+				script.Die ();
+				found = false;
+				transform.position = initialPos;
+				transform.rotation = initialRot;
+				north = true;
+				south = false;
+				east = false;
+				west = false;
+			var tmp2 = friend.GetComponent<GuardScript> ();
+			if (!tmp2.found) {
+				tmp.dmg = 0;
+			}
         }
 	}
 
@@ -126,7 +129,8 @@ public class GuardScript : MonoBehaviour {
 
 	private void kill()
     {
-		dmg++;
+		var tmp = playerMan.GetComponent<PlayerMovementController> ();
+		tmp.oneHit ();
 	}
 
 	private void walking()
