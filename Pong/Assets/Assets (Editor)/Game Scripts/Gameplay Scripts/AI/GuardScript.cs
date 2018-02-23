@@ -3,21 +3,28 @@
 public class GuardScript : MonoBehaviour {
 
 	public Transform player;
+
 	public float attackDistance = 5.0f;
 	public float runningDistance = 8.0f;
 	public float speed = 0.4f;
 	public float walkingSpeed = 0.01f;
+
 	public bool found;
-	GuardAnimHandler anim;
+
 	public BoxCollider vision;
+
 	public GameObject target;
 	public GameObject playerMan;
 	public GameObject friend;
+	public GameObject guard;
+
+	public Vector3 initialPos;
+	public Quaternion initialRot;
+
+	GuardAnimHandler anim;
 
 	private Vector3 position;
 	private Vector3 direction;
-	public Vector3 initialPos;
-	public Quaternion initialRot;
 	private int count;
 
 	bool north;
@@ -25,14 +32,19 @@ public class GuardScript : MonoBehaviour {
 	bool east;
 	bool west;
 
-	void awake(){
-	}
 	void Start () {
 		anim = GetComponent<GuardAnimHandler> ();
-		north = true;
-		south = false;
-		east = false;
-		west = false;
+		if (guard.CompareTag ("hwG1")) {
+			north = true;
+			south = false;
+			east = false;
+			west = false;
+		} else if (guard.CompareTag ("hwG2")) {
+			north = false;
+			south = true;
+			east = false;
+			west = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -58,17 +70,24 @@ public class GuardScript : MonoBehaviour {
 
 
 		var tmp = playerMan.GetComponent<PlayerMovementController> ();
-		if (tmp.Dmg () == 3)
+		if (tmp.dmg == 3)
         {
 				var script = playerMan.GetComponent<PlayerInteractionController> ();
 				script.Die ();
 				found = false;
 				transform.position = initialPos;
 				transform.rotation = initialRot;
+			if (guard.CompareTag ("hwG1")) {
 				north = true;
 				south = false;
 				east = false;
 				west = false;
+			} else if (guard.CompareTag ("hwG2")) {
+				north = false;
+				south = true;
+				east = false;
+				west = false;
+			}
 			var tmp2 = friend.GetComponent<GuardScript> ();
 			if (!tmp2.found) {
 				tmp.dmg = 0;
@@ -120,19 +139,7 @@ public class GuardScript : MonoBehaviour {
 				}
 			}
 	}
-
-	private void beat()
-    {
-		CameraShaker script = target.GetComponent<CameraShaker> ();
-		script.hit ();
-	}
-
-	private void kill()
-    {
-		var tmp = playerMan.GetComponent<PlayerMovementController> ();
-		tmp.oneHit ();
-	}
-
+		
 	private void walking()
     {
 		if (north) {
@@ -153,4 +160,17 @@ public class GuardScript : MonoBehaviour {
 			transform.position = position;
 		}
 	}
+
+	private void beat()
+	{
+		CameraShaker script = target.GetComponent<CameraShaker> ();
+		script.hit ();
+	}
+
+	private void kill()
+	{
+		var tmp = playerMan.GetComponent<PlayerMovementController> ();
+		tmp.dmg++;
+	}
+
 }

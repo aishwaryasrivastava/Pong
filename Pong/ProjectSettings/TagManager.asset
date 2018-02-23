@@ -18,6 +18,8 @@ TagManager:
   - cp2
   - cp3
   - cp4
+  - hwG1
+  - hwG2
   layers:
   - Default
   - TransparentFX

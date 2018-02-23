@@ -173,14 +173,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         return dialog != null && dialog.talking;
     }
-
-	public int Dmg(){
-		return dmg;
-	}
-
-	public void oneHit(){
-		dmg++;
-	}
 }
 
 public static class PauseManager
