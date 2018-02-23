@@ -2570,7 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementMult: 3
   MouseSensitivity: 3
-  JumpForce: 7
+  JumpForce: 6
   crouchShift: 0.5
   head: {fileID: 113493819}
   inTheRed: 0
@@ -8755,7 +8755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &585611255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23055,6 +23055,11 @@ Prefab:
       propertyPath: initialRot.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 114950427649894646, guid: 133fcd21548600d46b3aa445d501a040,
+        type: 2}
+      propertyPath: speed
+      value: 0.075
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
   m_IsPrefabParent: 0
@@ -29376,6 +29381,11 @@ Prefab:
       propertyPath: guard
       value: 
       objectReference: {fileID: 478164769}
+    - target: {fileID: 114950427649894646, guid: 133fcd21548600d46b3aa445d501a040,
+        type: 2}
+      propertyPath: speed
+      value: 0.075
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 122834324295440548, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
@@ -29433,6 +29443,10 @@ Prefab:
         type: 2}
       propertyPath: code
       value: secure
+      objectReference: {fileID: 0}
+    - target: {fileID: 148044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3819d73d704add245a21ffb570bc7792, type: 2}

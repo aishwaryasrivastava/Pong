@@ -54,8 +54,8 @@ public class PlayerMovementController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            forward *= 2;
-            rightward *= 2;
+            forward *= 1.5f;
+            rightward *= 1.5f;
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;

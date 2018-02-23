@@ -6,7 +6,7 @@ public class GuardScript : MonoBehaviour {
 
 	public float attackDistance = 5.0f;
 	public float runningDistance = 8.0f;
-	public float speed = 0.4f;
+	public float speed = 0.7f;
 	public float walkingSpeed = 0.01f;
 
 	public bool found;
@@ -96,6 +96,7 @@ public class GuardScript : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other){
+		if (!found) {
 			if (other.CompareTag ("cp1")) {
 				if (south) {
 					transform.Rotate (0, -90, 0);
@@ -138,6 +139,7 @@ public class GuardScript : MonoBehaviour {
 					west = true;
 				}
 			}
+		}
 	}
 		
 	private void walking()
