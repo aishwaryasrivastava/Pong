@@ -12403,6 +12403,7 @@ GameObject:
   - component: {fileID: 799858130}
   - component: {fileID: 799858129}
   - component: {fileID: 799858128}
+  - component: {fileID: 799858132}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -12495,6 +12496,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 799858126}
   m_Mesh: {fileID: 4300000, guid: e09ed58b62e613144a38bd45ce9f99fd, type: 3}
+--- !u!114 &799858132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799858126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8201c0b3a152ab847bff0c34325cfa67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLock: 0
 --- !u!1001 &800078047
 Prefab:
   m_ObjectHideFlags: 0
@@ -19390,6 +19403,7 @@ GameObject:
   - component: {fileID: 1312321919}
   - component: {fileID: 1312321920}
   - component: {fileID: 1312321921}
+  - component: {fileID: 1312321922}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19566,7 +19580,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312321913}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a494db88a14d9d842be264e0d2ba08cf, type: 3}
   m_Name: 
@@ -19590,6 +19604,19 @@ MonoBehaviour:
   camera: {fileID: 1312321918}
   slowDown: 0.5
   shake: 0
+--- !u!114 &1312321922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1312321913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01800474b02d5c349a74deb68f341ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pipe: {fileID: 799858126}
+  movement: {fileID: 113493816}
 --- !u!1001 &1313657618
 Prefab:
   m_ObjectHideFlags: 0
