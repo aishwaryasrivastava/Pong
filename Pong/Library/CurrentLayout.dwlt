@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 69
+  controlID: 74
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 492}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 0
-  controlID: 70
+  controlID: 75
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 71
+  controlID: 76
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -526,14 +526,14 @@ MonoBehaviour:
     height: 464
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 1930.685306322721
+  lastFramingTime: 15461.030115519863
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.949136, y: 3.6877875, z: 24.908089}
+    m_Target: {x: -2.977368, y: 1.4890308, z: 31.528854}
     speed: 2
-    m_Value: {x: -9.949136, y: 3.6877875, z: 24.908089}
+    m_Value: {x: -2.977368, y: 1.4890308, z: 31.528854}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -559,11 +559,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
-    m_Value: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    m_Value: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   m_Size:
-    m_Target: 6.1688595
+    m_Target: 22.158594
     speed: 2
-    m_Value: 6.1688595
+    m_Value: 22.158594
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -630,10 +630,10 @@ MonoBehaviour:
     height: 295
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: be540000
-    m_LastClickedID: 21694
-    m_ExpandedIDs: 9efbffff00000000ea55000040580000ac58000066590000465d0000
+    scrollPos: {x: 0, y: 390}
+    m_SelectedIDs: 50560000
+    m_LastClickedID: 22096
+    m_ExpandedIDs: 9efbffff000000000a5500004c550000ea55000082560000ac580000005900000e59000066590000145b0000ea5b0000385d0000465d0000605d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: HallwayGuard-01
@@ -695,7 +695,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Assets (Editor)/Game Scripts/Gameplay Scripts/AI
+    - Assets/Assets (Editor)/Game Scripts/AnimationControllers
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -706,7 +706,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b2920200
     m_LastClickedID: 168626
-    m_ExpandedIDs: 0000000020280000442900006a2b0000122c0000662d0000242e0000a22e0000f62e0000523000009e300000ee300000763100002c3300006a330000a8330000063400001a3400009e34000034350000c6350000a8370000aa37000060390000163a0000623a00001c3d0000263d00003a3d0000b03d0000163e0000e03e00002e41000020420000a8450000ae4500003a4600004c47000096480000d4480000ac4b0000be4c00003c4f0000a0510000a8510000b85100005c5200005e52000096520000085300003c5300009c530000a6530000d6660000d8660000da660000dc660000de660000e0660000e2660000e4660000e6660000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000fe66000000670000026700000467000006670000086700000a6700000c6700000e670000106700001267000014670000
+    m_ExpandedIDs: 0000000020280000442900006a2b0000122c0000662d0000242e0000a22e0000f62e0000523000009e300000ee300000763100002c3300006a330000a8330000063400001a3400009e34000034350000c6350000a8370000aa37000060390000163a0000623a00001c3d0000263d00003a3d0000b03d0000163e0000e03e00002e41000020420000a84500003a4600004c47000096480000d4480000ac4b0000be4c00003c4f0000a0510000a8510000b85100005c5200005e52000096520000085300009c530000a6530000d6660000d8660000da660000dc660000de660000e0660000e2660000e4660000e6660000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000fe66000000670000026700000467000006670000086700000a6700000c6700000e670000106700001267000014670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -737,18 +737,18 @@ MonoBehaviour:
     m_ExpandedIDs: 0000000020280000442900006a2b0000122c0000662d0000242e0000a22e0000f62e0000523000009e300000ee300000763100002c3300006a330000a8330000063400001a3400009e34000034350000c6350000a8370000aa37000060390000163a0000623a00001c3d0000263d00003a3d0000b03d0000163e0000e03e00002e41000020420000a84500003a4600004c47000096480000d4480000ac4b0000be4c00003c4f0000a0510000a8510000b85100005c5200005e52000096520000085300009c530000a6530000d6660000d8660000da660000dc660000de660000e0660000e2660000e4660000e6660000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000fe66000000670000026700000467000006670000086700000a6700000c6700000e670000106700001267000014670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: AISoundController
-      m_OriginalName: AISoundController
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 1646
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -816,7 +816,7 @@ MonoBehaviour:
     width: 735
     height: 926
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 60}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 399
