@@ -74,6 +74,21 @@ public class GuardScript : MonoBehaviour {
 				south = true;
 				east = false;
 				west = false;
+			}else if(cp.CompareTag ("cp1")){
+				north = false;
+				south = false;
+				east = false;
+				west = true;
+			}else if(cp.CompareTag ("cp2")){
+				north = true;
+				south = false;
+				east = false;
+				west = false;
+			}else if(cp.CompareTag ("cp4")){
+				north = false;
+				south = false;
+				east = true;
+				west = false;
 			}
 			anim.ToWalking ();
 			direction = cp.transform.position - transform.position;
@@ -111,29 +126,27 @@ public class GuardScript : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other){
-		if ((!found) || (comeback)) {
+		if (other.CompareTag ("Wall")) {
+			Debug.Log ("hit");
+		}
+		if (((!found) || (comeback)) && (!other.CompareTag(friend.tag))) {
+			Debug.Log (other.tag);
 			comeback = false;
 			found = false;
 			if (other.CompareTag ("cp1")) {
-				if (south) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-					south = false;
-					east = true;
-				} else if (west) {
+				//found = false;
+				if (west) {
 					transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-					east = false;
+					west = false;
 					north = true;
 				}
 
 			} else if (other.CompareTag ("cp2")) {
+				//found = false;
 				if (north) {
 					transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
 					north = false;
 					east = true;
-				} else if (west) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-					west = false;
-					south = true;
 				}
 			} else if (other.CompareTag ("cp3")) {
 				if (south) {
@@ -142,12 +155,6 @@ public class GuardScript : MonoBehaviour {
 					south = false;
 					east = false;
 					west = true;
-				} else if (east) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-					north = true;
-					south = false;
-					east = false;
-					west = false;
 				}
 			} else if (other.CompareTag ("cp4")) {
 				if (east) {
@@ -156,12 +163,6 @@ public class GuardScript : MonoBehaviour {
 					south = true;
 					east = false;
 					west = false;
-				} else if (north) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
-					north = false;
-					south = false;
-					east = false;
-					west = true;
 				}
 			}
 		}
@@ -195,8 +196,8 @@ public class GuardScript : MonoBehaviour {
 		array [2] = cp3;
 		array [3] = cp4;
 		GameObject result = null;
-		float min = Vector3.Distance (transform.position, cp1.transform.position);
-		for (int i = 1; i < array.Length; i++) {
+		float min = 10000.0f;
+		for (int i = 0; i < array.Length; i++) {
 			if (Vector3.Distance (transform.position, array [i].transform.position) < min) {
 				min = Vector3.Distance (transform.position, array [i].transform.position);
 				result = array [i];

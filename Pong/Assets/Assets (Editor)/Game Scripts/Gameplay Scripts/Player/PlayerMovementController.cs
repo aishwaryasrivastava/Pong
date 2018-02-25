@@ -18,6 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     public DialogueManager dialog;
 
     public AudioSource source;
+	public AudioSource source2;
 	public int dmg = 0;
     void Awake()
     {
@@ -54,8 +55,8 @@ public class PlayerMovementController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            forward *= 1.5f;
-            rightward *= 1.5f;
+            forward *= 1.9f;
+            rightward *= 1.9f;
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
@@ -131,11 +132,11 @@ public class PlayerMovementController : MonoBehaviour
 
 	    MoveWithMouse();
         SetMovementVector();
-	    if (Math.Abs(rightward) > 0 || Math.Abs(forward) > 0)
-	    {
-	        if (!source.isPlaying) source.Play();
-	    }
-	    else source.Stop();
+		if (Math.Abs (rightward) > 0 || Math.Abs (forward) > 0) {
+			if (!source2.isPlaying) source.Play();
+		} else {
+			source.Stop ();
+		}
         
         if(transform.position.y < -10) //fell out of the world
         {

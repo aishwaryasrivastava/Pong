@@ -2578,7 +2578,8 @@ MonoBehaviour:
   interact: {fileID: 113493815}
   shootGun: {fileID: 1312321920}
   dialog: {fileID: 0}
-  source: {fileID: 0}
+  source: {fileID: 113493813}
+  source2: {fileID: 113493813}
   dmg: 0
 --- !u!54 &113493817
 Rigidbody:
@@ -2628,7 +2629,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 3.5, z: 14.64}
+  m_LocalPosition: {x: 4.5, y: 3.5, z: 18.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -9031,7 +9032,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611827657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.36, y: 0, z: 44.62}
+  m_LocalPosition: {x: 8.24, y: 0, z: 44.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1226539903}
@@ -15913,7 +15914,7 @@ GameObject:
   - component: {fileID: 1033853110}
   m_Layer: 0
   m_Name: vision
-  m_TagString: Untagged
+  m_TagString: vision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20106,7 +20107,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1347858514
 Prefab:
@@ -22922,7 +22923,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.57
+      value: 6.52
       objectReference: {fileID: 0}
     - target: {fileID: 4291177299007812, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
       propertyPath: m_LocalPosition.y
@@ -23080,6 +23081,11 @@ Prefab:
       propertyPath: cp4
       value: 
       objectReference: {fileID: 611827657}
+    - target: {fileID: 82808718198288378, guid: 133fcd21548600d46b3aa445d501a040,
+        type: 2}
+      propertyPath: MinDistance
+      value: 6.8343124
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 133fcd21548600d46b3aa445d501a040, type: 2}
   m_IsPrefabParent: 0
@@ -27664,7 +27670,7 @@ GameObject:
   - component: {fileID: 1812619607}
   m_Layer: 0
   m_Name: vision2
-  m_TagString: Untagged
+  m_TagString: vision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29486,7 +29492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 148044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
