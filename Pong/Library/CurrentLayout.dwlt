@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 521}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 471}
   m_MaxSize: {x: 18008, y: 14021}
   vertical: 0
-  controlID: 67
+  controlID: 51
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 471}
   m_MaxSize: {x: 14006, y: 14021}
   vertical: 0
-  controlID: 68
+  controlID: 52
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 69
+  controlID: 53
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,8 +203,8 @@ MonoBehaviour:
     y: 485
     width: 883
     height: 462
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 471}
   m_MaxSize: {x: 10004, y: 14021}
   vertical: 1
-  controlID: 143
+  controlID: 78
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -548,9 +548,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.4404416, y: 2.8675957, z: 16.196566}
+    m_Target: {x: 4.280053, y: 2.8675919, z: 21.936226}
     speed: 2
-    m_Value: {x: 7.4404416, y: 2.8675957, z: 16.196566}
+    m_Value: {x: 4.280053, y: 2.8675919, z: 21.936226}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -576,11 +576,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
-    m_Value: {x: 0.7071069, y: 0, z: 0, w: 0.7071069}
+    m_Value: {x: -0.7071068, y: 0, z: -0, w: -0.7071068}
   m_Size:
-    m_Target: 20.415117
+    m_Target: 23.108906
     speed: 2
-    m_Value: 20.415117
+    m_Value: 23.108906
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -650,21 +650,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c4540000
     m_LastClickedID: 21700
-    m_ExpandedIDs: 9efbffff0000000010550000a4550000f05500008856000094560000da570000b2580000c4580000145900004e5900006c5900001a5b0000f05b00003e5d00004c5d0000
+    m_ExpandedIDs: 9efbffff00000000225b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: HallwayGuard-01
-      m_OriginalName: HallwayGuard-01
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 22102
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -712,7 +712,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Assets (Editor)/Animations
+    - Assets/Assets (Editor)/Game Scripts/Gameplay Scripts/Player
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -723,7 +723,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b2920200
     m_LastClickedID: 168626
-    m_ExpandedIDs: 0000000022280000462900006c2b0000142c0000282e0000a62e0000fa2e000056300000a2300000f23000007a310000303300006e330000ac3300000a3400001e340000a234000038350000ca350000ac370000ae370000643900001a3a0000663a0000203d00002a3d00003e3d0000b43d00001a3e0000e43e000032410000244200003e460000504700009a480000d8480000b04b0000c24c0000404f0000a4510000ac510000bc51000060520000625200009a5200000c530000a0530000aa530000dc660000de660000e0660000e2660000e4660000e6660000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000fe66000000670000026700000467000006670000086700000a6700000c6700000e67000010670000126700001467000016670000186700001a670000
+    m_ExpandedIDs: 0000000022280000462900006c2b0000142c0000682d0000282e0000a62e0000fa2e000056300000a2300000f23000007a310000303300006e330000ac3300000a3400001e340000a234000038350000ca350000ac370000ae370000643900001a3a0000663a0000203d00002a3d00003e3d0000b43d00001a3e0000e43e00003241000024420000b24500003e460000504700009a480000d8480000b04b0000c24c0000404f0000a4510000ac510000bc51000060520000625200009a5200000c530000a0530000aa530000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000fe66000000670000026700000467000006670000086700000a6700000c6700000e67000010670000126700001467000016670000186700001a6700001c6700001e67000020670000226700002467000026670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -748,24 +748,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 4}
+    scrollPos: {x: 0, y: 184}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000022280000462900006c2b0000142c0000682d0000282e0000a62e0000fa2e000056300000a2300000f23000007a310000303300006e330000ac3300000a3400001e340000a234000038350000ca350000ac370000ae370000643900001a3a0000663a0000203d00002a3d00003e3d0000b43d00001a3e0000e43e00003241000024420000b24500003e460000504700009a480000d8480000b04b0000c24c0000404f0000a4510000ac510000bc51000060520000625200009a5200000c530000a0530000aa530000dc660000de660000e0660000e2660000e4660000e6660000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000fe66000000670000026700000467000006670000086700000a6700000c6700000e67000010670000126700001467000016670000186700001a670000
+    m_ExpandedIDs: 0000000022280000462900006c2b0000142c0000682d0000282e0000a62e0000fa2e000056300000a2300000f23000007a310000303300006e330000ac3300000a3400001e340000a234000038350000ca350000ac370000ae370000643900001a3a0000663a0000203d00002a3d00003e3d0000b43d00001a3e0000e43e00003241000024420000b24500003e460000504700009a480000d8480000b04b0000c24c0000404f0000a4510000ac510000bc51000060520000625200009a5200000c530000a0530000aa530000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000fa660000fc660000fe66000000670000026700000467000006670000086700000a6700000c6700000e67000010670000126700001467000016670000186700001a6700001c6700001e67000020670000226700002467000026670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: PlayerMovementController
+      m_OriginalName: PlayerMovementController
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 1996
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
