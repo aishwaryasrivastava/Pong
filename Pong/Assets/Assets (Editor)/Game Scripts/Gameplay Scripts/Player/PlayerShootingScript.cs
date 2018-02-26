@@ -13,7 +13,7 @@ public class PlayerShootingScript : MonoBehaviour
 
     private RaycastHit Shot;
     private GameObject flare;
-    private Transform gun;
+    public Transform gun;
 
     public SoundController sounds;
     public PlayerMovementController movement;
@@ -21,7 +21,7 @@ public class PlayerShootingScript : MonoBehaviour
     void Start()
     {
         timer = 0;
-        gun = transform.GetChild(0);
+        //gun = transform.GetChild(0);
         flare = gun.Find("Flare").gameObject;
         flare.SetActive(false);
         recoil = 0;

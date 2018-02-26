@@ -21,4 +21,5 @@ public class PlayerMeleeScript : MonoBehaviour {
         
         if (Input.GetMouseButton(0)) animator.Attack();
     }
+    
 }
