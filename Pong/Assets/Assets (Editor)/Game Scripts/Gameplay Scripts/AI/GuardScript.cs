@@ -38,6 +38,7 @@ public class GuardScript : MonoBehaviour {
 	public bool west;
 
 	private bool comeback = false;
+	private bool inRoom = false;
 	void Start () {
 		anim = GetComponent<GuardAnimHandler> ();
 		if (guard.CompareTag ("hwG1")) {
@@ -56,7 +57,7 @@ public class GuardScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && (player.transform.position.z > 17.0f)) {
+		if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && (player.transform.position.z > 17.0f) && !inRoom) {
 			anim.ToRunning ();
 			direction = player.position - transform.position;
 			direction.y = 0;
@@ -67,7 +68,7 @@ public class GuardScript : MonoBehaviour {
 		} else if (!found) {
 			anim.ToWalking ();
 			walking ();
-		} else if (found && player.transform.position.z < 17.0f) {
+		} else if( (found && player.transform.position.z < 17.0f) || inRoom){
 			GameObject cp = nearestPoint ();
 			if (cp.CompareTag ("cp3")) {
 				north = false;
@@ -123,18 +124,20 @@ public class GuardScript : MonoBehaviour {
 				tmp.dmg = 0;
 			}
         }
+			
+		if (((player.position.x > 6.6) && found) || ((player.position.x < -10.4) && found)) {
+			inRoom = true;
+		} else {
+			inRoom = false;
+		}
 	}
 
 	private void OnTriggerEnter(Collider other){
-		if (other.CompareTag ("Wall")) {
-			Debug.Log ("hit");
-		}
-		if (((!found) || (comeback)) && (!other.CompareTag(friend.tag))) {
-			Debug.Log (other.tag);
+		Debug.Log (other.tag);
+		if (((!found) || (comeback)) && (!other.CompareTag(friend.tag)) && !(other.CompareTag("vision")) && !(other.CompareTag("Wall"))) {
 			comeback = false;
 			found = false;
 			if (other.CompareTag ("cp1")) {
-				//found = false;
 				if (west) {
 					transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 					west = false;
@@ -142,7 +145,6 @@ public class GuardScript : MonoBehaviour {
 				}
 
 			} else if (other.CompareTag ("cp2")) {
-				//found = false;
 				if (north) {
 					transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
 					north = false;
