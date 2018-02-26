@@ -17,9 +17,9 @@ public class PlayerMovementController : MonoBehaviour
     public PlayerShootingScript shootGun;
     public DialogueManager dialog;
 
-    public AudioSource source;
-	public AudioSource source2;
+	public AudioSource source;
 	public int dmg = 0;
+	public bool moving;
     void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -133,8 +133,10 @@ public class PlayerMovementController : MonoBehaviour
 	    MoveWithMouse();
         SetMovementVector();
 		if (Math.Abs (rightward) > 0 || Math.Abs (forward) > 0) {
-			if (!source2.isPlaying) source.Play();
+			moving = true;
+			if (!source.isPlaying) source.Play ();
 		} else {
+			moving = false;
 			source.Stop ();
 		}
         

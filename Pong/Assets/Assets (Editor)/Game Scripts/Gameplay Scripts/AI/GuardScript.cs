@@ -133,7 +133,7 @@ public class GuardScript : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other){
-		Debug.Log (other.tag);
+		//Debug.Log (other.tag);
 		if (((!found) || (comeback)) && (!other.CompareTag(friend.tag)) && !(other.CompareTag("vision")) && !(other.CompareTag("Wall"))) {
 			comeback = false;
 			found = false;

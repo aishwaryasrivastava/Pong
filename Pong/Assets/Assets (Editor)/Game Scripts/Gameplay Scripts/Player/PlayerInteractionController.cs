@@ -169,6 +169,14 @@ public class PlayerInteractionController : MonoBehaviour
         {
             Die();
         }
+		var tmp = GetComponent<PlayerMovementController> ();
+		if ((Input.GetKeyDown (KeyCode.LeftShift)) && tmp.moving) {
+			sounds.Running (true);
+			tmp.source.Stop ();
+		}
+		if (Input.GetKeyUp (KeyCode.LeftShift)) {
+			sounds.Running (false);
+		}
         if (!InventoryActive)
         {
             CheckInteractionControls();

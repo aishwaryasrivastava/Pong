@@ -2578,9 +2578,9 @@ MonoBehaviour:
   interact: {fileID: 113493815}
   shootGun: {fileID: 1312321920}
   dialog: {fileID: 0}
-  source: {fileID: 113493813}
-  source2: {fileID: 113493813}
+  source: {fileID: 0}
   dmg: 0
+  moving: 0
 --- !u!54 &113493817
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19516,9 +19516,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7af2f3f1db9202444852415c6bb6cdde, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -19633,7 +19633,6 @@ MonoBehaviour:
   slideSound: {fileID: 8300000, guid: a3b1a3da6aaae6144b179029ba4eb2dd, type: 3}
   swingSound: {fileID: 8300000, guid: b7a4b9747b5af544f80b184b3d57ce93, type: 3}
   ShootingSound: {fileID: 8300000, guid: 8c6d0c7ddda21494ea09a02d01f7eead, type: 3}
-  source: {fileID: 1312321915}
 --- !u!114 &1312321920
 MonoBehaviour:
   m_ObjectHideFlags: 0
