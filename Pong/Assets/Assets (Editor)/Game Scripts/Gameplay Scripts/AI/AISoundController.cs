@@ -5,6 +5,7 @@ using UnityEngine;
 public class AISoundController : MonoBehaviour {
 
 	public AudioClip hitSound;
+	public AudioClip[] ouch = new AudioClip[8];
 	public AudioSource source;
 	// Use this for initialization
 	private float lowVol = 0.2f;
@@ -15,5 +16,9 @@ public class AISoundController : MonoBehaviour {
 	public void PlayBeat()
 	{
 		source.PlayOneShot(hitSound, lowVol);
+	}
+
+	public void PlayOuch(){
+		source.PlayOneShot(ouch[Random.Range (0, 8)], lowVol);
 	}
 }

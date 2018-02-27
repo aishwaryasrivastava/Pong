@@ -101,7 +101,7 @@ public class GuardScript : MonoBehaviour {
 
 
 		var tmp = playerMan.GetComponent<PlayerMovementController> ();
-		if (tmp.dmg == 3)
+		if (tmp.dmg == 5)
         {
 				var script = playerMan.GetComponent<PlayerInteractionController> ();
 				script.Die ();
@@ -125,7 +125,7 @@ public class GuardScript : MonoBehaviour {
 			}
         }
 			
-		if (((player.position.x > 6.6) && found) || ((player.position.x < -10.4) && found)) {
+		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.4) && found)) {
 			inRoom = true;
 		} else {
 			inRoom = false;
