@@ -64,23 +64,30 @@ public class PlayerShootingScript : MonoBehaviour
     {
         recoil += shift;
         gun.Rotate(-shift, 0, 0);
+        gun.Translate(0, 0, -shift/100);
     }
 
     void Fire()
     {
         flare.SetActive(true);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
+        if (Physics.Raycast(transform.position, Camera.main.transform.forward, out Shot))
         {
-            Shot.transform.SendMessage("shotAt", damage * transform.TransformDirection(Vector3.forward), SendMessageOptions.DontRequireReceiver);
+            var h = Shot.transform.GetComponent<ShotAtScript>();
+            if(h != null) h.ShotAt(damage*Camera.main.transform.forward); //transform.SendMessage("shotAt", damage * transform.TransformDirection(), SendMessageOptions.DontRequireReceiver);
         }
         ammoCount--;
         timer = fireGap;
-        recoil += damage / 10f;
-        transform.Rotate(damage / -10f, 0, 0);
-        gun.Translate(0, 0, damage / -1000f);
+        Recoil(damage/10f);
+        //recoil += damage / 10f;
+        //transform.Rotate(damage / -10f, 0, 0);
+        
         sounds.PlayShoot();
     }
-    bool CanFire() { return timer <= 0 && ammoCount > 0 && !reloading; }
+
+    bool CanFire()
+    {
+        return timer <= 0 && ammoCount > 0 && !reloading;
+    }
     void Reload()
     {
         if (timer > reloadDuration / 2) { magazine.Translate(0, -1f * Time.deltaTime, 0); }

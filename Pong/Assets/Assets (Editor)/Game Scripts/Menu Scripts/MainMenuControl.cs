@@ -14,7 +14,7 @@ public class MainMenuControl : MonoBehaviour
     }
     IEnumerator LoadAsyncScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/Prison");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Assets (Scenes)/Level1");
         while (!asyncLoad.isDone)
         {
             yield return null;
@@ -31,7 +31,7 @@ public class MainMenuControl : MonoBehaviour
 
     public void PlayCredits()
     {
-        SceneManager.LoadScene("Scenes/Credits");
+        SceneManager.LoadScene("Assets (Scenes)/Credits");
     }
 
     public void Quit()
