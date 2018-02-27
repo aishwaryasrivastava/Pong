@@ -5,9 +5,16 @@ using UnityEngine;
 public class PlayerWeaponEquip : MonoBehaviour {
 
     public GameObject[] weapons;
+    int current, next;
 
 	// Use this for initialization
 	void Start () {
+        current = 1;
+        next = 0;
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            weapons[i].SetActive(false);
+        }
         SetActiveWeapon(0);
 	}
 	
@@ -20,10 +27,24 @@ public class PlayerWeaponEquip : MonoBehaviour {
 
     public void SetActiveWeapon(int sel)
     {
+        if (sel != current)
+        {
+            next = sel;
+            weapons[current].GetComponent<WeaponSwitchState>().AttemptSwitch();
+        }
+        /*
         for (int i = 0; i < weapons.Length; i++)
         {
             weapons[i].SetActive(false);
         }
         weapons[sel].SetActive(true);
+        */
+    }
+
+    public void ReadyToSwitch()
+    {
+        weapons[current].SetActive(false);
+        current = next;
+        weapons[current].SetActive(true);
     }
 }

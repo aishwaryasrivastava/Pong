@@ -21,23 +21,36 @@ public class PipeAnimationHandler : MonoBehaviour {
             anim.SetBool("isAttacking", false);
             anim.SetBool("isIdle", false);
             anim.SetBool("isWalking", true);
-        }
+        //anim.SetBool("isEquipping", false);
+    }
 
         public void ToIdle()
         {
             anim.SetBool("isAttacking", false);
             anim.SetBool("isIdle", true);
             anim.SetBool("isWalking", false);
-        }
+        //anim.SetBool("isEquipping", false);
+    }
 
-         
 
-        public void ToAttacking()
-        {
-            anim.SetBool("isAttacking", true);
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", false);
-        }
+
+    public void ToAttacking()
+    {
+        anim.SetBool("isAttacking", true);
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isWalking", false);
+        //anim.SetBool("isEquipping", false);
+    }
+
+    /*
+    public void ToEquipping()
+    {
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isEquipping", true);
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isWalking", false);
+    }
+    */
 
     public void Attack()
     {
@@ -47,6 +60,7 @@ public class PipeAnimationHandler : MonoBehaviour {
             ToAttacking();
         }
     }
+    
 
     public void ReleaseAttackLock()
     {

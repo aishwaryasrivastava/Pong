@@ -100,6 +100,22 @@ AnimationClip:
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 8201c0b3a152ab847bff0c34325cfa67, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: Able
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: ef593a6ee1ccfd444ae3210ec9be3e25, type: 3}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -126,6 +142,13 @@ AnimationClip:
       path: 0
       attribute: 323001694
       script: {fileID: 11500000, guid: 8201c0b3a152ab847bff0c34325cfa67, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 3173994102
+      script: {fileID: 11500000, guid: ef593a6ee1ccfd444ae3210ec9be3e25, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
@@ -365,6 +388,22 @@ AnimationClip:
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 8201c0b3a152ab847bff0c34325cfa67, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: Able
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: ef593a6ee1ccfd444ae3210ec9be3e25, type: 3}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2
