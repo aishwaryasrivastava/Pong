@@ -2,6 +2,10 @@
 
 public class PlayerShootingScript : MonoBehaviour
 {
+    private bool reloading;
+    private float reloadDuration;
+    public int ammoCount;
+    private int magazineSize;
     private float timer;
     public float recoil;
     private int damage = 30;
@@ -14,14 +18,22 @@ public class PlayerShootingScript : MonoBehaviour
     private RaycastHit Shot;
     private GameObject flare;
     public Transform gun;
+    private Transform magazine;
+    private Vector3 magazinePositionBackup;
 
     public SoundController sounds;
     public PlayerMovementController movement;
 
     void Start()
     {
+        reloadDuration = 2f;
+        reloading = false;
+        magazineSize = 30;
+        ammoCount = magazineSize;
         timer = 0;
         //gun = transform.GetChild(0);
+        magazine = gun.transform.Find("AK_47_Magazine");
+        magazinePositionBackup = magazine.localPosition;
         flare = gun.Find("Flare").gameObject;
         flare.SetActive(false);
         recoil = 0;
@@ -31,7 +43,21 @@ public class PlayerShootingScript : MonoBehaviour
     {
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
-        Fire();
+        if (CanFire() && Input.GetButton("Fire1")) { Fire(); }
+        if (Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading)
+        {
+            reloading = true;
+            timer = reloadDuration;
+        }
+        if (reloading) { Reload(); }
+        if (timer > 0) { timer -= Time.deltaTime; }
+        if (recoil > 0)
+        {
+            recoil -= Time.deltaTime * 20;
+            transform.Rotate(Time.deltaTime * 20, 0, 0);
+            gun.Translate(0, 0, Time.deltaTime * 0.2f);
+        }
+        if (timer <= 0.07) { flare.SetActive(false); }
     }
 
     private void Recoil(float shift)
@@ -42,30 +68,28 @@ public class PlayerShootingScript : MonoBehaviour
 
     void Fire()
     {
-        if (timer <= 0)
+        flare.SetActive(true);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out Shot))
         {
-            flare.SetActive(false);
-            if (Input.GetMouseButton(0))
-            {
-                if (Physics.Raycast(transform.position, transform.forward, out Shot))
-                {
-                    flare.SetActive(true);
-                    var tmp = Shot.transform.GetComponent<ShotAtScript>();
-                    if (tmp != null) tmp.ShotAt(damage * transform.forward); //in case we're shooting at something that doesn't react to shooting
-                }
-                timer = fireGap;
-                flare.SetActive(true);
-                if (recoil < MaxRecoilShift) Recoil(Mathf.Min(sensitivity, MaxRecoilShift - recoil)); //prevents infinite recoil which looks weird
-                sounds.PlayShoot();
-            }
-            else if (recoil > 0)
-            {
-                var reverser = -Mathf.Min(Time.deltaTime * 20, recoil); //prevents negative recoil which will stack
-                Recoil(reverser);
-            }
+            Shot.transform.SendMessage("shotAt", damage * transform.TransformDirection(Vector3.forward), SendMessageOptions.DontRequireReceiver);
         }
-        else timer -= Time.deltaTime;
-
-        
+        ammoCount--;
+        timer = fireGap;
+        recoil += damage / 10f;
+        transform.Rotate(damage / -10f, 0, 0);
+        gun.Translate(0, 0, damage / -1000f);
+        sounds.PlayShoot();
+    }
+    bool CanFire() { return timer <= 0 && ammoCount > 0 && !reloading; }
+    void Reload()
+    {
+        if (timer > reloadDuration / 2) { magazine.Translate(0, -1f * Time.deltaTime, 0); }
+        else if (timer > 0) { magazine.Translate(0, Time.deltaTime, 0); }
+        else
+        {
+            magazine.localPosition = magazinePositionBackup;
+            reloading = false;
+            ammoCount = magazineSize;
+        }
     }
 }
