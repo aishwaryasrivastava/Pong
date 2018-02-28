@@ -21,6 +21,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     private Transform activeItem, activeDoor, activeHuman, activeEquip, activeTransfer;
 
+<<<<<<< HEAD
     void ResetThings()
     {
         if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
@@ -28,6 +29,10 @@ public class PlayerInteractionController : MonoBehaviour
         UIConfirm.gameObject.SetActive(true);
         UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
     }
+=======
+	public Dictionary<string,int> reputation = new Dictionary<string,int>();
+
+>>>>>>> a30de6ced73e7b4e09d2f53d09aaf0dec8cec915
     void CheckForEnt()
     {
         //this is somewhat expensive      
@@ -199,6 +204,15 @@ public class PlayerInteractionController : MonoBehaviour
         }
         else CheckInventoryControls();
     }
+
+	void Start() {
+		SetupReputation ();
+	}
+
+	void SetupReputation() {
+		reputation.Add ("X", 0);
+		reputation.Add ("Y", 0);
+	}
 }
 
 public class Pickup

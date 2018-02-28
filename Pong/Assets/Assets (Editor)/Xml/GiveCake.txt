@@ -1,0 +1,3 @@
+<node text="I'm hungry..." option="N/A">
+	<node option="Want some cake?" requireCost="cake" reputation="100" text="Thank you!"></node>
+</node>
