@@ -3,7 +3,8 @@
 public class SoundController : MonoBehaviour {
 
 	//public AudioClip walkingSound;
-	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound, ShootingSound;
+	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound, ShootingSound, reloadSound;
+	public GameObject guns;
 	private AudioSource source;
 
 	//private float highVol = 1f;
@@ -16,6 +17,12 @@ public class SoundController : MonoBehaviour {
 		source = GetComponent<AudioSource>();
 	}
 
+	void Update(){
+		
+		if ((Input.GetKeyDown (KeyCode.R)) && guns.activeSelf) {
+			PlayReload ();
+		}
+	}
     public void PlayLocked()
     {
         source.PlayOneShot(lockedSound, lowVol);
@@ -45,6 +52,11 @@ public class SoundController : MonoBehaviour {
     {
         source.PlayOneShot(ShootingSound, lowVol);
     }
+
+	public void PlayReload()
+	{
+		source.PlayOneShot(reloadSound, lowVol);
+	}
 
 	public void Running(bool tmp){
 		if (tmp) {
