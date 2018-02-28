@@ -40,6 +40,15 @@ public class DialogueManager : MonoBehaviour {
 		
 	}
 
+    public void Reset()
+    {
+        XmlDocument xmlDoc = new XmlDocument(); // xmlDoc is the new xml document.
+        xmlDoc.LoadXml(XML.text);
+        dialog = CreateTree(xmlDoc.FirstChild);
+        Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
 	Dialogue CreateTree(XmlNode xml) {
 		Dialogue d = new Dialogue ();
 		XmlAttributeCollection attr = xml.Attributes;

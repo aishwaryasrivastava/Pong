@@ -6,10 +6,14 @@ public class PlayerInteractionController : MonoBehaviour
 {
     public Image UIConfirm;
     public SoundController sounds;
+    public Text fps;
 
     public float armReach = 8;
     private const float lookCheckTimer = 0.1f;
     private float timer;
+
+    private int ticker;
+    private bool showFps = true;
 
     public PlayerMovementController movement;
     public Camera mainCamera;
@@ -20,6 +24,11 @@ public class PlayerInteractionController : MonoBehaviour
     public PlayerWeaponEquip Equips;
 
     private Transform activeItem, activeDoor, activeHuman, activeEquip, activeTransfer;
+
+    void Start()
+    {
+        fps.gameObject.SetActive(true);
+    }
 
     void ResetThings()
     {
@@ -132,7 +141,8 @@ public class PlayerInteractionController : MonoBehaviour
                 activeHuman.GetComponent<NPCScript>().TurnTowardsMe(transform.position);
                 var dia = activeHuman.GetComponent<DialogueManager>();
                 movement.EnterConversation(dia);
-                dia.StartDialogue();                
+                dia.StartDialogue(); 
+                
             }
             else if (activeEquip != null)
             {
@@ -170,8 +180,24 @@ public class PlayerInteractionController : MonoBehaviour
         ResetPlayerChanges();
     }
 
+    private void UpdateFps()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            showFps = !showFps;
+            fps.gameObject.SetActive(showFps);
+        }
+        ticker++;
+        if (ticker > 100)
+        {
+            ticker = 0;
+            fps.text = (int)(1 / Time.deltaTime) + " fps";
+        }
+    }
+
     void Update()
     {
+        UpdateFps();
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return;
 

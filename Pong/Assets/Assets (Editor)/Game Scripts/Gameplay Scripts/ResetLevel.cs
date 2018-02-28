@@ -14,6 +14,10 @@ public class ResetLevel : MonoBehaviour
             {
                 r.GetComponent<DoorToggle>().Locked = true;
             }
+            else if (r.CompareTag("Human"))
+            {
+                r.gameObject.GetComponent<DialogueManager>().Reset();
+            }
             else
             {
                 r.gameObject.SetActive(true);
