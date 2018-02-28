@@ -15,6 +15,7 @@ public class GuardScript2 : MonoBehaviour
     public float speed, movementLength, timeoutLength, soundArea;
     private bool halt;
     public int AngleStep;
+    public float AggroLength;
 
     public AudioSource source;
     void Awake()
@@ -64,14 +65,23 @@ public class GuardScript2 : MonoBehaviour
         // Player is bad
         if (player.inTheRed)
         {
-            if (halt)
+            /*if (halt)
             {
                 halt = false;
                 prisonerAnim.ToWalking();
                 source.Play();
             }
-            time = 1;
-            myGoalHeading = player.transform.position - transform.position;
+            if (time < 0)
+            {
+                time = 1;
+                RaycastHit hit;
+                var something = Physics.Raycast(new Ray(transform.position, player.transform.position - transform.position), out hit);
+                if (something && hit.distance < AggroLength)
+                {
+                    //guard sees you with weapon
+                }
+            }
+            myGoalHeading = player.transform.position - transform.position;*/
         }
         if (halt)
         {

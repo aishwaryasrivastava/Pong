@@ -219,5 +219,4 @@ public class GuardScript : MonoBehaviour {
 		var tmp = playerMan.GetComponent<PlayerMovementController> ();
 		tmp.dmg++;
 	}
-
 }

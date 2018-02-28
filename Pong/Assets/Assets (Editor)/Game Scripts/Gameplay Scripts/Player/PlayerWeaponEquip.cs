@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerWeaponEquip : MonoBehaviour
 {
-
+    public PlayerMovementController checker;
     public Text ammoCount;
     public GameObject[] weapons;
     private int current, next;
@@ -43,6 +43,7 @@ public class PlayerWeaponEquip : MonoBehaviour
         if (current != -1) weapons[current].SetActive(false);
         current = -1;
         ammoCount.GetComponent<ToggleScript>().SwapToHere(current);
+        checker.inTheRed = true;
     }
 
     private void SetActiveWeapon(int sel)
@@ -51,6 +52,7 @@ public class PlayerWeaponEquip : MonoBehaviour
         {
             next = sel;
             ReadyToSwitch();
+            checker.inTheRed = true;
         }
     }
 
