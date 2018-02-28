@@ -1,49 +1,55 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerWeaponEquip : MonoBehaviour {
 
     public GameObject[] weapons;
-    int current, next;
+    private int current, next;
+    public const int Pipe = 0, AK = 1;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         current = 1;
         next = 0;
-        for (int i = 0; i < weapons.Length; i++)
+        foreach (GameObject t in weapons)
         {
-            weapons[i].SetActive(false);
+            t.SetActive(false);
         }
         SetActiveWeapon(0);
 	}
 	
 	// Update is called once per frame
 	void Update ()
-    {
+	{
+	    if (Input.GetKeyDown(KeyCode.Alpha0)) SetActiveNone();
         if (Input.GetKeyDown(KeyCode.Alpha1)) SetActiveWeapon(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) SetActiveWeapon(1);
     }
 
-    public void SetActiveWeapon(int sel)
+    public void SetAble(int id)
     {
-        if (sel != current)
-        {
-            next = sel;
-            weapons[current].GetComponent<WeaponSwitchState>().AttemptSwitch();
-        }
-        /*
-        for (int i = 0; i < weapons.Length; i++)
-        {
-            weapons[i].SetActive(false);
-        }
-        weapons[sel].SetActive(true);
-        */
+        weapons[id].GetComponent<WeaponSwitchState>().Gain();
+        SetActiveWeapon(id);
     }
 
-    public void ReadyToSwitch()
+    private void SetActiveNone()
     {
-        weapons[current].SetActive(false);
+        if (current != -1) weapons[current].SetActive(false);
+        current = -1;
+    }
+
+    private void SetActiveWeapon(int sel)
+    {
+        if (weapons[sel].GetComponent<WeaponSwitchState>().Able)
+        {
+            next = sel;
+            ReadyToSwitch();
+        }
+    }
+
+    private void ReadyToSwitch()
+    {
+        if(current != -1) weapons[current].SetActive(false);
         current = next;
         weapons[current].SetActive(true);
     }

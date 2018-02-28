@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShootingScript : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerShootingScript : MonoBehaviour
     private float pitch = 0.044f;
     private float sensitivity = 0.9f;
     private float MaxRecoilShift = 15;
+
+    public Text ammoMcCount;
 
     private RaycastHit Shot;
     private GameObject flare;
@@ -37,6 +40,7 @@ public class PlayerShootingScript : MonoBehaviour
         flare = gun.Find("Flare").gameObject;
         flare.SetActive(false);
         recoil = 0;
+        ammoMcCount.text = ammoCount + " / " + magazineSize;
     }
 
     void Update()
@@ -53,9 +57,10 @@ public class PlayerShootingScript : MonoBehaviour
         if (timer > 0) { timer -= Time.deltaTime; }
         if (recoil > 0)
         {
-            recoil -= Time.deltaTime * 20;
-            transform.Rotate(Time.deltaTime * 20, 0, 0);
-            gun.Translate(0, 0, Time.deltaTime * 0.2f);
+            Recoil(-Time.deltaTime * 20);
+            //recoil -= Time.deltaTime * 20;
+            //transform.Rotate(Time.deltaTime * 20, 0, 0);
+            //gun.Translate(0, 0, Time.deltaTime * 0.2f);
         }
         if (timer <= 0.07) { flare.SetActive(false); }
     }
@@ -76,6 +81,7 @@ public class PlayerShootingScript : MonoBehaviour
             if(h != null) h.ShotAt(damage*Camera.main.transform.forward); //transform.SendMessage("shotAt", damage * transform.TransformDirection(), SendMessageOptions.DontRequireReceiver);
         }
         ammoCount--;
+        ammoMcCount.text = ammoCount + " / " + magazineSize;
         timer = fireGap;
         Recoil(damage/10f);
         //recoil += damage / 10f;
@@ -83,6 +89,8 @@ public class PlayerShootingScript : MonoBehaviour
         
         sounds.PlayShoot();
     }
+
+
 
     bool CanFire()
     {
@@ -97,6 +105,7 @@ public class PlayerShootingScript : MonoBehaviour
             magazine.localPosition = magazinePositionBackup;
             reloading = false;
             ammoCount = magazineSize;
+            ammoMcCount.text = ammoCount + " / " + magazineSize;
         }
     }
 }

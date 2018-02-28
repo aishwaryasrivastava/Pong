@@ -21,6 +21,8 @@ TagManager:
   - hwG1
   - hwG2
   - vision
+  - AK
+  - Pipe
   layers:
   - Default
   - TransparentFX

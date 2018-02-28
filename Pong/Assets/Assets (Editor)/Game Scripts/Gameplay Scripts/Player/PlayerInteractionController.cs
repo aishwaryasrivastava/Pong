@@ -16,8 +16,9 @@ public class PlayerInteractionController : MonoBehaviour
 
     public bool InventoryActive;
     public Inventory inventory;
+    public PlayerWeaponEquip Equips;
 
-    private Transform activeItem, activeDoor, activeHuman;
+    private Transform activeItem, activeDoor, activeHuman, activeEquip;
 
     private List<Transform> resettables = new List<Transform>();
 
@@ -47,7 +48,7 @@ public class PlayerInteractionController : MonoBehaviour
             UIConfirm.gameObject.SetActive(true);
             UIConfirm.color = inventory.Full() ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
             if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
-            activeDoor = activeHuman = null;
+            activeDoor = activeHuman = activeEquip = null;
         }
         else if (hit.transform.CompareTag("Door"))
         {
@@ -56,7 +57,7 @@ public class PlayerInteractionController : MonoBehaviour
             var door = activeDoor.GetComponent<DoorToggle>();
             UIConfirm.color = door.Locked && !inventory.HaveItem(door.code) ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
             if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
-            activeItem = activeHuman = null;
+            activeItem = activeHuman = activeEquip = null;
         }
         else if (hit.transform.CompareTag("Human"))
         {
@@ -64,7 +65,15 @@ public class PlayerInteractionController : MonoBehaviour
             UIConfirm.gameObject.SetActive(true);
             UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
             activeHuman.GetComponent<DialogueManager>().LookingAt();
-            activeItem = activeDoor = null;
+            activeItem = activeDoor = activeEquip = null;
+        }
+        else if (hit.transform.CompareTag("AK") || hit.transform.CompareTag("Pipe"))
+        {
+            activeEquip = hit.transform;
+            UIConfirm.gameObject.SetActive(true);
+            UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
+            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
+            activeItem = activeDoor = activeHuman = null;
         }
         else
         {
@@ -126,6 +135,19 @@ public class PlayerInteractionController : MonoBehaviour
                 var dia = activeHuman.GetComponent<DialogueManager>();
                 movement.EnterConversation(dia);
                 dia.StartDialogue();                
+            }
+            else if (activeEquip != null)
+            {
+                if (activeEquip.CompareTag("AK"))
+                {
+                    Equips.SetAble(PlayerWeaponEquip.AK);
+                }
+                else if(activeEquip.CompareTag("Pipe"))
+                {
+                    Equips.SetAble(PlayerWeaponEquip.Pipe);
+                }
+                activeEquip.gameObject.SetActive(false);
+                resettables.Add(activeEquip);
             }
         }
     }
