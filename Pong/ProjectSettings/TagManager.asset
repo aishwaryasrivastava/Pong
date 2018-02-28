@@ -6,10 +6,6 @@ TagManager:
   tags:
   - Floor Tile
   - Light Source
-  - Turn Point
-  - Corner
-  - DeadEnd
-  - Illegal
   - Door
   - Wall
   - Item
@@ -23,6 +19,8 @@ TagManager:
   - vision
   - AK
   - Pipe
+  - Destroyable
+  - Transfer
   layers:
   - Default
   - TransparentFX

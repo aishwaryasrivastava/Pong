@@ -8,4 +8,9 @@ public class WeaponSwitchState : MonoBehaviour
     {
         Able = true;
     }
+
+    public void Lose()
+    {
+        Able = false;
+    }
 }

@@ -46,6 +46,7 @@ public class DialogueManager : MonoBehaviour {
 		d.Text = attr["text"].Value;
 		d.Option = attr["option"].Value;
 		d.Req = attr ["require"] != null ? attr ["require"].Value : "";
+	    d.Take = attr["take"] != null ? attr["take"].Value : "";
         
 		if (attr ["item"] != null)
 		{
@@ -88,31 +89,43 @@ public class DialogueManager : MonoBehaviour {
 
 	void OnGUI() {
 		if (mouseover) {
-			GUI.Box (new Rect (20, 20, 120, 20), "Click to interact");
+			GUI.Box (new Rect (20, 20, 120, 20), "Press E to interact");
 		}
 		if (talking)
 		{
 		    if(custombutton == null) custombutton = new GUIStyle("button") {fontSize = fontSize};
 
 		    GUI.Box (new Rect (20, 20, width, height), currentdialog.Text,custombutton);
-			if (currentdialog.Children ().Count == 0) {
-				if (GUI.Button (new Rect (20, height + 20, width, height), "End",custombutton)) {
-					EndDialogue ();
-				}
-			}
-			int count = 0;
-			for (int i = 0; i < currentdialog.Children().Count; i++) {
-				if (InventoryCheck (currentdialog.Children()[i].Req)) {
-					if (GUI.Button (new Rect (20, 30 + height * (count+1), width, height), currentdialog.Children () [i].Option,custombutton)) {
-						if (currentdialog.Children () [i].GiveItem != null) {
-							inventory.AddItem (currentdialog.Children () [i].GiveItem);
-						}
-						ContinueDialogue (i);
-						break;
-					}
-					count++;
-				}
-			}
+		    if (currentdialog.Children().Count == 0)
+		    {
+		        if (GUI.Button(new Rect(20, height + 20, width, height), "End", custombutton))
+		        {
+		            EndDialogue();
+		        }
+		    }
+		    int count = 0;
+		    for (int i = 0; i < currentdialog.Children().Count; i++)
+		    {
+		        if (InventoryCheck(currentdialog.Children()[i].Req))
+		        {
+		            if (GUI.Button(new Rect(20, 30 + height * (count + 1), width, height), currentdialog.Children()[i].Option,
+		                custombutton))
+		            {
+		                if (currentdialog.Children()[i].GiveItem != null)
+		                {
+		                    inventory.AddItem(currentdialog.Children()[i].GiveItem);
+		                    currentdialog.Children()[i].GiveItem = null;
+		                }
+		                if (currentdialog.Children()[i].Take.Length > 0)
+		                {
+		                    inventory.RemoveThis(currentdialog.Children()[i].Take);
+		                }
+		                ContinueDialogue(i);
+		                break;
+		            }
+		            count++;
+		        }
+		    }
 		}
 	} 
 

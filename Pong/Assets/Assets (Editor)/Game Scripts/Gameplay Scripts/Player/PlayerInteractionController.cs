@@ -8,78 +8,76 @@ public class PlayerInteractionController : MonoBehaviour
     public SoundController sounds;
 
     public float armReach = 8;
-    private const float lookCheckTimer = 0.25f;
+    private const float lookCheckTimer = 0.1f;
     private float timer;
 
     public PlayerMovementController movement;
     public Camera mainCamera;
+    public WorldLoader loader;
 
     public bool InventoryActive;
     public Inventory inventory;
     public PlayerWeaponEquip Equips;
 
-    private Transform activeItem, activeDoor, activeHuman, activeEquip;
+    private Transform activeItem, activeDoor, activeHuman, activeEquip, activeTransfer;
 
-    private List<Transform> resettables = new List<Transform>();
-
+    void ResetThings()
+    {
+        if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
+        activeDoor = activeHuman = activeEquip = activeItem = activeTransfer = null;
+        UIConfirm.gameObject.SetActive(true);
+        UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
+    }
     void CheckForEnt()
     {
-        //this is fairly expensive      
+        //this is somewhat expensive      
         
         RaycastHit hit;
         var something = Physics.Raycast(new Ray(mainCamera.transform.position, mainCamera.transform.forward), out hit);
         if (!something || hit.distance > armReach)
         {
-            //not looking at anything in range
-            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
-            activeItem = activeDoor = activeHuman = null;
+            //not looking at anything at all within range
+            ResetThings();
             UIConfirm.gameObject.SetActive(false);
             return;
         }
 
-        if (hit.transform.Equals(activeItem) || hit.transform.Equals(activeDoor) || hit.transform.Equals(activeHuman))
+        if (hit.transform.Equals(activeItem) || hit.transform.Equals(activeDoor) || 
+            hit.transform.Equals(activeHuman) || hit.transform.Equals(activeEquip) ||
+            hit.transform.Equals(activeTransfer))
         {
-            //still looking at the same item
+            //still looking at the same item as before
             return;
         }
+
+        ResetThings();
         if (hit.transform.CompareTag("Item"))
         {
-            activeItem = hit.transform;
-            UIConfirm.gameObject.SetActive(true);
-            UIConfirm.color = inventory.Full() ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
-            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
-            activeDoor = activeHuman = activeEquip = null;
+            activeItem = hit.transform;          
+            if (inventory.Full()) UIConfirm.color = new Color(1, 0, 0, 0.8f);
         }
         else if (hit.transform.CompareTag("Door"))
         {
             activeDoor = hit.transform;
-            UIConfirm.gameObject.SetActive(true);
             var door = activeDoor.GetComponent<DoorToggle>();
-            UIConfirm.color = door.Locked && !inventory.HaveItem(door.code) ? new Color(1, 0, 0, 0.8f) : new Color(0, 0.7f, 0, 0.8f);
-            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
-            activeItem = activeHuman = activeEquip = null;
+            if (door.Locked && !inventory.HaveItem(door.code)) UIConfirm.color = new Color(1, 0, 0, 0.8f);
         }
         else if (hit.transform.CompareTag("Human"))
         {
             activeHuman = hit.transform;
-            UIConfirm.gameObject.SetActive(true);
-            UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
-            activeHuman.GetComponent<DialogueManager>().LookingAt();
-            activeItem = activeDoor = activeEquip = null;
+            activeHuman.GetComponent<DialogueManager>().LookingAt();          
         }
         else if (hit.transform.CompareTag("AK") || hit.transform.CompareTag("Pipe"))
         {
-            activeEquip = hit.transform;
-            UIConfirm.gameObject.SetActive(true);
-            UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
-            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
-            activeItem = activeDoor = activeHuman = null;
+            activeEquip = hit.transform;           
+        }
+        else if (hit.transform.CompareTag("Transfer"))
+        {
+            activeTransfer = hit.transform;
         }
         else
         {
             //not looking at anything interactable
-            if (activeHuman != null) activeHuman.GetComponent<DialogueManager>().NoLongerLookingAt();
-            activeItem = activeDoor = activeHuman = null;
             UIConfirm.gameObject.SetActive(false);
         }
     }
@@ -110,7 +108,7 @@ public class PlayerInteractionController : MonoBehaviour
                 if (mtp)
                 {
                     activeItem.gameObject.SetActive(false);
-                    resettables.Add(activeItem);
+                    ResetLevel.resettables.Add(activeItem);
                     sounds.PlayDing();
                 }
             }
@@ -126,7 +124,7 @@ public class PlayerInteractionController : MonoBehaviour
                     if (tmp.Type == DoorToggle.DoorType.Slide) sounds.PlaySlide();
                     else if (tmp.Type == DoorToggle.DoorType.Swing) sounds.PlaySwing();
 
-                    if (lockedBefore) resettables.Add(activeDoor);
+                    if (lockedBefore) ResetLevel.resettables.Add(activeDoor);
                 }
             }
             else if (activeHuman != null)
@@ -147,32 +145,28 @@ public class PlayerInteractionController : MonoBehaviour
                     Equips.SetAble(PlayerWeaponEquip.Pipe);
                 }
                 activeEquip.gameObject.SetActive(false);
-                resettables.Add(activeEquip);
+                ResetLevel.resettables.Add(activeEquip);
                 activeEquip = null;
+            }
+            else if (activeTransfer != null)
+            {
+                ResetLevel.resettables.Clear(); //there's no going back now
+                //inventory.Clear(); //unsure about this
+                loader.TriggerNextLevel();
             }
         }
     }
 
     void ResetPlayerChanges()
     {
-        foreach (var r in resettables)
-        {
-            if (r.CompareTag("Door"))
-            {
-                r.GetComponent<DoorToggle>().Locked = true;
-            }
-            else if (r.CompareTag("Item"))
-            {
-                r.gameObject.SetActive(true);
-            }
-        }
-        resettables.Clear();
+        transform.position = new Vector3(0, 3.5f, 0);
+        inventory.Clear();
+        ResetLevel.ResetChanges();
+        Equips.ResetAll();
     }
 
     public void Die()
-    {
-        transform.position = new Vector3(0, 3.5f, 0);
-        inventory.Clear();
+    {       
         ResetPlayerChanges();
     }
 
@@ -192,14 +186,7 @@ public class PlayerInteractionController : MonoBehaviour
         {
             Die();
         }
-		var tmp = GetComponent<PlayerMovementController> ();
-		if ((Input.GetKeyDown (KeyCode.LeftShift)) && tmp.moving) {
-			sounds.Running (true);
-			tmp.source.Stop ();
-		}
-		if (Input.GetKeyUp (KeyCode.LeftShift)) {
-			sounds.Running (false);
-		}
+
         if (!InventoryActive)
         {
             CheckInteractionControls();

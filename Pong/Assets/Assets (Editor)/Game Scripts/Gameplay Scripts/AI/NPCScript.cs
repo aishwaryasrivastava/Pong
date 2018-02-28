@@ -13,6 +13,7 @@ public class NPCScript : MonoBehaviour
     public float speed, movementLength, timeoutLength, soundArea;
     private bool halt;
     public int AngleStep;
+    public bool Static;
 
     public DialogueManager diag;
 
@@ -69,6 +70,7 @@ public class NPCScript : MonoBehaviour
     {
         if (PauseManager.Paused) return;
         if (diag.talking) return;
+        if (Static) return;
         time -= Time.deltaTime;
 
         // If it's been a while since NPC turned, then turn them again
@@ -94,6 +96,7 @@ public class NPCScript : MonoBehaviour
         if (halt) return;
         if (PauseManager.Paused) return;
         if (diag.talking) return;
+        if (Static) return;
 
         transform.position += speed * new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
         if (Math.Abs(myGoalHeading.magnitude) < 0.0001) return;
@@ -109,7 +112,8 @@ public class NPCScript : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (halt) return;
-        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door"))
+        if (Static) return;
+        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door") || other.collider.CompareTag("Destroyable"))
         {
             //Debug.Log("someone hit the wall");
             HaltAndTurn();

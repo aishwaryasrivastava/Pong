@@ -54,6 +54,15 @@ public class PlayerWeaponEquip : MonoBehaviour
         }
     }
 
+    public void ResetAll()
+    {
+        foreach (var a in weapons)
+        {
+            a.GetComponent<WeaponSwitchState>().Lose();
+        }
+        Start();
+    }
+
     private void ReadyToSwitch()
     {
         if(current != -1) weapons[current].SetActive(false);

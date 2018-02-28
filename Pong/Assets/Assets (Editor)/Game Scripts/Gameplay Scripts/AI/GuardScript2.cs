@@ -109,14 +109,10 @@ public class GuardScript2 : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (halt) return;
-        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door"))
+        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door") || other.collider.CompareTag("Destroyable"))
         {
+            //Debug.Log("someone hit the wall");
             HaltAndTurn();
-        }
-        else if (other.collider.CompareTag("Player"))
-        {
-            //if(player.inTheRed) player.Die();
-            //for now we don't need to do this
         }
 
     }

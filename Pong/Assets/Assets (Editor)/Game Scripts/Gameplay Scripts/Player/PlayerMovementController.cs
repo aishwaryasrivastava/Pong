@@ -17,25 +17,25 @@ public class PlayerMovementController : MonoBehaviour
     public PlayerShootingScript shootGun;
     public DialogueManager dialog;
 
-	public AudioSource source;
+	public PlayerSoundControll soundControl;
 	public int dmg = 0;
-	public bool moving;
-    void Awake()
-    {
-        source = GetComponent<AudioSource>();
-    }
+	private bool moving, running, jumping;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
-        source.volume = 1;
     }
 
     void SetMovementVector()
     {
         forward = rightward = 0;
-        if (Math.Abs(rb.velocity.y) > 0.001) return;
+        moving = running = jumping = false;
+        if (Math.Abs(rb.velocity.y) > 0.001)
+        {
+            jumping = true;
+            return;
+        }
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -57,10 +57,12 @@ public class PlayerMovementController : MonoBehaviour
         {
             forward *= 1.7f;
             rightward *= 1.7f;
+            running = true;
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
 
+        moving = true;
         var tmp = transform.TransformDirection(new Vector3(rightward, 0, forward));      
         rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
     }
@@ -84,10 +86,7 @@ public class PlayerMovementController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity += JumpForce * Vector3.up;
-            source.Stop();
-        }
-
-        
+        }     
     }
 
     void CheckCrouch()
@@ -126,19 +125,15 @@ public class PlayerMovementController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-	    if (interact.InventoryActive) return;
-	    if (dialog != null && dialog.talking) return;
-	    if (PauseManager.Paused) return;
+	    if (interact.InventoryActive || (dialog != null && dialog.talking) || PauseManager.Paused)
+	    {
+	        soundControl.UpdateMovementSounds(false, false, false);
+            return;
+	    }
 
 	    MoveWithMouse();
         SetMovementVector();
-		if (Math.Abs (rightward) > 0 || Math.Abs (forward) > 0) {
-			moving = true;
-			if (!source.isPlaying) source.Play ();
-		} else {
-			moving = false;
-			source.Stop ();
-		}
+		soundControl.UpdateMovementSounds(moving, running, jumping);
         
         if(transform.position.y < -10) //fell out of the world
         {
@@ -148,28 +143,17 @@ public class PlayerMovementController : MonoBehaviour
 	    
 	}
 
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.collider.CompareTag("Illegal"))
-        {
-            inTheRed = true;
-        }
-        else if (other.collider.CompareTag("Floor Tile"))
-        {
-            inTheRed = false;
-        }
-    }
-
-    
-
     public void EnterConversation(DialogueManager diag)
     {
         dialog = diag;
+        //rb.angularVelocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public void LeaveConversation()
     {
         dialog = null;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
     public bool AmBusy()

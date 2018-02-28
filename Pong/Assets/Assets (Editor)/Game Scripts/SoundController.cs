@@ -46,12 +46,4 @@ public class SoundController : MonoBehaviour {
         source.PlayOneShot(ShootingSound, lowVol);
     }
 
-	public void Running(bool tmp){
-		if (tmp) {
-			source.Play ();
-		} else {
-			source.Stop ();
-		}
-	}
-
 }

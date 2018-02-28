@@ -1,0 +1,18 @@
+<node text="H-Hey there" option="N/A">
+	<node option="What happened to you?" text="I don't want to talk about it">
+		<node option="Have a good one" text="Thanks"></node>
+		<node option="*Stare at him*" text="J-Just leave me alone"></node>
+	</node>
+	<node option="Know what today is?" text="Please tell me it's not beat-me-up day again">
+		<node option="What, no, where'd that come from?" text="I don't want to talk about it"></node>
+		<node option="No it's your birthday!" text="Whoa you actually remembered, thank you!">
+			<node option="Have a good one" item="4" id="cake" text="Hey wait, here's some leftover cake that came for me earlier">
+				<node option="Oh I couldn't" text="Oh yes you could, here"></node>
+				<node option="Sure thanks" text="No problem"></node>
+				<node option="CRAWFIS WOULD NEVER TURN DOWN SWEETS" text="Uh, sure, alright, whatever you say"></node>
+			</node>
+		</node>
+	</node>
+	<node option="You still owe me money" text="N-No that's the other prisoner"></node>
+	<node option="Have a good one" text="Why did you even come over here"></node>
+</node>
