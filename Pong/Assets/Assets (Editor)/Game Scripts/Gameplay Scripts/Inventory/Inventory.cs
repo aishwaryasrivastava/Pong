@@ -101,6 +101,11 @@ public class Inventory : MonoBehaviour
         return inventory.Any(g => g.ItemId.Equals(id));
     }
 
+	public void DropItem(string id)
+	{
+		inventory.RemoveAll(g => g.ItemId.Equals(id));
+	}
+
     public bool Full()
     {
         return inventory.Count >= maxInvSize;

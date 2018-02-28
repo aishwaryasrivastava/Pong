@@ -22,6 +22,8 @@ public class PlayerInteractionController : MonoBehaviour
 
     private List<Transform> resettables = new List<Transform>();
 
+	public Dictionary<string,int> reputation = new Dictionary<string,int>();
+
     void CheckForEnt()
     {
         //this is fairly expensive      
@@ -212,6 +214,15 @@ public class PlayerInteractionController : MonoBehaviour
         }
         else CheckInventoryControls();
     }
+
+	void Start() {
+		SetupReputation ();
+	}
+
+	void SetupReputation() {
+		reputation.Add ("X", 0);
+		reputation.Add ("Y", 0);
+	}
 }
 
 public class Pickup
