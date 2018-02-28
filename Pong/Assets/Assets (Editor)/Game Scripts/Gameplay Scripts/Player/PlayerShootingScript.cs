@@ -16,7 +16,7 @@ public class PlayerShootingScript : MonoBehaviour
     private float sensitivity = 0.9f;
     private float MaxRecoilShift = 15;
 
-    public Text ammoMcCount;
+    public ToggleScript ammoMcCount;
 
     private RaycastHit Shot;
     private GameObject flare;
@@ -35,12 +35,13 @@ public class PlayerShootingScript : MonoBehaviour
         ammoCount = magazineSize;
         timer = 0;
         //gun = transform.GetChild(0);
+        gun = transform;
         magazine = gun.transform.Find("AK_47_Magazine");
         magazinePositionBackup = magazine.localPosition;
         flare = gun.Find("Flare").gameObject;
         flare.SetActive(false);
         recoil = 0;
-        ammoMcCount.text = ammoCount + " / " + magazineSize;
+        ammoMcCount.UpdateValue(magazineSize, magazineSize);
     }
 
     void Update()
@@ -68,8 +69,8 @@ public class PlayerShootingScript : MonoBehaviour
     private void Recoil(float shift)
     {
         recoil += shift;
-        gun.Rotate(-shift, 0, 0);
-        gun.Translate(0, 0, -shift/100);
+        gun.Rotate(-shift/2, 0, 0);
+        gun.Translate(0, 0, -shift/200);
     }
 
     void Fire()
@@ -81,7 +82,7 @@ public class PlayerShootingScript : MonoBehaviour
             if(h != null) h.ShotAt(damage*Camera.main.transform.forward); //transform.SendMessage("shotAt", damage * transform.TransformDirection(), SendMessageOptions.DontRequireReceiver);
         }
         ammoCount--;
-        ammoMcCount.text = ammoCount + " / " + magazineSize;
+        ammoMcCount.UpdateValue(ammoCount, magazineSize);
         timer = fireGap;
         Recoil(damage/10f);
         //recoil += damage / 10f;
@@ -105,7 +106,7 @@ public class PlayerShootingScript : MonoBehaviour
             magazine.localPosition = magazinePositionBackup;
             reloading = false;
             ammoCount = magazineSize;
-            ammoMcCount.text = ammoCount + " / " + magazineSize;
+            ammoMcCount.UpdateValue(ammoCount, magazineSize);
         }
     }
 }

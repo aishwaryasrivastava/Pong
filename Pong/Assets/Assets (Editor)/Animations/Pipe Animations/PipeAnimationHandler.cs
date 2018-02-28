@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class PipeAnimationHandler : MonoBehaviour {
 
-    Animator anim;
+    public Animator anim;
     public bool attackLock;
+    private Vector3 local;
+    private Quaternion local2;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+	    local = transform.localPosition;
+	    local2 = transform.localRotation;
         anim = GetComponent<Animator>();
         attackLock = false;
 	}
@@ -66,5 +71,4 @@ public class PipeAnimationHandler : MonoBehaviour {
     {
         attackLock = false;
     }
-    
 }

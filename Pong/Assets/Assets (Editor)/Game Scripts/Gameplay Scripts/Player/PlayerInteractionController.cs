@@ -148,6 +148,7 @@ public class PlayerInteractionController : MonoBehaviour
                 }
                 activeEquip.gameObject.SetActive(false);
                 resettables.Add(activeEquip);
+                activeEquip = null;
             }
         }
     }
