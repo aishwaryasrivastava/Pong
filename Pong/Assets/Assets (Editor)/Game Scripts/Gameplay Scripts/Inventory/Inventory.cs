@@ -101,17 +101,10 @@ public class Inventory : MonoBehaviour
         return inventory.Any(g => g.ItemId.Equals(id));
     }
 
-<<<<<<< HEAD
     public void RemoveThis(string id)
     {
         inventory.Remove(inventory.FirstOrDefault(g => g.ItemId.Equals(id)));
     }
-=======
-	public void DropItem(string id)
-	{
-		inventory.RemoveAll(g => g.ItemId.Equals(id));
-	}
->>>>>>> a30de6ced73e7b4e09d2f53d09aaf0dec8cec915
 
     public bool Full()
     {

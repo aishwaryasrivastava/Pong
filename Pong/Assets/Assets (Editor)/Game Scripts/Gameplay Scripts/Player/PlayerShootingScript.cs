@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerShootingScript : MonoBehaviour
 {
-    public bool reloading;
+    private bool reloading;
     private float reloadDuration;
     public int ammoCount;
     private int magazineSize;

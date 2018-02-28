@@ -1,8 +1,0 @@
-<node text="Hi!" option="N/A">
-	<node option="What's up?" text="They sky!">
-		<node option="Haha, very funny" text="You're lying aren't you"></node>
-		<node option="*Stare at him*" text="...hello?"></node>
-	</node>
-	<node option="Give me cake" text="No"></node>
-	<node option="Give me cake, please" item="4" id="cake" text="Here you go"></node>
-</node>
