@@ -54,7 +54,9 @@ public class PlayerShootingScript : MonoBehaviour
             reloading = true;
             timer = reloadDuration;
         }
-        if (reloading) { Reload(); }
+        if (reloading) { 
+			Reload(); 
+		}
         if (timer > 0) { timer -= Time.deltaTime; }
         if (recoil > 0)
         {
