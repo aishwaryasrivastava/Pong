@@ -5,6 +5,8 @@ public class GuardAnimHandler : MonoBehaviour {
 
     Animator guardAnim;
 
+    public bool Idle = true;
+
     // Use this for initialization
     void Start () {
 
@@ -18,6 +20,7 @@ public class GuardAnimHandler : MonoBehaviour {
 
     public void ToWalking()
     {
+        Idle = false;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", false);
@@ -26,6 +29,7 @@ public class GuardAnimHandler : MonoBehaviour {
 
     public void ToIdle()
     {
+        Idle = true;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", true);

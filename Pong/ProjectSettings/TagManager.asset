@@ -10,10 +10,6 @@ TagManager:
   - Wall
   - Item
   - Human
-  - cp1
-  - cp2
-  - cp3
-  - cp4
   - hwG1
   - hwG2
   - vision
@@ -21,6 +17,7 @@ TagManager:
   - Pipe
   - Destroyable
   - Transfer
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
