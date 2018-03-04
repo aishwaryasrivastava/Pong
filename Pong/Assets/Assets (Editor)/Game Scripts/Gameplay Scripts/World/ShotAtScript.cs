@@ -4,6 +4,7 @@ public class ShotAtScript : MonoBehaviour
 {
     private int curHealth;
     public int health;
+	public GameObject guard;
 
     private Rigidbody rb;
     private MeshRenderer mr;
@@ -32,7 +33,12 @@ public class ShotAtScript : MonoBehaviour
         
         if (curHealth < 0)
         {
-            gameObject.SetActive(false);
+			var tmp = guard.GetComponent<GuardScript> ();
+			tmp.anim.ToDied ();
+			if (tmp.anim.guardAnim.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.99f) {
+				gameObject.SetActive(false);
+			}
+
             //Destroy(gameObject);
             ResetLevel.resettables.Add(transform);
         }

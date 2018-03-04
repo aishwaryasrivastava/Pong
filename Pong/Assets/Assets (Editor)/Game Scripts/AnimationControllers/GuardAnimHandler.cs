@@ -3,7 +3,7 @@
 public class GuardAnimHandler : MonoBehaviour {
 
 
-    Animator guardAnim;
+    public Animator guardAnim;
 
     public bool Idle = true;
 
@@ -25,6 +25,7 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", false);
         guardAnim.SetBool("isWalking", true);
+		guardAnim.SetBool("isDied", false);
     }
 
     public void ToIdle()
@@ -34,6 +35,7 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", true);
         guardAnim.SetBool("isWalking", false);
+		guardAnim.SetBool("isDied", false);
     }
 
     public void ToRunning()
@@ -42,6 +44,7 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", false);
         guardAnim.SetBool("isWalking", false);
+		guardAnim.SetBool("isDied", false);
     }
 
     public void ToAttacking()
@@ -50,5 +53,14 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isAttacking", true);
         guardAnim.SetBool("isIdle", false);
         guardAnim.SetBool("isWalking", false);
+		guardAnim.SetBool("isDied", false);
     }
+
+	public void ToDied(){
+		guardAnim.SetBool("isRunning", false);
+		guardAnim.SetBool("isAttacking", false);
+		guardAnim.SetBool("isIdle", false);
+		guardAnim.SetBool("isWalking", false);
+		guardAnim.SetBool("isDied", true);
+	}
 }

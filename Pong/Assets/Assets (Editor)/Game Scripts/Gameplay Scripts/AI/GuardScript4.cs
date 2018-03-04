@@ -65,7 +65,7 @@ public class GuardScript4 : MonoBehaviour {
             if ((transform.position - GoHere).magnitude < attackDistance)
             {
                 Beat();
-                //anim.ToAttacking();
+                anim.ToAttacking();
             }           
 
             playerTimer--;

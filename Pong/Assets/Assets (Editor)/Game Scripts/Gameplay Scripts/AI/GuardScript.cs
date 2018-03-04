@@ -26,7 +26,7 @@ public class GuardScript : MonoBehaviour {
 	public Vector3 initialPos;
 	public Quaternion initialRot;
 
-	GuardAnimHandler anim;
+	public GuardAnimHandler anim;
 
 	private Vector3 position;
 	private Vector3 direction;

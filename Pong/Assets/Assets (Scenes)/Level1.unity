@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  guard: {fileID: 0}
 --- !u!1001 &19738683
 Prefab:
   m_ObjectHideFlags: 0
@@ -3111,7 +3112,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.06, y: 2.42, z: 13.7}
+  m_LocalPosition: {x: 3.85, y: 2.42, z: 13.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -4206,6 +4207,7 @@ GameObject:
   - component: {fileID: 183744845}
   - component: {fileID: 183744848}
   - component: {fileID: 183744847}
+  - component: {fileID: 183744854}
   m_Layer: 0
   m_Name: HallwayGuard-02
   m_TagString: hwG2
@@ -4281,6 +4283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
+  guard: {fileID: 183744844}
 --- !u!114 &183744849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4293,6 +4296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaee8fbc95d50b64b99d85dc21ea90b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guardAnim: {fileID: 0}
   Idle: 1
 --- !u!82 &183744850
 AudioSource:
@@ -4420,6 +4424,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &183744854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183744844}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2c7b336e8070242ac97a679c70c059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  attackDistance: 0
+  runningDistance: 0
+  speed: 0
+  walkingSpeed: 0
+  found: 0
+  vision: {fileID: 0}
+  target: {fileID: 0}
+  playerMan: {fileID: 0}
+  friend: {fileID: 0}
+  guard: {fileID: 0}
+  cp1: {fileID: 0}
+  cp2: {fileID: 0}
+  cp3: {fileID: 0}
+  cp4: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  initialRot: {x: 0, y: 0, z: 0, w: 0}
+  anim: {fileID: 0}
+  north: 0
+  south: 0
+  east: 0
+  west: 0
 --- !u!1001 &188330299
 Prefab:
   m_ObjectHideFlags: 0
@@ -9519,6 +9556,7 @@ GameObject:
   - component: {fileID: 478164771}
   - component: {fileID: 478164774}
   - component: {fileID: 478164772}
+  - component: {fileID: 478164778}
   m_Layer: 0
   m_Name: HallwayGuard-01
   m_TagString: hwG1
@@ -9594,6 +9632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaee8fbc95d50b64b99d85dc21ea90b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guardAnim: {fileID: 0}
   Idle: 1
 --- !u!114 &478164774
 MonoBehaviour:
@@ -9607,6 +9646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
+  guard: {fileID: 478164769}
 --- !u!54 &478164775
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9653,6 +9693,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &478164778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478164769}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2c7b336e8070242ac97a679c70c059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 113493820}
+  attackDistance: 0
+  runningDistance: 0
+  speed: 0
+  walkingSpeed: 0
+  found: 0
+  vision: {fileID: 0}
+  target: {fileID: 0}
+  playerMan: {fileID: 0}
+  friend: {fileID: 0}
+  guard: {fileID: 0}
+  cp1: {fileID: 0}
+  cp2: {fileID: 0}
+  cp3: {fileID: 0}
+  cp4: {fileID: 0}
+  initialPos: {x: 0, y: 0, z: 0}
+  initialRot: {x: 0, y: 0, z: 0, w: 0}
+  anim: {fileID: 0}
+  north: 0
+  south: 0
+  east: 0
+  west: 0
 --- !u!1001 &483015346
 Prefab:
   m_ObjectHideFlags: 0
@@ -10578,6 +10651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
+  guard: {fileID: 0}
 --- !u!1 &549608331
 GameObject:
   m_ObjectHideFlags: 0
@@ -25421,7 +25495,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 103635042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.35, y: 1.476875, z: 29.12}
+  m_LocalPosition: {x: -10.36, y: 1.476875, z: 29.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 646456804}
@@ -26034,6 +26108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
+  guard: {fileID: 0}
 --- !u!1001 &1398546683
 Prefab:
   m_ObjectHideFlags: 0
@@ -28426,6 +28501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
+  guard: {fileID: 0}
 --- !u!54 &1550549917
 Rigidbody:
   m_ObjectHideFlags: 0
