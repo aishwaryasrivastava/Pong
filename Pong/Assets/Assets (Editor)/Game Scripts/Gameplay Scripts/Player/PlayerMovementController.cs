@@ -8,6 +8,8 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 currentRotation;
     private Rigidbody rb;
 
+    public float CurrentSoundOutput;
+
     public CapsuleCollider head;
 
     public bool inTheRed;
@@ -19,7 +21,8 @@ public class PlayerMovementController : MonoBehaviour
 
 	public PlayerSoundControll soundControl;
 	public int dmg = 0;
-	private bool moving, running, jumping;
+    private bool moving, running, jumping;
+    public bool shooting;
 
     void Start ()
     {
@@ -111,6 +114,15 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+    void RelaySound()
+    {
+        if (shooting) CurrentSoundOutput = 5;
+        else if (running) CurrentSoundOutput = 2;
+        else if (jumping) CurrentSoundOutput = 0.75f;
+        else if (moving) CurrentSoundOutput = crouched ? 0.5f : 1;      
+        else CurrentSoundOutput = 0;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -134,6 +146,7 @@ public class PlayerMovementController : MonoBehaviour
 	    MoveWithMouse();
         SetMovementVector();
 		soundControl.UpdateMovementSounds(moving, running, jumping);
+        RelaySound();
         
         if(transform.position.y < -10) //fell out of the world
         {

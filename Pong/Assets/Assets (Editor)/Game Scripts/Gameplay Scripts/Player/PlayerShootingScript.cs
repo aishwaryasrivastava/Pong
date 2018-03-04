@@ -48,7 +48,11 @@ public class PlayerShootingScript : MonoBehaviour
     {
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
-        if (CanFire() && Input.GetButton("Fire1")) { Fire(); }
+        if (Input.GetMouseButton(0))
+        {
+            if (CanFire()) Fire();
+            movement.shooting = true;
+        } 
         if (Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading)
         {
             reloading = true;
@@ -61,9 +65,6 @@ public class PlayerShootingScript : MonoBehaviour
         if (recoil > 0)
         {
             Recoil(-Time.deltaTime * 20);
-            //recoil -= Time.deltaTime * 20;
-            //transform.Rotate(Time.deltaTime * 20, 0, 0);
-            //gun.Translate(0, 0, Time.deltaTime * 0.2f);
         }
         if (timer <= 0.07) { flare.SetActive(false); }
     }
@@ -87,8 +88,6 @@ public class PlayerShootingScript : MonoBehaviour
         ammoMcCount.UpdateValue(ammoCount, magazineSize);
         timer = fireGap;
         Recoil(damage/10f);
-        //recoil += damage / 10f;
-        //transform.Rotate(damage / -10f, 0, 0);
         
         sounds.PlayShoot();
     }

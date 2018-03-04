@@ -12,9 +12,9 @@ public class Vision : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//position = guard.transform.position;
-		//transform.position = position;
-		//transform.rotation = guard.transform.rotation;
+		position = guard.transform.position;
+		transform.position = position;
+		transform.rotation = guard.transform.rotation;
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -22,7 +22,7 @@ public class Vision : MonoBehaviour {
 		GuardScript script = guard.GetComponent<GuardScript> ();
         if (other.CompareTag("Player"))
         {
-            script.PlayerSpotted(other.transform);
+            
         }
     }
 
