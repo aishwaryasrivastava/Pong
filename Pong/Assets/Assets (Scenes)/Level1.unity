@@ -4435,21 +4435,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2c7b336e8070242ac97a679c70c059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  attackDistance: 0
-  runningDistance: 0
-  speed: 0
-  walkingSpeed: 0
+  player: {fileID: 113493820}
+  attackDistance: 1.5
+  runningDistance: 10
+  speed: 0.05
+  walkingSpeed: 0.025
   found: 0
   vision: {fileID: 0}
-  target: {fileID: 0}
-  playerMan: {fileID: 0}
-  friend: {fileID: 0}
-  guard: {fileID: 0}
-  cp1: {fileID: 0}
-  cp2: {fileID: 0}
-  cp3: {fileID: 0}
-  cp4: {fileID: 0}
+  target: {fileID: 1312321913}
+  playerMan: {fileID: 113493812}
+  friend: {fileID: 478164769}
+  guard: {fileID: 183744844}
+  cp1: {fileID: 1342961473}
+  cp2: {fileID: 115080252}
+  cp3: {fileID: 611827657}
+  cp4: {fileID: 1421611419}
   initialPos: {x: 0, y: 0, z: 0}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
   anim: {fileID: 0}
@@ -9705,20 +9705,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 113493820}
-  attackDistance: 0
-  runningDistance: 0
-  speed: 0
-  walkingSpeed: 0
+  attackDistance: 1.5
+  runningDistance: 10
+  speed: 0.05
+  walkingSpeed: 0.025
   found: 0
   vision: {fileID: 0}
-  target: {fileID: 0}
-  playerMan: {fileID: 0}
-  friend: {fileID: 0}
-  guard: {fileID: 0}
-  cp1: {fileID: 0}
-  cp2: {fileID: 0}
-  cp3: {fileID: 0}
-  cp4: {fileID: 0}
+  target: {fileID: 1312321913}
+  playerMan: {fileID: 113493812}
+  friend: {fileID: 183744844}
+  guard: {fileID: 478164769}
+  cp1: {fileID: 1342961473}
+  cp2: {fileID: 115080252}
+  cp3: {fileID: 611827657}
+  cp4: {fileID: 1421611419}
   initialPos: {x: 0, y: 0, z: 0}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
   anim: {fileID: 0}
