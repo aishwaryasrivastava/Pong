@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,11 +20,12 @@ public class PlayerInteractionController : MonoBehaviour
     public Camera mainCamera;
     public WorldLoader loader;
 
-    public bool InventoryActive;
+    public bool InventoryActive, inspectingSomething;
     public Inventory inventory;
+    public GameObject uiInspectable; // change to specific class once settle on static vs. interactive inspectable design
     public PlayerWeaponEquip Equips;
 
-    private Transform activeItem, activeDoor, activeHuman, activeEquip, activeTransfer;
+    private Transform activeItem, activeDoor, activeHuman, activeEquip, activeTransfer, activeInspectable;
 
     void Start()
     {
@@ -83,6 +85,10 @@ public class PlayerInteractionController : MonoBehaviour
         else if (hit.transform.CompareTag("Transfer"))
         {
             activeTransfer = hit.transform;
+        }
+        else if (hit.transform.CompareTag("Inspectable"))
+        {
+            activeInspectable = hit.transform;
         }
         else
         {
@@ -164,6 +170,22 @@ public class PlayerInteractionController : MonoBehaviour
                 //inventory.Clear(); //unsure about this
                 loader.TriggerNextLevel();
             }
+            else if (activeInspectable != null)
+            {
+                uiInspectable = activeInspectable.GetComponent<InspectableInformation>().Inspectable;
+                uiInspectable.SetActive(true);
+                inspectingSomething = !inspectingSomething;
+            }
+        }
+    }
+
+    public void CheckInspectionControls()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) // exit code
+        {
+            inspectingSomething = !inspectingSomething;
+            uiInspectable.SetActive(false);
+            uiInspectable = null;
         }
     }
 
@@ -213,7 +235,7 @@ public class PlayerInteractionController : MonoBehaviour
             Die();
         }
 
-        if (!InventoryActive)
+        if (!InventoryActive && !inspectingSomething)
         {
             CheckInteractionControls();
             timer += Time.deltaTime;
@@ -223,7 +245,8 @@ public class PlayerInteractionController : MonoBehaviour
                 CheckForEnt();
             }
         }
-        else CheckInventoryControls();
+        else if (InventoryActive) CheckInventoryControls();
+        else if (inspectingSomething) CheckInspectionControls();
     }
 }
 
@@ -274,4 +297,11 @@ public class Pickup
                 break;
         }
     }
+}
+
+public class Inspectable
+{
+    // will have a UI element able to toggle in front of player
+    // eg, click on keypad code in inventory to look at its code
+    // eg, keypad on wall is inspectable and will pull up a keypad ui interface
 }

@@ -137,7 +137,7 @@ public class PlayerMovementController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-	    if (interact.InventoryActive || (dialog != null && dialog.talking) || PauseManager.Paused)
+	    if (interact.InventoryActive || interact.inspectingSomething || (dialog != null && dialog.talking) || PauseManager.Paused)
 	    {
 	        soundControl.UpdateMovementSounds(false, false, false);
             return;

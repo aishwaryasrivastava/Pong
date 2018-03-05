@@ -18,6 +18,7 @@ TagManager:
   - Destroyable
   - Transfer
   - Checkpoint
+  - Inspectable
   layers:
   - Default
   - TransparentFX
