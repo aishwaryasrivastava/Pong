@@ -8,7 +8,7 @@ public class PlayerSoundControll : MonoBehaviour {
     void Start()
     {
         walk.volume = 1;
-        run.volume = 0.1f;
+        run.volume = 0.3f;
     }
 
     public void UpdateMovementSounds(bool moving, bool running, bool offGround)

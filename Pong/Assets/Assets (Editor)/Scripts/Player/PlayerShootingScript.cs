@@ -42,6 +42,7 @@ public class PlayerShootingScript : MonoBehaviour
         flare.SetActive(false);
         recoil = 0;
         ammoMcCount.UpdateValue(magazineSize, magazineSize);
+		sounds = gameObject.GetComponentInParent<SoundController> ();
     }
 
     void Update()

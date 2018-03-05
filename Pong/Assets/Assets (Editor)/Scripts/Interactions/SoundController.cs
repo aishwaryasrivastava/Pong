@@ -8,7 +8,7 @@ public class SoundController : MonoBehaviour {
 	private AudioSource source;
 
 	//private float highVol = 1f;
-	private float lowVol = 0.4f;
+	private float lowVol = 0.25f;
 
 	private bool input_down;
 	//private bool input_up;
@@ -67,6 +67,6 @@ public class SoundController : MonoBehaviour {
 	}
 
 	public void PlayReload(){
-		source.PlayOneShot (reloadSound, 0.6f);
+		source.PlayOneShot (reloadSound, 0.4f);
 	}
 }
