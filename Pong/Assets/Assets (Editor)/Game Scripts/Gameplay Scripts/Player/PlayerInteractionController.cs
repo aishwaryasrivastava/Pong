@@ -155,10 +155,12 @@ public class PlayerInteractionController : MonoBehaviour
                 if (activeEquip.CompareTag("AK"))
                 {
                     Equips.SetAble(PlayerWeaponEquip.AK);
+					sounds.PlayEquip ();
                 }
                 else if(activeEquip.CompareTag("Pipe"))
                 {
                     Equips.SetAble(PlayerWeaponEquip.Pipe);
+					sounds.PlayDwang ();
                 }
                 activeEquip.gameObject.SetActive(false);
                 ResetLevel.resettables.Add(activeEquip);
