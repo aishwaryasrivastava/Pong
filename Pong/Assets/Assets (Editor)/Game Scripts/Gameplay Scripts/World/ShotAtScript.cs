@@ -30,13 +30,17 @@ public class ShotAtScript : MonoBehaviour
     {
         if(rb != null) rb.AddForce(damageVector /5 , ForceMode.Impulse);
         curHealth -= (int)damageVector.magnitude + 1;
-        
         if (curHealth < 0)
         {
-			var tmp = guard.GetComponent<GuardScript> ();
-			tmp.anim.ToDied ();
-			if (tmp.anim.guardAnim.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.99f) {
-				gameObject.SetActive(false);
+			if ((gameObject.CompareTag ("hwG1")) || (gameObject.CompareTag ("hwG2"))) {
+				var tmp = guard.GetComponent<GuardScript> ();
+				tmp.health--;
+				if ((tmp.anim.guardAnim.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.99f) && (tmp.anim.guardAnim.GetCurrentAnimatorStateInfo (0).IsName ("Death"))) {
+					gameObject.SetActive (false);
+				}
+				Debug.Log (tmp.health);
+			} else {
+				gameObject.SetActive (false);
 			}
 
             //Destroy(gameObject);

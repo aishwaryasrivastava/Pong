@@ -39,6 +39,9 @@ public class GuardScript : MonoBehaviour {
 
 	private bool comeback = false;
 	private bool inRoom = false;
+	private bool died = false;
+
+	public int health = 5;
 	void Start () {
 		anim = GetComponent<GuardAnimHandler> ();
 		if (guard.CompareTag ("hwG1")) {
@@ -57,46 +60,48 @@ public class GuardScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && (player.transform.position.z > 17.0f) && !inRoom) {
-			anim.ToRunning ();
-			direction = player.position - transform.position;
-			direction.y = 0;
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (direction), 0.5f);
-			transform.Translate (0, 0, speed);
-		} else if ((Vector3.Distance (player.position, transform.position) <= attackDistance) && found) {
-			anim.ToAttacking ();
-		} else if (!found) {
-			anim.ToWalking ();
-			walking ();
-		} else if( (found && player.transform.position.z < 17.0f) || inRoom){
-			GameObject cp = nearestPoint ();
-			if (cp.CompareTag ("cp3")) {
-				north = false;
-				south = true;
-				east = false;
-				west = false;
-			}else if(cp.CompareTag ("cp1")){
-				north = false;
-				south = false;
-				east = false;
-				west = true;
-			}else if(cp.CompareTag ("cp2")){
-				north = true;
-				south = false;
-				east = false;
-				west = false;
-			}else if(cp.CompareTag ("cp4")){
-				north = false;
-				south = false;
-				east = true;
-				west = false;
+		if (!died) {
+			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && (player.transform.position.z > 17.0f) && !inRoom) {
+				anim.ToRunning ();
+				direction = player.position - transform.position;
+				direction.y = 0;
+				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (direction), 0.5f);
+				transform.Translate (0, 0, speed);
+			} else if ((Vector3.Distance (player.position, transform.position) <= attackDistance) && found) {
+				anim.ToAttacking ();
+			} else if (!found) {
+				anim.ToWalking ();
+				walking ();
+			} else if ((found && player.transform.position.z < 17.0f) || inRoom) {
+				GameObject cp = nearestPoint ();
+				if (cp.CompareTag ("cp3")) {
+					north = false;
+					south = true;
+					east = false;
+					west = false;
+				} else if (cp.CompareTag ("cp1")) {
+					north = false;
+					south = false;
+					east = false;
+					west = true;
+				} else if (cp.CompareTag ("cp2")) {
+					north = true;
+					south = false;
+					east = false;
+					west = false;
+				} else if (cp.CompareTag ("cp4")) {
+					north = false;
+					south = false;
+					east = true;
+					west = false;
+				}
+				anim.ToWalking ();
+				direction = cp.transform.position - transform.position;
+				direction.y = 0;
+				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (direction), 0.5f);
+				transform.Translate (0, 0, walkingSpeed);
+				comeback = true;
 			}
-			anim.ToWalking ();
-			direction = cp.transform.position - transform.position;
-			direction.y = 0;
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (direction), 0.5f);
-			transform.Translate (0, 0, walkingSpeed);
-			comeback = true;
 		}
 
 
@@ -125,10 +130,15 @@ public class GuardScript : MonoBehaviour {
 			}
         }
 			
-		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.4) && found)) {
+		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.6) && found)) {
 			inRoom = true;
 		} else {
 			inRoom = false;
+		}
+
+		if (health < 0) {
+			died = true;
+			anim.ToDied ();
 		}
 	}
 

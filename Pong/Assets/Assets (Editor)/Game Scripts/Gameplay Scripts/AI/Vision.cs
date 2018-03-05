@@ -22,7 +22,7 @@ public class Vision : MonoBehaviour {
 		GuardScript script = guard.GetComponent<GuardScript> ();
         if (other.CompareTag("Player"))
         {
-            
+			script.found = true;
         }
     }
 

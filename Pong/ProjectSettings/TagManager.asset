@@ -19,6 +19,10 @@ TagManager:
   - Transfer
   - Checkpoint
   - Inspectable
+  - cp1
+  - cp2
+  - cp3
+  - cp4
   layers:
   - Default
   - TransparentFX
