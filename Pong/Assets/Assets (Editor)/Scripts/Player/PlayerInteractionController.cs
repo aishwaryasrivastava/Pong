@@ -177,8 +177,33 @@ public class PlayerInteractionController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) // exit code
         {
             inspectingSomething = !inspectingSomething;
-            uiInspectable.SetActive(false);
+            uiInspectable.SetActive(false); // move these into inspectable
             uiInspectable = null;
+            return;
+        }
+        // clean this up and make the other class do it later or just make this the keypad interaction
+        if (active[4].GetComponent<InspectableInformation>().type == InspectableInformation.Type.Keypad)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                active[4].GetComponent<InspectableInformation>().horMove(-1);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                active[4].GetComponent<InspectableInformation>().horMove(1);
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                active[4].GetComponent<InspectableInformation>().vertMove(1);
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                active[4].GetComponent<InspectableInformation>().vertMove(-1);
+            }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                active[4].GetComponent<InspectableInformation>().pressKey();
+            }
         }
     }
 
