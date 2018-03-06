@@ -61,7 +61,7 @@ public class GuardScript : MonoBehaviour {
 	void Update ()
     {
 		if (!died) {
-			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && (player.transform.position.z > 17.0f) && !inRoom) {
+			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom) {
 				anim.ToRunning ();
 				direction = player.position - transform.position;
 				direction.y = 0;
@@ -72,7 +72,8 @@ public class GuardScript : MonoBehaviour {
 			} else if (!found) {
 				anim.ToWalking ();
 				walking ();
-			} else if ((found && player.transform.position.z < 17.0f) || inRoom) {
+			} else if (inRoom) {
+				inRoom = false;
 				GameObject cp = nearestPoint ();
 				if (cp.CompareTag ("cp3")) {
 					north = false;
@@ -108,7 +109,6 @@ public class GuardScript : MonoBehaviour {
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
 		if (tmp.dmg == 5)
         {
-				
 				tmp.Die ();
 				found = false;
 				transform.position = initialPos;
@@ -130,11 +130,9 @@ public class GuardScript : MonoBehaviour {
 			}
         }
 			
-		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.6) && found)) {
+		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.3) && found) || (found && player.transform.position.z < 17.0f)) {
 			inRoom = true;
-		} else {
-			inRoom = false;
-		}
+		} 
 
 		if (health < 0) {
 			died = true;

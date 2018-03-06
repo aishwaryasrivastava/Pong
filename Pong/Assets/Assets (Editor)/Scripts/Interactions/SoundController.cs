@@ -3,9 +3,10 @@
 public class SoundController : MonoBehaviour {
 
 	//public AudioClip walkingSound;
-	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound, ShootingSound, reloadSound, gunEquip, dwang, swing;
+	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound, ShootingSound, reloadSound, gunEquip, dwang;
+	public AudioClip[] swing = new AudioClip[10];
 	public GameObject guns;
-	private AudioSource source;
+	public AudioSource source;
 
 	//private float highVol = 1f;
 	private float lowVol = 0.25f;
@@ -63,7 +64,7 @@ public class SoundController : MonoBehaviour {
 	}
 
 	public void PlaySwingW(){
-		source.PlayOneShot(swing, lowVol);
+		source.PlayOneShot(swing[Random.Range (0, 10)], lowVol);
 	}
 
 	public void PlayReload(){

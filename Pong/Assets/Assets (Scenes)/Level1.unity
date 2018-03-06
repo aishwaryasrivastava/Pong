@@ -3093,7 +3093,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.38, y: 2.42, z: 13.67}
+  m_LocalPosition: {x: 1.38, y: 2.42, z: 11.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -3148,8 +3148,19 @@ MonoBehaviour:
   reloadSound: {fileID: 8300000, guid: e5198250a6a57408bb36e14bc4a322c4, type: 3}
   gunEquip: {fileID: 8300000, guid: 9158afb6966d445db9caf1dccf7acbcc, type: 3}
   dwang: {fileID: 8300000, guid: 1b7810d092d29eb419fe43017c6a3ec1, type: 3}
-  swing: {fileID: 8300000, guid: 950fd72a83607e244881f63397672efd, type: 3}
+  swing:
+  - {fileID: 8300000, guid: d261d5fc8420f024fbd7b0e1d950d3ae, type: 3}
+  - {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
+  - {fileID: 8300000, guid: bc92f9ca5161aab4d970660b7910dea7, type: 3}
+  - {fileID: 8300000, guid: f3b834e881c44dc4382d47d5cb802931, type: 3}
+  - {fileID: 8300000, guid: a084b988fa69fe34994047e472f1a708, type: 3}
+  - {fileID: 8300000, guid: 7e3c778631cb0c449a183b8e80ef7209, type: 3}
+  - {fileID: 8300000, guid: 01c97b38dbbdfb947aff7c91fff1efbe, type: 3}
+  - {fileID: 8300000, guid: a529f901bd51a994ab50b87aa4784457, type: 3}
+  - {fileID: 8300000, guid: 26f0f934fb9804a4dbd72fa47aff5791, type: 3}
+  - {fileID: 8300000, guid: 7d12b8ffc45a795419fd6cbe363addd4, type: 3}
   guns: {fileID: 997533141}
+  source: {fileID: 0}
 --- !u!1001 &115079512
 Prefab:
   m_ObjectHideFlags: 0
@@ -4761,7 +4772,7 @@ MonoBehaviour:
   cp3: {fileID: 611827657}
   cp4: {fileID: 1421611419}
   initialPos: {x: 5.676, y: 1.664, z: 39.23}
-  initialRot: {x: 0, y: 0, z: 0, w: 0}
+  initialRot: {x: 0, y: 180, z: 0, w: 0}
   anim: {fileID: 0}
   north: 0
   south: 0
@@ -7556,7 +7567,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 12}
+  m_Size: {x: 2, y: 2, z: 12}
   m_Center: {x: 0, y: 1.25, z: 6.5}
 --- !u!114 &311711597
 MonoBehaviour:
@@ -24281,7 +24292,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 12}
+  m_Size: {x: 2, y: 2, z: 12}
   m_Center: {x: 0, y: 1.25, z: 6.5}
 --- !u!114 &1054176821
 MonoBehaviour:
@@ -30147,7 +30158,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1, z: 3}
+  m_Size: {x: 0, y: 1, z: 3}
   m_Center: {x: 0.05, y: 0, z: 0.05}
 --- !u!1001 &1347858514
 Prefab:

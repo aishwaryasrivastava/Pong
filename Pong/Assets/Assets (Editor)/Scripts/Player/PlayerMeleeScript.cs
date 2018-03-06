@@ -22,7 +22,9 @@ public class PlayerMeleeScript : MonoBehaviour {
 	        PlayerWeaponEquip.timer = 1.1f;
 	        animator.Attack();
 			var tmp = GetComponentInParent<SoundController> ();
-			tmp.PlaySwingW ();
+			if(!tmp.source.isPlaying){
+				tmp.PlaySwingW ();
+			}
 	    }
 
     }
