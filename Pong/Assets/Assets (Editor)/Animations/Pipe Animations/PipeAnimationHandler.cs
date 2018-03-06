@@ -6,6 +6,8 @@ public class PipeAnimationHandler : MonoBehaviour {
 
     public Animator anim;
     public bool attackLock;
+    private bool nextAttackLock;
+    private int attackNo;
     private Vector3 local;
     private Quaternion local2;
 
@@ -16,6 +18,7 @@ public class PipeAnimationHandler : MonoBehaviour {
 	    local2 = transform.localRotation;
         anim = GetComponent<Animator>();
         attackLock = false;
+        nextAttackLock = false;
 	}
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class PipeAnimationHandler : MonoBehaviour {
 
         public void ToIdle()
         {
+        attackNo = 0;
             anim.SetBool("isAttacking", false);
             anim.SetBool("isIdle", true);
             anim.SetBool("isWalking", false);
@@ -59,10 +63,16 @@ public class PipeAnimationHandler : MonoBehaviour {
 
     public void Attack()
     {
-        if (!attackLock)
+        if (!attackLock && !nextAttackLock)
         {
-            //attackLock = true;
-            ToAttacking();
+            if (attackNo < 3)
+            {
+                nextAttackLock = true;
+                attackNo++;
+                anim.SetInteger("toAttack", attackNo);
+                //attackLock = true;
+                ToAttacking();
+            }
         }
     }
     
@@ -71,4 +81,11 @@ public class PipeAnimationHandler : MonoBehaviour {
     {
         attackLock = false;
     }
+
+    public void ReleaseNextAttackLock()
+    {
+        nextAttackLock = false;
+    }
+
+
 }
