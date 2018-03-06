@@ -17,7 +17,7 @@ public class PlayerMeleeScript : MonoBehaviour {
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
 
-	    if (Input.GetMouseButton(0))
+	    if (Input.GetMouseButtonDown(0))
 	    {
 	        PlayerWeaponEquip.timer = 1.1f;
 	        animator.Attack();

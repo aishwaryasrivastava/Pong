@@ -63,7 +63,7 @@ public class PipeAnimationHandler : MonoBehaviour {
 
     public void Attack()
     {
-        if (!attackLock && !nextAttackLock)
+        if (!attackLock || !nextAttackLock)
         {
             if (attackNo < 3)
             {
