@@ -130,7 +130,7 @@ public class GuardScript : MonoBehaviour {
 			}
         }
 			
-		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.6) && found)) {
+		if (((player.position.x > 6.5) && found) || ((player.position.x < -10.6) && found)) {
 			inRoom = true;
 		} else {
 			inRoom = false;
