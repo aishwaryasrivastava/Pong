@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &17631047
 Transform:
   m_ObjectHideFlags: 0
@@ -28414,6 +28414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282777791}
   - component: {fileID: 1282777792}
+  - component: {fileID: 1282777793}
   m_Layer: 0
   m_Name: LevelTrigger
   m_TagString: Untagged
@@ -28441,11 +28442,23 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1282777790}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.25, y: 3, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1282777793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1282777790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eecda11c8f601d4e89acc0a704f704a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loader: {fileID: 1267574374}
 --- !u!4 &1285682925 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3c432f008e89b0643a56b2b0656b05da, type: 2}
@@ -38762,7 +38775,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 148038, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 148038, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_TagString
@@ -42674,7 +42687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.01
+      value: -0.0441
       objectReference: {fileID: 0}
     - target: {fileID: 448044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_LocalRotation.x
