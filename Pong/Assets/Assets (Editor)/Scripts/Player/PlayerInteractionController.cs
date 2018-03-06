@@ -99,14 +99,17 @@ public class PlayerInteractionController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             inventory.Scroll(-1);
+			sounds.PlayScroll ();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             inventory.Scroll(1);
+			sounds.PlayScroll ();
         }
         if (Input.GetKeyDown(KeyCode.Delete))
         {
             inventory.DropSelectedItem();
+			sounds.PlayDelete ();
         }
     }
 

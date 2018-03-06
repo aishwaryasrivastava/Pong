@@ -73,7 +73,7 @@ public class GuardScript : MonoBehaviour {
 				anim.ToWalking ();
 				walking ();
 			} else if (inRoom) {
-				inRoom = false;
+				//inRoom = false;
 				GameObject cp = nearestPoint ();
 				if (cp.CompareTag ("cp3")) {
 					north = false;
@@ -132,7 +132,9 @@ public class GuardScript : MonoBehaviour {
 			
 		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.3) && found) || (found && player.transform.position.z < 17.0f)) {
 			inRoom = true;
-		} 
+		} else {
+			inRoom = false;
+		}
 
 		if (health < 0) {
 			died = true;
