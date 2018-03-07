@@ -123,6 +123,12 @@ public class PlayerMovementController : MonoBehaviour
         else CurrentSoundOutput = 0;
     }
 
+    void DebugA()
+    {
+        transform.position = new Vector3(1, 3, -6);
+        //Debug.Log("hello");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -130,6 +136,10 @@ public class PlayerMovementController : MonoBehaviour
             PauseManager.Paused = !PauseManager.Paused;
         }
         if (PauseManager.Paused) return;
+        if (Input.GetKeyDown(KeyCode.LeftBracket))
+        {
+            DebugA();
+        }
 
         CheckJump();
         CheckCrouch();      

@@ -25,10 +25,10 @@ GameObject:
   - component: {fileID: 65183239713549454}
   m_Layer: 0
   m_Name: Crate (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1015174648937804
 GameObject:
@@ -44,10 +44,10 @@ GameObject:
   - component: {fileID: 65559617118437944}
   m_Layer: 0
   m_Name: Crate (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1026269215617916
 GameObject:
@@ -63,10 +63,10 @@ GameObject:
   - component: {fileID: 65431614709273824}
   m_Layer: 0
   m_Name: Crate (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1216832127852394
 GameObject:
@@ -82,10 +82,10 @@ GameObject:
   - component: {fileID: 65056356349447890}
   m_Layer: 0
   m_Name: Crate (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1487818287481138
 GameObject:
@@ -116,10 +116,10 @@ GameObject:
   - component: {fileID: 65842347194997414}
   m_Layer: 0
   m_Name: Crate
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1686747884780358
 GameObject:
@@ -135,10 +135,10 @@ GameObject:
   - component: {fileID: 65230640593196316}
   m_Layer: 0
   m_Name: Crate (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1701857140865090
 GameObject:
@@ -154,10 +154,10 @@ GameObject:
   - component: {fileID: 65143757715218666}
   m_Layer: 0
   m_Name: Crate (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1904465506593918
 GameObject:
@@ -173,10 +173,10 @@ GameObject:
   - component: {fileID: 65570682729599520}
   m_Layer: 0
   m_Name: Crate
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4088165789240202
 Transform:

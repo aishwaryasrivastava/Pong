@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GuardScript4 : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class GuardScript4 : MonoBehaviour
     private bool Remember, See, Investigate;
     private int playerTimer, visionTimer = 10;
     private float AttackTimer;
-    public float ViewDistance, ViewAngle, RotationSpeed, LastPlayerDistance;
+    public float ViewDistance, ViewAngle, LastPlayerDistance;
 
     private const int MemoryDelay = 600, InvestigateDelay = 120;
 
@@ -26,36 +27,63 @@ public class GuardScript4 : MonoBehaviour
     private Vector3 initialPos;
     private Quaternion initialRot;
     private int initialPoint;
-    private Vector3 GoHere;
+    private Vector3 Goal;
 
     GuardAnimHandler anim;
+    private NavMeshAgent agent;
 
     void Start()
     {
         anim = GetComponent<GuardAnimHandler>();
+        agent = GetComponent<NavMeshAgent>();
         var rot = transform.rotation;
         var pos = transform.position;
         initialRot = new Quaternion(rot.x, rot.y, rot.z, rot.w);
         initialPos = new Vector3(pos.x, pos.y, pos.z);
         initialPoint = CurrentCheckpoint;
         playerTimer = 1000;
-        UpdateCheckpoint();
+        //UpdateCheckpoint();
         ResetLevel.resettables.Add(transform);
     }
 
     public void PlayerIsGood()
     {
         See = Remember = Investigate = false;
+        agent.speed = walkingSpeed;
         CurrentCheckpoint = GetNearestPoint(transform.position);
         UpdateCheckpoint();
         anim.ToWalking();
+        Unhalt();
     }
 
     private void UpdateCheckpoint()
     {
-        GoHere = Checks[CurrentCheckpoint].position;
-        GoHere.y = transform.position.y;
-        //transform.forward = Vector3.RotateTowards(transform.forward, GoHere - transform.position, 5f, 100);
+        Goal = Checks[CurrentCheckpoint].position;
+        Goal.y = transform.position.y;
+        agent.destination = Goal;
+    }
+
+    private void SetPlayerAsGoal()
+    {
+        Goal = player.transform.position;
+        Goal.y = transform.position.y;
+        agent.destination = Goal;
+    }
+
+    private void Halt()
+    {
+        //Goal = transform.position;
+        //agent.destination = Goal;
+        agent.isStopped = true;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+    }
+
+    private void Unhalt()
+    {
+        agent.isStopped = false;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
     }
 
     // Update is called once per frame
@@ -64,22 +92,21 @@ public class GuardScript4 : MonoBehaviour
         if (PauseManager.Paused) return;
 
         CheckVision();
-        transform.forward = Vector3.RotateTowards(transform.forward, GoHere - transform.position, RotationSpeed, 10);
 
         if (See)
         {
-            //chasing player
-            GoHere = player.transform.position;
-            GoHere.y = transform.position.y;
+            //chasing player         
 
-            if ((transform.position - GoHere).magnitude < attackDistance)
+            if ((transform.position - Goal).magnitude < attackDistance)
             {
                 anim.ToAttacking();
+                Halt();
             }
             else
             {
-                transform.Translate(new Vector3(0, 0, speed), Space.Self);
                 anim.ToRunning();
+                Unhalt();
+                SetPlayerAsGoal();
             }
 
             if (!PlayerInBounds()) PlayerIsGood();
@@ -89,13 +116,11 @@ public class GuardScript4 : MonoBehaviour
             //chasing last player location
             if (!Investigate)
             {
-                transform.Translate(new Vector3(0, 0, speed), Space.Self);
-                if ((transform.position - GoHere).magnitude < 1)
+                if ((transform.position - Goal).magnitude < 1)
                 {
                     anim.ToIdle();
+                    Halt();
                     Investigate = true;
-                    GoHere = player.transform.position;
-                    GoHere.y = transform.position.y;
                     playerTimer = InvestigateDelay;
                 }
             }
@@ -109,8 +134,11 @@ public class GuardScript4 : MonoBehaviour
         else
         {
             //patroling
-            if (anim.Idle) anim.ToWalking();
-            transform.Translate(new Vector3(0, 0, walkingSpeed), Space.Self);
+            if (anim.Idle)
+            {
+                PlayerIsGood();
+            }
+
         }
     }
 
@@ -130,14 +158,19 @@ public class GuardScript4 : MonoBehaviour
 
             if (tmp)
             {
-                if (!See && !Remember) anim.ToRunning();
+                if (!See && !Remember)
+                {
+                    agent.speed = speed;
+                    anim.ToRunning();
+                    SetPlayerAsGoal();
+                }
                 playerTimer = MemoryDelay;
                 See = true;
             }
             else if (See)
             {
                 Remember = true;
-                See = false;
+                Investigate = See = false;
             }
 
             visionTimer = 10;
@@ -164,7 +197,7 @@ public class GuardScript4 : MonoBehaviour
         if (See || Remember) return;
         if (other.transform.CompareTag("Checkpoint"))
         {
-            if ((GoHere - transform.position).magnitude > 1) return;
+            if ((Goal - transform.position).magnitude > 1) return;
             CurrentCheckpoint = (CurrentCheckpoint + 1) % Checks.Length;
             UpdateCheckpoint();
         }
@@ -197,7 +230,7 @@ public class GuardScript4 : MonoBehaviour
         tmp.dmg++;
         if (tmp.dmg >= 5)
         {
-            tmp.Die();
+            //tmp.Die();
         }
     }
 
