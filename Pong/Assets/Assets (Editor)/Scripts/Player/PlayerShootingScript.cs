@@ -19,7 +19,6 @@ public class PlayerShootingScript : MonoBehaviour
 
     private RaycastHit Shot;
     private GameObject flare;
-    public Transform gun;
     private Transform magazine;
     private Vector3 magazinePositionBackup;
     private Transform shell;
@@ -33,16 +32,14 @@ public class PlayerShootingScript : MonoBehaviour
         reloadDuration = 2f;
         reloading = false;
         ammoCount = magazineSize;
-        timer = 0;
-        //gun = transform.GetChild(0);
-        gun = transform;
-        magazine = gun.transform.Find("Magazine");
+
+        magazine = transform.Find("Magazine");
         magazinePositionBackup = magazine.localPosition;
-        shell = gun.transform.Find("Shell");
+        shell = transform.Find("Shell");
         shellPositionBackup = shell.localPosition;
-        flare = gun.Find("Flare").gameObject;
+        flare = transform.Find("Flare").gameObject;
         flare.SetActive(false);
-        recoil = 0;
+
         ammoMcCount.UpdateValue(magazineSize, magazineSize);
 		sounds = gameObject.GetComponentInParent<SoundController> ();
     }
@@ -51,6 +48,7 @@ public class PlayerShootingScript : MonoBehaviour
     {
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
+
         if (FireWeapon() && CanFire())
         {
             Fire();
@@ -61,7 +59,8 @@ public class PlayerShootingScript : MonoBehaviour
             reloading = true;
             timer = reloadDuration;
         }
-        if (reloading) { 
+        if (reloading)
+        { 
 			Reload(); 
 		}
         if (timer > 0)
@@ -72,15 +71,19 @@ public class PlayerShootingScript : MonoBehaviour
         if (recoil > 0)
         {
             Recoil(-Time.deltaTime * 20);
+            if (recoil < 0) recoil = 0;
         }
-        if (timer <= fireGap - flareDuration) { flare.SetActive(false); }
+        if (timer <= fireGap - flareDuration)
+        {
+            flare.SetActive(false);
+        }
     }
 
     private void Recoil(float shift)
     {
         recoil += shift;
         //gun.Rotate(-shift/2, 0, 0);
-        gun.Translate(0, 0, -shift/200);
+        transform.Translate(0, 0, -shift/200);
     }
 
     void Fire()
@@ -90,7 +93,7 @@ public class PlayerShootingScript : MonoBehaviour
         if (Physics.Raycast(transform.position, Camera.main.transform.forward, out Shot))
         {
             var h = Shot.transform.GetComponent<ShotAtScript>();
-            if(h != null) h.ShotAt(damage*Camera.main.transform.forward); //transform.SendMessage("shotAt", damage * transform.TransformDirection(), SendMessageOptions.DontRequireReceiver);
+            if (h != null) h.ShotAt(damage * Camera.main.transform.forward);
         }
         ammoCount--;
         ammoMcCount.UpdateValue(ammoCount, magazineSize);
@@ -102,8 +105,7 @@ public class PlayerShootingScript : MonoBehaviour
 
     bool FireWeapon()
     {
-        if (auto) { return Input.GetButton("Fire1"); }
-        else { return Input.GetButtonDown("Fire1"); }
+        return auto ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1");
     }
 
     bool CanFire()

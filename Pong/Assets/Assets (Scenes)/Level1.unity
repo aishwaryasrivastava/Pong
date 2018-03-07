@@ -3041,7 +3041,7 @@ MonoBehaviour:
   inTheRed: 0
   crouched: 0
   interact: {fileID: 113493815}
-  shootGun: {fileID: 997533145}
+  shootGun: {fileID: 663967640}
   dialog: {fileID: 0}
   soundControl: {fileID: 1312321920}
   shooting: 0
@@ -4184,7 +4184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 0100000002000000
+  ActiveLevels: 01000000
 --- !u!54 &160291823
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11343,39 +11343,12 @@ Prefab:
       propertyPath: m_Name
       value: Guard Non-Hostile
       objectReference: {fileID: 0}
-    - target: {fileID: 114909468267526780, guid: f1969aa933674184f96150009e134a2e,
+    - target: {fileID: 114090408354633866, guid: f1969aa933674184f96150009e134a2e,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 113493816}
-    - target: {fileID: 1484310771902508, guid: f1969aa933674184f96150009e134a2e, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909468267526780, guid: f1969aa933674184f96150009e134a2e,
-        type: 2}
-      propertyPath: retreatX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909468267526780, guid: f1969aa933674184f96150009e134a2e,
-        type: 2}
-      propertyPath: retreatZ
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114909468267526780, guid: f1969aa933674184f96150009e134a2e,
-        type: 2}
-      propertyPath: soundArea
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 95827918819509588, guid: f1969aa933674184f96150009e134a2e,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 15bac323fa9828045855238f297fc301, type: 2}
-    m_RemovedComponents:
-    - {fileID: 122296593969093670, guid: f1969aa933674184f96150009e134a2e, type: 2}
-    - {fileID: 114351397578979848, guid: f1969aa933674184f96150009e134a2e, type: 2}
-    - {fileID: 114909468267526780, guid: f1969aa933674184f96150009e134a2e, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1969aa933674184f96150009e134a2e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &468600579
@@ -12939,68 +12912,6 @@ Transform:
   m_Father: {fileID: 1016666283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -14.213224, y: -11.138439, z: 8.435086}
---- !u!1 &548833214 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1484310771902508, guid: f1969aa933674184f96150009e134a2e,
-    type: 2}
-  m_PrefabInternal: {fileID: 465851804}
---- !u!114 &548833215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 548833214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3502d67e0b960ae49bddcf4dea30d409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &548833216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 548833214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd4a7f7f3722454db77ab88cd0aff93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  retreatX: 1
-  retreatZ: 6
-  player: {fileID: 113493816}
-  speed: 0.025
-  movementLength: 5
-  timeoutLength: 5
-  soundArea: 10
-  AngleStep: 5
-  AggroLength: 0
-  source: {fileID: 0}
---- !u!114 &548833217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 548833214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActiveLevels: 0100000002000000
---- !u!114 &548833221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 548833214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76fd43f72b436544b1e7324741dd9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 300
-  guard: {fileID: 0}
 --- !u!1 &549608331
 GameObject:
   m_ObjectHideFlags: 0
@@ -15733,6 +15644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 663967638}
   - component: {fileID: 663967639}
+  - component: {fileID: 663967640}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -15777,6 +15689,23 @@ MonoBehaviour:
   - {fileID: 930705243}
   - {fileID: 1619363490}
   - {fileID: 1076936392}
+--- !u!114 &663967640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663967637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf7ca61adf611842ace67a640b45640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
+  Checks:
+  - {fileID: 997533145}
+  - {fileID: 930705245}
+  - {fileID: 1619363492}
+  - {fileID: 1076936394}
 --- !u!1 &664552975
 GameObject:
   m_ObjectHideFlags: 0
@@ -16757,8 +16686,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695453726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.27, y: 0.6, z: 14.9}
+  m_LocalScale: {x: 0.007, y: 0.007, z: 0.007}
   m_Children: []
   m_Father: {fileID: 2061242344}
   m_RootOrder: 3
@@ -19118,7 +19047,6 @@ GameObject:
   - component: {fileID: 799858127}
   - component: {fileID: 799858131}
   - component: {fileID: 799858130}
-  - component: {fileID: 799858129}
   - component: {fileID: 799858128}
   - component: {fileID: 799858132}
   - component: {fileID: 799858133}
@@ -19129,7 +19057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &799858127
 Transform:
   m_ObjectHideFlags: 0
@@ -19161,20 +19089,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!64 &799858129
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 799858126}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: e09ed58b62e613144a38bd45ce9f99fd, type: 3}
 --- !u!23 &799858130
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19253,7 +19167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8860fe46566315f4ea005e1eadbca5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Able: 0
+  Able: 1
 --- !u!1001 &800078047
 Prefab:
   m_ObjectHideFlags: 0
@@ -20402,8 +20316,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 860506592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 15.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.06, y: -0.32, z: 14.67}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_Children: []
   m_Father: {fileID: 1389874193}
   m_RootOrder: 2
@@ -21869,7 +21783,6 @@ MonoBehaviour:
   damage: 150
   fireGap: 1.5
   ammoMcCount: {fileID: 231788140}
-  gun: {fileID: 0}
   sounds: {fileID: 0}
   movement: {fileID: 113493816}
 --- !u!1001 &931541311
@@ -23452,7 +23365,6 @@ MonoBehaviour:
   damage: 35
   fireGap: 0.1
   ammoMcCount: {fileID: 231788140}
-  gun: {fileID: 0}
   sounds: {fileID: 0}
   movement: {fileID: 113493816}
 --- !u!114 &997533146
@@ -24897,7 +24809,6 @@ MonoBehaviour:
   damage: 20
   fireGap: 0.2
   ammoMcCount: {fileID: 231788140}
-  gun: {fileID: 0}
   sounds: {fileID: 0}
   movement: {fileID: 113493816}
 --- !u!1001 &1081507571
@@ -36238,8 +36149,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594995925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.48, y: -0.55, z: 14.51}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
   m_Father: {fileID: 713722835}
   m_RootOrder: 3
@@ -37060,7 +36971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 0100000002000000
+  ActiveLevels: 01000000
 --- !u!54 &1614948144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -37149,7 +37060,6 @@ MonoBehaviour:
   damage: 30
   fireGap: 0.09
   ammoMcCount: {fileID: 231788140}
-  gun: {fileID: 0}
   sounds: {fileID: 0}
   movement: {fileID: 113493816}
 --- !u!1001 &1619578704

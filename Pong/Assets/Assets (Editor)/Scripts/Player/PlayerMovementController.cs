@@ -16,7 +16,7 @@ public class PlayerMovementController : MonoBehaviour
     public bool crouched;
 
     public PlayerInteractionController interact;
-    public PlayerShootingScript shootGun;
+    public CameraRecoiler shootGun;
     public DialogueManager dialog;
 
 	public PlayerSoundControll soundControl;
@@ -78,7 +78,7 @@ public class PlayerMovementController : MonoBehaviour
         currentRotation.y = Mathf.Clamp(currentRotation.y, -80, 80);
         
         transform.localRotation = Quaternion.Euler(0, currentRotation.x, 0);
-        Camera.main.transform.localRotation = Quaternion.Euler(currentRotation.y-shootGun.recoil, 0, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(currentRotation.y-shootGun.GetCurrentRecoil(), 0, 0);
     }
 
     void CheckJump()
