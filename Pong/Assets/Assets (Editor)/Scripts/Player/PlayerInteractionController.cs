@@ -8,6 +8,8 @@ public class PlayerInteractionController : MonoBehaviour
     public SoundController sounds;
     public Text fps;
 
+    public Vector3 RespawnVector = new Vector3(0, 3.5f, 0);
+
     public float armReach = 8;
     private const float lookCheckTimer = 0.1f;
     private float timer;
@@ -79,7 +81,7 @@ public class PlayerInteractionController : MonoBehaviour
             active[Human] = hit.transform;
             active[Human].GetComponent<DialogueManager>().LookingAt();          
         }
-        else if (hit.transform.CompareTag("AK") || hit.transform.CompareTag("Pipe"))
+        else if (hit.transform.CompareTag("AK") || hit.transform.CompareTag("Pipe") || hit.transform.CompareTag("HandGun"))
         {
             active[Equip] = hit.transform;           
         }
@@ -162,6 +164,11 @@ public class PlayerInteractionController : MonoBehaviour
                     Equips.SetAble(PlayerWeaponEquip.Pipe);
 					sounds.PlayDwang ();
                 }
+                else if (active[Equip].CompareTag("HandGun"))
+                {
+                    Equips.SetAble(PlayerWeaponEquip.HandGun);
+                    sounds.PlayEquip();
+                }
                 active[Equip].gameObject.SetActive(false);
                 ResetLevel.resettables.Add(active[Equip]);
                 active[Equip] = null;
@@ -212,8 +219,8 @@ public class PlayerInteractionController : MonoBehaviour
 
     void ResetPlayerChanges()
     {
-        transform.position = new Vector3(0, 3.5f, 0);
-        inventory.Clear();
+        transform.position = RespawnVector;
+        inventory.LoadState();
         ResetLevel.ResetChanges();
         Equips.ResetAll();
         for (var i = 0; i < active.Length; i++)

@@ -21,6 +21,6 @@ public class ToggleScript : MonoBehaviour
 
     private bool isWeapon(int x)
     {
-        return x == PlayerWeaponEquip.AK || x == PlayerWeaponEquip.M4 || x == PlayerWeaponEquip.Sniper || x == PlayerWeaponEquip.Pistol;
+        return x == PlayerWeaponEquip.AK || x == PlayerWeaponEquip.M4 || x == PlayerWeaponEquip.Sniper || x == PlayerWeaponEquip.HandGun;
     }
 }

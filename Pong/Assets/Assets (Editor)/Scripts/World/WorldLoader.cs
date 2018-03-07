@@ -13,6 +13,7 @@ public class WorldLoader : MonoBehaviour
     public void TriggerNextLevel()
     {
         CurLevel++; //move to the next level
+        if (CurLevel > TotalLevels) return; //we done
         for (var i = 0; i < transform.childCount; i++) //for each type of object (prison, Items, NPCs, etc)
         {
             var sect = transform.GetChild(i);

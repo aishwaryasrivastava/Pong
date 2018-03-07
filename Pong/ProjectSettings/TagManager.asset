@@ -23,6 +23,8 @@ TagManager:
   - cp2
   - cp3
   - cp4
+  - HandGun
+  - Guard
   layers:
   - Default
   - TransparentFX

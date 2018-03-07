@@ -12,6 +12,8 @@ public class Inventory : MonoBehaviour
     public GameObject onScreenInv;
     public GameObject invBackground;
 
+    private List<Pickup> inventoryRestorePoint;
+
     // Used in L-scroller
     //private Sprite[] lScroller;
     private const int lScrollerSize = 8;
@@ -24,8 +26,8 @@ public class Inventory : MonoBehaviour
         curEquip = 0;
 	    invBackground.SetActive(false);
         Scroll(0);
-       
-    }
+	    inventoryRestorePoint = new List<Pickup>();
+	}
 
     /* Main Inventory Commands */
 
@@ -90,10 +92,22 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void Clear()
+    public void LoadState()
     {
         inventory.Clear();
+        foreach (var a in inventoryRestorePoint)
+        {
+            inventory.Add(a);
+        }
         UpdateInventoryDisplay();
+    }
+
+    public void SaveState()
+    {
+        foreach (var a in inventory)
+        {
+            inventoryRestorePoint.Add(a);
+        }
     }
 
     public bool HaveItem(string id)

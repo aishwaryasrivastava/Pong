@@ -7,6 +7,8 @@ public class GuardScript4 : MonoBehaviour
     public GameObject player;
     public PlayerMovementController soundOutput;
 
+    public Vector2 BottomLeft, TopRight;
+
     public float attackDistance;
     public float speed;
     public float walkingSpeed;
@@ -80,7 +82,7 @@ public class GuardScript4 : MonoBehaviour
                 anim.ToRunning();
             }
 
-            if (GoHere.z < 17) PlayerIsGood(); //temp	        
+            if (!PlayerInBounds()) PlayerIsGood();
         }
         else if (Remember)
         {
@@ -99,7 +101,7 @@ public class GuardScript4 : MonoBehaviour
             }
 
             playerTimer--;
-            if (playerTimer == 0 || GoHere.z < 17)
+            if (playerTimer == 0 || !PlayerInBounds())
             {
                 PlayerIsGood();
             }
@@ -112,13 +114,19 @@ public class GuardScript4 : MonoBehaviour
         }
     }
 
+    bool PlayerInBounds()
+    {
+        var pos = player.transform.position;       
+        return pos.x > BottomLeft.x && pos.x < TopRight.x && pos.z > BottomLeft.y && pos.z < TopRight.y;
+    }
+
     void CheckVision()
     {
         visionTimer--;
         if (visionTimer == 0)
         {
             var tmp = CanSeePlayer();
-            if (GoHere.z < 17) tmp = false;
+            if (!PlayerInBounds()) tmp = false;
 
             if (tmp)
             {
@@ -139,6 +147,7 @@ public class GuardScript4 : MonoBehaviour
     bool CanSeePlayer()
     {
         //make sure player isn't behind a wall and is within view distance and angle
+        
         var dist = (player.transform.position - transform.position);
         dist.y = transform.position.y;
         LastPlayerDistance = dist.magnitude;

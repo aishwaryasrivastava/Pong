@@ -7,7 +7,7 @@ public class PlayerWeaponEquip : MonoBehaviour
     public Text ammoCount;
     public GameObject[] weapons;
     private int current, next;
-    public const int Pipe = 0, AK = 1, Sniper = 2, M4 = 3, Pistol = 4;
+    public const int Pipe = 0, AK = 1, Sniper = 2, M4 = 3, HandGun = 4;
     public static float timer;
 
 	// Use this for initialization
