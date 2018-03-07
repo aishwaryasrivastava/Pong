@@ -41,6 +41,11 @@ public class PipeAnimationHandler : MonoBehaviour {
         //anim.SetBool("isEquipping", false);
     }
 
+    public void ToIdleIfNotAttacking()
+    {
+        if (!nextAttackLock) ToIdle();
+    }
+
 
 
     public void ToAttacking()
