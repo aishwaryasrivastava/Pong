@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5134,6 +5134,7 @@ GameObject:
   - component: {fileID: 183744855}
   - component: {fileID: 183744846}
   - component: {fileID: 183744847}
+  - component: {fileID: 183744848}
   m_Layer: 0
   m_Name: HallwayGuard-02
   m_TagString: hwG2
@@ -5188,6 +5189,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &183744848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183744844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22be3a24122d0e143971ab17c8bf35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  InvulnerabilityTime: 20
 --- !u!82 &183744850
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6642,6 +6656,7 @@ GameObject:
   - component: {fileID: 232600022}
   - component: {fileID: 232600023}
   - component: {fileID: 232600015}
+  - component: {fileID: 232600024}
   m_Layer: 0
   m_Name: BoxGuard (1)
   m_TagString: Guard
@@ -6918,6 +6933,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &232600024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232600012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22be3a24122d0e143971ab17c8bf35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  InvulnerabilityTime: 20
 --- !u!1001 &237793549
 Prefab:
   m_ObjectHideFlags: 0
@@ -13285,6 +13313,7 @@ GameObject:
   - component: {fileID: 478164779}
   - component: {fileID: 478164770}
   - component: {fileID: 478164772}
+  - component: {fileID: 478164773}
   m_Layer: 0
   m_Name: HallwayGuard-01
   m_TagString: hwG1
@@ -13339,6 +13368,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &478164773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 478164769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22be3a24122d0e143971ab17c8bf35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  InvulnerabilityTime: 20
 --- !u!54 &478164775
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39250,6 +39292,7 @@ GameObject:
   - component: {fileID: 1484444177}
   - component: {fileID: 1484444187}
   - component: {fileID: 1484444178}
+  - component: {fileID: 1484444186}
   m_Layer: 0
   m_Name: BoxGuard
   m_TagString: Guard
@@ -39496,6 +39539,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: effc0d496f2c4e144a91033290aefb66, type: 3}
   - {fileID: 8300000, guid: 38409f9445b30cf4c8071a75e5a423f3, type: 3}
   source: {fileID: 1484444183}
+--- !u!114 &1484444186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1484444175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22be3a24122d0e143971ab17c8bf35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  InvulnerabilityTime: 20
 --- !u!195 &1484444187
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -41032,6 +41088,24 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: bcbd84f03b11a5f499bea7b78fcefdf1, type: 2}
   m_PrefabInternal: {fileID: 1552059686}
+--- !u!1 &1552392556 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1912108287219450, guid: b6a1ebed15b361547a23f7cb28c9afb2,
+    type: 2}
+  m_PrefabInternal: {fileID: 860947714}
+--- !u!114 &1552392565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552392556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22be3a24122d0e143971ab17c8bf35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  InvulnerabilityTime: 20
 --- !u!1001 &1553043643
 Prefab:
   m_ObjectHideFlags: 0
@@ -44893,6 +44967,7 @@ GameObject:
   - component: {fileID: 1682410017}
   - component: {fileID: 1682410019}
   - component: {fileID: 1682410018}
+  - component: {fileID: 1682410020}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -44907,7 +44982,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1682410016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.42}
+  m_LocalPosition: {x: 0, y: 0, z: 0.65}
   m_LocalScale: {x: 0.34, y: 0.37, z: 0.43}
   m_Children: []
   m_Father: {fileID: 799858127}
@@ -44920,7 +44995,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1682410016}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -44932,6 +45007,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1682410016}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1682410020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682410016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cf3a4408bace24b8287d4d7e1535c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1688689193 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -51717,6 +51803,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
+--- !u!114 &1935857150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935857140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22be3a24122d0e143971ab17c8bf35dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  InvulnerabilityTime: 20
 --- !u!1001 &1937740692
 Prefab:
   m_ObjectHideFlags: 0
