@@ -15,11 +15,11 @@ public class GuardScript4 : MonoBehaviour
     public float walkingSpeed;
 
     private bool Remember, See, Investigate;
-    private int playerTimer, visionTimer = 10;
-    private float AttackTimer;
+    private float playerTimer, visionTimer = 0.25f;
     public float ViewDistance, ViewAngle, LastPlayerDistance;
 
-    private const int MemoryDelay = 600, InvestigateDelay = 120;
+    private const float MemoryDelay = 10, InvestigateDelay = 2;
+    private bool PlayerInRange;
 
     public Transform[] Checks;
     public int CurrentCheckpoint;
@@ -72,11 +72,12 @@ public class GuardScript4 : MonoBehaviour
 
     private void Halt()
     {
-        //Goal = transform.position;
-        //agent.destination = Goal;
+        
         agent.isStopped = true;
         agent.updatePosition = false;
         agent.updateRotation = false;
+        //TurnTowardsMe(player.transform.position);
+        //GetComponent<Rigidbody>().angularVelocity = Vector3.zero;       
     }
 
     private void Unhalt()
@@ -86,30 +87,53 @@ public class GuardScript4 : MonoBehaviour
         agent.updateRotation = true;
     }
 
+    private void CheckSound()
+    {
+        if (See) return;
+        var sound = soundOutput.CurrentSoundOutput;
+        if (LastPlayerDistance < sound && PlayerInRange)
+        {
+            Remember = true;
+            anim.ToRunning();
+            agent.speed = speed;
+            SetPlayerAsGoal();
+        }
+    }
+
+    public void TurnTowardsMe(Vector3 me)
+    {
+        var goal = me - transform.position;
+        goal.y = transform.forward.y;
+        transform.forward = Vector3.RotateTowards(transform.forward, goal, 5, 100);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         if (PauseManager.Paused) return;
+        if (anim.dead) return;
 
         CheckVision();
+        CheckSound();
+        PlayerInBounds();
 
         if (See)
         {
-            //chasing player         
-
-            if ((transform.position - Goal).magnitude < attackDistance)
+            //chasing player   
+            //LastPlayerDistance = (transform.position - player.transform.position).magnitude;
+            if ((transform.position - player.transform.position).magnitude < attackDistance)
             {
                 anim.ToAttacking();
-                Halt();
+                if (!agent.isStopped) Halt();
             }
             else
             {
                 anim.ToRunning();
-                Unhalt();
+                if (agent.isStopped) Unhalt();
                 SetPlayerAsGoal();
             }
 
-            if (!PlayerInBounds()) PlayerIsGood();
+            if (!PlayerInRange) PlayerIsGood();
         }
         else if (Remember)
         {
@@ -125,8 +149,8 @@ public class GuardScript4 : MonoBehaviour
                 }
             }
 
-            playerTimer--;
-            if (playerTimer == 0 || !PlayerInBounds())
+            playerTimer -= Time.deltaTime;
+            if (playerTimer < 0 || !PlayerInRange)
             {
                 PlayerIsGood();
             }
@@ -138,23 +162,22 @@ public class GuardScript4 : MonoBehaviour
             {
                 PlayerIsGood();
             }
-
         }
     }
 
-    bool PlayerInBounds()
+    void PlayerInBounds()
     {
         var pos = player.transform.position;       
-        return pos.x > BottomLeft.x && pos.x < TopRight.x && pos.z > BottomLeft.y && pos.z < TopRight.y;
+        PlayerInRange = pos.x > BottomLeft.x && pos.x < TopRight.x && pos.z > BottomLeft.y && pos.z < TopRight.y;
     }
 
     void CheckVision()
     {
-        visionTimer--;
-        if (visionTimer == 0)
+        visionTimer -= Time.deltaTime;
+        if (visionTimer < 0)
         {
             var tmp = CanSeePlayer();
-            if (!PlayerInBounds()) tmp = false;
+            if (!PlayerInRange) tmp = false;
 
             if (tmp)
             {
@@ -173,7 +196,7 @@ public class GuardScript4 : MonoBehaviour
                 Investigate = See = false;
             }
 
-            visionTimer = 10;
+            visionTimer = 0.25f;
         }
     }
 
@@ -194,7 +217,7 @@ public class GuardScript4 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (See || Remember) return;
+        if (See || Remember || anim.dead) return;
         if (other.transform.CompareTag("Checkpoint"))
         {
             if ((Goal - transform.position).magnitude > 1) return;
@@ -230,8 +253,13 @@ public class GuardScript4 : MonoBehaviour
         tmp.dmg++;
         if (tmp.dmg >= 5)
         {
-            //tmp.Die();
+            tmp.Die();
         }
+    }
+
+    private void clean()
+    {
+        gameObject.SetActive(false);
     }
 
     public void Reset()
@@ -240,6 +268,7 @@ public class GuardScript4 : MonoBehaviour
         transform.rotation = initialRot;
         CurrentCheckpoint = initialPoint;
         See = Remember = Investigate = false;
+        
         UpdateCheckpoint();
         anim.ToWalking();
     }

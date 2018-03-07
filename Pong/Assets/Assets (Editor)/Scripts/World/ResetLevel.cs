@@ -21,6 +21,8 @@ public class ResetLevel : MonoBehaviour
             else if (r.CompareTag("Guard"))
             {
                 r.gameObject.GetComponent<GuardScript4>().Reset();
+                var tmp = r.gameObject.GetComponent<ShotAtScript>();
+                if (tmp != null) tmp.ResetSelf();
             }
             else
             {

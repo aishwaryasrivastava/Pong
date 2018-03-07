@@ -222,7 +222,7 @@ public class PlayerInteractionController : MonoBehaviour
         transform.position = RespawnVector;
         inventory.LoadState();
         ResetLevel.ResetChanges();
-        Equips.ResetAll();
+        //Equips.ResetAll();
         for (var i = 0; i < active.Length; i++)
         {
             active[i] = null;

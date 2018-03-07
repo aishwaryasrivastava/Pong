@@ -42,31 +42,32 @@ public class PlayerMovementController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            forward += MovementMult;
+            forward += 1;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rightward -= MovementMult;
+            rightward -= 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            forward -= MovementMult;
+            forward -= 1;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rightward += MovementMult;
+            rightward += 1;
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            forward *= 1.7f;
-            rightward *= 1.7f;
+            forward *= 2;
+            rightward *= 2;
             running = true;
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
 
         moving = true;
-        var tmp = transform.TransformDirection(new Vector3(rightward, 0, forward));      
+        var tmp = MovementMult*transform.TransformDirection(new Vector3(rightward, 0, forward)).normalized;
+        if (running) tmp *= 1.7f;
         rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
     }
 
@@ -116,24 +117,23 @@ public class PlayerMovementController : MonoBehaviour
 
     void RelaySound()
     {
-        if (shooting) CurrentSoundOutput = 5;
-        else if (running) CurrentSoundOutput = 2;
-        else if (jumping) CurrentSoundOutput = 0.75f;
-        else if (moving) CurrentSoundOutput = crouched ? 0.5f : 1;      
+        if (shooting) CurrentSoundOutput = 15;
+        else if (running) CurrentSoundOutput = 5;
+        else if (jumping) CurrentSoundOutput = 2;
+        else if (moving) CurrentSoundOutput = crouched ? 0 : 2;      
         else CurrentSoundOutput = 0;
     }
 
     void DebugA()
     {
         transform.position = new Vector3(1, 3, -6);
-        //Debug.Log("hello");
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            PauseManager.Paused = !PauseManager.Paused;
+            //PauseManager.Paused = !PauseManager.Paused;
         }
         if (PauseManager.Paused) return;
         if (Input.GetKeyDown(KeyCode.LeftBracket))

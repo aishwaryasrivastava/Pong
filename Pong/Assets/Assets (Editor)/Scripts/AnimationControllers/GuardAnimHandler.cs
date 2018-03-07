@@ -5,21 +5,22 @@ public class GuardAnimHandler : MonoBehaviour {
 
     public Animator guardAnim;
 
-    public bool Idle = true;
+    public bool Idle = true, dead;
 
     // Use this for initialization
     void Start () {
 
         guardAnim = GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    public void Reset()
+    {
+        dead = false;
+        ToIdle();
     }
-
     public void ToWalking()
     {
+        if (dead) return;
         Idle = false;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", false);
@@ -30,6 +31,7 @@ public class GuardAnimHandler : MonoBehaviour {
 
     public void ToIdle()
     {
+        if (dead) return;
         Idle = true;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", false);
@@ -40,6 +42,7 @@ public class GuardAnimHandler : MonoBehaviour {
 
     public void ToRunning()
     {
+        if (dead) return;
         guardAnim.SetBool("isRunning", true);
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", false);
@@ -49,6 +52,7 @@ public class GuardAnimHandler : MonoBehaviour {
 
     public void ToAttacking()
     {
+        if (dead) return;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", true);
         guardAnim.SetBool("isIdle", false);
@@ -56,7 +60,9 @@ public class GuardAnimHandler : MonoBehaviour {
 		guardAnim.SetBool("isDied", false);
     }
 
-	public void ToDied(){
+	public void ToDied()
+	{
+	    dead = true;
 		guardAnim.SetBool("isRunning", false);
 		guardAnim.SetBool("isAttacking", false);
 		guardAnim.SetBool("isIdle", false);

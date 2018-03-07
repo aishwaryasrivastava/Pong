@@ -105,7 +105,7 @@ public class PlayerShootingScript : MonoBehaviour
 
     bool FireWeapon()
     {
-        return auto ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1");
+        return auto ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
     }
 
     bool CanFire()

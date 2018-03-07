@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class NPCScript : MonoBehaviour
@@ -35,8 +36,20 @@ public class NPCScript : MonoBehaviour
 
     Vector3 GetRandomLocalPoint()
     {
-        return new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1), transform.position.y,
-            Random.Range(transform.position.z - 1, transform.position.z + 1));
+        var x = 0;
+        while (x < 100)
+        {
+            var randDir = Random.insideUnitSphere * 10;
+            randDir += transform.position;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randDir, out hit, 10, 1))
+            {
+                return new Vector3(hit.position.x, transform.position.y, hit.position.z);
+            }
+            x++;
+        }
+        Debug.Log("failure");
+        return transform.position;
     }
 
     void TurnAndHalt()

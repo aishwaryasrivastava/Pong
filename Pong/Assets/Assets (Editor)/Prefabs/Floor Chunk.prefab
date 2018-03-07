@@ -25,7 +25,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1022812971922964
@@ -42,7 +42,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1058471152400084
@@ -59,7 +59,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1104041876703504
@@ -76,7 +76,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1110794012502178
@@ -93,7 +93,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1227283634997574
@@ -110,7 +110,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1238363290852628
@@ -127,7 +127,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1305455429544584
@@ -144,7 +144,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1310443631956098
@@ -161,7 +161,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1326129671823406
@@ -178,7 +178,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1338588314792678
@@ -195,7 +195,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1348888531282906
@@ -212,7 +212,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1411175355092484
@@ -229,7 +229,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1492288034335356
@@ -246,7 +246,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1502886768740028
@@ -263,7 +263,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1513996119099092
@@ -280,7 +280,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1545247183072650
@@ -297,7 +297,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1580655428316352
@@ -314,7 +314,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1629225040496924
@@ -331,7 +331,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1629464924985838
@@ -348,7 +348,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1669785006229764
@@ -365,7 +365,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1733941733729710
@@ -382,7 +382,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1792801089863540
@@ -399,7 +399,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1934330945885416
@@ -416,7 +416,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1962450790153142
@@ -448,7 +448,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 3
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4063242784662740
