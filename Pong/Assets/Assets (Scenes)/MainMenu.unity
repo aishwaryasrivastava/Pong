@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1113835769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dcbe004216470d4a84b3fef8612c816, type: 3}
+  m_Script: {fileID: 11500000, guid: 0395b1383d8a8ca47813802c1184efff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   load: {fileID: 318376671}
@@ -1437,12 +1437,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1114231719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 004930eac99ab2e41b77d564b9e3d092, type: 3}
+  m_Script: {fileID: 11500000, guid: adf5fea35fa7bfe499200f8a29a5cc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   schoolLogo: {fileID: 2103012810}
-  teamLogo: {fileID: 2112609449}
-  teamPicture: {fileID: 703664767}
+  teamLogo: {fileID: 703664767}
+  teamPicture: {fileID: 2112609449}
   Curtain: {fileID: 1114231721}
 --- !u!1 &1129469784
 GameObject:
@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580302675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078dd36441d6dab45b70deb1cb6cc54f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a5093fd6dd89a84496001e386b2601c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 200

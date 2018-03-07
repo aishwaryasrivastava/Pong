@@ -19167,7 +19167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8860fe46566315f4ea005e1eadbca5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Able: 1
+  Able: 0
 --- !u!1001 &800078047
 Prefab:
   m_ObjectHideFlags: 0
@@ -21763,7 +21763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8860fe46566315f4ea005e1eadbca5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Able: 1
+  Able: 0
 --- !u!114 &930705245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23378,7 +23378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8860fe46566315f4ea005e1eadbca5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Able: 1
+  Able: 0
 --- !u!224 &997533147
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24789,7 +24789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8860fe46566315f4ea005e1eadbca5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Able: 1
+  Able: 0
 --- !u!114 &1076936394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37040,7 +37040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8860fe46566315f4ea005e1eadbca5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Able: 1
+  Able: 0
 --- !u!114 &1619363492
 MonoBehaviour:
   m_ObjectHideFlags: 0
