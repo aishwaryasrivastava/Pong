@@ -7,7 +7,7 @@ public class PlayerWeaponEquip : MonoBehaviour
     public Text ammoCount;
     public GameObject[] weapons;
     private int current, next;
-    public const int Pipe = 0, AK = 1;
+    public const int Pipe = 0, AK = 1, Sniper = 2, M4 = 3, Pistol = 4;
     public static float timer;
 
 	// Use this for initialization
@@ -30,6 +30,9 @@ public class PlayerWeaponEquip : MonoBehaviour
 	    if (Input.GetKeyDown(KeyCode.Alpha0)) SetActiveNone();
         if (Input.GetKeyDown(KeyCode.Alpha1)) SetActiveWeapon(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) SetActiveWeapon(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) SetActiveWeapon(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) SetActiveWeapon(3);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) SetActiveWeapon(4);
     }
 
     public void SetAble(int id)

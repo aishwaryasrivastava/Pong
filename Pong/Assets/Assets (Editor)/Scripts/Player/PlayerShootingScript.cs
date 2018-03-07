@@ -4,17 +4,16 @@ using UnityEngine.UI;
 public class PlayerShootingScript : MonoBehaviour
 {
     private bool reloading;
-    private float reloadDuration;
+    public bool auto = true;
+    public float reloadDuration;
     public int ammoCount;
-    private int magazineSize;
+    public int magazineSize;
     private float timer;
     public float recoil;
-    private int damage = 30;
-    private float fireGap = 0.1f;
-    private float yaw = -0.044f;
-    private float pitch = 0.044f;
-    private float sensitivity = 0.9f;
+    public int damage = 30;
+    public float fireGap = 0.1f;
     private float MaxRecoilShift = 15;
+    private const float flareDuration = 0.03f;
 
     public ToggleScript ammoMcCount;
 
@@ -23,6 +22,8 @@ public class PlayerShootingScript : MonoBehaviour
     public Transform gun;
     private Transform magazine;
     private Vector3 magazinePositionBackup;
+    private Transform shell;
+    private Vector3 shellPositionBackup;
 
     public SoundController sounds;
     public PlayerMovementController movement;
@@ -36,8 +37,10 @@ public class PlayerShootingScript : MonoBehaviour
         timer = 0;
         //gun = transform.GetChild(0);
         gun = transform;
-        magazine = gun.transform.Find("AK_47_Magazine");
+        magazine = gun.transform.Find("Magazine");
         magazinePositionBackup = magazine.localPosition;
+        shell = gun.transform.Find("Shell");
+        shellPositionBackup = shell.localPosition;
         flare = gun.Find("Flare").gameObject;
         flare.SetActive(false);
         recoil = 0;
@@ -49,12 +52,12 @@ public class PlayerShootingScript : MonoBehaviour
     {
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
-        if (Input.GetMouseButton(0))
+        if (FireWeapon() && CanFire())
         {
-            if (CanFire()) Fire();
+            Fire();
             movement.shooting = true;
         } 
-        if (Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading)
+        if (Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading && timer <= 0)
         {
             reloading = true;
             timer = reloadDuration;
@@ -62,24 +65,29 @@ public class PlayerShootingScript : MonoBehaviour
         if (reloading) { 
 			Reload(); 
 		}
-        if (timer > 0) { timer -= Time.deltaTime; }
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            shell.Translate(10 * Time.deltaTime, 5 * Time.deltaTime, 0);
+        }
         if (recoil > 0)
         {
             Recoil(-Time.deltaTime * 20);
         }
-        if (timer <= 0.07) { flare.SetActive(false); }
+        if (timer <= fireGap - flareDuration) { flare.SetActive(false); }
     }
 
     private void Recoil(float shift)
     {
         recoil += shift;
-        gun.Rotate(-shift/2, 0, 0);
+        //gun.Rotate(-shift/2, 0, 0);
         gun.Translate(0, 0, -shift/200);
     }
 
     void Fire()
     {
         flare.SetActive(true);
+        shell.localPosition = shellPositionBackup;
         if (Physics.Raycast(transform.position, Camera.main.transform.forward, out Shot))
         {
             var h = Shot.transform.GetComponent<ShotAtScript>();
@@ -93,7 +101,11 @@ public class PlayerShootingScript : MonoBehaviour
         sounds.PlayShoot();
     }
 
-
+    bool FireWeapon()
+    {
+        if (auto) { return Input.GetButton("Fire1"); }
+        else { return Input.GetButtonDown("Fire1"); }
+    }
 
     bool CanFire()
     {
@@ -101,8 +113,8 @@ public class PlayerShootingScript : MonoBehaviour
     }
     void Reload()
     {
-        if (timer > reloadDuration / 2) { magazine.Translate(0, -1f * Time.deltaTime, 0); }
-        else if (timer > 0) { magazine.Translate(0, Time.deltaTime, 0); }
+        if (timer > reloadDuration / 2) { magazine.Translate(0, -Time.deltaTime / reloadDuration, 0); }
+        else if (timer > 0) { magazine.Translate(0, Time.deltaTime / reloadDuration, 0); }
         else
         {
             magazine.localPosition = magazinePositionBackup;
