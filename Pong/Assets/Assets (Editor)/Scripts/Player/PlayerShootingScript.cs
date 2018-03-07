@@ -32,7 +32,6 @@ public class PlayerShootingScript : MonoBehaviour
     {
         reloadDuration = 2f;
         reloading = false;
-        magazineSize = 30;
         ammoCount = magazineSize;
         timer = 0;
         //gun = transform.GetChild(0);

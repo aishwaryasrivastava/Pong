@@ -11,11 +11,16 @@ public class ToggleScript : MonoBehaviour
 
     public void SwapToHere(int id)
     {
-        gameObject.SetActive(id == PlayerWeaponEquip.AK);
+        gameObject.SetActive(isWeapon(id));
     }
 
     public void UpdateValue(int top, int bottom)
     {
         gameObject.GetComponent<Text>().text = top + " / " + bottom;
+    }
+
+    private bool isWeapon(int x)
+    {
+        return x == PlayerWeaponEquip.AK || x == PlayerWeaponEquip.M4 || x == PlayerWeaponEquip.Sniper || x == PlayerWeaponEquip.Pistol;
     }
 }
