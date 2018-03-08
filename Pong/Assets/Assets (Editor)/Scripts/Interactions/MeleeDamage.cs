@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeDamage : MonoBehaviour {
 
     public int health;
+	public GameObject guard;
     public int InvulnerabilityTime = 20;
     private int counter;
 
@@ -21,8 +22,14 @@ public class MeleeDamage : MonoBehaviour {
 
     public void TakeDamage()
     {
-        health--;
-        if (health < 1) gameObject.SetActive(false);
+		if ((guard.CompareTag ("hwG2")) || guard.CompareTag ("hwG1")) {
+			var tmp = guard.GetComponent<GuardScript> ();
+			tmp.health -= 2;
+			tmp.found = true;
+		}else{
+        	health--;
+        	if (health < 1) gameObject.SetActive(false);
+		}
 
     }
 

@@ -109,6 +109,7 @@ public class GuardScript : MonoBehaviour {
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
 		if (tmp.dmg == 5)
         {
+				health = 5;
 				tmp.Die ();
 				found = false;
 				transform.position = initialPos;

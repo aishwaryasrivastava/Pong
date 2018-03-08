@@ -4,6 +4,7 @@ public class SoundController : MonoBehaviour {
 
 	//public AudioClip walkingSound;
 	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound, ShootingSound, reloadSound, gunEquip, dwang, scroll, delete;
+	public AudioClip m4, handgun, sniper, shell;
 	public AudioClip[] swing = new AudioClip[10];
 	public GameObject guns;
 	public AudioSource source;
@@ -19,7 +20,7 @@ public class SoundController : MonoBehaviour {
 	}
 
 	void Update(){
-		var tmp = guns.GetComponent<PlayerShootingScript> ();
+		var tmp = guns.GetComponentInChildren<PlayerShootingScript>();
 		if((Input.GetKeyDown(KeyCode.R)) && guns.activeSelf && tmp.ammoCount != 30){
 			PlayReload();
 		}
@@ -73,6 +74,23 @@ public class SoundController : MonoBehaviour {
 
 	public void PlayDelete(){
 		source.PlayOneShot(delete, 0.3f);
+	}
+
+	public void PlayM4(){
+		source.PlayOneShot (m4, lowVol);
+	}
+
+
+	public void PlaySniper(){
+		source.PlayOneShot (sniper, lowVol);
+	}
+
+	public void PlayHandgun(){
+		source.PlayOneShot (handgun, lowVol);
+	}
+
+	public void PlayShell(){
+		source.PlayOneShot (shell, lowVol);
 	}
 
 	public void PlayReload(){

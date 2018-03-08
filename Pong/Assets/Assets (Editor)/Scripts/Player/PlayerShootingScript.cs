@@ -100,7 +100,16 @@ public class PlayerShootingScript : MonoBehaviour
         timer = fireGap;
         Recoil(damage/10f);
         
-        sounds.PlayShoot();
+		if (gameObject.CompareTag ("AK")) {
+			sounds.PlayShoot ();
+		} else if (gameObject.CompareTag ("Colt")) {
+			sounds.PlayM4 ();
+		}else if (gameObject.CompareTag ("HandGun")) {
+			sounds.PlayHandgun ();
+		}else if (gameObject.CompareTag ("Rifle")) {
+			sounds.PlaySniper ();
+		}
+		sounds.PlayShell ();
     }
 
     bool FireWeapon()

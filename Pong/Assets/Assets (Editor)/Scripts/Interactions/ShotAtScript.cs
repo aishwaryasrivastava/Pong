@@ -4,6 +4,7 @@ public class ShotAtScript : MonoBehaviour
 {
     private int curHealth;
     public int health;
+	public GameObject guard;
 
     private Rigidbody rb;
     private MeshRenderer mr;
@@ -29,11 +30,17 @@ public class ShotAtScript : MonoBehaviour
         curHealth -= (int)damageVector.magnitude + 1;
         if (curHealth < 0)
         {
-            var tmp = GetComponent<GuardAnimHandler>();
+			var tmp = guard.GetComponent<GuardScript>();
+			var tmp2 = GetComponent<GuardAnimHandler> ();
             if (tmp == null) gameObject.SetActive(false);
             else
             {
-                tmp.ToDied();
+				if ((guard.CompareTag ("hwG2")) || guard.CompareTag ("hwG1")){
+					tmp.health--;
+					tmp.found = true;
+				} else {
+					tmp2.ToDied ();
+				}
             }
             ResetLevel.resettables.Add(transform);
         }

@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  guard: {fileID: 0}
 --- !u!1001 &19738683
 Prefab:
   m_ObjectHideFlags: 0
@@ -3309,7 +3310,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.38, y: 2.42, z: 11.87}
+  m_LocalPosition: {x: -0, y: 2.42, z: 13.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -3366,6 +3367,10 @@ MonoBehaviour:
   dwang: {fileID: 8300000, guid: 1b7810d092d29eb419fe43017c6a3ec1, type: 3}
   scroll: {fileID: 8300000, guid: ae0801339b90a41d58f3b568a9943510, type: 3}
   delete: {fileID: 8300000, guid: f02e1cfbfa3064be0acccbbc7e750507, type: 3}
+  m4: {fileID: 8300000, guid: a8ecc0cd64941e04aa603565f2b8bada, type: 3}
+  handgun: {fileID: 8300000, guid: 4d6281aa604094f04839cffa502096c0, type: 3}
+  sniper: {fileID: 8300000, guid: 4992ab19c07779b4c89d607a9c83d440, type: 3}
+  shell: {fileID: 8300000, guid: c50dcf401ede9422da7805612256b5ac, type: 3}
   swing:
   - {fileID: 8300000, guid: d261d5fc8420f024fbd7b0e1d950d3ae, type: 3}
   - {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
@@ -3377,7 +3382,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a529f901bd51a994ab50b87aa4784457, type: 3}
   - {fileID: 8300000, guid: 26f0f934fb9804a4dbd72fa47aff5791, type: 3}
   - {fileID: 8300000, guid: 7d12b8ffc45a795419fd6cbe363addd4, type: 3}
-  guns: {fileID: 997533141}
+  guns: {fileID: 663967637}
   source: {fileID: 0}
 --- !u!1001 &115079512
 Prefab:
@@ -5218,6 +5223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  guard: {fileID: 183744844}
 --- !u!114 &183744848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5230,6 +5236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  guard: {fileID: 183744844}
   InvulnerabilityTime: 20
 --- !u!82 &183744850
 AudioSource:
@@ -6766,6 +6773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  guard: {fileID: 0}
 --- !u!114 &232600016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6978,6 +6986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  guard: {fileID: 0}
   InvulnerabilityTime: 20
 --- !u!1 &233758824
 GameObject:
@@ -13432,6 +13441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  guard: {fileID: 478164769}
 --- !u!114 &478164773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13444,6 +13454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  guard: {fileID: 478164769}
   InvulnerabilityTime: 20
 --- !u!54 &478164775
 Rigidbody:
@@ -19320,7 +19331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &697796992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19843,6 +19854,10 @@ Prefab:
     - target: {fileID: 2300002, guid: 43d888000c56cae429a9860467f60f5b, type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 43d888000c56cae429a9860467f60f5b, type: 3}
+      propertyPath: m_TagString
+      value: Rifle
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11100000, guid: 43d888000c56cae429a9860467f60f5b, type: 3}
@@ -27508,11 +27523,11 @@ GameObject:
   - component: {fileID: 997533145}
   m_Layer: 0
   m_Name: AK-47
-  m_TagString: Untagged
+  m_TagString: AK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &997533143
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36758,7 +36773,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 103635042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.35, y: 1.476875, z: 29.51}
+  m_LocalPosition: {x: -10.35, y: 1.476875, z: 29.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 646456804}
@@ -37401,7 +37416,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37454,6 +37469,10 @@ Prefab:
     - target: {fileID: 2300000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
+      propertyPath: m_TagString
+      value: Colt
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
@@ -37649,6 +37668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
+  guard: {fileID: 0}
 --- !u!1001 &1398546683
 Prefab:
   m_ObjectHideFlags: 0
@@ -39720,6 +39740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  guard: {fileID: 0}
 --- !u!114 &1484444179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39913,6 +39934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  guard: {fileID: 0}
   InvulnerabilityTime: 20
 --- !u!195 &1484444187
 NavMeshAgent:
@@ -41541,6 +41563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  guard: {fileID: 0}
   InvulnerabilityTime: 20
 --- !u!1001 &1553043643
 Prefab:
@@ -52410,6 +52433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  guard: {fileID: 0}
 --- !u!114 &1935857150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52422,6 +52446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  guard: {fileID: 0}
   InvulnerabilityTime: 20
 --- !u!1001 &1937740692
 Prefab:
@@ -55499,7 +55524,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55548,6 +55573,10 @@ Prefab:
     - target: {fileID: 2300000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
+      propertyPath: m_TagString
+      value: HandGun
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
