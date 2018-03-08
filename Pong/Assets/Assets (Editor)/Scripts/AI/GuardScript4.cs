@@ -73,11 +73,7 @@ public class GuardScript4 : MonoBehaviour
     private void Halt()
     {
         
-        agent.isStopped = true;
-        agent.updatePosition = false;
-        agent.updateRotation = false;
-        //TurnTowardsMe(player.transform.position);
-        //GetComponent<Rigidbody>().angularVelocity = Vector3.zero;       
+        agent.isStopped = true;     
     }
 
     private void Unhalt()

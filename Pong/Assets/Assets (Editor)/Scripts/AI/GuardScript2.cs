@@ -43,8 +43,8 @@ public class GuardScript2 : MonoBehaviour
     {
         halt = true;
         agent.isStopped = true;
-        agent.updatePosition = false;
-        agent.updateRotation = false;
+        //agent.updatePosition = false;
+        //agent.updateRotation = false;
         prisonerAnim.ToIdle();
         source.Pause();
     }
@@ -92,6 +92,7 @@ public class GuardScript2 : MonoBehaviour
     {
         timer = Random.Range(Random.Range(0, 2) == 0 ? -timeoutLength : timeoutLength / 2, timeoutLength);
         if (timer > 0) Halt();
+
         agent.SetDestination(GetRandomLocalPoint());
     }
 
@@ -107,7 +108,7 @@ public class GuardScript2 : MonoBehaviour
                 if (!Static) Unhalt();
             }
         }
-        else if (!agent.pathPending)
+        else if (!halt && !agent.pathPending)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {

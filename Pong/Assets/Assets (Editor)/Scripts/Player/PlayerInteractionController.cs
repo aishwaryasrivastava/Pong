@@ -85,7 +85,7 @@ public class PlayerInteractionController : MonoBehaviour
             active[Human] = hit.transform;
             active[Human].GetComponent<DialogueManager>().LookingAt();          
         }
-        else if (hit.transform.CompareTag("AK") || hit.transform.CompareTag("Pipe") || hit.transform.CompareTag("HandGun"))
+        else if (hit.transform.CompareTag("AK") || hit.transform.CompareTag("Pipe") || hit.transform.CompareTag("HandGun") || hit.transform.CompareTag("Colt") || hit.transform.CompareTag("Rifle"))
         {
             active[Equip] = hit.transform;           
         }
@@ -173,6 +173,16 @@ public class PlayerInteractionController : MonoBehaviour
                     Equips.SetAble(PlayerWeaponEquip.HandGun);
                     sounds.PlayEquip();
                 }
+                else if (active[Equip].CompareTag("Rifle"))
+                {
+                    Equips.SetAble(PlayerWeaponEquip.Sniper);
+                    sounds.PlayEquip();
+                }
+                else if (active[Equip].CompareTag("Colt"))
+                {
+                    Equips.SetAble(PlayerWeaponEquip.M4);
+                    sounds.PlayEquip();
+                }
                 active[Equip].gameObject.SetActive(false);
                 ResetLevel.resettables.Add(active[Equip]);
                 active[Equip] = null;
@@ -196,27 +206,27 @@ public class PlayerInteractionController : MonoBehaviour
             return;
         }
         // clean this up and make the other class do it later or just make this the keypad interaction
-        if (active[4].GetComponent<InspectableInformation>().type == InspectableInformation.Type.Keypad)
+        if (active[Inspectable].GetComponent<InspectableInformation>().type == InspectableInformation.Type.Keypad)
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                active[4].GetComponent<InspectableInformation>().horMove(-1);
+                active[Inspectable].GetComponent<InspectableInformation>().horMove(-1);
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                active[4].GetComponent<InspectableInformation>().horMove(1);
+                active[Inspectable].GetComponent<InspectableInformation>().horMove(1);
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                active[4].GetComponent<InspectableInformation>().vertMove(1);
+                active[Inspectable].GetComponent<InspectableInformation>().vertMove(1);
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                active[4].GetComponent<InspectableInformation>().vertMove(-1);
+                active[Inspectable].GetComponent<InspectableInformation>().vertMove(-1);
             }
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                active[4].GetComponent<InspectableInformation>().pressKey();
+                active[Inspectable].GetComponent<InspectableInformation>().pressKey();
             }
         }
     }
@@ -226,7 +236,7 @@ public class PlayerInteractionController : MonoBehaviour
         transform.position = RespawnVector;
         inventory.LoadState();
         ResetLevel.ResetChanges();
-        //Equips.ResetAll();
+        Equips.ResetAll();
         for (var i = 0; i < active.Length; i++)
         {
             active[i] = null;
@@ -266,6 +276,7 @@ public class PlayerInteractionController : MonoBehaviour
             if(InventoryActive) UIConfirm.gameObject.SetActive(false);
             inventory.Swap(InventoryActive);
             sounds.PlayInventory();
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
         if (Input.GetKeyDown(KeyCode.L))
         {

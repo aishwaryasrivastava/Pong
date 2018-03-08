@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
 
     private List<Pickup> inventoryRestorePoint;
 
+    public Text name;
     // Used in L-scroller
     //private Sprite[] lScroller;
     private const int lScrollerSize = 8;
@@ -49,9 +50,12 @@ public class Inventory : MonoBehaviour
         {
             var image = inventory.Count > i ? inventory[i].UiImage : null;
             var slot = onScreenInv.transform.GetChild(i).GetChild(1);          
-            slot.GetComponent<Image>().sprite = image;           
+            slot.GetComponent<Image>().sprite = image;
+            if (i == curEquip)
+            {
+                name.text = i < inventory.Count ? inventory[i].ItemId : "None";
+            }
         }
-
     }
 
     void DisplayInventory()
@@ -74,6 +78,7 @@ public class Inventory : MonoBehaviour
         var newOne = onScreenInv.transform.GetChild(curEquip).GetChild(0);
         original.GetComponent<Image>().color = Color.white;
         newOne.GetComponent<Image>().color = Color.red;
+        UpdateInventoryDisplay();
     }
 
     public bool AddItem(Pickup itemToAdd)

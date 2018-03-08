@@ -25,6 +25,8 @@ TagManager:
   - cp4
   - HandGun
   - Guard
+  - Rifle
+  - Colt
   layers:
   - Default
   - TransparentFX
