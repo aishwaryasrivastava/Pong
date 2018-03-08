@@ -129,7 +129,7 @@ public class PlayerInteractionController : MonoBehaviour
                 if (mtp)
                 {
                     active[Item].gameObject.SetActive(false);
-                    ResetLevel.resettables.Add(active[Item]);
+                    ResetLevel.Add(active[Item]);
                     sounds.PlayDing();
                 }
             }
@@ -145,7 +145,7 @@ public class PlayerInteractionController : MonoBehaviour
                     if (tmp.Type == DoorToggle.DoorType.Slide) sounds.PlaySlide();
                     else if (tmp.Type == DoorToggle.DoorType.Swing) sounds.PlaySwing();
 
-                    if (lockedBefore) ResetLevel.resettables.Add(active[Door]);
+                    if (lockedBefore) ResetLevel.Add(active[Door]);
                 }
             }
             else if (active[Human] != null)
@@ -184,7 +184,7 @@ public class PlayerInteractionController : MonoBehaviour
                     sounds.PlayEquip();
                 }
                 active[Equip].gameObject.SetActive(false);
-                ResetLevel.resettables.Add(active[Equip]);
+                ResetLevel.Add(active[Equip]);
                 active[Equip] = null;
             }
             else if (active[Inspectable] != null)
@@ -236,7 +236,7 @@ public class PlayerInteractionController : MonoBehaviour
         transform.position = RespawnVector;
         inventory.LoadState();
         ResetLevel.ResetChanges();
-        Equips.ResetAll();
+        Equips.RestoreFromState();
         for (var i = 0; i < active.Length; i++)
         {
             active[i] = null;

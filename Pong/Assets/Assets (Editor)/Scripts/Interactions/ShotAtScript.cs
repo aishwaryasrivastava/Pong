@@ -2,9 +2,8 @@
 
 public class ShotAtScript : MonoBehaviour
 {
-    private int curHealth;
+    protected int curHealth;
     public int health;
-	public GameObject guard;
 
     private Rigidbody rb;
     private MeshRenderer mr;
@@ -16,33 +15,22 @@ public class ShotAtScript : MonoBehaviour
         mr = GetComponent<MeshRenderer>();
     }
 
-    public void ResetSelf()
+    public virtual void ResetSelf()
     {
         gameObject.SetActive(true);
         curHealth = health;
-        var tmp = GetComponent<GuardAnimHandler>();
-        if (tmp != null) tmp.Reset();
+        mr.material.color = Color.white;
     }
 
-    public void ShotAt(Vector3 damageVector)
+    public virtual void ShotAt(Vector3 damageVector)
     {
-        if(rb != null) rb.AddForce(damageVector /5 , ForceMode.Impulse);
+        if(curHealth == health) ResetLevel.Add(transform);;
+        if (rb != null) rb.AddForce(damageVector / 5, ForceMode.Impulse);
         curHealth -= (int)damageVector.magnitude + 1;
         if (curHealth < 0)
         {
-			var tmp = guard.GetComponent<GuardScript>();
-			var tmp2 = GetComponent<GuardAnimHandler> ();
-            if (tmp == null) gameObject.SetActive(false);
-            else
-            {
-				if ((guard.CompareTag ("hwG2")) || guard.CompareTag ("hwG1")){
-					tmp.health--;
-					tmp.found = true;
-				} else {
-					tmp2.ToDied ();
-				}
-            }
-            ResetLevel.resettables.Add(transform);
+            gameObject.SetActive(false);            
         }
+        mr.material.color = new Color(1, (float)curHealth / health, (float)curHealth / health);
     }
 }

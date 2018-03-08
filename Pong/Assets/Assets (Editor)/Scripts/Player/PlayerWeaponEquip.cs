@@ -6,21 +6,41 @@ public class PlayerWeaponEquip : MonoBehaviour
     public PlayerMovementController checker;
     public Text ammoCount;
     public GameObject[] weapons;
+    public bool[] state;
     private int current, next;
     public const int Pipe = 0, AK = 1, Sniper = 2, M4 = 3, HandGun = 4;
     public static float timer;
 
 	// Use this for initialization
 	void Start ()
-    {
+	{	    
         current = 1;
         next = 0;
-        foreach (GameObject t in weapons)
-        {
-            t.SetActive(false);
-        }
+        SaveState();
+        RestoreFromState();
         SetActiveWeapon(0);
 	}
+
+    public void RestoreFromState()
+    {
+        for (var i = 0; i < weapons.Length; i++)
+        {
+            weapons[i].SetActive(state[i]);
+            weapons[i].GetComponent<WeaponSwitchState>().Able = state[i];
+        }
+        SetActiveWeapon(0);
+    }
+
+    public void SaveState()
+    {
+        state = new[]
+        {
+            weapons[0].GetComponent<WeaponSwitchState>().Able,
+            weapons[1].GetComponent<WeaponSwitchState>().Able, weapons[2].GetComponent<WeaponSwitchState>().Able,
+            weapons[3].GetComponent<WeaponSwitchState>().Able, weapons[4].GetComponent<WeaponSwitchState>().Able,
+            
+        };
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -57,15 +77,6 @@ public class PlayerWeaponEquip : MonoBehaviour
             ReadyToSwitch();
             checker.inTheRed = true;
         }
-    }
-
-    public void ResetAll()
-    {
-        foreach (var a in weapons)
-        {
-            a.GetComponent<WeaponSwitchState>().Lose();
-        }
-        Start();
     }
 
     private void ReadyToSwitch()

@@ -593,7 +593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  guard: {fileID: 0}
 --- !u!1001 &19738683
 Prefab:
   m_ObjectHideFlags: 0
@@ -5167,8 +5166,8 @@ GameObject:
   - component: {fileID: 183744854}
   - component: {fileID: 183744855}
   - component: {fileID: 183744846}
-  - component: {fileID: 183744847}
   - component: {fileID: 183744848}
+  - component: {fileID: 183744847}
   m_Layer: 0
   m_Name: HallwayGuard-02
   m_TagString: hwG2
@@ -5219,11 +5218,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 183744844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76fd43f72b436544b1e7324741dd9c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 206668a651f80e94ca5fed407090834d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  guard: {fileID: 183744844}
 --- !u!114 &183744848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5412,6 +5410,7 @@ MonoBehaviour:
   guardAnim: {fileID: 0}
   Idle: 1
   dead: 0
+  started: 0
 --- !u!1001 &188330299
 Prefab:
   m_ObjectHideFlags: 0
@@ -6695,8 +6694,8 @@ GameObject:
   - component: {fileID: 232600014}
   - component: {fileID: 232600022}
   - component: {fileID: 232600023}
-  - component: {fileID: 232600015}
   - component: {fileID: 232600024}
+  - component: {fileID: 232600015}
   m_Layer: 0
   m_Name: BoxGuard (1)
   m_TagString: Guard
@@ -6769,11 +6768,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 232600012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76fd43f72b436544b1e7324741dd9c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 206668a651f80e94ca5fed407090834d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  guard: {fileID: 0}
+  health: 200
 --- !u!114 &232600016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6801,6 +6799,7 @@ MonoBehaviour:
   guardAnim: {fileID: 0}
   Idle: 1
   dead: 0
+  started: 0
 --- !u!54 &232600018
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13385,8 +13384,8 @@ GameObject:
   - component: {fileID: 478164778}
   - component: {fileID: 478164779}
   - component: {fileID: 478164770}
-  - component: {fileID: 478164772}
   - component: {fileID: 478164773}
+  - component: {fileID: 478164772}
   m_Layer: 0
   m_Name: HallwayGuard-01
   m_TagString: hwG1
@@ -13437,11 +13436,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 478164769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76fd43f72b436544b1e7324741dd9c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 206668a651f80e94ca5fed407090834d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  guard: {fileID: 478164769}
 --- !u!114 &478164773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13550,6 +13548,7 @@ MonoBehaviour:
   guardAnim: {fileID: 0}
   Idle: 1
   dead: 0
+  started: 0
 --- !u!1 &479734700
 GameObject:
   m_ObjectHideFlags: 0
@@ -18216,6 +18215,7 @@ MonoBehaviour:
   - {fileID: 930705243}
   - {fileID: 1619363490}
   - {fileID: 1076936392}
+  state: 
 --- !u!114 &663967640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20857,6 +20857,7 @@ GameObject:
   - component: {fileID: 747887657}
   - component: {fileID: 747887656}
   - component: {fileID: 747887660}
+  - component: {fileID: 747887661}
   m_Layer: 0
   m_Name: Meme Poster
   m_TagString: Inspectable
@@ -20870,13 +20871,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 747887654}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9691231, y: 3.2082334, z: 16.997}
-  m_LocalScale: {x: 1.4069536, y: 1.496068, z: 0.37141562}
+  m_LocalRotation: {x: 0, y: 0.9659259, z: 0.258819, w: 0}
+  m_LocalPosition: {x: -4.0735, y: 2.137, z: 16.504}
+  m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1207968365}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -30, y: 180, z: 0}
 --- !u!114 &747887656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20958,6 +20959,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveLevels: 0100000002000000
+--- !u!54 &747887661
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 747887654}
+  serializedVersion: 2
+  m_Mass: 0.0001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &751656746
 GameObject:
   m_ObjectHideFlags: 0
@@ -27527,7 +27543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &997533143
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33982,6 +33998,7 @@ MonoBehaviour:
   loader: {fileID: 1267574374}
   player: {fileID: 113493815}
   inv: {fileID: 113493814}
+  weap: {fileID: 663967639}
 --- !u!114 &1282777794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37668,7 +37685,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
-  guard: {fileID: 0}
 --- !u!1001 &1398546683
 Prefab:
   m_ObjectHideFlags: 0
@@ -39673,8 +39689,8 @@ GameObject:
   - component: {fileID: 1484444185}
   - component: {fileID: 1484444177}
   - component: {fileID: 1484444187}
-  - component: {fileID: 1484444178}
   - component: {fileID: 1484444186}
+  - component: {fileID: 1484444178}
   m_Layer: 0
   m_Name: BoxGuard
   m_TagString: Guard
@@ -39736,11 +39752,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1484444175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76fd43f72b436544b1e7324741dd9c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 206668a651f80e94ca5fed407090834d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  guard: {fileID: 0}
+  health: 200
 --- !u!114 &1484444179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39769,6 +39784,7 @@ MonoBehaviour:
   guardAnim: {fileID: 0}
   Idle: 1
   dead: 0
+  started: 0
 --- !u!54 &1484444181
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -52413,7 +52429,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 180
-  m_StoppingDistance: 0.5
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -52429,11 +52445,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1935857140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76fd43f72b436544b1e7324741dd9c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 206668a651f80e94ca5fed407090834d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  guard: {fileID: 0}
+  health: 200
 --- !u!114 &1935857150
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class ResetLevel : MonoBehaviour
 {
-    public static List<Transform> resettables = new List<Transform>();
+    private static List<Transform> resettables = new List<Transform>();
+
+    public static void Add(Transform t)
+    {
+        resettables.Add(t);
+    }
+
+    public static void Clear() { resettables.Clear();}
 
     public static void ResetChanges()
     {
@@ -18,11 +25,11 @@ public class ResetLevel : MonoBehaviour
             {
                 r.gameObject.GetComponent<DialogueManager>().Reset();
             }
-            else if (r.CompareTag("Guard"))
+            else if (r.CompareTag("Guard") || r.CompareTag("hwG2") || r.CompareTag("hwG1"))
             {
-                r.gameObject.GetComponent<GuardScript4>().Reset();
-                var tmp = r.gameObject.GetComponent<ShotAtScript>();
+                var tmp = r.gameObject.GetComponent<ShotAtScriptHuman>();
                 if (tmp != null) tmp.ResetSelf();
+                
             }
             else
             {

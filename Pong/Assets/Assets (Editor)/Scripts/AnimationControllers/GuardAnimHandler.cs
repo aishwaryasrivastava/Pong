@@ -5,7 +5,7 @@ public class GuardAnimHandler : MonoBehaviour {
 
     public Animator guardAnim;
 
-    public bool Idle = true, dead;
+    public bool Idle, dead, started;
 
     // Use this for initialization
     void Start () {
@@ -16,12 +16,15 @@ public class GuardAnimHandler : MonoBehaviour {
     public void Reset()
     {
         dead = false;
+        
         ToIdle();
+        guardAnim.CrossFade("Idle1", 0);
+        started = false;
     }
     public void ToWalking()
     {
         if (dead) return;
-        Idle = false;
+        started = true;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", false);
@@ -32,7 +35,7 @@ public class GuardAnimHandler : MonoBehaviour {
     public void ToIdle()
     {
         if (dead) return;
-        Idle = true;
+        started = true;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", true);
@@ -43,6 +46,7 @@ public class GuardAnimHandler : MonoBehaviour {
     public void ToRunning()
     {
         if (dead) return;
+        started = true;
         guardAnim.SetBool("isRunning", true);
         guardAnim.SetBool("isAttacking", false);
         guardAnim.SetBool("isIdle", false);
@@ -53,6 +57,7 @@ public class GuardAnimHandler : MonoBehaviour {
     public void ToAttacking()
     {
         if (dead) return;
+        started = true;
         guardAnim.SetBool("isRunning", false);
         guardAnim.SetBool("isAttacking", true);
         guardAnim.SetBool("isIdle", false);
@@ -63,7 +68,8 @@ public class GuardAnimHandler : MonoBehaviour {
 	public void ToDied()
 	{
 	    dead = true;
-		guardAnim.SetBool("isRunning", false);
+	    started = true;
+        guardAnim.SetBool("isRunning", false);
 		guardAnim.SetBool("isAttacking", false);
 		guardAnim.SetBool("isIdle", false);
 		guardAnim.SetBool("isWalking", false);
