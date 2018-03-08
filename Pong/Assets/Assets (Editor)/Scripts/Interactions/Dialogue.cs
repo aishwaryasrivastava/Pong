@@ -9,6 +9,8 @@ public class Dialogue {
 	public string Req { get; set; }
     public string Take { get; set; }
 	public Pickup GiveItem { get; set; }
+	public int Rep { get; set; }
+	public int RepMin { get; set; }
 	List<Dialogue> children = new List<Dialogue>();
 
 	public void AddChild(Dialogue d) {

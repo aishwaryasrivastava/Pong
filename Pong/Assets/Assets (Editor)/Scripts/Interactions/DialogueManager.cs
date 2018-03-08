@@ -25,6 +25,8 @@ public class DialogueManager : MonoBehaviour {
     private GUIStyle custombutton;
 	public int fontSize = 15;
 
+	public string name;
+
 	void Start () {
 		GameObject player = GameObject.Find (playerObject);
 		inventory = player.GetComponent<Inventory> ();
@@ -56,6 +58,8 @@ public class DialogueManager : MonoBehaviour {
 		d.Option = attr["option"].Value;
 		d.Req = attr ["require"] != null ? attr ["require"].Value : "";
 	    d.Take = attr["take"] != null ? attr["take"].Value : "";
+		d.Rep = attr ["rep"] != null ? int.Parse(attr ["rep"].Value) : 0;
+		d.RepMin = attr ["repMin"] != null ? int.Parse(attr ["repMin"].Value) : -1000;
         
 		if (attr ["item"] != null)
 		{
@@ -97,13 +101,15 @@ public class DialogueManager : MonoBehaviour {
     }
 
 	void OnGUI() {
+		GUI.skin.box.wordWrap = true;
+		GUI.skin.button.wordWrap = true;
+		
 		if (mouseover) {
 			GUI.Box (new Rect (20, 20, 120, 20), "Press E to interact");
 		}
 		if (talking)
 		{
 		    if(custombutton == null) custombutton = new GUIStyle("button") {fontSize = fontSize};
-
 		    GUI.Box (new Rect (20, 20, width, height), currentdialog.Text,custombutton);
 		    if (currentdialog.Children().Count == 0)
 		    {
@@ -115,7 +121,7 @@ public class DialogueManager : MonoBehaviour {
 		    int count = 0;
 		    for (int i = 0; i < currentdialog.Children().Count; i++)
 		    {
-		        if (InventoryCheck(currentdialog.Children()[i].Req))
+				if (InventoryCheck(currentdialog.Children()[i].Req) && ReputationCheck(currentdialog.Children()[i].RepMin))
 		        {
 		            if (GUI.Button(new Rect(20, 30 + height * (count + 1), width, height), currentdialog.Children()[i].Option,
 		                custombutton))
@@ -129,6 +135,7 @@ public class DialogueManager : MonoBehaviour {
 		                {
 		                    inventory.RemoveThis(currentdialog.Children()[i].Take);
 		                }
+						interact.Reputation [name] = interact.Reputation [name] + currentdialog.Children() [i].Rep;
 		                ContinueDialogue(i);
 		                break;
 		            }
@@ -163,5 +170,9 @@ public class DialogueManager : MonoBehaviour {
 	bool InventoryCheck(string id)
 	{
 	    return id.Length == 0 || inventory.HaveItem(id);
+	}
+
+	bool ReputationCheck(int r) {
+		return interact.Reputation [name] > r;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerInteractionController : MonoBehaviour
 {
@@ -29,9 +30,12 @@ public class PlayerInteractionController : MonoBehaviour
     private const int Item = 0, Door = 1, Human = 2, Equip = 3, Inspectable = 4;
     private readonly Transform[] active = {null, null, null, null, null};
 
+	public Dictionary<string,int> Reputation = new Dictionary<string,int>();
+
     void Start()
     {
         fps.gameObject.SetActive(true);
+		populateReputation ();
     }
 
     void ResetThings()
@@ -281,6 +285,11 @@ public class PlayerInteractionController : MonoBehaviour
         else if (InventoryActive) CheckInventoryControls();
         else if (inspectingSomething) CheckInspectionControls();
     }
+
+	void populateReputation() {
+		Reputation.Add ("X", 0);
+		Reputation.Add ("Y", 0);
+	}
 }
 
 public class Pickup
