@@ -12,7 +12,6 @@ public class PlayerMovementController : MonoBehaviour
 
     public CapsuleCollider head;
 
-    public bool inTheRed;
     public bool crouched;
 
     public PlayerInteractionController interact;

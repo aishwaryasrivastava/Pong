@@ -58,7 +58,7 @@ public class GuardScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
 		if (!died) {
 			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom) {

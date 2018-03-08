@@ -46,6 +46,7 @@ public class PlayerShootingScript : MonoBehaviour
 
     void Update()
     {
+        movement.shooting = false;
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
 
@@ -100,7 +101,8 @@ public class PlayerShootingScript : MonoBehaviour
         timer = fireGap;
         Recoil(damage/10f);
         
-		if (gameObject.CompareTag ("AK")) {
+
+        if (gameObject.CompareTag ("AK")) {
 			sounds.PlayShoot ();
 		} else if (gameObject.CompareTag ("Colt")) {
 			sounds.PlayM4 ();

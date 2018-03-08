@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -48,6 +49,7 @@ public class GuardScript4 : MonoBehaviour
     {
         See = Remember = Investigate = false;
         agent.speed = walkingSpeed;
+        playerTimer = seeTimer = 0;
         CurrentCheckpoint = GetNearestPoint(transform.position);
         UpdateCheckpoint();
         anim.ToWalking();
@@ -90,6 +92,7 @@ public class GuardScript4 : MonoBehaviour
             Remember = true;
             anim.ToRunning();
             agent.speed = speed;
+            playerTimer = MemoryDelay;
             SetPlayerAsGoal();
         }
     }
@@ -106,6 +109,25 @@ public class GuardScript4 : MonoBehaviour
         var towards = player.transform.position - transform.position;
         towards.y = 0;
         return Vector3.Angle(transform.forward, towards) < 30;
+    }
+
+    void Update()
+    {
+        if (PauseManager.Paused) return;
+        if (Dead) return;
+        if (agent.isStopped) return;
+
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || Math.Abs(agent.velocity.sqrMagnitude) < 0.001f)
+                {
+                    CurrentCheckpoint = (CurrentCheckpoint + 1) % Checks.Length;
+                    UpdateCheckpoint();
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -231,10 +253,16 @@ public class GuardScript4 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (See || Remember || anim.dead) return;
+        return;
+        return;
+        if (See || Remember || Dead)
+        {
+            Debug.Log("ignoring");
+            return;
+        }
         if (other.transform.CompareTag("Checkpoint"))
         {
-            if ((Goal - transform.position).magnitude > 1) return;
+            if (!other.transform.Equals(Checks[CurrentCheckpoint])) return;
             CurrentCheckpoint = (CurrentCheckpoint + 1) % Checks.Length;
             UpdateCheckpoint();
         }

@@ -66,7 +66,6 @@ public class PlayerWeaponEquip : MonoBehaviour
         if (current != -1) weapons[current].SetActive(false);
         current = -1;
         ammoCount.GetComponent<ToggleScript>().SwapToHere(current);
-        checker.inTheRed = true;
     }
 
     private void SetActiveWeapon(int sel)
@@ -75,7 +74,6 @@ public class PlayerWeaponEquip : MonoBehaviour
         {
             next = sel;
             ReadyToSwitch();
-            checker.inTheRed = true;
         }
     }
 
