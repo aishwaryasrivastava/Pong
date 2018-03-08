@@ -25,7 +25,6 @@ public class PlayerWeaponEquip : MonoBehaviour
     {
         for (var i = 0; i < weapons.Length; i++)
         {
-            weapons[i].SetActive(state[i]);
             weapons[i].GetComponent<WeaponSwitchState>().Able = state[i];
         }
         SetActiveWeapon(0);
