@@ -30,6 +30,7 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isIdle", false);
         guardAnim.SetBool("isWalking", true);
 		guardAnim.SetBool("isDied", false);
+		guardAnim.SetBool("isDamaged1", false);
     }
 
     public void ToIdle()
@@ -41,6 +42,7 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isIdle", true);
         guardAnim.SetBool("isWalking", false);
 		guardAnim.SetBool("isDied", false);
+		guardAnim.SetBool("isDamaged1", false);
     }
 
     public void ToRunning()
@@ -52,6 +54,7 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isIdle", false);
         guardAnim.SetBool("isWalking", false);
 		guardAnim.SetBool("isDied", false);
+		guardAnim.SetBool("isDamaged1", false);
     }
 
     public void ToAttacking()
@@ -63,6 +66,7 @@ public class GuardAnimHandler : MonoBehaviour {
         guardAnim.SetBool("isIdle", false);
         guardAnim.SetBool("isWalking", false);
 		guardAnim.SetBool("isDied", false);
+		guardAnim.SetBool("isDamaged1", false);
     }
 
 	public void ToDied()
@@ -74,5 +78,16 @@ public class GuardAnimHandler : MonoBehaviour {
 		guardAnim.SetBool("isIdle", false);
 		guardAnim.SetBool("isWalking", false);
 		guardAnim.SetBool("isDied", true);
+		guardAnim.SetBool("isDamaged1", false);
+	}
+
+	public void Damaged()
+	{
+		guardAnim.SetBool("isRunning", false);
+		guardAnim.SetBool("isAttacking", false);
+		guardAnim.SetBool("isIdle", false);
+		guardAnim.SetBool("isWalking", false);
+		guardAnim.SetBool("isDied", false);
+		guardAnim.SetBool("isDamaged1", true);
 	}
 }

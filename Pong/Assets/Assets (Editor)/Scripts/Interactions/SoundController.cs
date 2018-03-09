@@ -21,7 +21,7 @@ public class SoundController : MonoBehaviour {
 
 	void Update(){
 		var tmp = guns.GetComponentInChildren<PlayerShootingScript>();
-		if((Input.GetKeyDown(KeyCode.R)) && guns.activeSelf && tmp.ammoCount != 30){
+		if((Input.GetKeyDown(KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount){
 			PlayReload();
 		}
 	}

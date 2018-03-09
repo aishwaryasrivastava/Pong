@@ -24,8 +24,10 @@ public class MeleeDamage : MonoBehaviour {
     {
 		if ((guard.CompareTag ("hwG2")) || guard.CompareTag ("hwG1")) {
 			var tmp = guard.GetComponent<GuardScript> ();
-			tmp.health -= 2;
+			var tmp2 = GetComponent<GuardAnimHandler>();
+			tmp.health -= 100;
 			tmp.found = true;
+			tmp2.Damaged ();
 		}else{
         	health--;
         	if (health < 1) gameObject.SetActive(false);

@@ -10,6 +10,7 @@ public class GuardScript : MonoBehaviour {
 	public float walkingSpeed;
 
 	public bool found;
+	public bool damged = false;
 
 	public BoxCollider vision;
 
@@ -41,7 +42,7 @@ public class GuardScript : MonoBehaviour {
 	private bool inRoom = false;
 	private bool died = false;
 
-	public int health = 5;
+	public int health = 150;
 	void Start () {
 		anim = GetComponent<GuardAnimHandler> ();
 		if (guard.CompareTag ("hwG1")) {
@@ -61,7 +62,7 @@ public class GuardScript : MonoBehaviour {
 	void FixedUpdate ()
     {
 		if (!died) {
-			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom) {
+			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom && !damged) {
 				anim.ToRunning ();
 				direction = player.position - transform.position;
 				direction.y = 0;
@@ -233,5 +234,14 @@ public class GuardScript : MonoBehaviour {
 
 	private void clean(){
 		gameObject.SetActive (false);
+	}
+
+	private void Gethit(){
+		damged = true;
+		found = true;
+	}
+
+	private void Back(){
+		damged = false;
 	}
 }
