@@ -4,6 +4,7 @@ public class GuardAnimHandler : MonoBehaviour {
 
 
     public Animator guardAnim;
+	public Animation dmg;
 
     public bool Idle, dead, started;
 

@@ -21,8 +21,9 @@ public class SoundController : MonoBehaviour {
 
 	void Update(){
 		var tmp = guns.GetComponentInChildren<PlayerShootingScript>();
-		if((Input.GetKeyDown(KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount){
-			PlayReload();
+		var t = guns.GetComponent<PlayerWeaponEquip>();
+		if((Input.GetKeyDown(KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount && !t.weapons[0].activeSelf){
+				PlayReload ();
 		}
 	}
 
@@ -94,6 +95,9 @@ public class SoundController : MonoBehaviour {
 	}
 
 	public void PlayReload(){
+		if (source.isPlaying) {
+			source.Stop ();
+		}
 		source.PlayOneShot (reloadSound, 0.4f);
 	}
 }

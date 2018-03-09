@@ -8,6 +8,7 @@ public class MeleeDamage : MonoBehaviour {
 	public GameObject guard;
     public int InvulnerabilityTime = 20;
     private int counter;
+	public GameObject pipe;
 
 	// Use this for initialization
 	void Start () {
@@ -25,9 +26,12 @@ public class MeleeDamage : MonoBehaviour {
 		if ((guard.CompareTag ("hwG2")) || guard.CompareTag ("hwG1")) {
 			var tmp = guard.GetComponent<GuardScript> ();
 			var tmp2 = GetComponent<GuardAnimHandler>();
-			tmp.health -= 100;
-			tmp.found = true;
-			tmp2.Damaged ();
+			var tmp3 = pipe.GetComponent<PlayerMeleeScript> ();
+			if (tmp3.inAnimation) {
+				tmp.health -= 100;
+				tmp.found = true;
+				tmp2.Damaged ();
+			}
 		}else{
         	health--;
         	if (health < 1) gameObject.SetActive(false);

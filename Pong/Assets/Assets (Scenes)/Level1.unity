@@ -3308,7 +3308,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.52, y: 2.42, z: 12.1}
+  m_LocalPosition: {x: 2.24, y: 2.42, z: 12.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -5235,6 +5235,7 @@ MonoBehaviour:
   health: 0
   guard: {fileID: 183744844}
   InvulnerabilityTime: 20
+  pipe: {fileID: 799858126}
 --- !u!82 &183744850
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5408,6 +5409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guardAnim: {fileID: 0}
+  dmg: {fileID: 0}
   Idle: 1
   dead: 0
   started: 0
@@ -6797,6 +6799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guardAnim: {fileID: 0}
+  dmg: {fileID: 0}
   Idle: 1
   dead: 0
   started: 0
@@ -6987,6 +6990,7 @@ MonoBehaviour:
   health: 0
   guard: {fileID: 0}
   InvulnerabilityTime: 20
+  pipe: {fileID: 0}
 --- !u!1 &233758824
 GameObject:
   m_ObjectHideFlags: 0
@@ -13400,6 +13404,7 @@ MonoBehaviour:
   health: 0
   guard: {fileID: 478164769}
   InvulnerabilityTime: 20
+  pipe: {fileID: 799858126}
 --- !u!54 &478164775
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13493,6 +13498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guardAnim: {fileID: 0}
+  dmg: {fileID: 0}
   Idle: 1
   dead: 0
   started: 0
@@ -22190,7 +22196,7 @@ GameObject:
   - component: {fileID: 799858134}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22293,6 +22299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pipe: {fileID: 799858126}
   movement: {fileID: 113493816}
+  inAnimation: 0
 --- !u!114 &799858134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39674,6 +39681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guardAnim: {fileID: 0}
+  dmg: {fileID: 0}
   Idle: 1
   dead: 0
   started: 0
@@ -39844,6 +39852,7 @@ MonoBehaviour:
   health: 0
   guard: {fileID: 0}
   InvulnerabilityTime: 20
+  pipe: {fileID: 0}
 --- !u!195 &1484444187
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -41473,6 +41482,7 @@ MonoBehaviour:
   health: 0
   guard: {fileID: 0}
   InvulnerabilityTime: 20
+  pipe: {fileID: 0}
 --- !u!1001 &1553043643
 Prefab:
   m_ObjectHideFlags: 0
@@ -52350,6 +52360,7 @@ MonoBehaviour:
   health: 0
   guard: {fileID: 0}
   InvulnerabilityTime: 20
+  pipe: {fileID: 0}
 --- !u!1001 &1937740692
 Prefab:
   m_ObjectHideFlags: 0

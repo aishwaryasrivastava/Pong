@@ -6,6 +6,7 @@ public class PlayerMeleeScript : MonoBehaviour {
     public GameObject Pipe;
     private PipeAnimationHandler animator;
     public PlayerMovementController movement;
+	public bool inAnimation =false;
 
     // Use this for initialization
     void Start () {
@@ -28,4 +29,11 @@ public class PlayerMeleeScript : MonoBehaviour {
 	    }
 
     }
+
+	public void swing(){
+		inAnimation = true;
+	}
+	public void notSwing(){
+		inAnimation = false;
+	}
 }
