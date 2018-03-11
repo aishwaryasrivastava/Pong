@@ -34,6 +34,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     void Start()
     {
+		
         fps.gameObject.SetActive(true);
 		populateReputation ();
     }

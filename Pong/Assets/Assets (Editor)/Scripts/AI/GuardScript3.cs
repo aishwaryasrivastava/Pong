@@ -71,8 +71,10 @@ public class GuardScript3 : MonoBehaviour {
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (direction), 0.5f);
 				transform.Translate (0, 0, speed);
 			} else if ((Vector3.Distance (player.position, transform.position) <= attackDistance) && found) {
+				damged = false;
 				anim.ToAttacking ();
 			} else if (!found) {
+				damged = false;
 				anim.ToWalking ();
 				walking ();
 			} else if (inRoom) {
@@ -110,7 +112,7 @@ public class GuardScript3 : MonoBehaviour {
 
 
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
-		if (tmp.dmg == 5)
+		if (tmp.dmg == 12)
 		{
 			health = 5;
 			tmp.Die ();
@@ -128,7 +130,7 @@ public class GuardScript3 : MonoBehaviour {
 				east = false;
 				west = false;
 			}
-			var tmp2 = friend.GetComponent<GuardScript> ();
+			var tmp2 = friend.GetComponent<GuardScript3> ();
 			if (!tmp2.found) {
 				tmp.dmg = 0;
 			}
@@ -246,26 +248,4 @@ public class GuardScript3 : MonoBehaviour {
 	private void Back(){
 		damged = false;
 	}
-	/*
-	public Transform player;
-	public Guard2AnimHandler anim;
-	public float attackDistance = 1.5f;
-	public float runningDistance =10.0f;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Vector3.Distance (player.position, transform.position) <= attackDistance) {
-			anim.ToAttacking ();
-		} else if ((Vector3.Distance (player.position, transform.position) > attackDistance) &&
-		         (Vector3.Distance (player.position, transform.position) < runningDistance)) {
-			anim.ToRunning ();
-		} else {
-			anim.ToWalking ();
-		}
-	}
-	*/
 }

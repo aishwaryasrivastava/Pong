@@ -29,10 +29,12 @@ public class ShotAtScriptHuman: ShotAtScript
         {
             if (transform.CompareTag("hwG2") || transform.CompareTag("hwG1"))
             {
-                var tmp = GetComponent<GuardScript>();
-				var tmp2 = GetComponent<GuardAnimHandler>();
+                var tmp = GetComponent<GuardScript3>();
+				var tmp2 = GetComponent<Guard2AnimHandler>();
 				tmp.health-= (int)damageVector.magnitude + 1;
-				tmp2.Damaged ();
+				tmp2.ToDamaged();
+				tmp.found = true;
+				tmp.damged = true;
             }
             else if (transform.CompareTag("Guard"))
             {

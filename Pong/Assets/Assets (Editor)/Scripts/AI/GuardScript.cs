@@ -108,7 +108,7 @@ public class GuardScript : MonoBehaviour {
 
 
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
-		if (tmp.dmg == 5)
+		if (tmp.dmg == 12)
         {
 				health = 5;
 				tmp.Die ();
