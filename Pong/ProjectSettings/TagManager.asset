@@ -27,6 +27,8 @@ TagManager:
   - Guard
   - Rifle
   - Colt
+  - prisoner01
+  - prisoner04
   layers:
   - Default
   - TransparentFX

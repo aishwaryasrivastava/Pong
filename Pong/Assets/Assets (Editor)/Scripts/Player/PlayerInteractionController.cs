@@ -81,8 +81,13 @@ public class PlayerInteractionController : MonoBehaviour
             var door = active[Door].GetComponent<DoorToggle>();
             if (door.Locked && !inventory.HaveItem(door.code)) UIConfirm.color = new Color(1, 0, 0, 0.8f);
         }
-        else if (hit.transform.CompareTag("Human"))
+		else if ((hit.transform.CompareTag("prisoner01")) || (hit.transform.CompareTag("prisoner04")))
         {
+			if ((hit.transform.CompareTag ("prisoner01"))) {
+				sounds.PlayVoice (1);
+			}else if((hit.transform.CompareTag ("prisoner04"))){
+				sounds.PlayVoice (4);
+			}
             active[Human] = hit.transform;
             active[Human].GetComponent<DialogueManager>().LookingAt();          
         }
@@ -193,6 +198,7 @@ public class PlayerInteractionController : MonoBehaviour
                 uiInspectable = active[Inspectable].GetComponent<InspectableInformation>().Inspectable;
                 uiInspectable.SetActive(true);
                 inspectingSomething = !inspectingSomething;
+				sounds.PlayInspect ();
             }
         }
     }
