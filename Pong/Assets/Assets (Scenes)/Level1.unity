@@ -29736,7 +29736,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1912108287219450, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
       propertyPath: m_TagString
-      value: prisoner01
+      value: Human
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
@@ -53713,6 +53713,18 @@ MonoBehaviour:
   guard: {fileID: 0}
   InvulnerabilityTime: 20
   pipe: {fileID: 0}
+--- !u!114 &1552392566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552392556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c650fd51c483d4439d432d66fe8b062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialNum: 1
 --- !u!1001 &1553043643
 Prefab:
   m_ObjectHideFlags: 0
@@ -55999,9 +56011,10 @@ GameObject:
   - component: {fileID: 1614948139}
   - component: {fileID: 1614948146}
   - component: {fileID: 1614948143}
+  - component: {fileID: 1614948147}
   m_Layer: 0
   m_Name: Prisoner-04
-  m_TagString: prisoner04
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56216,6 +56229,18 @@ MonoBehaviour:
   height: 15
   fontSize: 15
   name: Y
+--- !u!114 &1614948147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614948137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c650fd51c483d4439d432d66fe8b062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialNum: 4
 --- !u!1001 &1616992837
 Prefab:
   m_ObjectHideFlags: 0

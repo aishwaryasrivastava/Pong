@@ -81,13 +81,10 @@ public class PlayerInteractionController : MonoBehaviour
             var door = active[Door].GetComponent<DoorToggle>();
             if (door.Locked && !inventory.HaveItem(door.code)) UIConfirm.color = new Color(1, 0, 0, 0.8f);
         }
-		else if ((hit.transform.CompareTag("prisoner01")) || (hit.transform.CompareTag("prisoner04")))
+		else if (hit.transform.CompareTag("Human"))
         {
-			if ((hit.transform.CompareTag ("prisoner01"))) {
-				sounds.PlayVoice (1);
-			}else if((hit.transform.CompareTag ("prisoner04"))){
-				sounds.PlayVoice (4);
-			}
+			var tmp = hit.transform.GetComponent<PersonalInfo> ();
+			sounds.PlayVoice (tmp.serialNum);
             active[Human] = hit.transform;
             active[Human].GetComponent<DialogueManager>().LookingAt();          
         }
