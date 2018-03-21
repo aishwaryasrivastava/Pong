@@ -178,6 +178,8 @@ GameObject:
   - component: {fileID: 23543842858743666}
   - component: {fileID: 65253569746918882}
   - component: {fileID: 114978221404642030}
+  - component: {fileID: 95229159918303836}
+  - component: {fileID: 114993724261704966}
   m_Layer: 19
   m_Name: PrisonCellDoorWayDoor
   m_TagString: Door
@@ -1960,6 +1962,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33530235, y: 3.000008, z: 0.9660764}
   m_Center: {x: -0.1250498, y: 1.4999962, z: 0.48303866}
+--- !u!95 &95229159918303836
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240641978475058}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 59aaa444f2bc442da9399cf5e96fee89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95519619040351574
 Animator:
   serializedVersion: 3
@@ -2024,6 +2043,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0224ff353ba21941a01166a75022436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114993724261704966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240641978475058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9876b349cd104d54b8631a4ca72075b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   Type: 0
   Locked: 1
-  PermaLock: 1
+  code: 
