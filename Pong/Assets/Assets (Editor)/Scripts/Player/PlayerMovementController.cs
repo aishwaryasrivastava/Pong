@@ -146,7 +146,7 @@ public class PlayerMovementController : MonoBehaviour
     }
 
 	public void SetPosition(Vector3 v) {
-		rb.position = v;
+		transform.position = v;
 	}
 
     void OnCollisionEnter(Collision c)
