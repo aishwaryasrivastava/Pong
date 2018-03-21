@@ -10,9 +10,11 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
+  - component: {fileID: 114046554661940302}
+  - component: {fileID: 114660731820269450}
   m_Layer: 0
   m_Name: Cake
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,8 +25,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0.4437203, z: 0, w: 0.8961654}
-  m_LocalPosition: {x: 0.2041121, y: 0, z: 0.26958495}
+  m_LocalRotation: {x: -0, y: 0.4437203, z: -0, w: 0.8961654}
+  m_LocalPosition: {x: -14.942996, y: 1.4700003, z: 29.053608}
   m_LocalScale: {x: 1.3345336, y: 1.3345336, z: 1.3345336}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +84,28 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
+--- !u!114 &114046554661940302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveLevels: 01000000
+--- !u!114 &114660731820269450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3eee68ab837224692b4ffb793e7418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  id: Cake
