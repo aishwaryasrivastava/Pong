@@ -29,6 +29,7 @@ TagManager:
   - Colt
   - prisoner01
   - prisoner04
+  - AngleFloor
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ public class PlayerMovementController : MonoBehaviour
     public CapsuleCollider head;
 
     public bool crouched;
+    private bool slant;
 
     public PlayerInteractionController interact;
     public CameraRecoiler shootGun;
@@ -33,7 +34,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         forward = rightward = 0;
         moving = running = jumping = false;
-        if (Math.Abs(rb.velocity.y) > 0.001)
+        if (Math.Abs(rb.velocity.y) > 0.001 && !slant)
         {
             jumping = true;
             return;
@@ -55,7 +56,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             rightward += 1;
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !crouched)
         {
             forward *= 2;
             rightward *= 2;
@@ -83,7 +84,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void CheckJump()
     {
-        if (crouched) return;
+        if (crouched || slant) return;
         if (Math.Abs(rb.velocity.y) > 0.01) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -94,7 +95,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void CheckCrouch()
     {
-        if (Math.Abs(rb.velocity.y) > 0.01) return;
+        if (Math.Abs(rb.velocity.y) > 0.01 && !slant) return;
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && !crouched)
         {
@@ -104,7 +105,7 @@ public class PlayerMovementController : MonoBehaviour
             head.center -= new Vector3(0, crouchShift/2, 0);
             head.height -= crouchShift;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl) && crouched)
+        else if (Input.GetKeyUp(KeyCode.LeftControl) && crouched && !slant)
         {
             crouched = false;
             var cameraT = Camera.main.transform;
@@ -142,6 +143,26 @@ public class PlayerMovementController : MonoBehaviour
 
         CheckJump();
         CheckCrouch();      
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.transform.CompareTag("AngleFloor"))
+        {
+            slant = true;
+        }
+        else if (c.transform.CompareTag("Floor Tile"))
+        {
+            if (slant && crouched && !Input.GetKey(KeyCode.LeftControl))
+            {                
+                crouched = false;
+                var cameraT = Camera.main.transform;
+                cameraT.localPosition += new Vector3(0, crouchShift, 0);
+                head.center += new Vector3(0, crouchShift / 2, 0);
+                head.height += crouchShift;
+            }
+            slant = false;
+        }
     }
 
 	void FixedUpdate ()
