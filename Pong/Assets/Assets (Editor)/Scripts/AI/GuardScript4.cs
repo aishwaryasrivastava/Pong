@@ -30,12 +30,14 @@ public class GuardScript4 : MonoBehaviour
     private int initialPoint;
     private Vector3 Goal;
 
-    GuardAnimHandler anim;
+    //GuardAnimHandler anim;
+	Guard4AnimHandler anim;
     private NavMeshAgent agent;
 
     void Start()
     {
-        anim = GetComponent<GuardAnimHandler>();
+        //anim = GetComponent<GuardAnimHandler>();
+		anim = GetComponent<Guard4AnimHandler>();
         agent = GetComponent<NavMeshAgent>();
         var rot = transform.rotation;
         var pos = transform.position;
