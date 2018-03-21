@@ -145,6 +145,10 @@ public class PlayerMovementController : MonoBehaviour
         CheckCrouch();      
     }
 
+	public void SetPosition(Vector3 v) {
+		rb.position = v;
+	}
+
     void OnCollisionEnter(Collision c)
     {
         if (c.transform.CompareTag("AngleFloor"))

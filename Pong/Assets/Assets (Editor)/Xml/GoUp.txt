@@ -1,0 +1,4 @@
+<node text="I'm digging a tunnel out of here" option="N/A">
+	<node option="Neat place you have here" text="Thanks"></node>
+	<node option="Go back up" send="1" text="OK"></node>
+</node>

@@ -3,9 +3,9 @@
 		<node option="Have a good one" text="Thanks"></node>
 		<node option="*Stare at him*" text="J-Just leave me alone"></node>
 	</node>
-	<node option="Know what today is?" text="Please tell me it's not beat-me-up day again">
+	<node option="Know what today is?" repMax="5" text="Please tell me it's not beat-me-up day again">
 		<node option="What, no, where'd that come from?" text="I don't want to talk about it"></node>
-		<node option="No it's your birthday!" text="Whoa you actually remembered, thank you!">
+		<node option="No it's your birthday!" rep="10" text="Whoa you actually remembered, thank you!">
 			<node option="Have a good one" item="4" id="cake" text="Hey wait, here's some leftover cake that came for me earlier">
 				<node option="Oh I couldn't" text="Oh yes you could, here"></node>
 				<node option="Sure thanks" text="No problem"></node>
@@ -15,4 +15,15 @@
 	</node>
 	<node option="You still owe me money" text="N-No that's the other prisoner"></node>
 	<node option="Have a good one" text="Why did you even come over here"></node>
+	<node option="Where did you get that cake anyway?" repMin="5" repMax="15" text="It's a secret, can I trust you?">
+		<node option="You can't trust me" text="Ok then, bye"></node>
+		<node option="You can trust me" rep="10" text="I'm digging a tunnel out of here. Want to see?">
+			<node option="Not right now" text="Ok then, bye"></node>
+			<node option="Heck yeah!" send="0" text="Ok then"></node>
+		</node>
+	</node>
+	<node option="Can I go to the tunnel again?" repMin="150" text="Sure">
+		<node option="Not right now" text="Ok then, bye"></node>
+		<node option="Go Down" send="0" text="Ok then"></node>
+	</node>
 </node>
