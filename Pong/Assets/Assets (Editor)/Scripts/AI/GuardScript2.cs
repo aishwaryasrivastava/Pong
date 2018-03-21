@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class GuardScript2 : MonoBehaviour
 {
-    private PrisonerAnimHandler prisonerAnim;
+    private Guard3AnimHandler prisonerAnim;
 
     public NavMeshAgent agent;
     public PlayerMovementController player;
@@ -22,7 +22,7 @@ public class GuardScript2 : MonoBehaviour
     void Awake()
     {
         source = GetComponent<AudioSource>();
-        prisonerAnim = GetComponent<PrisonerAnimHandler>();
+        prisonerAnim = GetComponent<Guard3AnimHandler>();
     }
 
     // Use this for initialization
