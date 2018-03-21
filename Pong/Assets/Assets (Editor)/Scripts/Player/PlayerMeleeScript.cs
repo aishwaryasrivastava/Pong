@@ -27,6 +27,13 @@ public class PlayerMeleeScript : MonoBehaviour {
 				tmp.PlaySwingW ();
 			}
 	    }
+        /**
+        if (Input.GetMouseButton(1))
+        {
+            animator.ToBlocking();
+        } 
+        */
+        animator.SetBlocking(Input.GetMouseButton(1));
 
     }
 

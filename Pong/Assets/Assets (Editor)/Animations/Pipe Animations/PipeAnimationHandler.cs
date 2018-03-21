@@ -24,11 +24,16 @@ public class PipeAnimationHandler : MonoBehaviour {
     // Update is called once per frame
     void Update() {
     }
-        public void ToWalking()
-        {
-            anim.SetBool("isAttacking", false);
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", true);
+
+    public void ToWalking()
+    {
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isWalking", true);
+        anim.SetBool("isBlocking", false);
+        anim.SetBool("HitBlocked", false);
+        anim.SetBool("HitDeflected", false);
+        anim.SetBool("BlockBroken", false);
         //anim.SetBool("isEquipping", false);
     }
 
@@ -38,6 +43,10 @@ public class PipeAnimationHandler : MonoBehaviour {
             anim.SetBool("isAttacking", false);
             anim.SetBool("isIdle", true);
             anim.SetBool("isWalking", false);
+        anim.SetBool("isBlocking", false);
+        anim.SetBool("HitBlocked", false);
+        anim.SetBool("HitDeflected", false);
+        anim.SetBool("BlockBroken", false);
         //anim.SetBool("isEquipping", false);
     }
 
@@ -54,6 +63,42 @@ public class PipeAnimationHandler : MonoBehaviour {
         anim.SetBool("isIdle", false);
         anim.SetBool("isWalking", false);
         //anim.SetBool("isEquipping", false);
+    }
+
+    public void ToBlocking()
+    {
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isBlocking", true);
+        anim.SetBool("HitBlocked", false);
+    }
+    
+    public void SetBlocking(bool b)
+    {
+        if (b)
+        {
+            ToBlocking();
+        }
+        else
+        {
+            anim.SetBool("isBlocking", false);
+        }
+    }
+
+    public void HitBlocked()
+    {
+        anim.SetBool("HitBlocked", true);
+    }
+
+    public void HitDeflected()
+    {
+        anim.SetBool("HitDeflected", true);
+    }
+
+    public void BlockBroken()
+    {
+        anim.SetBool("BlockBroken", true);
     }
 
     /*
