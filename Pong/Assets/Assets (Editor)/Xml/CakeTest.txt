@@ -22,7 +22,7 @@
 			<node option="Heck yeah!" send="0" text="Ok then"></node>
 		</node>
 	</node>
-	<node option="Can I go to the tunnel again?" repMin="150" text="Sure">
+	<node option="Can I go to the tunnel again?" repMin="15" text="Sure">
 		<node option="Not right now" text="Ok then, bye"></node>
 		<node option="Go Down" send="0" text="Ok then"></node>
 	</node>
