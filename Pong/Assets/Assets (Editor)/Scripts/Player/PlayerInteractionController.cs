@@ -284,6 +284,8 @@ public class PlayerInteractionController : MonoBehaviour
         {
             active[i] = null;
         }
+        Reputation.Clear();
+        populateReputation();
     }
 
     public void Die()

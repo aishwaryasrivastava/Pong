@@ -105,7 +105,7 @@ public class PlayerMovementController : MonoBehaviour
             head.center -= new Vector3(0, crouchShift/2, 0);
             head.height -= crouchShift;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl) && crouched && !slant)
+        else if (crouched && !Input.GetKey(KeyCode.LeftControl) && !slant)
         {
             crouched = false;
             var cameraT = Camera.main.transform;
@@ -155,16 +155,12 @@ public class PlayerMovementController : MonoBehaviour
         {
             slant = true;
         }
-        else if (c.transform.CompareTag("Floor Tile"))
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Floor Tile"))
         {
-            if (slant && crouched && !Input.GetKey(KeyCode.LeftControl))
-            {                
-                crouched = false;
-                var cameraT = Camera.main.transform;
-                cameraT.localPosition += new Vector3(0, crouchShift, 0);
-                head.center += new Vector3(0, crouchShift / 2, 0);
-                head.height += crouchShift;
-            }
             slant = false;
         }
     }
