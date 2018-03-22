@@ -13237,9 +13237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  guard: {fileID: 0}
+  guard: {fileID: 422636221}
   InvulnerabilityTime: 20
-  pipe: {fileID: 0}
+  pipe: {fileID: 799858126}
 --- !u!195 &422636225
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -25075,9 +25075,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  guard: {fileID: 0}
+  guard: {fileID: 843171206}
   InvulnerabilityTime: 20
-  pipe: {fileID: 0}
+  pipe: {fileID: 799858126}
 --- !u!114 &843171214
 MonoBehaviour:
   m_ObjectHideFlags: 0
