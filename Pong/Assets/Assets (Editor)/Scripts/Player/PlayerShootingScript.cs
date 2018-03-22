@@ -7,6 +7,7 @@ public class PlayerShootingScript : MonoBehaviour
     public bool auto = true;
     public float reloadDuration;
     public int ammoCount;
+    public int totalAmmo;
     public int magazineSize;
     private float timer;
     public float recoil;
@@ -40,7 +41,7 @@ public class PlayerShootingScript : MonoBehaviour
         flare = transform.Find("Flare").gameObject;
         flare.SetActive(false);
 
-        ammoMcCount.UpdateValue(magazineSize, magazineSize);
+        ammoMcCount.UpdateValue(ammoCount, totalAmmo);
 		sounds = gameObject.GetComponentInParent<SoundController> ();
     }
 
@@ -55,7 +56,7 @@ public class PlayerShootingScript : MonoBehaviour
             Fire();
             movement.shooting = true;
         } 
-        if (Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading && timer <= 0)
+        if (Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading && timer <= 0 && totalAmmo > 0)
         {
             reloading = true;
             timer = reloadDuration;
@@ -97,7 +98,7 @@ public class PlayerShootingScript : MonoBehaviour
             if (h != null) h.ShotAt(damage * Camera.main.transform.forward);
         }
         ammoCount--;
-        ammoMcCount.UpdateValue(ammoCount, magazineSize);
+        ammoMcCount.UpdateValue(ammoCount, totalAmmo);
         timer = fireGap;
         Recoil(damage/10f);
         
@@ -131,8 +132,16 @@ public class PlayerShootingScript : MonoBehaviour
         {
             magazine.localPosition = magazinePositionBackup;
             reloading = false;
-            ammoCount = magazineSize;
-            ammoMcCount.UpdateValue(ammoCount, magazineSize);
+            if (totalAmmo > magazineSize)
+            {
+                totalAmmo -= magazineSize - ammoCount;
+                ammoCount = magazineSize;
+            } else
+            {
+                ammoCount = totalAmmo;
+                totalAmmo = 0;
+            }
+            ammoMcCount.UpdateValue(ammoCount, totalAmmo);
         }
     }
 }

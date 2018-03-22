@@ -27857,6 +27857,7 @@ MonoBehaviour:
   auto: 0
   reloadDuration: 5
   ammoCount: 5
+  totalAmmo: 0
   magazineSize: 5
   recoil: 0
   damage: 150
@@ -30261,6 +30262,7 @@ MonoBehaviour:
   auto: 1
   reloadDuration: 3
   ammoCount: 30
+  totalAmmo: 60
   magazineSize: 30
   recoil: 0
   damage: 35
@@ -32593,6 +32595,7 @@ MonoBehaviour:
   auto: 0
   reloadDuration: 2
   ammoCount: 10
+  totalAmmo: 0
   magazineSize: 10
   recoil: 0
   damage: 20
@@ -49620,6 +49623,7 @@ MonoBehaviour:
   auto: 1
   reloadDuration: 3
   ammoCount: 35
+  totalAmmo: 0
   magazineSize: 35
   recoil: 0
   damage: 30
