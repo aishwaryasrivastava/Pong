@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraShaker : MonoBehaviour {
 	public float power = 0.1f;
 	public float duration = 0.2f;
-	public Transform camera;
+	public Transform cameraT;
 	public float slowDown = 0.5f;
 	public bool shake = false;
 	// Use this for initialization
@@ -13,8 +13,8 @@ public class CameraShaker : MonoBehaviour {
 	Vector3 position;
 	float startDuration;
 	void Start () {
-		camera = Camera.main.transform;
-		position = camera.localPosition;
+	    cameraT = transform;
+		position = cameraT.localPosition;
 		startDuration = duration;
 	}
 
@@ -25,12 +25,12 @@ public class CameraShaker : MonoBehaviour {
 	void Update () {
 		if (shake) {
 			if (duration > 0) {
-				camera.localPosition = position + Random.insideUnitSphere * power;
+			    cameraT.localPosition = position + Random.insideUnitSphere * power;
 				duration -= Time.deltaTime * slowDown;
 			} else {
 				shake = false;
 				duration = startDuration;
-				camera.localPosition = position;
+			    cameraT.localPosition = position;
 			}
 		}
 	}

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ public class PlayerInteractionController : MonoBehaviour
     public Text fps;
 
     public Vector3 RespawnVector = new Vector3(0, 3.5f, 0);
+    public GameObject InterTextBox;
+    public Text InterText;
 
     public float armReach = 8;
     private const float lookCheckTimer = 0.1f;
@@ -48,6 +51,8 @@ public class PlayerInteractionController : MonoBehaviour
         }
         UIConfirm.gameObject.SetActive(true);
         UIConfirm.color = new Color(0, 0.7f, 0, 0.8f);
+        InterTextBox.SetActive(false);
+        InterText.text = "";
     }
     void CheckForEnt()
     {
@@ -70,36 +75,60 @@ public class PlayerInteractionController : MonoBehaviour
         }
 
         ResetThings();
-        if (hit.transform.CompareTag("Item"))
-        {
-            active[Item] = hit.transform;          
-            if (inventory.Full()) UIConfirm.color = new Color(1, 0, 0, 0.8f);
-        }
-        else if (hit.transform.CompareTag("Door"))
-        {
-            active[Door] = hit.transform;
-            var door = active[Door].GetComponent<DoorToggle>();
-            if (door.Locked && !inventory.HaveItem(door.code)) UIConfirm.color = new Color(1, 0, 0, 0.8f);
-        }
-		else if (hit.transform.CompareTag("Human"))
-        {
-			var tmp = hit.transform.GetComponent<PersonalInfo> ();
-			sounds.PlayVoice (tmp.serialNum);
-            active[Human] = hit.transform;
-            active[Human].GetComponent<DialogueManager>().LookingAt();          
-        }
-        else if (hit.transform.CompareTag("AK") || hit.transform.CompareTag("Pipe") || hit.transform.CompareTag("HandGun") || hit.transform.CompareTag("Colt") || hit.transform.CompareTag("Rifle"))
-        {
-            active[Equip] = hit.transform;           
-        }
-        else if (hit.transform.CompareTag("Inspectable"))
-        {
-            active[Inspectable] = hit.transform;
-        }
-        else
+        var intermNue = hit.transform.GetComponent<Interactable>();
+        if (intermNue == null)
         {
             //not looking at anything interactable
             UIConfirm.gameObject.SetActive(false);
+            return;
+        }
+        var GoingGreen = true;
+        switch (intermNue.type)
+        {
+            case Interactable.InteractableType.Removable:
+            case Interactable.InteractableType.PickUp:
+                active[Item] = hit.transform;
+                if (inventory.Full())
+                {
+                    UIConfirm.color = new Color(1, 0, 0, 0.8f);
+                    GoingGreen = false;
+                }
+                break;            
+            case Interactable.InteractableType.Inspectable:
+                active[Inspectable] = hit.transform;
+                break;
+            case Interactable.InteractableType.Door:
+                active[Door] = hit.transform;
+                var door = active[Door].GetComponent<DoorToggle>();
+                if (door.Locked && !inventory.HaveItem(door.code))
+                {
+                    UIConfirm.color = new Color(1, 0, 0, 0.8f);
+                    GoingGreen = false;
+                }
+                break;
+            case Interactable.InteractableType.Person:
+                var tmp = hit.transform.GetComponent<PersonalInfo>();
+                sounds.PlayVoice(tmp.serialNum);
+                active[Human] = hit.transform;
+                active[Human].GetComponent<DialogueManager>().LookingAt();
+                break;
+            case Interactable.InteractableType.Pipe:
+                active[Equip] = hit.transform;
+                break;
+            case Interactable.InteractableType.Observable:
+                //these are just things that bring up text, not interactable
+                UIConfirm.gameObject.SetActive(false);
+                break;
+        }
+        if (GoingGreen && intermNue.GoodString.Length > 0)
+        {
+            InterTextBox.SetActive(true);
+            InterText.text = intermNue.GoodString;
+        }
+        else if (!GoingGreen && intermNue.BadString.Length > 0)
+        {
+            InterTextBox.SetActive(true);
+            InterText.text = intermNue.BadString;
         }
     }
 
@@ -128,7 +157,9 @@ public class PlayerInteractionController : MonoBehaviour
         {
             if (active[Item] != null)
             {
-                var mtp = inventory.AddItem(new Pickup(active[Item].GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>()));
+                bool mtp;
+                if (active[Item].GetComponent<Interactable>().type == Interactable.InteractableType.Removable) mtp = true;
+                else mtp = inventory.AddItem(new Pickup(active[Item].GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>()));
                 if (mtp)
                 {
                     active[Item].gameObject.SetActive(false);
@@ -161,7 +192,15 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else if (active[Equip] != null)
             {
-                if (active[Equip].CompareTag("AK"))
+                var intermNue = active[Equip].transform.GetComponent<Interactable>();
+                switch (intermNue.type)
+                {
+                    case Interactable.InteractableType.Pipe:
+                        Equips.SetAble(PlayerWeaponEquip.Pipe);
+                        sounds.PlayDwang();
+                        break;
+                }
+                /*if (active[Equip].CompareTag("AK"))
                 {
                     Equips.SetAble(PlayerWeaponEquip.AK);
 					sounds.PlayEquip ();
@@ -185,7 +224,7 @@ public class PlayerInteractionController : MonoBehaviour
                 {
                     Equips.SetAble(PlayerWeaponEquip.M4);
                     sounds.PlayEquip();
-                }
+                }*/
                 active[Equip].gameObject.SetActive(false);
                 ResetLevel.Add(active[Equip]);
                 active[Equip] = null;
@@ -274,6 +313,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return;
 
+        if(Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryActive = !InventoryActive;

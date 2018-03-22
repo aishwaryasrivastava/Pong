@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
 
     private List<Pickup> inventoryRestorePoint;
 
-    public Text name;
+    public Text itemName;
     // Used in L-scroller
     //private Sprite[] lScroller;
     private const int lScrollerSize = 8;
@@ -53,7 +53,7 @@ public class Inventory : MonoBehaviour
             slot.GetComponent<Image>().sprite = image;
             if (i == curEquip)
             {
-                name.text = i < inventory.Count ? inventory[i].ItemId : "None";
+                itemName.text = i < inventory.Count ? inventory[i].ItemId : "None";
             }
         }
     }

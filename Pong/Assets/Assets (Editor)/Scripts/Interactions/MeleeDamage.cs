@@ -34,7 +34,11 @@ public class MeleeDamage : MonoBehaviour {
 			}
 		}else{
         	health--;
-        	if (health < 1) gameObject.SetActive(false);
+		    if (health < 1)
+		    {
+		        gameObject.SetActive(false);
+		    }
+
 		}
 
     }
