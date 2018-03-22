@@ -12,7 +12,7 @@ public class MeleeDamage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        health = 3;
+        health = 5;
         counter = 0;
 	}
 	
@@ -34,9 +34,14 @@ public class MeleeDamage : MonoBehaviour {
 			}
 		}else{
         	health--;
+			var tmp = GetComponent<Guard4AnimHandler>();
+			var tmp2 = GetComponent<GuardScript4>();
+			tmp2.found ();
+			tmp.Damaged();
 		    if (health < 1)
 		    {
-		        gameObject.SetActive(false);
+				tmp2.KillMe();
+		        //gameObject.SetActive(false);
 		    }
 
 		}

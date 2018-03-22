@@ -25,6 +25,10 @@ public class ShotAtScriptHuman: ShotAtScript
     public override void ShotAt(Vector3 damageVector)
     {
         curHealth -= (int)damageVector.magnitude + 1;
+		if (transform.CompareTag ("Guard")) {
+			var tmp = transform.GetComponent<Guard4AnimHandler> ();
+			tmp.Damaged ();
+		}
         if (curHealth < 0)
         {
             if (transform.CompareTag("hwG2") || transform.CompareTag("hwG1"))

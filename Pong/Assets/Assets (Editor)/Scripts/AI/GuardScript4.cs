@@ -256,7 +256,7 @@ public class GuardScript4 : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         return;
-        return;
+        //return;
         if (See || Remember || Dead)
         {
             Debug.Log("ignoring");
@@ -295,7 +295,7 @@ public class GuardScript4 : MonoBehaviour
     {
         var tmp = player.GetComponent<PlayerInteractionController>();
         tmp.dmg++;
-        if (tmp.dmg >= 5)
+        if (tmp.dmg >= 10)
         {
             tmp.Die();
         }
@@ -328,4 +328,8 @@ public class GuardScript4 : MonoBehaviour
         UpdateCheckpoint();
         
     }
+
+	public void found(){
+		See = true;
+	}
 }
