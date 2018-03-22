@@ -36,6 +36,7 @@ public class NPCScript : MonoBehaviour
 
     Vector3 GetRandomLocalPoint()
     {
+        if (Static) return transform.position;
         var x = 0;
         while (x < 100)
         {

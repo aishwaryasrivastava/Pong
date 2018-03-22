@@ -1,0 +1,13 @@
+<node text="Hey hey, Crawfis ol' pal" option="N/A">
+	<node option="Are you going somewhere?" text="I'm getting parole, at long last">
+		<node option="How does it feel?" text="Freeing, and scary at the same time"></node>
+		<node option="I'm jealous" text="Shouldn't have murdered that guy then"></node>
+	</node>
+	<node option="Would you say we're friends?" text="Well what would you say we are?">
+		<node option="We're totally good friends" repMin="100" text="That's what I like to hear"></node>
+		<node option="We're friends I guess" repMin="1" text="I suppose we are"></node>
+		<node option="Who are you again?" text="Don't you have somewhere to be"></node>
+	</node>
+	<node option="I got you some cake" require="cake" take="cake" rep="100" text="Always a good time for cake. Thanks!"></node>
+	<node option="Take me with you" repMin="200" text="I'll see if I can send something your way from the outside"></node>
+</node>

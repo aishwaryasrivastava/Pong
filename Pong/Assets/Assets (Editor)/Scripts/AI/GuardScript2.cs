@@ -30,6 +30,7 @@ public class GuardScript2 : MonoBehaviour
     {
         //rb = GetComponent<Rigidbody>();
         source.volume = 1f;
+        if (Static) return;
         agent = GetComponent<NavMeshAgent>();
         TurnAndHalt();
         timer = timeoutLength;
@@ -61,6 +62,7 @@ public class GuardScript2 : MonoBehaviour
 
     Vector3 GetRandomLocalPoint()
     {
+        if (Static) return transform.position;
         var x = 0;
         while (x < 100)
         {
@@ -79,9 +81,12 @@ public class GuardScript2 : MonoBehaviour
 
     public void TurnTowardsMe(Vector3 me)
     {
-        agent.SetDestination(GetRandomLocalPoint());
-        timer = 1;
-        Halt();
+        if (!Static)
+        {
+            agent.SetDestination(GetRandomLocalPoint());
+            timer = 1;
+            Halt();
+        }
         var goal = me - transform.position;
         goal.y = transform.forward.y;
         transform.forward = Vector3.RotateTowards(transform.forward, goal, 5, 100);
@@ -99,7 +104,7 @@ public class GuardScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PauseManager.Paused) return;
+        if (PauseManager.Paused || Static) return;
         if (timer > 0)
         {
             timer -= Time.deltaTime;

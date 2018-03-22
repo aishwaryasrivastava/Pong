@@ -1,0 +1,15 @@
+<node text="Have you come to see Tom off?" option="N/A">
+	<node option="Wait, where's he going?" text="Clearly you're not a friend of Tom">
+		<node option="Tell me" text="He's done his time. He's free">
+			<node option="I'm jealous" text="To be honest so am I"></node>
+		</node>
+		<node option="Guess not, bye" text="Get outta here"></node>
+	</node>
+	<node option="Of course, we're great friends" text="You should talk to him before he leaves then"></node>
+	<node option="Sure sure, but want any cake?" require="cake" take="cake" rep="100" text="What a great way to celebrate"></node>
+	<node option="I could care less about that guy" text="Don't you dare speak of Tom like that">
+		<node option="I actually love Tom" rep="100" text="That's what I like to hear"></node>
+		<node option="You can't stop me" text="Go away heathen"></node>
+	</node>
+	<node option="You can't let Tom leave" repMin="200" text="You're right. We must keep him here!"></node>
+</node>

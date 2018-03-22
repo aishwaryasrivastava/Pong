@@ -108,7 +108,7 @@ public class PlayerInteractionController : MonoBehaviour
                 break;
             case Interactable.InteractableType.Person:
                 var tmp = hit.transform.GetComponent<PersonalInfo>();
-                sounds.PlayVoice(tmp.serialNum);
+                if(tmp!=null)sounds.PlayVoice(tmp.serialNum);
                 active[Human] = hit.transform;
                 active[Human].GetComponent<DialogueManager>().LookingAt();
                 break;
@@ -184,7 +184,10 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else if (active[Human] != null)
             {
-                active[Human].GetComponent<NPCScript>().TurnTowardsMe(transform.position);
+                var a = active[Human].GetComponent<NPCScript>();
+                var b = active[Human].GetComponent<GuardScript2>();
+                if (a != null) a.TurnTowardsMe(transform.position);
+                else if (b != null) b.TurnTowardsMe(transform.position);
                 var dia = active[Human].GetComponent<DialogueManager>();
                 movement.EnterConversation(dia);
                 dia.StartDialogue(); 
@@ -346,6 +349,7 @@ public class PlayerInteractionController : MonoBehaviour
 	void populateReputation() {
 		Reputation.Add ("X", 0);
 		Reputation.Add ("Y", 0);
+        Reputation.Add("Elf", 0);
 	}
 }
 

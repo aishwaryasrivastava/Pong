@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour {
 	private string playerObject = "PlayerMan";
 	public PlayerMovementController control;
 	public PlayerInteractionController interact;
-	public NPCScript owner;
+	//public NPCScript owner;
 	private Inventory inventory;
 
 	//public GameObject itemToGive; // this will be ripped out and made a part of prisoners to whom a dialogue is attached, fine for now
