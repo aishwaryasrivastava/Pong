@@ -6,25 +6,16 @@ public class GuardScript3 : MonoBehaviour {
 
 	public Transform player;
 
-	public float attackDistance ;
-	public float runningDistance ;
-	public float speed ;
-	public float walkingSpeed;
+    public float attackDistance, runningDistance, speed, walkingSpeed;
 
 	public bool found;
-	public bool damged = false;
+	public bool damaged = false;
 
 	public BoxCollider vision;
 
-	public GameObject target;
-	public GameObject playerMan;
-	public GameObject friend;
-	public GameObject guard;
+    public GameObject target, playerMan, friend, guard;
 
-	public GameObject cp1;
-	public GameObject cp2;
-	public GameObject cp3;
-	public GameObject cp4;
+    public GameObject cp1, cp2, cp3, cp4;
 
 	public Vector3 initialPos;
 	public Quaternion initialRot;
@@ -34,72 +25,62 @@ public class GuardScript3 : MonoBehaviour {
 	private Vector3 position;
 	private Vector3 direction;
 	private int count;
+    private int timeSinceTurned = 0;
+    private int timeToTurn = Random.Range(500, 2000);
 
-	public bool north;
-	public bool south;
-	public bool east;
-	public bool west;
 
-	private bool comeback = false;
-	private bool inRoom = false;
-	private bool died = false;
+    private enum facing { North, South, East, West };
+    private facing myDirection;
+    public enum orientation { Clockwise, CounterClockwise };
+    public orientation myOrientation = orientation.Clockwise;
+
+    private bool comeback, inRoom, died = false;
 
 	public int health = 150;
+
+
 	void Start () {
 		anim = GetComponent<Guard2AnimHandler> ();
-		if (guard.CompareTag ("hwG1")) {
-			north = true;
-			south = false;
-			east = false;
-			west = false;
-		} else if (guard.CompareTag ("hwG2")) {
-			north = false;
-			south = true;
-			east = false;
-			west = false;
-		}
+        myDirection = (myOrientation == orientation.Clockwise)? facing.North: facing.South;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+        Debug.Log(timeToTurn + " " + timeSinceTurned);
+        if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
+        else {
+            timeSinceTurned = 0;
+            timeToTurn = Random.Range(500, 2000);
+            turnAround();
+        }
 		if (!died) {
-			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom && !damged) {
+			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom && !damaged) {
 				anim.ToRunning ();
 				direction = player.position - transform.position;
 				direction.y = 0;
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (direction), 0.5f);
 				transform.Translate (0, 0, speed);
 			} else if ((Vector3.Distance (player.position, transform.position) <= attackDistance) && found) {
-				damged = false;
+				damaged = false;
 				anim.ToAttacking ();
 			} else if (!found) {
-				damged = false;
+				damaged = false;
 				anim.ToWalking ();
 				walking ();
 			} else if (inRoom) {
-				//inRoom = false;
+				inRoom = false;
+
 				GameObject cp = nearestPoint ();
+
 				if (cp.CompareTag ("cp3")) {
-					north = false;
-					south = true;
-					east = false;
-					west = false;
+                    myDirection = (myOrientation == orientation.Clockwise) ? facing.South : facing.North;
 				} else if (cp.CompareTag ("cp1")) {
-					north = false;
-					south = false;
-					east = false;
-					west = true;
+                    myDirection = (myOrientation == orientation.Clockwise) ? facing.West : facing.East;
 				} else if (cp.CompareTag ("cp2")) {
-					north = true;
-					south = false;
-					east = false;
-					west = false;
+                    myDirection = (myOrientation == orientation.Clockwise) ? facing.North : facing.South;
 				} else if (cp.CompareTag ("cp4")) {
-					north = false;
-					south = false;
-					east = true;
-					west = false;
+                    myDirection = (myOrientation == orientation.Clockwise) ? facing.East : facing.West;
 				}
 				anim.ToWalking ();
 				direction = cp.transform.position - transform.position;
@@ -120,15 +101,9 @@ public class GuardScript3 : MonoBehaviour {
 			transform.position = initialPos;
 			transform.rotation = initialRot;
 			if (guard.CompareTag ("hwG1")) {
-				north = true;
-				south = false;
-				east = false;
-				west = false;
+                myDirection = facing.North;
 			} else if (guard.CompareTag ("hwG2")) {
-				north = false;
-				south = true;
-				east = false;
-				west = false;
+                myDirection = facing.South;
 			}
 			var tmp2 = friend.GetComponent<GuardScript3> ();
 			if (!tmp2.found) {
@@ -148,71 +123,61 @@ public class GuardScript3 : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerEnter(Collider other){
-		//Debug.Log (other.tag);
-		if (((!found) || (comeback)) && (!other.CompareTag(friend.tag)) && !(other.CompareTag("vision")) && !(other.CompareTag("Wall"))) {
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == friend)
+        {
+            turnAround();
+
+        }
+    }
+    private void OnTriggerEnter(Collider other){
+		if (((!found) || (comeback)) && !(other.CompareTag("vision")) && !(other.CompareTag("Wall"))) {
 			comeback = false;
 			found = false;
-			if (other.CompareTag ("cp1")) {
-				if (west) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-					west = false;
-					north = true;
-				}
-
-			} else if (other.CompareTag ("cp2")) {
-				if (north) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-					north = false;
-					east = true;
-				}
-			} else if (other.CompareTag ("cp3")) {
-				if (south) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
-					north = false;
-					south = false;
-					east = false;
-					west = true;
-				}
-			} else if (other.CompareTag ("cp4")) {
-				if (east) {
-					transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-					north = false;
-					south = true;
-					east = false;
-					west = false;
-				}
+            bool CWcheck = myOrientation == orientation.Clockwise;
+                 if (other.gameObject == cp1) myDirection = (CWcheck) ? facing.North : facing.East;
+            else if (other.gameObject == cp2) myDirection = (CWcheck) ? facing.East : facing.South;
+            else if (other.gameObject == cp3) myDirection = (CWcheck) ? facing.West : facing.North;
+            else if (other.gameObject == cp4) myDirection = (CWcheck) ? facing.South : facing.West;
+       	
 			}
+
 		}
-	}
+	
+
+
+    private void turnAround()
+    {
+        myOrientation = (myOrientation == orientation.Clockwise) ? orientation.CounterClockwise : orientation.Clockwise;
+             if (myDirection == facing.North) myDirection = facing.South;
+        else if (myDirection == facing.South) myDirection = facing.North;
+        else if (myDirection == facing.East) myDirection = facing.West;
+        else if (myDirection == facing.West) myDirection = facing.East;
+    }
 
 	private void walking()
 	{
-		if (north) {
-			position = transform.position;
-			position += new Vector3(0, 0, walkingSpeed);
-			transform.position = position;
-		} else if (south) {
-			position = transform.position;
+        position = transform.position;
+        if (myDirection == facing.South) {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
 			position += new Vector3(0, 0, -walkingSpeed);
-			transform.position = position;
-		}else if (east) {
-			position = transform.position;
-			position += new Vector3(walkingSpeed, 0, 0);
-			transform.position = position;
-		}else if (west) {
-			position = transform.position;
+        } else if (myDirection == facing.North) {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+			position += new Vector3(0, 0, +walkingSpeed);
+        } else if (myDirection == facing.West) {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
 			position += new Vector3(-walkingSpeed, 0, 0);
-			transform.position = position;
-		}
+        } else if (myDirection == facing.East) {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+			position += new Vector3(+walkingSpeed, 0, 0);
+        }
+        transform.position = position;
+
 	}
 
 	private GameObject nearestPoint(){
-		GameObject[] array = new GameObject[4];
-		array [0] = cp1;
-		array [1] = cp2;
-		array [2] = cp3;
-		array [3] = cp4;
+        GameObject[] array = {cp1, cp2, cp3, cp4 };
 		GameObject result = null;
 		float min = 10000.0f;
 		for (int i = 0; i < array.Length; i++) {
@@ -223,6 +188,7 @@ public class GuardScript3 : MonoBehaviour {
 		}
 		return result;
 	}
+	
 
 	private void beat()
 	{
@@ -241,11 +207,11 @@ public class GuardScript3 : MonoBehaviour {
 	}
 
 	private void Gethit(){
-		damged = true;
+		damaged = true;
 		found = true;
 	}
 
 	private void Back(){
-		damged = false;
+		damaged = false;
 	}
 }

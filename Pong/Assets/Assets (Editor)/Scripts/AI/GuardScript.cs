@@ -10,7 +10,7 @@ public class GuardScript : MonoBehaviour {
 	public float walkingSpeed;
 
 	public bool found;
-	public bool damged = false;
+	public bool damaged = false;
 
 	public BoxCollider vision;
 
@@ -62,7 +62,7 @@ public class GuardScript : MonoBehaviour {
 	void FixedUpdate ()
     {
 		if (!died) {
-			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom && !damged) {
+			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom && !damaged) {
 				anim.ToRunning ();
 				direction = player.position - transform.position;
 				direction.y = 0;
@@ -237,11 +237,11 @@ public class GuardScript : MonoBehaviour {
 	}
 
 	private void Gethit(){
-		damged = true;
+		damaged = true;
 		found = true;
 	}
 
 	private void Back(){
-		damged = false;
+		damaged = false;
 	}
 }

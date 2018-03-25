@@ -38,7 +38,7 @@ public class ShotAtScriptHuman: ShotAtScript
 				tmp.health-= (int)damageVector.magnitude + 1;
 				tmp2.ToDamaged();
 				tmp.found = true;
-				tmp.damged = true;
+				tmp.damaged = true;
             }
             else if (transform.CompareTag("Guard"))
             {
