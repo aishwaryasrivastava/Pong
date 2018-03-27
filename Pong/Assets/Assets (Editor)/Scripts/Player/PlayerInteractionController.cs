@@ -257,22 +257,27 @@ public class PlayerInteractionController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().horMove(-1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().horMove(1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().vertMove(1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().vertMove(-1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().pressKey();
+				sounds.PlayPress ();
             }
         }
     }

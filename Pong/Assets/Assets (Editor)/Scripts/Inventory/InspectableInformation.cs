@@ -8,7 +8,7 @@ public class InspectableInformation : MonoBehaviour {
     public Type type = Type.None;
     public GameObject UIEquivalent; // messy coupling but rushing to push rn
     public GameObject corrDoor;
-
+	public GameObject player;
     public GameObject Inspectable;
 
     public string id = "";
@@ -52,6 +52,8 @@ public class InspectableInformation : MonoBehaviour {
                     curCode = 0;
                     counter = 0;
                     updateText("");
+					var tmp = player.GetComponent<SoundController> ();
+					tmp.PlaySelect ();
                     // play bad sound here
                 }
             }
@@ -60,6 +62,8 @@ public class InspectableInformation : MonoBehaviour {
 
     public void UnlockDoor()
     {
+		var tmp = player.GetComponent<SoundController> ();
+		tmp.PlayPass ();
         Debug.Log("You unlocked the door");
         unlocked = true;
         // play good sound here

@@ -5813,6 +5813,9 @@ MonoBehaviour:
   sniper: {fileID: 8300000, guid: 4992ab19c07779b4c89d607a9c83d440, type: 3}
   shell: {fileID: 8300000, guid: c50dcf401ede9422da7805612256b5ac, type: 3}
   inspect: {fileID: 8300000, guid: 745b2b0fcfd084dadb474e26ded272b9, type: 3}
+  press: {fileID: 8300000, guid: 13647f37308744cc6bdde37e81838a61, type: 3}
+  pass: {fileID: 8300000, guid: 7d60d956e2f9b0f48887d05c8ddacb3d, type: 3}
+  select: {fileID: 8300000, guid: 0d3b4c2d4887644c98500ea677917ff4, type: 3}
   swing:
   - {fileID: 8300000, guid: d261d5fc8420f024fbd7b0e1d950d3ae, type: 3}
   - {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
@@ -5833,6 +5836,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0d124576aa7fb40af9e7d3ab14fbaeee, type: 3}
   - {fileID: 8300000, guid: 31e967785b8f345c59af1d3677f69d80, type: 3}
   - {fileID: 8300000, guid: 9c6aa0f50f99042fbbec6808a5ce67ce, type: 3}
+  - {fileID: 8300000, guid: 64c11368a027d416596b256fb7931012, type: 3}
+  - {fileID: 8300000, guid: 872a1eee78fb742dbbd0dbcdc05755b0, type: 3}
+  - {fileID: 8300000, guid: bd5fc6a50c9c946b0a90c3e3848f4a2b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   guns: {fileID: 663967637}
@@ -16746,6 +16754,7 @@ MonoBehaviour:
   type: 0
   UIEquivalent: {fileID: 697796991}
   corrDoor: {fileID: 1268964656}
+  player: {fileID: 113493812}
   Inspectable: {fileID: 697796991}
   id: Keypad
 --- !u!114 &447126974
@@ -32574,7 +32583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c650fd51c483d4439d432d66fe8b062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serialNum: 6
+  serialNum: 1
 --- !u!114 &914297736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54001,6 +54010,7 @@ MonoBehaviour:
   type: -1
   UIEquivalent: {fileID: 1299834050}
   corrDoor: {fileID: 0}
+  player: {fileID: 0}
   Inspectable: {fileID: 1299834050}
   id: 
 --- !u!114 &1454167731
@@ -59975,6 +59985,18 @@ MonoBehaviour:
   type: 3
   GoodString: He doesn't look so good . . .
   BadString: 
+--- !u!114 &1631960970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631960967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c650fd51c483d4439d432d66fe8b062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialNum: 9
 --- !u!114 &1631960973
 MonoBehaviour:
   m_ObjectHideFlags: 0
