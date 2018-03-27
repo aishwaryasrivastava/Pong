@@ -5751,7 +5751,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.29, y: 2.42, z: 11.48}
+  m_LocalPosition: {x: 0.87, y: 2.42, z: 24.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -30531,7 +30531,7 @@ BoxCollider:
   m_GameObject: {fileID: 859394147}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 0.19999999, z: 0.99999994}
   m_Center: {x: -0.49999893, y: 0.099999994, z: 0.50000376}
@@ -63567,8 +63567,8 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1705308243}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.9999999, y: 0.115089595, z: 1}
   m_Center: {x: -0.49999887, y: 0.14245519, z: 0.5000048}
@@ -63819,6 +63819,16 @@ Prefab:
     - target: {fileID: 1896881396267952, guid: b1d9f83929c99f647918de375a42e596, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95842220036790250, guid: b1d9f83929c99f647918de375a42e596,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 93337741a63d6b94595080c53798e384, type: 2}
+    - target: {fileID: 114842841818619820, guid: b1d9f83929c99f647918de375a42e596,
+        type: 2}
+      propertyPath: personalDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1d9f83929c99f647918de375a42e596, type: 2}
@@ -65511,6 +65521,7 @@ MonoBehaviour:
   player: {fileID: 113493820}
   attackDistance: 1.5
   runningDistance: 10
+  personalDistance: 2
   speed: 0.065
   walkingSpeed: 0.025
   found: 0
