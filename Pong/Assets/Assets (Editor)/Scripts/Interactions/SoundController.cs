@@ -22,9 +22,14 @@ public class SoundController : MonoBehaviour {
 
 	void Update(){
 		var tmp = guns.GetComponentInChildren<PlayerShootingScript>();
+		if (tmp == null) {
+			return;
+		}
 		var t = guns.GetComponent<PlayerWeaponEquip>();
-		if((Input.GetKeyDown(KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount && !t.weapons[0].activeSelf){
+		if (!t.weapons [0].activeSelf) {
+			if ((Input.GetKeyDown (KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount) {
 				PlayReload ();
+			}
 		}
 	}
 
