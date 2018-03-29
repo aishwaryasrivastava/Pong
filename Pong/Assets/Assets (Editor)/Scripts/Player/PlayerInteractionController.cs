@@ -34,10 +34,13 @@ public class PlayerInteractionController : MonoBehaviour
     private readonly Transform[] active = {null, null, null, null, null};
 
 	public Dictionary<string,int> Reputation = new Dictionary<string,int>();
+	public SimpleHealthBar healthBar;
 
+	public float curHealth;
+	public float maxHealth;
     void Start()
     {
-		
+		healthBar.UpdateBar (curHealth, maxHealth);
         fps.gameObject.SetActive(true);
 		populateReputation ();
     }
@@ -257,22 +260,27 @@ public class PlayerInteractionController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().horMove(-1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().horMove(1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().vertMove(1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().vertMove(-1);
+				sounds.PlayPress ();
             }
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 active[Inspectable].GetComponent<InspectableInformation>().pressKey();
+				sounds.PlayPress ();
             }
         }
     }
@@ -289,6 +297,9 @@ public class PlayerInteractionController : MonoBehaviour
         }
         Reputation.Clear();
         populateReputation();
+		curHealth = maxHealth;
+		healthBar.UpdateBar (curHealth, maxHealth);
+		healthBar.UpdateColor (Color.green);
     }
 
     public void Die()
@@ -350,6 +361,14 @@ public class PlayerInteractionController : MonoBehaviour
 		Reputation.Add ("X", 0);
 		Reputation.Add ("Y", 0);
         Reputation.Add("Elf", 0);
+	}
+
+	public void TakeDamage(int damage){
+		curHealth -= damage;
+		healthBar.UpdateBar (curHealth, maxHealth);
+		if(curHealth < 3){
+			healthBar.UpdateColor (Color.red);
+		}
 	}
 }
 

@@ -294,8 +294,9 @@ public class GuardScript4 : MonoBehaviour
     private void kill()
     {
         var tmp = player.GetComponent<PlayerInteractionController>();
-        tmp.dmg++;
-        if (tmp.dmg >= 10)
+        //tmp.dmg++;
+		tmp.TakeDamage(1);
+		if (tmp.curHealth < 1)
         {
             tmp.Die();
         }

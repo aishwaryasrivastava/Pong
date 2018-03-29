@@ -140,6 +140,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             DebugA();
         }
+		if (slant && moving) {
+			var tmp = gameObject.GetComponent<SoundController> ();
+			tmp.PlayDrag ();
+		} 
+		if (slant && !moving) {
+			gameObject.GetComponent<AudioSource> ().Stop ();
+
+		}
 
         CheckJump();
         CheckCrouch();      

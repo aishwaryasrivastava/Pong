@@ -4,9 +4,9 @@ public class SoundController : MonoBehaviour {
 
 	//public AudioClip walkingSound;
 	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound, ShootingSound, reloadSound, gunEquip, dwang, scroll, delete;
-	public AudioClip m4, handgun, sniper, shell, inspect;
+	public AudioClip m4, handgun, sniper, shell, inspect, press, pass, select, drag;
 	public AudioClip[] swing = new AudioClip[10];
-	public AudioClip[] voice = new AudioClip[10];
+	public AudioClip[] voice = new AudioClip[15];
 	public GameObject guns;
 	public AudioSource source;
 
@@ -22,9 +22,14 @@ public class SoundController : MonoBehaviour {
 
 	void Update(){
 		var tmp = guns.GetComponentInChildren<PlayerShootingScript>();
+		if (tmp == null) {
+			return;
+		}
 		var t = guns.GetComponent<PlayerWeaponEquip>();
-		if((Input.GetKeyDown(KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount && !t.weapons[0].activeSelf){
+		if (!t.weapons [0].activeSelf) {
+			if ((Input.GetKeyDown (KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount) {
 				PlayReload ();
+			}
 		}
 	}
 
@@ -86,9 +91,15 @@ public class SoundController : MonoBehaviour {
 				source.PlayOneShot (voice [Random.Range (4, 7)], lowVol);
 			}
 				break;
-			default:
-				break;
+		case 9: 
+			if (!source.isPlaying) {
+				source.PlayOneShot (voice [Random.Range (8, 10)], lowVol);
+			}
+			break;
+		default:
+			break;
 		}
+
 	}
 
 	public void PlayDelete(){
@@ -114,6 +125,24 @@ public class SoundController : MonoBehaviour {
 
 	public void PlayInspect(){
 		source.PlayOneShot (inspect, 1f);
+	}
+
+	public void PlayPress(){
+		source.PlayOneShot (press, lowVol);
+	}
+
+	public void PlayPass(){
+		source.PlayOneShot (pass, lowVol);
+	}
+
+	public void PlaySelect(){
+		source.PlayOneShot (select, lowVol);
+	}
+
+	public void PlayDrag(){
+		if (!source.isPlaying) {
+			source.PlayOneShot (drag, lowVol);
+		}
 	}
 
 	public void PlayReload(){
