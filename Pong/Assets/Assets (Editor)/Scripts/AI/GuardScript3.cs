@@ -6,11 +6,7 @@ public class GuardScript3 : MonoBehaviour {
 
 	public Transform player;
 
-	public float attackDistance ;
-	public float runningDistance ;
-	public float personalDistance ;
-	public float speed ;
-	public float walkingSpeed;
+    public float attackDistance, runningDistance, speed, walkingSpeed;
 
 	public bool found;
 	public bool damaged = false;
@@ -30,8 +26,6 @@ public class GuardScript3 : MonoBehaviour {
 	private Vector3 direction;
 	private int count;
     private int timeSinceTurned = 0;
-    private int timeToTurn = Random.Range(500, 2000);
-
 
     private enum facing { North, South, East, West };
     private facing myDirection;
@@ -51,6 +45,7 @@ public class GuardScript3 : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+        int timeToTurn = Random.Range(500, 2000);
         Debug.Log(timeToTurn + " " + timeSinceTurned);
         if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
         else {
@@ -72,10 +67,6 @@ public class GuardScript3 : MonoBehaviour {
 				damaged = false;
 				anim.ToWalking ();
 				walking ();
-				var tmp1 = playerMan.GetComponent<PlayerMovementController> ();
-				if((tmp1.CurrentSoundOutput != 0) && (Vector3.Distance (player.position, transform.position) < personalDistance)){
-					TurnAround ();
-				}
 			} else if (inRoom) {
 				inRoom = false;
 
@@ -101,8 +92,7 @@ public class GuardScript3 : MonoBehaviour {
 
 
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
-		//tmp.dmg == 12
-		if (tmp.curHealth < 1)
+		if (tmp.dmg == 12)
 		{
 			health = 5;
 			tmp.Die ();
@@ -208,8 +198,7 @@ public class GuardScript3 : MonoBehaviour {
 	private void kill()
 	{
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
-		//tmp.dmg++;
-		tmp.TakeDamage(1);
+		tmp.dmg++;
 	}
 
 	private void clean(){
@@ -223,25 +212,5 @@ public class GuardScript3 : MonoBehaviour {
 
 	private void Back(){
 		damaged = false;
-	}
-
-	private void TurnAround(){
-		if (north) {
-			transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-			north = false;
-			south = true;
-		}else if(south){
-			transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-			south = false;
-			north = true;
-		}else if(east){
-			transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
-			east = false;
-			west = true;
-		}else if(west){
-			transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-			west = false;
-			east = true;
-		}
 	}
 }
