@@ -46,7 +46,6 @@ public class GuardScript3 : MonoBehaviour {
 	void FixedUpdate ()
 	{
         int timeToTurn = Random.Range(500, 2000);
-        Debug.Log(timeToTurn + " " + timeSinceTurned);
         if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
         else {
             timeSinceTurned = 0;
