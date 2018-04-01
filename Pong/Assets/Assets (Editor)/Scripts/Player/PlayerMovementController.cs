@@ -8,12 +8,15 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 currentRotation;
     private Rigidbody rb;
 
+
     public float CurrentSoundOutput;
 
     public CapsuleCollider head;
 
     public bool crouched;
     private bool slant;
+    public bool Blocking;
+
 
     public PlayerInteractionController interact;
     public CameraRecoiler shootGun;
@@ -81,6 +84,8 @@ public class PlayerMovementController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0, currentRotation.x, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(currentRotation.y-shootGun.GetCurrentRecoil(), 0, 0);
     }
+
+    
 
     void CheckJump()
     {

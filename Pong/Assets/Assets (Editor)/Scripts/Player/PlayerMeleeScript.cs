@@ -34,6 +34,8 @@ public class PlayerMeleeScript : MonoBehaviour {
         } 
         */
         animator.SetBlocking(Input.GetMouseButton(1));
+        movement.Blocking = Input.GetMouseButton(1);
+
 
     }
 

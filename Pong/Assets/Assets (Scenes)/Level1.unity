@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -7142,9 +7142,9 @@ MonoBehaviour:
   inventory: {fileID: 113493814}
   uiInspectable: {fileID: 0}
   Equips: {fileID: 663967639}
-  healthBar: {fileID: 0}
-  curHealth: 0
-  maxHealth: 0
+  healthBar: {fileID: 1434528448}
+  curHealth: 10
+  maxHealth: 10
 --- !u!114 &113493816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7163,6 +7163,7 @@ MonoBehaviour:
   CurrentSoundOutput: 0
   head: {fileID: 113493819}
   crouched: 0
+  Blocking: 0
   interact: {fileID: 113493815}
   shootGun: {fileID: 663967640}
   dialog: {fileID: 0}
@@ -70909,6 +70910,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: bcbd84f03b11a5f499bea7b78fcefdf1, type: 2}
   m_PrefabInternal: {fileID: 1433389837}
+--- !u!114 &1434528448 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11487436, guid: 60da1df1f7edb3747bea8f735b2768d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 363903135}
+  m_Script: {fileID: 11500000, guid: 1310e65397a274d44a776b51d6937f61, type: 3}
 --- !u!1 &1436126944
 GameObject:
   m_ObjectHideFlags: 0
@@ -83091,7 +83098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1682410017
 Transform:
   m_ObjectHideFlags: 0

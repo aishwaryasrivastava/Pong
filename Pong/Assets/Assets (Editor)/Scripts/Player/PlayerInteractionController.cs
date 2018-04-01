@@ -364,12 +364,25 @@ public class PlayerInteractionController : MonoBehaviour
 	}
 
 	public void TakeDamage(int damage){
-		curHealth -= damage;
-		healthBar.UpdateBar (curHealth, maxHealth);
-		if(curHealth < 3){
-			healthBar.UpdateColor (Color.red);
-		}
-	}
+        if (!movement.Blocking)
+        {
+            curHealth -= damage;
+            healthBar.UpdateBar(curHealth, maxHealth);
+            if (curHealth < 3)
+            {
+                healthBar.UpdateColor(Color.red);
+            }
+        } else
+        {
+
+        }
+
+
+        if (curHealth < 1)
+        {
+            Die();
+        }
+    }
 }
 
 public class Pickup
