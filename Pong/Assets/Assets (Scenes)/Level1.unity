@@ -1665,7 +1665,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &30722476
 Transform:
@@ -1797,7 +1797,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &30949569
@@ -3885,7 +3885,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &45413514
 Transform:
@@ -4007,100 +4007,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 1afd7158c5022134a99b7b4d75500990, type: 2}
   m_PrefabInternal: {fileID: 46924034}
---- !u!1 &46949464
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 46949465}
-  - component: {fileID: 46949468}
-  - component: {fileID: 46949467}
-  - component: {fileID: 46949466}
-  m_Layer: 0
-  m_Name: Health
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &46949465
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 46949464}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 363903136}
-  m_Father: {fileID: 585611255}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 482.5, y: 243}
-  m_SizeDelta: {x: 965, y: 486}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &46949466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 46949464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &46949467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 46949464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
---- !u!223 &46949468
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 46949464}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1001 &49226643
 Prefab:
   m_ObjectHideFlags: 0
@@ -4581,6 +4487,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -5014,6 +4924,326 @@ Prefab:
         type: 2}
       propertyPath: ActiveLevels.Array.data[0]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785007564299948, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425871226112266, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874445751980902, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889231204800304, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296951576481450, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095583317593624, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896881396267952, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043031854058126, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698877717177248, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346943319582928, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877901804980944, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264159960861444, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906391210819332, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303452731058268, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632632541510732, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760243891196856, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869477397136896, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772443943581692, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547011118749744, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923254633433114, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431428116762856, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761536596704586, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787543319715592, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443881952655504, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147044785808888, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474629019097256, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064316528551852, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834520639205912, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816074376807424, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829269475101478, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630377517856424, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153417521772688, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891359869811356, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284740553785704, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456551022016540, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474644326353320, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087516905266964, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795359590587732, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404922268966978, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111719290663348, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579577210404068, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292037969525296, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058779497095538, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360665723938982, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782652278951978, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351106682170128, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395461548983948, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010770917772040, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291596717693378, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119969819485232, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909446583474160, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106086224554364, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164016198158018, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703954466779948, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830441739539032, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150741118912272, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064732955476706, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663842675720034, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391011921767026, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295572445188206, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501144973440158, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131298836257774, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012428617543756, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768543390763734, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905735623707248, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051973223504226, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533552383855602, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028608383924188, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239810512309044, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728253265335520, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515978790015348, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085472337158188, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131735954181100, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484598052203752, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053586693966168, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419005412317708, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086406778227866, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825226037481586, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489884503340578, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856829474166770, guid: b1d9f83929c99f647918de375a42e596, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1d9f83929c99f647918de375a42e596, type: 2}
@@ -5538,7 +5768,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &69149024
 Transform:
@@ -6040,7 +6270,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1371973558697022, guid: a42575b83a96e4e47aab230220fbb159, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 4294967292
       objectReference: {fileID: 0}
     - target: {fileID: 23274153489916310, guid: a42575b83a96e4e47aab230220fbb159,
         type: 2}
@@ -6274,7 +6504,7 @@ GameObject:
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &86914202
 Transform:
@@ -6917,7 +7147,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &96797806
@@ -7454,6 +7684,10 @@ Prefab:
     - target: {fileID: 464462, guid: 7cbb636c9222b2f4d910d1e95ffeade7, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -86
+      objectReference: {fileID: 0}
+    - target: {fileID: 113460, guid: 7cbb636c9222b2f4d910d1e95ffeade7, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cbb636c9222b2f4d910d1e95ffeade7, type: 2}
@@ -8270,6 +8504,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -8607,6 +8845,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -10069,6 +10311,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -10281,6 +10527,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -10796,7 +11046,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &170278531
 Transform:
@@ -10971,6 +11221,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -11020,6 +11274,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -12161,6 +12419,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -12379,7 +12641,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &207743034
 Transform:
@@ -14531,7 +14793,7 @@ GameObject:
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &246885175
 Transform:
@@ -15165,7 +15427,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &263890206
 Transform:
@@ -16035,6 +16297,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -17137,7 +17403,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &300507594
 Transform:
@@ -17151,7 +17417,7 @@ Transform:
   m_Children:
   - {fileID: 2080729709}
   m_Father: {fileID: 1937389295}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &302200471
 GameObject:
@@ -17168,7 +17434,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &302200472
@@ -18016,7 +18282,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &312851717
 Transform:
@@ -18182,7 +18448,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
       propertyPath: m_Name
@@ -18520,7 +18786,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18547,7 +18813,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 326143927}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!4 &326353949 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4877540992269302, guid: 4c53de12e1037d040b17b9cd1de1eda9,
@@ -18619,7 +18885,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &328979369
@@ -19001,6 +19267,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -19706,6 +19976,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -19758,7 +20032,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &353290868
 Transform:
@@ -20021,7 +20295,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 46949465}
+    m_TransformParent: {fileID: 585611255}
     m_Modifications:
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_LocalPosition.x
@@ -20037,15 +20311,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_LocalRotation.w
@@ -20053,15 +20327,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -358
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 204
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_SizeDelta.x
@@ -20073,27 +20347,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 2}
@@ -20318,6 +20592,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -21496,7 +21774,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
 --- !u!23 &399559476
 MeshRenderer:
@@ -21513,7 +21791,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21540,7 +21818,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 399559474}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1 &399697953
 GameObject:
   m_ObjectHideFlags: 0
@@ -22322,7 +22600,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!23 &411130567
 MeshRenderer:
@@ -22651,7 +22929,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &417431426
 Transform:
@@ -23449,6 +23727,10 @@ Prefab:
     - target: {fileID: 400000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
@@ -24373,6 +24655,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -25723,7 +26009,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 24
   m_IsActive: 1
 --- !u!4 &479467217
 Transform:
@@ -26364,7 +26650,7 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 09e315a09ec59f040ab77dc9af4d2b4d, type: 2}
     - target: {fileID: 100154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
       propertyPath: m_CullingMode
@@ -27692,7 +27978,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &533623067
 Transform:
@@ -27756,6 +28042,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -27979,7 +28269,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &548120721
@@ -28808,7 +29098,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!23 &562711132
 MeshRenderer:
@@ -28825,7 +29115,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28852,7 +29142,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562711130}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1001 &564243874
 Prefab:
   m_ObjectHideFlags: 0
@@ -28946,6 +29236,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -29525,7 +29819,7 @@ RectTransform:
   - {fileID: 697796992}
   - {fileID: 1521804148}
   - {fileID: 1246952457}
-  - {fileID: 46949465}
+  - {fileID: 363903136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29607,7 +29901,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &586872683
 Transform:
@@ -30574,6 +30868,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -30715,6 +31013,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -31792,7 +32094,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &636079908
 Transform:
@@ -32380,7 +32682,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &642799111
 Transform:
@@ -33127,6 +33429,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -33393,6 +33699,10 @@ Prefab:
     - target: {fileID: 100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
       propertyPath: m_Name
       value: BathRoomFloorTileSetOne (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
@@ -34007,6 +34317,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -34648,6 +34962,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.7500004
       objectReference: {fileID: 0}
+    - target: {fileID: 137984, guid: d2d35d31a91359c4d900c3e9a856ba6f, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2d35d31a91359c4d900c3e9a856ba6f, type: 2}
   m_IsPrefabParent: 0
@@ -34899,7 +35217,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &680311934
 Transform:
@@ -34972,6 +35290,10 @@ Prefab:
     - target: {fileID: 400000, guid: 6e8ed084612d51c449965f85310ddf72, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6e8ed084612d51c449965f85310ddf72, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e8ed084612d51c449965f85310ddf72, type: 3}
@@ -35085,6 +35407,10 @@ Prefab:
     - target: {fileID: 100000, guid: 34198f8ffd7b9bb41bcd512a98a266fd, type: 2}
       propertyPath: m_Name
       value: PrisonVentOne (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 34198f8ffd7b9bb41bcd512a98a266fd, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34198f8ffd7b9bb41bcd512a98a266fd, type: 2}
@@ -35378,6 +35704,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -36488,6 +36818,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0938dcc8bde7dab459403c0d48f7731a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0938dcc8bde7dab459403c0d48f7731a, type: 3}
   m_IsPrefabParent: 0
@@ -37425,7 +37759,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478022, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -26.303
+      value: -25.14
       objectReference: {fileID: 0}
     - target: {fileID: 478022, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -37454,6 +37788,22 @@ Prefab:
     - target: {fileID: 478022, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 178018, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 178022, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 178016, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 178020, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
@@ -37519,7 +37869,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1048768450223360, guid: 0910a36157c873142b2996759125a7f9, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 4294967292
       objectReference: {fileID: 0}
     - target: {fileID: 23344204975208698, guid: 0910a36157c873142b2996759125a7f9,
         type: 2}
@@ -38020,7 +38370,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &751732499
 Transform:
@@ -38163,6 +38513,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -39219,6 +39573,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
   m_IsPrefabParent: 0
@@ -39706,7 +40064,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &774828997
@@ -41384,6 +41742,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -41499,7 +41861,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &805173539
 Transform:
@@ -41895,6 +42257,22 @@ Prefab:
     - target: {fileID: 458370, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 158368, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158364, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158366, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158370, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
@@ -42883,35 +43261,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &827703923
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 827703924}
-  m_Layer: 0
-  m_Name: West Wall
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &827703924
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 827703923}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.52, y: 2.45, z: -38.5678}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2077736063}
-  m_Father: {fileID: 1937389295}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &828454367 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4347932070896846, guid: c343b4e096d1eaf4ba5c061ee86c5cf4,
@@ -42985,7 +43334,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &836616008
 Transform:
@@ -43296,6 +43645,10 @@ Prefab:
     - target: {fileID: 498682, guid: d815c209c0b92024f85b2218d689c6b3, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 110996, guid: d815c209c0b92024f85b2218d689c6b3, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d815c209c0b92024f85b2218d689c6b3, type: 2}
@@ -44606,7 +44959,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1371973558697022, guid: a42575b83a96e4e47aab230220fbb159, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 4294967292
       objectReference: {fileID: 0}
     - target: {fileID: 23274153489916310, guid: a42575b83a96e4e47aab230220fbb159,
         type: 2}
@@ -45104,6 +45457,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
   m_IsPrefabParent: 0
@@ -45369,6 +45726,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -45915,7 +46276,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &895615253
@@ -46742,7 +47103,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &910729120
 Transform:
@@ -46778,7 +47139,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &911920022
 Transform:
@@ -47504,6 +47865,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
   m_IsPrefabParent: 0
@@ -47528,7 +47893,7 @@ GameObject:
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &930631740
 Transform:
@@ -48134,7 +48499,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &942165341
 Transform:
@@ -48247,7 +48612,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &945021961
 Transform:
@@ -49206,7 +49571,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &961446416
 Transform:
@@ -49387,6 +49752,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -50009,6 +50378,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -50693,6 +51066,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -50981,7 +51358,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &991890212
 Transform:
@@ -51056,6 +51433,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -51911,6 +52292,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -52297,6 +52682,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -52317,7 +52706,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1005257468
 Transform:
@@ -52595,6 +52984,10 @@ Prefab:
     - target: {fileID: 100000, guid: 56011bcbecc68fd489bee55e7646a2d9, type: 2}
       propertyPath: m_Name
       value: Toilet
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 56011bcbecc68fd489bee55e7646a2d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56011bcbecc68fd489bee55e7646a2d9, type: 2}
@@ -52900,6 +53293,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -53480,6 +53877,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7618260272e0ced4e8026b9b440a5c7f, type: 2}
+    - target: {fileID: 100002, guid: ccc7a3672e9a0fb41925a8a02e135cb0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ccc7a3672e9a0fb41925a8a02e135cb0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccc7a3672e9a0fb41925a8a02e135cb0, type: 3}
   m_IsPrefabParent: 0
@@ -53634,6 +54039,10 @@ Prefab:
     - target: {fileID: 400000, guid: e40bdd8db05a2bb4981c642a254942d3, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e40bdd8db05a2bb4981c642a254942d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e40bdd8db05a2bb4981c642a254942d3, type: 3}
@@ -53870,6 +54279,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -54724,7 +55137,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1037950797
 Transform:
@@ -54774,7 +55187,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1038467715
@@ -54911,6 +55324,14 @@ Prefab:
     - target: {fileID: 400000, guid: 3965cf9c520a0e14b884b3b9863d08c4, type: 2}
       propertyPath: m_LocalScale.z
       value: 4.3815494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 3965cf9c520a0e14b884b3b9863d08c4, type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 3965cf9c520a0e14b884b3b9863d08c4, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3965cf9c520a0e14b884b3b9863d08c4, type: 2}
@@ -55092,6 +55513,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -56025,6 +56450,10 @@ Prefab:
       propertyPath: m_Name
       value: BathRoomFloorTileSetOne (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
   m_IsPrefabParent: 0
@@ -56572,7 +57001,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1083367772
 Transform:
@@ -56858,6 +57287,10 @@ Prefab:
       propertyPath: m_Name
       value: PrisonVentOne (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 34198f8ffd7b9bb41bcd512a98a266fd, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34198f8ffd7b9bb41bcd512a98a266fd, type: 2}
   m_IsPrefabParent: 0
@@ -56878,7 +57311,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1090576110
 Transform:
@@ -57254,7 +57687,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1097790082
 Transform:
@@ -58446,7 +58879,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1114934899
 Transform:
@@ -58520,6 +58953,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -59015,6 +59452,22 @@ Prefab:
       propertyPath: m_Name
       value: KitchenCabinetTwo (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 158368, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158370, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158366, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158364, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
   m_IsPrefabParent: 0
@@ -59342,6 +59795,10 @@ Prefab:
     - target: {fileID: 400000, guid: f907e164c6be22a44938b2509646cb83, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f907e164c6be22a44938b2509646cb83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f907e164c6be22a44938b2509646cb83, type: 3}
@@ -60076,7 +60533,7 @@ Transform:
   m_GameObject: {fileID: 1149379700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0099998, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.01, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 506763578}
   m_RootOrder: 15
@@ -60581,7 +61038,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1157193474
 Transform:
@@ -60598,79 +61055,6 @@ Transform:
   m_Father: {fileID: 642799111}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1157514253
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100024, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1157514254}
-  - component: {fileID: 1157514256}
-  - component: {fileID: 1157514255}
-  m_Layer: 0
-  m_Name: Brick-B1 (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1157514254
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400024, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1157514253}
-  m_LocalRotation: {x: 0.49991274, y: 0.50008726, z: -0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 8.19, y: -3.08, z: 9.8624}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 1584169654}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
---- !u!23 &1157514255
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300024, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1157514253}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1157514256
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300024, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1157514253}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
 --- !u!1001 &1158101711
 Prefab:
   m_ObjectHideFlags: 0
@@ -61003,7 +61387,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1165971995
 Transform:
@@ -61160,6 +61544,18 @@ Prefab:
     - target: {fileID: 445946, guid: 2b5db63561504e349b9c26024c9f955c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 110734, guid: 2b5db63561504e349b9c26024c9f955c, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 148116, guid: 2b5db63561504e349b9c26024c9f955c, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 146520, guid: 2b5db63561504e349b9c26024c9f955c, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b5db63561504e349b9c26024c9f955c, type: 2}
@@ -62079,7 +62475,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1185489072
 Transform:
@@ -62322,6 +62718,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -62964,7 +63364,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
 --- !u!23 &1204784602
 MeshRenderer:
@@ -62981,7 +63381,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -63008,7 +63408,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1204784600}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1001 &1206199172
 Prefab:
   m_ObjectHideFlags: 0
@@ -63694,7 +64094,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1219329670
@@ -63801,6 +64201,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -64131,7 +64535,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1231043085
 Transform:
@@ -64263,7 +64667,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1234740360
@@ -65823,6 +66227,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 996a796281b6c8948a3ad8e100e21cae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 996a796281b6c8948a3ad8e100e21cae, type: 3}
   m_IsPrefabParent: 0
@@ -65888,6 +66296,10 @@ Prefab:
     - target: {fileID: 400000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
@@ -66119,7 +66531,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1276365946
@@ -66301,79 +66713,6 @@ Transform:
   m_Father: {fileID: 953562396}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &1280638169
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100026, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1280638170}
-  - component: {fileID: 1280638172}
-  - component: {fileID: 1280638171}
-  m_Layer: 0
-  m_Name: Brick-B2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1280638170
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400026, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1280638169}
-  m_LocalRotation: {x: 0.49991274, y: 0.50008726, z: -0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 3.13, y: -3.08, z: 5.9648}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 1584169654}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
---- !u!23 &1280638171
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300026, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1280638169}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1280638172
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300026, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1280638169}
-  m_Mesh: {fileID: 4300026, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
 --- !u!1001 &1281443880
 Prefab:
   m_ObjectHideFlags: 0
@@ -68679,6 +69018,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -69431,6 +69774,10 @@ Prefab:
     - target: {fileID: 400000, guid: 08ad13afb1612a747b4a04d81a3dc9ae, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08ad13afb1612a747b4a04d81a3dc9ae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08ad13afb1612a747b4a04d81a3dc9ae, type: 3}
@@ -70506,7 +70853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1048768450223360, guid: 0910a36157c873142b2996759125a7f9, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 4294967292
       objectReference: {fileID: 0}
     - target: {fileID: 23344204975208698, guid: 0910a36157c873142b2996759125a7f9,
         type: 2}
@@ -70728,6 +71075,10 @@ Prefab:
     - target: {fileID: 400000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
@@ -71452,7 +71803,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1363549695
 Transform:
@@ -71682,6 +72033,10 @@ Prefab:
     - target: {fileID: 400000, guid: 2e5d30bdf91b0f64db9148c60d4ca9d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2e5d30bdf91b0f64db9148c60d4ca9d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e5d30bdf91b0f64db9148c60d4ca9d5, type: 3}
@@ -72474,7 +72829,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1375078341
 Transform:
@@ -73173,7 +73528,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1388469376
 Transform:
@@ -73805,6 +74160,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -74018,6 +74377,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -74671,6 +75034,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -75212,6 +75579,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 34198f8ffd7b9bb41bcd512a98a266fd, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34198f8ffd7b9bb41bcd512a98a266fd, type: 2}
   m_IsPrefabParent: 0
@@ -75261,6 +75632,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -76579,6 +76954,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4.381552
       objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 4985d7f3ab028924fa17e1f0c92287b3, type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 4985d7f3ab028924fa17e1f0c92287b3, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4985d7f3ab028924fa17e1f0c92287b3, type: 2}
   m_IsPrefabParent: 0
@@ -77254,7 +77637,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1478904305
 Transform:
@@ -77313,6 +77696,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -77593,7 +77980,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1491112127
 Transform:
@@ -78252,7 +78639,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1514337873
 Transform:
@@ -78817,6 +79204,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -79383,7 +79774,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -79474,7 +79865,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1539333954
 Transform:
@@ -79490,6 +79881,7 @@ Transform:
   - {fileID: 961446416}
   - {fileID: 751732499}
   - {fileID: 1005257468}
+  - {fileID: 2089922304}
   m_Father: {fileID: 407291713}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80565,7 +80957,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1563395790
 Transform:
@@ -80748,7 +81140,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1565022443
@@ -80937,6 +81329,10 @@ Prefab:
     - target: {fileID: 100000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
       propertyPath: m_Name
       value: BarrelThree (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
@@ -81544,11 +81940,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 326143928}
-  - {fileID: 1280638170}
-  - {fileID: 2059145648}
-  - {fileID: 1797578403}
   - {fileID: 2058664438}
-  - {fileID: 1157514254}
   - {fileID: 399559475}
   - {fileID: 1615739385}
   - {fileID: 1736122871}
@@ -81864,6 +82256,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7618260272e0ced4e8026b9b440a5c7f, type: 2}
+    - target: {fileID: 110038, guid: e9b94971850de874d9876d6bd8e3f6cf, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9b94971850de874d9876d6bd8e3f6cf, type: 2}
   m_IsPrefabParent: 0
@@ -82508,6 +82904,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -83035,6 +83435,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -83293,6 +83697,10 @@ Prefab:
     - target: {fileID: 400000, guid: a259133abe46e054da2954feca06b29a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a259133abe46e054da2954feca06b29a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a259133abe46e054da2954feca06b29a, type: 3}
@@ -83693,6 +84101,22 @@ Prefab:
       propertyPath: m_Name
       value: KitchenCabinetTwo (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 158368, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158364, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158370, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 158366, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d62dc819c214a7b418ae4c5e6751da4a, type: 2}
   m_IsPrefabParent: 0
@@ -83985,7 +84409,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
 --- !u!23 &1615739386
 MeshRenderer:
@@ -84002,7 +84426,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84029,7 +84453,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1615739384}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1001 &1616992837
 Prefab:
   m_ObjectHideFlags: 0
@@ -85498,8 +85922,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 21.248344, y: 0.28318572, z: 54.913567}
-  m_Center: {x: 1.5893059, y: 0.09698093, z: 17.690514}
+  m_Size: {x: 58.261955, y: 0.28318572, z: 93.85469}
+  m_Center: {x: 2.854023, y: 0.09698093, z: -1.7800426}
 --- !u!1001 &1648294686
 Prefab:
   m_ObjectHideFlags: 0
@@ -85802,6 +86226,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -85822,7 +86250,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1651537847
 Transform:
@@ -86271,7 +86699,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2.0000005, z: 2.0000005}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!23 &1657388647
 MeshRenderer:
@@ -86288,7 +86716,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86315,7 +86743,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1657388645}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1001 &1657549610
 Prefab:
   m_ObjectHideFlags: 0
@@ -86478,7 +86906,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1657982803
 Transform:
@@ -87511,7 +87939,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1672884742
@@ -88115,7 +88543,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1371973558697022, guid: a42575b83a96e4e47aab230220fbb159, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 4294967292
       objectReference: {fileID: 0}
     - target: {fileID: 23274153489916310, guid: a42575b83a96e4e47aab230220fbb159,
         type: 2}
@@ -88520,6 +88948,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -88833,7 +89265,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!23 &1691831802
 MeshRenderer:
@@ -89649,11 +90081,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 148038, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 148040, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 148044, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_StaticEditorFlags
@@ -89665,7 +90097,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1906795956593760, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 26
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1800891947835910, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
       propertyPath: m_NavMeshLayer
@@ -89703,7 +90135,7 @@ Prefab:
     - target: {fileID: 114771183612619094, guid: 3819d73d704add245a21ffb570bc7792,
         type: 2}
       propertyPath: Locked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114108042300011656, guid: 3819d73d704add245a21ffb570bc7792, type: 2}
@@ -89788,7 +90220,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1705024229
 Transform:
@@ -90800,6 +91232,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.554121
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 939b7af9ca72a0e489b349aa2f63d5ff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 939b7af9ca72a0e489b349aa2f63d5ff, type: 3}
   m_IsPrefabParent: 0
@@ -91530,7 +91966,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
 --- !u!23 &1736122872
 MeshRenderer:
@@ -91547,7 +91983,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91574,7 +92010,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1736122870}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1001 &1736816586
 Prefab:
   m_ObjectHideFlags: 0
@@ -91831,7 +92267,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1739959561
 Transform:
@@ -92078,6 +92514,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -92326,7 +92766,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1754077870
 Transform:
@@ -92403,6 +92843,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -92832,7 +93276,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1768165244
@@ -93190,6 +93634,10 @@ Prefab:
       propertyPath: m_Name
       value: BathRoomOutsideWallTwo (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea137eee116879549ab059d47c84ec93, type: 3}
   m_IsPrefabParent: 0
@@ -93536,6 +93984,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -93660,6 +94112,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -94370,79 +94826,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33520508, y: 3, z: 3.9999998}
   m_Center: {x: 0.125, y: 1.5, z: 1.9999999}
---- !u!1 &1797578402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100030, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1797578403}
-  - component: {fileID: 1797578405}
-  - component: {fileID: 1797578404}
-  m_Layer: 0
-  m_Name: Brick-B4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1797578403
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400030, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1797578402}
-  m_LocalRotation: {x: 0.49991274, y: 0.50008726, z: -0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 8.19, y: -3.0801, z: 2.0672}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 1584169654}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
---- !u!23 &1797578404
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300030, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1797578402}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1797578405
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300030, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1797578402}
-  m_Mesh: {fileID: 4300030, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
 --- !u!1 &1800376914
 GameObject:
   m_ObjectHideFlags: 0
@@ -95175,7 +95558,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1813597773
 Transform:
@@ -95210,7 +95593,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &1813836745
 Transform:
@@ -95580,7 +95963,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1818267326
 Transform:
@@ -95947,6 +96330,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
   m_IsPrefabParent: 0
@@ -96198,6 +96585,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -96350,6 +96741,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -96433,6 +96828,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -96925,7 +97324,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1048768450223360, guid: 0910a36157c873142b2996759125a7f9, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 4294967292
       objectReference: {fileID: 0}
     - target: {fileID: 23344204975208698, guid: 0910a36157c873142b2996759125a7f9,
         type: 2}
@@ -97376,6 +97775,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -97425,6 +97828,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -97904,7 +98311,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1871831920
@@ -99104,6 +99511,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bfce1e1a0054c994484a18af65e3a987, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfce1e1a0054c994484a18af65e3a987, type: 3}
   m_IsPrefabParent: 0
@@ -99514,6 +99925,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -99803,7 +100218,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1919560978
 Transform:
@@ -99851,7 +100266,7 @@ GameObject:
   m_Name: PrisonFloorTileFour (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 26
   m_IsActive: 1
 --- !u!4 &1921635005
@@ -99924,7 +100339,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1923651294
 Transform:
@@ -99938,7 +100353,7 @@ Transform:
   m_Children:
   - {fileID: 383603661}
   m_Father: {fileID: 1937389295}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1924969283
 GameObject:
@@ -99953,7 +100368,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1924969284
 Transform:
@@ -100188,6 +100603,22 @@ Prefab:
     - target: {fileID: 478022, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 178016, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 178018, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 178022, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 178020, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f8b693777f430b4a8ecdfe2e98692d9, type: 2}
@@ -100759,7 +101190,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1048768450223360, guid: 0910a36157c873142b2996759125a7f9, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967294
+      value: 4294967292
       objectReference: {fileID: 0}
     - target: {fileID: 23344204975208698, guid: 0910a36157c873142b2996759125a7f9,
         type: 2}
@@ -100792,7 +101223,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1937389295
 Transform:
@@ -100805,7 +101236,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1924969284}
-  - {fileID: 827703924}
   - {fileID: 300507594}
   - {fileID: 1923651294}
   m_Father: {fileID: 991890212}
@@ -101115,6 +101545,10 @@ Prefab:
     - target: {fileID: 100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
       propertyPath: m_Name
       value: BathRoomFloorTileSetOne (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
@@ -103552,6 +103986,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -103930,6 +104368,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1c4ada2aeaf2f943b6938d14e336691, type: 3}
   m_IsPrefabParent: 0
@@ -103992,6 +104434,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 40c39d48f4266734eb398dc8f538dd44, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c39d48f4266734eb398dc8f538dd44, type: 3}
   m_IsPrefabParent: 0
@@ -104015,7 +104461,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 26
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2006571796
 Transform:
@@ -104829,7 +105275,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
 --- !u!23 &2031394981
 MeshRenderer:
@@ -104846,7 +105292,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104873,7 +105319,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2031394979}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1001 &2032954036
 Prefab:
   m_ObjectHideFlags: 0
@@ -105417,6 +105863,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -105854,7 +106304,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1584169654}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
 --- !u!23 &2058664439
 MeshRenderer:
@@ -105871,7 +106321,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
+  - {fileID: 2100000, guid: 2028005717698af488c0eb871514571a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105898,80 +106348,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058664437}
-  m_Mesh: {fileID: 4300038, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
---- !u!1 &2059145647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100028, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2059145648}
-  - component: {fileID: 2059145650}
-  - component: {fileID: 2059145649}
-  m_Layer: 0
-  m_Name: Brick-B3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2059145648
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400028, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2059145647}
-  m_LocalRotation: {x: 0.49991274, y: 0.50008726, z: -0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 3.13, y: -3.08, z: -1.8304}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children: []
-  m_Father: {fileID: 1584169654}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 89.98, y: 90, z: 0}
---- !u!23 &2059145649
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300028, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2059145647}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 89e086bfe9187a843ba3114496f5c703, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &2059145650
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300028, guid: 9969846f978fd1b4e9627fd7200715ee,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2059145647}
-  m_Mesh: {fileID: 4300028, guid: 9969846f978fd1b4e9627fd7200715ee, type: 3}
+  m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
 --- !u!1001 &2061242343
 Prefab:
   m_ObjectHideFlags: 0
@@ -106089,6 +106466,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -106304,6 +106685,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -106613,77 +106998,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: bcbd84f03b11a5f499bea7b78fcefdf1, type: 2}
   m_PrefabInternal: {fileID: 2077617939}
---- !u!1001 &2077736062
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 827703924}
-    m_Modifications:
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.0109
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.2384
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 5.696663
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 9.298659
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308005693163808, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_Name
-      value: SGWallWhite (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308005693163808, guid: 0419845761ce41048b6c79730049c079, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0419845761ce41048b6c79730049c079, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &2077736063 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4112460272318134, guid: 0419845761ce41048b6c79730049c079,
-    type: 2}
-  m_PrefabInternal: {fileID: 2077736062}
 --- !u!1 &2077804332
 GameObject:
   m_ObjectHideFlags: 0
@@ -107034,6 +107348,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -107057,7 +107375,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 24
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &2082646314
 Transform:
@@ -107154,8 +107472,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083036855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.01, y: 0, z: 6}
+  m_LocalScale: {x: 1.01, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 506763578}
   m_RootOrder: 11
@@ -107497,6 +107815,71 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2089330227}
   m_Mesh: {fileID: 4300000, guid: 3ce75665f41eb1048acc5666f2831223, type: 3}
+--- !u!1 &2089922303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2089922304}
+  - component: {fileID: 2089922305}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 18
+  m_IsActive: 1
+--- !u!4 &2089922304
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2089922303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.996, y: 3.628, z: -27.285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1539333954}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &2089922305
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2089922303}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 25
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &2093017292 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 138160, guid: d32e80539e9a37a439e55c13a441130f, type: 2}
@@ -108301,6 +108684,10 @@ Prefab:
     - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
       propertyPath: m_Name
       value: KitchenFloorTileOne (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
@@ -109189,6 +109576,10 @@ Prefab:
       propertyPath: m_Name
       value: KitchenFloorTileOne (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4c33b3d1c7c85a4c9510d64ab4d61a5, type: 3}
   m_IsPrefabParent: 0
@@ -109718,6 +110109,34 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3ba2c9df5ac3a864d9b6e646f6211c0f, type: 2}
+    - target: {fileID: 100010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
   m_IsPrefabParent: 0
@@ -110043,7 +110462,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2143641900
 Transform:
