@@ -27,6 +27,9 @@ public class DialogueManager : MonoBehaviour {
 
 	public string name;
 
+	private float displayTime = 0.0f;
+	private string display = "";
+
 	void Start () {
 		GameObject player = GameObject.Find (playerObject);
 		inventory = player.GetComponent<Inventory> ();
@@ -85,6 +88,9 @@ public class DialogueManager : MonoBehaviour {
 		{
 			if (talking) EndDialogue ();
 		}
+		if (displayTime > 0) {
+			displayTime -= 0.1f;
+		}
 	}
 
 	public void LookingAt()
@@ -135,6 +141,7 @@ public class DialogueManager : MonoBehaviour {
 						if (child.GiveItem != null)
 						{
 							inventory.AddItem(child.GiveItem);
+							setDisplayText ("Item added to inventory");
 							child.GiveItem = null;
 						}
 						if (child.Take.Length > 0)
@@ -142,6 +149,9 @@ public class DialogueManager : MonoBehaviour {
 							inventory.RemoveThis(child.Take);
 						}
 						interact.Reputation [name] = interact.Reputation [name] + child.Rep;
+						if (child.Rep > 0) {
+							setDisplayText ("Reputation increased");
+						}
 						if (child.sendTo>=0) {
 							EndDialogue ();
 							switch (child.sendTo)
@@ -161,6 +171,11 @@ public class DialogueManager : MonoBehaviour {
 					count++;
 				}
 			}
+		}
+
+		if (displayTime > 0) {
+			GUI.Box (new Rect (Screen.width/2 - width/2, Screen.height/2 - height/2, width, height), display, extraButton);
+			print (display);
 		}
 	}  
 
@@ -193,5 +208,10 @@ public class DialogueManager : MonoBehaviour {
 
 	bool ReputationCheck(int r1, int r2) {
 		return interact.Reputation [name] > r1 && interact.Reputation[name] < r2;
+	}
+
+	void setDisplayText(string str) {
+		display = str;
+		displayTime = 2.0f;
 	}
 }

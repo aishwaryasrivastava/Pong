@@ -4,9 +4,9 @@
 		<node option="*Stare at him*" text="...hello?"></node>
 	</node>
 	<node option="You still owe me money" text="We're in prison now, dude"></node>
-	<node option="Want any cake?" require="cake" take="cake" item="2" id="cells" rep="100" text="Wow you actually have some. That's a bit weird">
-		<node option="What's in it for me" text="I found this earlier, maybe you can figure out what it's for"></node>
-		<node option="*Pick his pocket while he's distracted*" text="Man this is good cake"></node>
+	<node option="Want any cake?" require="cake" take="cake" rep="100" text="Wow you actually have some. That's a bit weird">
+		<node option="What's in it for me" item="2" id="cells" text="I found this earlier, maybe you can figure out what it's for"></node>
+		<node option="*Pick his pocket while he's distracted*" item="2" id="cells" text="Man this is good cake"></node>
 	</node>
 	<node option="Give me an axe" text="No">
 		<node option="Please give me an axe?" repMin="50" item="0" id="axe" text="Here you go"></node>
