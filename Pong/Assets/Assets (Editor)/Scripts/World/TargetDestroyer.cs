@@ -9,7 +9,7 @@ public class TargetDestroyer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timer = 0;
-        velocity = new Vector3(Random.Range(1, -1), Random.Range(1, -1), Random.Range(1, -1));
+        velocity = new Vector3(0, Random.Range(1f, -1f), Random.Range(1f, -1f));
 	}
 	
 	// Update is called once per frame
