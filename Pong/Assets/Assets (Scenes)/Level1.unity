@@ -8444,7 +8444,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.87, y: 2.42, z: 13.57}
+  m_LocalPosition: {x: 5.1, y: 2.42, z: 13.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -8506,10 +8506,10 @@ MonoBehaviour:
   sniper: {fileID: 8300000, guid: 4992ab19c07779b4c89d607a9c83d440, type: 3}
   shell: {fileID: 8300000, guid: c50dcf401ede9422da7805612256b5ac, type: 3}
   inspect: {fileID: 8300000, guid: 745b2b0fcfd084dadb474e26ded272b9, type: 3}
-  press: {fileID: 0}
-  pass: {fileID: 0}
-  select: {fileID: 0}
-  drag: {fileID: 0}
+  press: {fileID: 8300000, guid: 13647f37308744cc6bdde37e81838a61, type: 3}
+  pass: {fileID: 8300000, guid: 311ec0e3ddc71474eb5f91f03161f401, type: 3}
+  select: {fileID: 8300000, guid: 0d3b4c2d4887644c98500ea677917ff4, type: 3}
+  drag: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
   swing:
   - {fileID: 8300000, guid: d261d5fc8420f024fbd7b0e1d950d3ae, type: 3}
   - {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
@@ -24941,7 +24941,7 @@ MonoBehaviour:
   type: 0
   UIEquivalent: {fileID: 697796991}
   corrDoor: {fileID: 1268964656}
-  player: {fileID: 0}
+  player: {fileID: 113493812}
   Inspectable: {fileID: 697796991}
   id: Keypad
 --- !u!114 &447126974
