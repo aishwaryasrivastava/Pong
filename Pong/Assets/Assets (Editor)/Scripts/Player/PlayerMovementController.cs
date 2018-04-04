@@ -45,19 +45,24 @@ public class PlayerMovementController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(KeyCode.W))
+        //        if (Input.GetKey(KeyCode.W))
+        if (Input.GetAxis("Vertical") > 0)
         {
             forward += 1;
         }
-        if (Input.GetKey(KeyCode.A))
+        //if (Input.GetKey(KeyCode.A))
+        if (Input.GetAxis("Horizontal") < 0)
         {
             rightward -= 1;
         }
-        if (Input.GetKey(KeyCode.S))
-        {
+        //if (Input.GetKey(KeyCode.S))
+            if (Input.GetAxis("Vertical") < 0)
+            {
             forward -= 1;
         }
-        if (Input.GetKey(KeyCode.D))
+
+        //if (Input.GetKey(KeyCode.D))
+        if (Input.GetAxis("Horizontal") > 0)
         {
             rightward += 1;
         }
@@ -94,7 +99,8 @@ public class PlayerMovementController : MonoBehaviour
         if (crouched || slant) return;
         if (Math.Abs(rb.velocity.y) > 0.01) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetAxis("Jump") > 0)
         {
             rb.velocity += JumpForce * Vector3.up;
         }     

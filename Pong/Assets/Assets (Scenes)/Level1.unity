@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29715562, g: 0.24628273, b: 0.23252651, a: 1}
+  m_IndirectSpecularColor: {r: 0.2970508, g: 0.24628142, b: 0.23225415, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -8623,6 +8623,11 @@ GameObject:
 --- !u!4 &212255103 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4391816421318096, guid: b1d9f83929c99f647918de375a42e596,
+    type: 2}
+  m_PrefabInternal: {fileID: 1714874552}
+--- !u!95 &212255112 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95842220036790250, guid: b1d9f83929c99f647918de375a42e596,
     type: 2}
   m_PrefabInternal: {fileID: 1714874552}
 --- !u!1 &215143272
@@ -58015,6 +58020,11 @@ Prefab:
       propertyPath: m_AngularDrag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114331111445525966, guid: b1d9f83929c99f647918de375a42e596,
+        type: 2}
+      propertyPath: guardAnim
+      value: 
+      objectReference: {fileID: 212255112}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1d9f83929c99f647918de375a42e596, type: 2}
   m_IsPrefabParent: 0
@@ -59439,7 +59449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd7b2fcd35d0ad48a8a90082481b151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guardAnim: {fileID: 0}
+  guardAnim: {fileID: 1767305572}
 --- !u!114 &1767305567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59602,6 +59612,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!95 &1767305572 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9500000, guid: bdd7a03fd93bf2d4cb6babd63ceabee8,
+    type: 3}
+  m_PrefabInternal: {fileID: 1289523277}
 --- !u!114 &1767305573
 MonoBehaviour:
   m_ObjectHideFlags: 0
