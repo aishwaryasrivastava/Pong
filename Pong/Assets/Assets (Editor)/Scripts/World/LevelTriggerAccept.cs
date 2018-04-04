@@ -11,7 +11,7 @@ public class LevelTriggerAccept : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ResetLevel.Clear();
+            ResetLevel.ResetChanges();
             inv.SaveState();
             weap.SaveState();
             var pos = other.transform.position;

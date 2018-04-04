@@ -11,8 +11,6 @@ public class ResetLevel : MonoBehaviour
         resettables.Add(t);
     }
 
-    public static void Clear() { resettables.Clear();}
-
     public static void ResetChanges()
     {
         foreach (var r in resettables)
