@@ -15,10 +15,11 @@ public class TargetSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        timer += Time.deltaTime;
 		if (timer >= freq)
         {
             timer = 0;
-            Instantiate(target, new Vector3(Random.Range(1, -1), Random.Range(1, -1), 0), Quaternion.identity);
+            Instantiate(target, GetComponent<Transform>(), false);
         }
 	}
 }
