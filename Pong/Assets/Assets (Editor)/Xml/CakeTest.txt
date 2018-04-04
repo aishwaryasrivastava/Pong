@@ -19,7 +19,7 @@
 		<node option="You can't trust me" text="Ok then, bye"></node>
 		<node option="You can trust me" rep="100" text="I'm digging a tunnel out of here. Want to see?">
 			<node option="Not right now" text="Ok then, bye"></node>
-			<node option="Heck yeah!" send="0" text="Ok then"></node>
+			<node option="Heck yeah!" sendX="6" sendY="-5" sendZ="3" text="Ok then"></node>
 		</node>
 	</node>
 	<node option="Can I go to the tunnel again?" repMin="150" text="Sure">

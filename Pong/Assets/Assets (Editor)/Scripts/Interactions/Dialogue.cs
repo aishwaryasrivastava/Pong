@@ -12,7 +12,9 @@ public class Dialogue {
 	public int Rep { get; set; }
 	public int RepMin { get; set; }
 	public int RepMax { get; set; }
-	public int sendTo { get; set; }
+	public int sendToX { get; set; }
+	public int sendToY { get; set; }
+	public int sendToZ { get; set; }
 	List<Dialogue> children = new List<Dialogue>();
 
 	public void AddChild(Dialogue d) {

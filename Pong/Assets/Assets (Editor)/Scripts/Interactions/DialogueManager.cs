@@ -62,7 +62,15 @@ public class DialogueManager : MonoBehaviour {
 		d.Rep = attr ["rep"] != null ? int.Parse(attr ["rep"].Value) : 0;
 		d.RepMin = attr ["repMin"] != null ? int.Parse(attr ["repMin"].Value) : -1000;
 		d.RepMax = attr ["repMax"] != null ? int.Parse(attr ["repMax"].Value) : 1000;
-		d.sendTo = attr ["send"] != null ? int.Parse(attr ["send"].Value) : -1;
+		if (attr ["sendX"] != null) {
+			d.sendToX = int.Parse (attr ["sendX"].Value);
+			d.sendToY = int.Parse (attr ["sendY"].Value);
+			d.sendToZ = int.Parse (attr ["sendZ"].Value);
+		} else {
+			d.sendToX = 0;
+			d.sendToY = 0;
+			d.sendToZ = 0;
+		}
 
 		if (attr ["item"] != null)
 		{
@@ -152,17 +160,9 @@ public class DialogueManager : MonoBehaviour {
 						if (child.Rep > 0) {
 							setDisplayText ("Reputation increased");
 						}
-						if (child.sendTo>=0) {
+						if (child.sendToX!=0 && child.sendToY!=0 && child.sendToZ!=0) {
 							EndDialogue ();
-							switch (child.sendTo)
-							{
-								case 0:
-									control.SetPosition (new Vector3 (6.0f, -5.0f, 3.0f));
-									break;
-								case 1:
-									control.SetPosition (new Vector3 (-6.0f, 2.2f, 17.0f));
-									break;
-							}
+							control.SetPosition (new Vector3 (child.sendToX, child.sendToY, child.sendToZ));
 							break;
 						}
 						ContinueDialogue(i);
