@@ -20,38 +20,60 @@ public class GuardScript3 : MonoBehaviour {
 	public Vector3 initialPos;
 	public Quaternion initialRot;
 
-	public Guard2AnimHandler anim;
+	public Guard4AnimHandler anim;
 
 	private Vector3 position;
 	private Vector3 direction;
 	private int count;
-    private int timeSinceTurned = 0;
+    private int timeSinceTurned, idleTime, timeToTurn = 0;
+
 
     private enum facing { North, South, East, West };
     private facing myDirection;
     public enum orientation { Clockwise, CounterClockwise };
     public orientation myOrientation = orientation.Clockwise;
 
-    private bool comeback, inRoom, died = false;
+    private bool comeback, checking, inRoom, died = false;
 
 	public int health = 150;
 
 
 	void Start () {
-		anim = GetComponent<Guard2AnimHandler> ();
+		anim = GetComponent<Guard4AnimHandler> ();
         myDirection = (myOrientation == orientation.Clockwise)? facing.North: facing.South;
+        timeToTurn = Random.Range(500, 2000);
 	}
 
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-        int timeToTurn = Random.Range(500, 2000);
-        if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
-        else {
-            timeSinceTurned = 0;
-            timeToTurn = Random.Range(500, 2000);
-            turnAround();
+        // Makes the guard turn around and check behind him every once in a while
+        if (checking)
+        {
+            anim.ToIdle();
+            transformUpdate(0);
+            idleTime++;
+            if (idleTime > 500)
+            {
+                idleTime = 0;
+                checking = false;
+                turnAround();
+
+            }
         }
+        else
+        {
+
+            if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
+            else
+            {
+                timeSinceTurned = 0;
+                timeToTurn = Random.Range(500, 2000);
+                checking = true;
+                turnAround();
+            }
+        }
+
 		if (!died) {
 			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom && !damaged) {
 				anim.ToRunning ();
@@ -64,8 +86,11 @@ public class GuardScript3 : MonoBehaviour {
 				anim.ToAttacking ();
 			} else if (!found) {
 				damaged = false;
-				anim.ToWalking ();
-				walking ();
+                if (!checking)
+                {
+                    anim.ToWalking();
+                    transformUpdate(walkingSpeed);
+                }
 			} else if (inRoom) {
 				inRoom = false;
 
@@ -143,32 +168,31 @@ public class GuardScript3 : MonoBehaviour {
 
 		}
 	
-
-
     private void turnAround()
     {
-        myOrientation = (myOrientation == orientation.Clockwise) ? orientation.CounterClockwise : orientation.Clockwise;
+        Debug.Log("turning");
              if (myDirection == facing.North) myDirection = facing.South;
         else if (myDirection == facing.South) myDirection = facing.North;
         else if (myDirection == facing.East) myDirection = facing.West;
         else if (myDirection == facing.West) myDirection = facing.East;
     }
 
-	private void walking()
+    // This used to be walking, but I made it so that we can use it for idle state also
+	private void transformUpdate(float mySpeed)
 	{
         position = transform.position;
         if (myDirection == facing.South) {
             transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-			position += new Vector3(0, 0, -walkingSpeed);
+			position += new Vector3(0, 0, -mySpeed);
         } else if (myDirection == facing.North) {
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-			position += new Vector3(0, 0, +walkingSpeed);
+			position += new Vector3(0, 0, +mySpeed);
         } else if (myDirection == facing.West) {
             transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
-			position += new Vector3(-walkingSpeed, 0, 0);
+			position += new Vector3(-mySpeed, 0, 0);
         } else if (myDirection == facing.East) {
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-			position += new Vector3(+walkingSpeed, 0, 0);
+			position += new Vector3(+mySpeed, 0, 0);
         }
         transform.position = position;
 

@@ -55,4 +55,6 @@ public class Guard2AnimHandler : MonoBehaviour {
 		guardAnim.SetBool("isDied", true);
 		guardAnim.SetBool("isDamaged", false);
 	}
+
+
 }
