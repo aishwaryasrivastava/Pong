@@ -160,7 +160,7 @@ public class DialogueManager : MonoBehaviour {
 						if (child.Rep > 0) {
 							setDisplayText ("Reputation increased");
 						}
-						if (child.sendToX!=0 && child.sendToY!=0 && child.sendToZ!=0) {
+						if (!(child.sendToX==0 && child.sendToY==0 && child.sendToZ==0)) {
 							EndDialogue ();
 							control.SetPosition (new Vector3 (child.sendToX, child.sendToY, child.sendToZ));
 							break;
@@ -175,7 +175,6 @@ public class DialogueManager : MonoBehaviour {
 
 		if (displayTime > 0) {
 			GUI.Box (new Rect (Screen.width/2 - width/2, Screen.height/2 - height/2, width, height), display, extraButton);
-			print (display);
 		}
 	}  
 

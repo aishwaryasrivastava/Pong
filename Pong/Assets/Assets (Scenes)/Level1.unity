@@ -5139,7 +5139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 01000000
+  ActiveLevels: 0100000002000000
 --- !u!1001 &104346709
 Prefab:
   m_ObjectHideFlags: 0
@@ -24866,8 +24866,8 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4286611584
-  m_Size: 5
+    rgba: 4294967295
+  m_Size: 1
 --- !u!1001 &712589298
 Prefab:
   m_ObjectHideFlags: 0
@@ -39044,7 +39044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 01000000
+  ActiveLevels: 0100000002000000
 --- !u!114 &1110195410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55766,7 +55766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 01000000
+  ActiveLevels: 0100000002000000
 --- !u!54 &1614948144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -55951,7 +55951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 01000000
+  ActiveLevels: 0100000002000000
 --- !u!1 &1619363490 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
@@ -68912,7 +68912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 01000000
+  ActiveLevels: 0100000002000000
 --- !u!114 &1985529697
 MonoBehaviour:
   m_ObjectHideFlags: 0
