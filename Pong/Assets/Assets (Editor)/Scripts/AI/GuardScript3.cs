@@ -91,7 +91,7 @@ public class GuardScript3 : MonoBehaviour {
 
 
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
-		if (tmp.dmg == 12)
+		if (tmp.curHealth < 0)
 		{
 			health = 5;
 			tmp.Die ();
@@ -197,7 +197,8 @@ public class GuardScript3 : MonoBehaviour {
 	private void kill()
 	{
 		var tmp = playerMan.GetComponent<PlayerInteractionController> ();
-		tmp.dmg++;
+		tmp.TakeDamage (1);
+		//tmp.dmg++;
 	}
 
 	private void clean(){
