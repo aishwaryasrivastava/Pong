@@ -329,7 +329,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return;
 
-        if(Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryActive = !InventoryActive;
@@ -358,10 +358,11 @@ public class PlayerInteractionController : MonoBehaviour
     }
 
 	void populateReputation() {
-		Reputation.Add ("X", 0);
-		Reputation.Add ("Y", 0);
-        Reputation.Add("Elf", 0);
-	}
+		Reputation.Add ("Tom", 0);
+		Reputation.Add ("Tony", 0);
+	    Reputation.Add("Harry", 0);
+	    Reputation.Add("George", 0);
+    }
 
 	public void TakeDamage(int damage){
         if (!movement.Blocking)

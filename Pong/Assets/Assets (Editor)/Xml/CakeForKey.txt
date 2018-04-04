@@ -1,5 +1,5 @@
 <node text="Hi!" option="N/A">
-	<node option="What's up?" text="They sky!">
+	<node option="What's up?" text="The sky!">
 		<node option="Haha, very funny" text="You don't really mean that do you"></node>
 		<node option="*Stare at him*" text="...hello?"></node>
 	</node>

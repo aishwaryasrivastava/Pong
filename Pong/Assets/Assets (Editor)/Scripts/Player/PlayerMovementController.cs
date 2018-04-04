@@ -27,6 +27,8 @@ public class PlayerMovementController : MonoBehaviour
     private bool moving, running, jumping;
     public bool shooting;
 
+    public GameObject PauseMenu;
+
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
@@ -138,9 +140,18 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            //PauseManager.Paused = !PauseManager.Paused;
+            PauseManager.Pause();
+            PauseMenu.SetActive(PauseManager.Paused);
         }
-        if (PauseManager.Paused) return;
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            PauseManager.Mute();
+        }
+        if (PauseManager.Paused)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.LeftBracket))
         {
             DebugA();
@@ -220,5 +231,24 @@ public class PlayerMovementController : MonoBehaviour
 
 public static class PauseManager
 {
-    public static bool Paused;
+    public static bool Paused { get; private set; }
+    public static bool Muted { get; private set; }
+    private static bool pauseMute;
+
+    public static void Mute()
+    {
+        if (Paused) return;
+        Muted = !Muted;
+        AudioListener.volume = Muted ? 0 : 1;
+    }
+
+    public static void Pause()
+    {
+        Paused = !Paused;
+        if (!Muted)
+        {
+            pauseMute = !pauseMute;
+            AudioListener.volume = pauseMute ? 0 : 1;
+        }
+    }
 }

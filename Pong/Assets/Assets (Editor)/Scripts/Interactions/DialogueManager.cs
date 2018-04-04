@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour {
 	public int width = 20;
 	public int height = 20;
 
-	private GUIStyle custombutton;
+	private GUIStyle custombutton, extraButton;
 	public int fontSize = 15;
 
 	public string name;
@@ -38,8 +38,6 @@ public class DialogueManager : MonoBehaviour {
 
 		width = width * Screen.width / 100;
 		height = height * Screen.height / 100;
-
-
 	}
 
 	public void Reset()
@@ -106,16 +104,22 @@ public class DialogueManager : MonoBehaviour {
 		GUI.skin.box.wordWrap = true;
 		GUI.skin.button.wordWrap = true;
 
-		if (mouseover) {
-			GUI.Box (new Rect (20, 20, 120, 20), "Press E to interact");
-		}
 		if (talking)
 		{
 			if(custombutton == null) custombutton = new GUIStyle("button") {fontSize = fontSize};
-			GUI.Box (new Rect (20, 20, width, height), currentdialog.Text,custombutton);
+		    if (extraButton == null)
+		    {
+		        extraButton = new GUIStyle("button")
+		        {
+		            fontSize = fontSize,
+		            onHover = new GUIStyleState(),
+		            hover = new GUIStyleState()
+		        };
+		    }
+            GUI.Box (new Rect (20, 50, width, height), name+": "+currentdialog.Text, extraButton);
 			if (currentdialog.Children().Count == 0)
 			{
-				if (GUI.Button(new Rect(20, height + 20, width, height), "End", custombutton))
+				if (GUI.Button(new Rect(20, height + 60, width, height), "End", custombutton))
 				{
 					EndDialogue();
 				}
@@ -126,7 +130,7 @@ public class DialogueManager : MonoBehaviour {
 				Dialogue child = currentdialog.Children () [i];
 				if (InventoryCheck(child.Req) && ReputationCheck(child.RepMin,child.RepMax))
 				{
-					if (GUI.Button(new Rect(20, 30 + height * (count + 1), width, height), child.Option,custombutton))
+					if (GUI.Button(new Rect(20, 60 + height * (count + 1), width, height), child.Option,custombutton))
 					{
 						if (child.GiveItem != null)
 						{

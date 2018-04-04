@@ -13,6 +13,7 @@ public class ShotAtScript : MonoBehaviour
         curHealth = health;
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
+        ResetLevel.Add(transform);
     }
 
     public virtual void ResetSelf()
@@ -24,12 +25,13 @@ public class ShotAtScript : MonoBehaviour
 
     public virtual void ShotAt(Vector3 damageVector)
     {
-        if(curHealth == health) ResetLevel.Add(transform);;
+        //if (curHealth == health) ;
         if (rb != null) rb.AddForce(damageVector / 5, ForceMode.Impulse);
         curHealth -= (int)damageVector.magnitude + 1;
         if (curHealth < 0)
         {
-            gameObject.SetActive(false);            
+            if (CompareTag("DestroyableAutoReset")) curHealth = health;
+            else gameObject.SetActive(false);            
         }
         mr.material.color = new Color(1, (float)curHealth / health, (float)curHealth / health);
     }
