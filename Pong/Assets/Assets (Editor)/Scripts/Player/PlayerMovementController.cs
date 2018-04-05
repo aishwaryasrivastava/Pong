@@ -182,9 +182,13 @@ public class PlayerMovementController : MonoBehaviour
         {
             transform.position = new Vector3(1, 3, -6);
         }
-        else if (Input.GetKeyDown(KeyCode.RightBracket))
+        if (Input.GetKeyDown(KeyCode.RightBracket))
         {
             transform.position = new Vector3(15, 3, -30);
+        }
+        if (Input.GetKeyDown(KeyCode.Backslash))
+        {
+            transform.position = new Vector3(4, 3, -36);
         }
     }
 

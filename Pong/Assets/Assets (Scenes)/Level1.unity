@@ -7864,6 +7864,18 @@ MonoBehaviour:
   type: 6
   GoodString: Better not take this one
   BadString: 
+--- !u!65 &176663548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176663546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21168445, y: 0.22603473, z: 0.16077478}
+  m_Center: {x: 0.000000018626451, y: 0.113017336, z: -0.00000001117587}
 --- !u!1001 &177442174
 Prefab:
   m_ObjectHideFlags: 0
@@ -12230,7 +12242,7 @@ GameObject:
   - component: {fileID: 312851719}
   - component: {fileID: 312851718}
   m_Layer: 0
-  m_Name: PrisonCellDoorWayDoor
+  m_Name: PrisonCellDoorWayDoor(Range)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -12383,7 +12395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
-  GoodString: Well well, what have we here
+  GoodString: A bit of target practice never hurt anyone
   BadString: 
 --- !u!114 &312977014
 MonoBehaviour:
@@ -13868,6 +13880,18 @@ MonoBehaviour:
   type: 6
   GoodString: Someone was baking a cake!  I should help out . . .
   BadString: 
+--- !u!65 &355240318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 355240316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16352117, y: 0.08066645, z: 0.16520268}
+  m_Center: {x: -0.0013488419, y: 0.036726296, z: -0.000104002655}
 --- !u!1 &357603862
 GameObject:
   m_ObjectHideFlags: 0
@@ -16331,7 +16355,7 @@ SphereCollider:
   m_GameObject: {fileID: 425093348}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -16855,6 +16879,7 @@ MonoBehaviour:
   player: {fileID: 113493812}
   Inspectable: {fileID: 697796991}
   id: Keypad
+  correctCode: 6757
 --- !u!114 &447126974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16867,8 +16892,126 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  GoodString: Looks like it's connected to the door
+  GoodString: Looks like it's connected to the Armory door
   BadString: 
+--- !u!1 &448320670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 448320671}
+  - component: {fileID: 448320676}
+  - component: {fileID: 448320675}
+  - component: {fileID: 448320674}
+  - component: {fileID: 448320673}
+  - component: {fileID: 448320672}
+  m_Layer: 0
+  m_Name: Keypad (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 26
+  m_IsActive: 1
+--- !u!4 &448320671
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448320670}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.676, y: 2.83, z: -37.459427}
+  m_LocalScale: {x: 0.049999997, y: 0.29999998, z: 0.19999999}
+  m_Children: []
+  m_Father: {fileID: 991890212}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448320672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448320670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  GoodString: Wonder what they made the passcode for this one
+  BadString: 
+--- !u!114 &448320673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448320670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77322b1e6f219141b904842d8c26efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  UIEquivalent: {fileID: 697796991}
+  corrDoor: {fileID: 312851716}
+  player: {fileID: 113493812}
+  Inspectable: {fileID: 697796991}
+  id: Range
+  correctCode: 6757
+--- !u!23 &448320674
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448320670}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 66f44b8b8fb16054fb8fcc3dfa56cd83, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &448320675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448320670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1190724, y: 1, z: 1}
+  m_Center: {x: -0.5595359, y: 0, z: 0}
+--- !u!33 &448320676
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 448320670}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &449755918
 Prefab:
   m_ObjectHideFlags: 0
@@ -20324,7 +20467,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 578052631}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 17.5, y: 3.216, z: -28.012}
+  m_LocalPosition: {x: 17.5, y: 3.216, z: -27.25}
   m_LocalScale: {x: 1, y: 1, z: 0.10000017}
   m_Children: []
   m_Father: {fileID: 1691882078}
@@ -25047,7 +25190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81b0bd6c22f5742929f9e9f5c3607f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XML: {fileID: 4900000, guid: 3e2d7a2f351c5854088b4bc914a59502, type: 3}
+  XML: {fileID: 4900000, guid: 567a81d3e5fbaea4983285cc538d788e, type: 3}
   talking: 0
   control: {fileID: 113493816}
   interact: {fileID: 113493815}
@@ -25274,6 +25417,10 @@ Prefab:
     - target: {fileID: 100002, guid: 43d888000c56cae429a9860467f60f5b, type: 3}
       propertyPath: m_TagString
       value: Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 43d888000c56cae429a9860467f60f5b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11100000, guid: 43d888000c56cae429a9860467f60f5b, type: 3}
@@ -28103,7 +28250,7 @@ MeshRenderer:
   m_GameObject: {fileID: 799858126}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -31601,6 +31748,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21168444, y: 0.22603476, z: 0.16077477}
   m_Center: {x: 0.000000018626451, y: 0.11301735, z: -0.000000011175871}
+--- !u!1 &909429007 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 150e259eceeb30b4e977dd79b37b82d7, type: 3}
+  m_PrefabInternal: {fileID: 930704271}
+--- !u!114 &909429008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 909429007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  GoodString: I'm afraid of knives :(
+  BadString: 
+--- !u!65 &909429009
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 909429007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4101812, y: 0.17764166, z: 4.6759763}
+  m_Center: {x: 0.044481266, y: -0.000000014901161, z: -0.40317792}
 --- !u!1 &910729119
 GameObject:
   m_ObjectHideFlags: 0
@@ -34258,6 +34435,7 @@ Transform:
   - {fileID: 642799111}
   - {fileID: 2041528364}
   - {fileID: 57837450}
+  - {fileID: 448320671}
   m_Father: {fileID: 407291713}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34419,7 +34597,7 @@ MeshRenderer:
   m_GameObject: {fileID: 997533141}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -35890,6 +36068,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6400002, guid: ccc7a3672e9a0fb41925a8a02e135cb0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccc7a3672e9a0fb41925a8a02e135cb0, type: 3}
   m_IsPrefabParent: 0
@@ -35911,6 +36093,18 @@ MonoBehaviour:
   type: 6
   GoodString: It's probably full of low quality prison food
   BadString: 
+--- !u!65 &1020986194
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020986192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0925007, y: 2, z: 1.0758076}
+  m_Center: {x: 0, y: 0.9953232, z: 0.037903786}
 --- !u!1 &1021157982
 GameObject:
   m_ObjectHideFlags: 0
@@ -38446,7 +38640,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1091805289}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 17.5, y: 3.216, z: -29.272}
+  m_LocalPosition: {x: 17.5, y: 3.216, z: -28.51}
   m_LocalScale: {x: 1, y: 1, z: 0.10000011}
   m_Children: []
   m_Father: {fileID: 1691882078}
@@ -40326,6 +40520,7 @@ GameObject:
   - component: {fileID: 1145557442}
   - component: {fileID: 1145557441}
   - component: {fileID: 1145557440}
+  - component: {fileID: 1145557443}
   m_Layer: 0
   m_Name: Dirt Road
   m_TagString: Untagged
@@ -40399,6 +40594,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145557438}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1145557443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1145557438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  GoodString: This looks terrible since it's not done
+  BadString: 
 --- !u!1 &1147392341
 GameObject:
   m_ObjectHideFlags: 0
@@ -50061,6 +50270,10 @@ Prefab:
       propertyPath: m_TagString
       value: Colt
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: d8ff8f9649a82e14791d960a0a17f1e4, type: 3}
@@ -51508,6 +51721,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Inspectable: {fileID: 1299834050}
   id: 
+  correctCode: 6757
 --- !u!114 &1454167731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54716,7 +54930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4299998
+      value: 1.469
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -60487,7 +60701,21 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 4939773a494b0cf4d89690462f7864e9, type: 3}
   m_PrefabInternal: {fileID: 1782055819}
---- !u!65 &1713649096
+--- !u!114 &1713649093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1713649092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  GoodString: Looks like they're not storing any guns back here
+  BadString: 
+--- !u!65 &1713649094
 BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -60497,32 +60725,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.94252825, y: 0.6976153, z: 1.8}
-  m_Center: {x: 0.025729101, y: -0.994943, z: 0.0000038146973}
---- !u!65 &1713649097
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1713649092}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0265341, y: 0.5030324, z: 1.8}
-  m_Center: {x: 0.016273975, y: 1.0880923, z: 0.0000038146973}
---- !u!65 &1713649098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1713649092}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.993986, y: 2.6875, z: 0.03341643}
-  m_Center: {x: 0, y: 0, z: 0.88329554}
+  m_Size: {x: 0.993986, y: 2.6875, z: 1.8}
+  m_Center: {x: 0, y: -0.00000047683716, z: 0.0000038146973}
 --- !u!1001 &1714619164
 Prefab:
   m_ObjectHideFlags: 0
@@ -61477,7 +61681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
-  GoodString: This is probably important
+  GoodString: How many fires are there in the bathroom?
   BadString: 
 --- !u!65 &1732259665
 BoxCollider:
@@ -64616,7 +64820,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4299998
+      value: 1.476
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0ac397178aca264988da25dcc6dc7ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -69014,6 +69218,18 @@ MonoBehaviour:
   type: 0
   GoodString: '...Is there really a mustache in the trash'
   BadString: I'm carrying too much stuff right now
+--- !u!65 &1973120024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973120020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.104195, y: 1, z: 1}
+  m_Center: {x: 0.121022835, y: -0.000000037875914, z: -0.0000000022354416}
 --- !u!1 &1974662899
 GameObject:
   m_ObjectHideFlags: 0
@@ -71738,6 +71954,10 @@ Prefab:
       propertyPath: m_TagString
       value: HandGun
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
@@ -72542,6 +72762,18 @@ MonoBehaviour:
   type: 6
   GoodString: Maybe I can make some toast
   BadString: 
+--- !u!65 &2090580708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2090580706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16762029, y: 0.15773913, z: 0.2639874}
+  m_Center: {x: 0, y: -0.003869567, z: -0.016993705}
 --- !u!1001 &2092130657
 Prefab:
   m_ObjectHideFlags: 0

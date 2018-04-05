@@ -17,7 +17,8 @@ public class InspectableInformation : MonoBehaviour {
 
     private int curNum;
     private bool unlocked;
-    private int counter, curCode, correctCode = 6757; // hardcoded, in the end every keypad will have a door attached to it with the right code.
+    private int counter, curCode;
+    public int correctCode = 6757; // hardcoded, in the end every keypad will have a door attached to it with the right code.
     public void horMove(int move)
     {
         //Debug.Log("moved " + move);
