@@ -7,12 +7,13 @@ public class ScorePoker : MonoBehaviour
 {
     private const float ShowTime = 2;
     private float timer;
-    private int scoreNum;
+    public int scoreNum;
+    
     public Text Score;
 	// Use this for initialization
 	void Start ()
     {
-		Score.gameObject.SetActive(false);
+		Reset();
 	}
 	
 	// Update is called once per frame
@@ -23,7 +24,6 @@ public class ScorePoker : MonoBehaviour
 	    {
 	        timer -= Time.deltaTime;
 	        if (timer < 0) Score.gameObject.SetActive(false);
-
         }
         
 	}
@@ -34,5 +34,13 @@ public class ScorePoker : MonoBehaviour
         Score.text = scoreNum.ToString();
         Score.gameObject.SetActive(true);
         timer = ShowTime;
+    }
+
+    public void Reset()
+    {
+        scoreNum = 0;
+        Score.text = scoreNum.ToString();
+        Score.gameObject.SetActive(false);
+        timer = 0;
     }
 }

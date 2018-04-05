@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TargetDestroyer : MonoBehaviour {
-    private const float life = 1.5f;
+    private float life = 1.5f;
     private float timer;
     private Vector3 velocity;
 	// Use this for initialization
 	void Start () {
         timer = 0;
-        velocity = new Vector3(0, Random.Range(0.5f, -0.5f), Random.Range(0.5f, -0.5f));
+	    var tmp = Random.insideUnitCircle.normalized;
+	    float velocityMod = 0.25f + GetComponentInParent<ScorePoker>().scoreNum / (Random.Range(0, 2) == 0 ? 10f : -10f);
+        velocity = velocityMod*new Vector3(0, tmp.y, tmp.x);
+	    life = 0.75f / velocity.magnitude;
 	}
 	
 	// Update is called once per frame

@@ -24,6 +24,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     public PlayerMovementController movement;
     public Camera mainCamera;
+    public ScorePoker poke;
 
     public bool InventoryActive, inspectingSomething;
     public Inventory inventory;
@@ -300,6 +301,7 @@ public class PlayerInteractionController : MonoBehaviour
         {
             active[i] = null;
         }
+        poke.Reset();
         Reputation.Clear();
         populateReputation();
 		curHealth = maxHealth;

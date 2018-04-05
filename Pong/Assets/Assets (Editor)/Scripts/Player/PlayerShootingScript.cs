@@ -131,7 +131,7 @@ public class PlayerShootingScript : MonoBehaviour
     {
         if (timer > reloadDuration / 2) { magazine.Translate(0, -Time.deltaTime / reloadDuration, 0); }
         else if (timer > 0) { magazine.Translate(0, Time.deltaTime / reloadDuration, 0); }
-        else
+        else if (totalAmmo > 0)
         {
             magazine.localPosition = magazinePositionBackup;
             reloading = false;
