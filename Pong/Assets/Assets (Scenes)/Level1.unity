@@ -5584,7 +5584,7 @@ MonoBehaviour:
   keycode: {fileID: 21300000, guid: d8400344f3071c7449c530aac6b2c66a, type: 3}
   cake: {fileID: 21300000, guid: 9bab6148f0f61cb4f9228af4804197e5, type: 3}
   none: {fileID: 21300000, guid: 96dace52ae656564b9719e55cef83d75, type: 3}
-  disguise: {fileID: 0}
+  disguise: {fileID: 21300000, guid: e377bc0eecc59b741900c8a9e90b2fcd, type: 3}
 --- !u!114 &113493822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14144,7 +14144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &366199763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41535,6 +41535,14 @@ Prefab:
     - target: {fileID: 400000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.007492698
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 8d9660edbaa9273488c845c704bfb01e, type: 3}

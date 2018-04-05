@@ -11,9 +11,10 @@ public class LevelTriggerAccept : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ResetLevel.ResetChanges();
+            
             inv.SaveState();
             weap.SaveState();
+            ResetLevel.ResetChanges();
             var pos = other.transform.position;
             player.RespawnVector = new Vector3(pos.x, pos.y, pos.z);
             loader.TriggerNextLevel();

@@ -18,14 +18,13 @@ public class PlayerWeaponEquip : MonoBehaviour
         next = 0;
         SaveState();
         RestoreFromState();
-        SetActiveWeapon(0);
+        SetActiveNone();
 	}
 
     public void RestoreFromState()
     {
         for (var i = 0; i < weapons.Length; i++)
         {
-            weapons[i].GetComponent<WeaponSwitchState>().Able = state[i];
             if(state[i]) SetAble(i);
             else SetNotAble(i);
         }
@@ -58,18 +57,24 @@ public class PlayerWeaponEquip : MonoBehaviour
 
     public void SetAble(int id)
     {
+        weapons[id].SetActive(true);
         weapons[id].GetComponent<WeaponSwitchState>().Gain();
         SetActiveWeapon(id);
     }
 
     public void SetNotAble(int id)
     {
+        weapons[id].SetActive(true);
         weapons[id].GetComponent<WeaponSwitchState>().Lose();
+        weapons[id].SetActive(false);
     }
 
     private void SetActiveNone()
     {
-        if (current != -1) weapons[current].SetActive(false);
+        foreach (var a in weapons)
+        {
+            a.SetActive(false);
+        }
         current = -1;
         ammoCount.GetComponent<ToggleScript>().SwapToHere(current);
     }

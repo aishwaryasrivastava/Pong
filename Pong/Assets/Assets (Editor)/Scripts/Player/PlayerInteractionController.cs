@@ -195,8 +195,8 @@ public class PlayerInteractionController : MonoBehaviour
                 else if (b != null) b.TurnTowardsMe(transform.position);
                 var dia = active[Human].GetComponent<DialogueManager>();
                 movement.EnterConversation(dia);
-                dia.StartDialogue(); 
-                
+                dia.StartDialogue();
+                ResetLevel.Add(active[Human]);
             }
             else if (active[Equip] != null)
             {
@@ -212,31 +212,6 @@ public class PlayerInteractionController : MonoBehaviour
                         sounds.PlayEquip();
                         break;
                 }
-                /*if (active[Equip].CompareTag("AK"))
-                {
-                    Equips.SetAble(PlayerWeaponEquip.AK);
-					sounds.PlayEquip ();
-                }
-                else if(active[Equip].CompareTag("Pipe"))
-                {
-                    Equips.SetAble(PlayerWeaponEquip.Pipe);
-					sounds.PlayDwang ();
-                }
-                else if (active[Equip].CompareTag("HandGun"))
-                {
-                    Equips.SetAble(PlayerWeaponEquip.HandGun);
-                    sounds.PlayEquip();
-                }
-                else if (active[Equip].CompareTag("Rifle"))
-                {
-                    Equips.SetAble(PlayerWeaponEquip.Sniper);
-                    sounds.PlayEquip();
-                }
-                else if (active[Equip].CompareTag("Colt"))
-                {
-                    Equips.SetAble(PlayerWeaponEquip.M4);
-                    sounds.PlayEquip();
-                }*/
                 active[Equip].gameObject.SetActive(false);
                 ResetLevel.Add(active[Equip]);
                 active[Equip] = null;

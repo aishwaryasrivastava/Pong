@@ -31,7 +31,7 @@ public class NPCScript : MonoBehaviour
         prisonAnim = gameObject.GetComponent<PrisonerAnimHandler>();
         source.volume = 1f;
         TurnAndHalt();
-        ResetLevel.Add(transform);
+        
     }
 
     Vector3 GetRandomLocalPoint()

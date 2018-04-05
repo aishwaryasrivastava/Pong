@@ -13,7 +13,7 @@ public class ShotAtScript : MonoBehaviour
         curHealth = health;
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
-        ResetLevel.Add(transform);
+        
     }
 
     public virtual void ResetSelf()
@@ -25,7 +25,7 @@ public class ShotAtScript : MonoBehaviour
 
     public virtual void ShotAt(Vector3 damageVector)
     {
-        //if (curHealth == health) ;
+        if (curHealth == health && !CompareTag("DestroyableDelete")) ResetLevel.Add(transform);
         if (rb != null) rb.AddForce(damageVector / 5, ForceMode.Impulse);
         curHealth -= (int)damageVector.magnitude + 1;
         if (curHealth < 0)
@@ -33,8 +33,8 @@ public class ShotAtScript : MonoBehaviour
             if (CompareTag("DestroyableAutoReset")) curHealth = health;
             else if (CompareTag("DestroyableDelete"))
             {
-                Destroy(gameObject);
                 GetComponentInParent<ScorePoker>().Scored();
+                Destroy(gameObject);              
             }
             else gameObject.SetActive(false);            
         }

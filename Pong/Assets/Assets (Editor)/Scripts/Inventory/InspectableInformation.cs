@@ -69,6 +69,7 @@ public class InspectableInformation : MonoBehaviour {
         unlocked = true;
         // play good sound here
         corrDoor.GetComponent<DoorToggle>().Toggle(true);
+        ResetLevel.Add(corrDoor.transform);
     }
 
     public void updateText(string input)
