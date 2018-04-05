@@ -1,0 +1,13 @@
+<node text="H-Hey there" option="N/A">
+	<node option="You still owe me money" text="Stop intimidating me already"></node>
+	<node option="Why are you in the bathroom?" text="Why are you in here with me?">
+		<node option="Can I go to the tunnel?" repMin="150" repMax="250" text="Sure">
+			<node option="Not right now" text="Ok then, bye"></node>
+			<node option="Go Down" sendX="6" sendY="-5" sendZ="3" text="Ok then"></node>
+		</node>
+		<node option="I know your secret" repMin="250" repMax="350" text="I understand, come with me">
+			<node option="Not right now" text="Ok then, bye"></node>
+			<node option="Let's go" sendX="6" sendY="-5" sendZ="11" text="..."></node>
+		</node>
+	</node>
+</node>

@@ -2,5 +2,5 @@
 
 public class ItemIconHolder : MonoBehaviour
 {
-    public Sprite axe, key, keys, keycode, cake, none;
+    public Sprite axe, key, keys, keycode, cake, none, disguise;
 }

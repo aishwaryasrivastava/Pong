@@ -11,5 +11,13 @@
 		<node option="I actually love Tom" rep="100" text="That's what I like to hear"></node>
 		<node option="You can't stop me" text="Go away heathen"></node>
 	</node>
-	<node option="You can't let Tom leave" repMin="200" text="You're right. We must keep him here!"></node>
+	<node option="Don't you know who I am?" require="Disguise" text="Oh Warden, wait why are you wearing those clothes?">
+		<node option="It's just fashion" repMin="100" text="Uh, right sure, whatever you say">
+			<node option="Don't you have something of mine" repMin="199" repMax="201" item="2" id="Warden" text="Oh right, I found your keys. You left them by your favorite posters in the hallway"></node>
+			<node option="Don't you have something of mine" repMin="99" repMax="101" item="1" id="Range" text="Oh right, here's the key for the Range"></node>
+			<node option="Get back to work Jeffery" text="My name is George..."></node>
+		</node>
+		<node option="It is I, your Warden" text="Wait you're just that rendering prisoner"></node>
+		<node option="I'm not the Warden" text="Oh, sorry, I'm sick and can't think good"></node>
+	</node>
 </node>

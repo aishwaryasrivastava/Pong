@@ -432,8 +432,8 @@ public class Pickup
             case ItemAttributeInformation.Type.Cake:
                 UiImage = container.cake;
                 break;
-            case ItemAttributeInformation.Type.GunWeapon:
-                UiImage = container.none;
+            case ItemAttributeInformation.Type.Disguise:
+                UiImage = container.disguise;
                 break;
             default:
                 UiImage = container.none;
