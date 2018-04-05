@@ -97,7 +97,7 @@ public class DialogueManager : MonoBehaviour {
 			if (talking) EndDialogue ();
 		}
 		if (displayTime > 0) {
-			displayTime -= 0.1f;
+			displayTime -= Time.deltaTime;
 		}
 	}
 
@@ -211,6 +211,6 @@ public class DialogueManager : MonoBehaviour {
 
 	void setDisplayText(string str) {
 		display = str;
-		displayTime = 2.0f;
+		displayTime = 1.5f;
 	}
 }

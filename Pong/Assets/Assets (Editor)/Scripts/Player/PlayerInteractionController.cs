@@ -371,6 +371,11 @@ public class PlayerInteractionController : MonoBehaviour
 	    Reputation.Add("George", 0);
     }
 
+    public string GetPopularity()
+    {
+        return "Current Reputation\n" + Reputation.Aggregate("", (current, set) => current + (set.Key + ": " + set.Value + "\n"));
+    }
+
 	public void TakeDamage(int damage){
         if (!movement.Blocking)
         {

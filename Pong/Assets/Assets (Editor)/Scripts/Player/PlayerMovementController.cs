@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovementController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerMovementController : MonoBehaviour
     private float forward, rightward;
     private Vector2 currentRotation;
     private Rigidbody rb;
+    public Text RepText;
 
 
     public float CurrentSoundOutput;
@@ -163,6 +165,7 @@ public class PlayerMovementController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             PauseManager.Pause();
+            RepText.text = interact.GetPopularity();
             PauseMenu.SetActive(PauseManager.Paused);
         }
         if (Input.GetKeyDown(KeyCode.M))
