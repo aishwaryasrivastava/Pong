@@ -92,10 +92,13 @@ public class PlayerShootingScript : MonoBehaviour
     {
         flare.SetActive(true);
         shell.localPosition = shellPositionBackup;
-        if (Physics.Raycast(transform.position, Camera.main.transform.forward, out Shot))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out Shot))
         {
             var h = Shot.transform.GetComponent<ShotAtScript>();
-            if (h != null) h.ShotAt(damage * Camera.main.transform.forward);
+            if (h != null)
+            {
+                h.ShotAt(damage * Camera.main.transform.forward);
+            }
         }
         ammoCount--;
         ammoMcCount.UpdateValue(ammoCount, totalAmmo);

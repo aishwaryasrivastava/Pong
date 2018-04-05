@@ -11,7 +11,7 @@ public class GlitchyCrawfis : MonoBehaviour
 
     void Start()
     {
-        RemainingTime = 2f;
+        RemainingTime = 1f;
     }
 	// Update is called once per frame
 
@@ -26,7 +26,7 @@ public class GlitchyCrawfis : MonoBehaviour
         {
             ImageState = !ImageState;
             Top.SetActive(ImageState);
-            RemainingTime = ImageState ? Random.Range(0.1f, 0.5f) : Random.Range(0.5f, 2.5f);
+            RemainingTime = ImageState ? Random.Range(0.1f, 0.5f) : Random.Range(0.5f, 2f);
         }
     }
 }

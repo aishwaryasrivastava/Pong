@@ -22,6 +22,8 @@ TagManager:
   - AngleFloor
   - Item
   - DestroyableAutoReset
+  - DestroyableDelete
+  - Human
   layers:
   - Default
   - TransparentFX

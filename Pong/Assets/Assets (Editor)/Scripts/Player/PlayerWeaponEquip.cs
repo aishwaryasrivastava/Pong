@@ -26,8 +26,10 @@ public class PlayerWeaponEquip : MonoBehaviour
         for (var i = 0; i < weapons.Length; i++)
         {
             weapons[i].GetComponent<WeaponSwitchState>().Able = state[i];
+            if(state[i]) SetAble(i);
+            else SetNotAble(i);
         }
-        SetActiveWeapon(0);
+        SetActiveNone();
     }
 
     public void SaveState()
@@ -58,6 +60,11 @@ public class PlayerWeaponEquip : MonoBehaviour
     {
         weapons[id].GetComponent<WeaponSwitchState>().Gain();
         SetActiveWeapon(id);
+    }
+
+    public void SetNotAble(int id)
+    {
+        weapons[id].GetComponent<WeaponSwitchState>().Lose();
     }
 
     private void SetActiveNone()

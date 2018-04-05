@@ -31,6 +31,11 @@ public class ShotAtScript : MonoBehaviour
         if (curHealth < 0)
         {
             if (CompareTag("DestroyableAutoReset")) curHealth = health;
+            else if (CompareTag("DestroyableDelete"))
+            {
+                Destroy(gameObject);
+                GetComponentInParent<ScorePoker>().Scored();
+            }
             else gameObject.SetActive(false);            
         }
         mr.material.color = new Color(1, (float)curHealth / health, (float)curHealth / health);

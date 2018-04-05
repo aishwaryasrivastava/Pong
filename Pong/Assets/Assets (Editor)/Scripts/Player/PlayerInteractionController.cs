@@ -116,6 +116,7 @@ public class PlayerInteractionController : MonoBehaviour
                 active[Human].GetComponent<DialogueManager>().LookingAt();
                 break;
             case Interactable.InteractableType.Pipe:
+            case Interactable.InteractableType.HandGun:
                 active[Equip] = hit.transform;
                 break;
             case Interactable.InteractableType.Observable:
@@ -204,6 +205,10 @@ public class PlayerInteractionController : MonoBehaviour
                     case Interactable.InteractableType.Pipe:
                         Equips.SetAble(PlayerWeaponEquip.Pipe);
                         sounds.PlayDwang();
+                        break;
+                    case Interactable.InteractableType.HandGun:
+                        Equips.SetAble(PlayerWeaponEquip.HandGun);
+                        sounds.PlayEquip();
                         break;
                 }
                 /*if (active[Equip].CompareTag("AK"))

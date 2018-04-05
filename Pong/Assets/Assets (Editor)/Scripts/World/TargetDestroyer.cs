@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetDestroyer : MonoBehaviour {
-    private const float life = 1;
+    private const float life = 1.5f;
     private float timer;
     private Vector3 velocity;
 	// Use this for initialization
 	void Start () {
         timer = 0;
-        velocity = new Vector3(0, Random.Range(1f, -1f), Random.Range(1f, -1f));
+        velocity = new Vector3(0, Random.Range(0.5f, -0.5f), Random.Range(0.5f, -0.5f));
 	}
 	
 	// Update is called once per frame

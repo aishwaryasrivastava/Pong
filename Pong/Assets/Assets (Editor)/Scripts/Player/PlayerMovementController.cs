@@ -137,12 +137,27 @@ public class PlayerMovementController : MonoBehaviour
         else CurrentSoundOutput = 0;
     }
 
-    void DebugA()
+    void Update()
     {
-        transform.position = new Vector3(1, 3, -6);
+        SettingsTriggers();
+        
+		if (slant && moving)
+        {
+			var tmp = gameObject.GetComponent<SoundController> ();
+			tmp.PlayDrag ();
+		} 
+		if (slant && !moving)
+        {
+			gameObject.GetComponent<AudioSource> ().Stop ();
+
+		}
+
+        DebugStuff();
+        CheckJump();
+        CheckCrouch();      
     }
 
-    void Update()
+    private void SettingsTriggers()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -158,22 +173,20 @@ public class PlayerMovementController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
             return;
         }
+    }
+
+    private void DebugStuff()
+    {
         if (Input.GetKeyDown(KeyCode.LeftBracket))
         {
-            DebugA();
+            transform.position = new Vector3(1, 3, -6);
         }
-		if (slant && moving) {
-			var tmp = gameObject.GetComponent<SoundController> ();
-			tmp.PlayDrag ();
-		} 
-		if (slant && !moving) {
-			gameObject.GetComponent<AudioSource> ().Stop ();
-
-		}
-
-        CheckJump();
-        CheckCrouch();      
+        else if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            transform.position = new Vector3(15, 3, -30);
+        }
     }
+
 
 	public void SetPosition(Vector3 v) {
 		transform.position = v;
