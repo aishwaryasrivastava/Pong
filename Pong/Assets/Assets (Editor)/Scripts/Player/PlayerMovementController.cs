@@ -15,6 +15,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public bool crouched;
     private bool slant;
+	private bool onfloor;
     public bool Blocking;
 
 
