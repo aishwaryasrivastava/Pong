@@ -1211,7 +1211,7 @@ GameObject:
   - component: {fileID: 30722477}
   m_Layer: 0
   m_Name: PrisonCellDoorWayDoor
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 24
@@ -12244,7 +12244,7 @@ GameObject:
   - component: {fileID: 312851718}
   m_Layer: 0
   m_Name: PrisonCellDoorWayDoor(Range)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 16
@@ -49179,7 +49179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd00c8064f5af4418644817c6cf933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveLevels: 02000000
+  ActiveLevels: 03000000
 --- !u!23 &1367658094
 MeshRenderer:
   m_ObjectHideFlags: 0

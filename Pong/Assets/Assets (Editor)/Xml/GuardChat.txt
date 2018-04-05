@@ -6,7 +6,7 @@
 		<node option="Guess not, bye" text="Get outta here"></node>
 	</node>
 	<node option="Of course, we're great friends" text="You should talk to him before he leaves then"></node>
-	<node option="Sure sure, but want any cake?" require="cake" take="cake" rep="100" text="What a great way to celebrate"></node>
+	<node option="Sure sure, but want any cake?" require="Cake" take="Cake" rep="100" text="What a great way to celebrate"></node>
 	<node option="I could care less about that guy" text="Don't you dare speak of Tom like that">
 		<node option="I actually love Tom" rep="100" text="That's what I like to hear"></node>
 		<node option="You can't stop me" text="Go away heathen"></node>

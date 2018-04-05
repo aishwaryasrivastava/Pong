@@ -66,7 +66,10 @@ public class InspectableInformation : MonoBehaviour {
 		var tmp = player.GetComponent<SoundController> ();
 		tmp.PlayPass ();
         Debug.Log("You unlocked the door");
-        unlocked = true;
+        //unlocked = true;
+        curCode = 0;
+        counter = 0;
+        updateText("");
         // play good sound here
         corrDoor.GetComponent<DoorToggle>().Toggle(true);
         ResetLevel.Add(corrDoor.transform);

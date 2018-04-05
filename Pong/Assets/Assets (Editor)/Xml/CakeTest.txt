@@ -7,9 +7,9 @@
 		<node option="What, no, where'd that come from?" text="I don't want to talk about it"></node>
 		<node option="No it's your birthday!" rep="100" text="Whoa you actually remembered, thank you!">
 			<node option="Have a good one" text="Hey wait, here's some leftover cake that came for me earlier">
-				<node option="Oh I couldn't" item="4" id="cake" text="Oh yes you could, here"></node>
-				<node option="Sure thanks" item="4" id="cake" text="No problem"></node>
-				<node option="CRAWFIS WOULD NEVER TURN DOWN SWEETS" item="4" id="cake" text="Uh, sure, alright, whatever you say"></node>
+				<node option="Oh I couldn't" item="4" id="Cake" text="Oh yes you could, here"></node>
+				<node option="Sure thanks" item="4" id="Cake" text="No problem"></node>
+				<node option="CRAWFIS WOULD NEVER TURN DOWN SWEETS" item="4" id="Cake" text="Uh, sure, alright, whatever you say"></node>
 			</node>
 		</node>
 	</node>
