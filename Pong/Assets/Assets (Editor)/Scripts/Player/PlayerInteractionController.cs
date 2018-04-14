@@ -31,8 +31,8 @@ public class PlayerInteractionController : MonoBehaviour
     public GameObject uiInspectable; // change to specific class once settle on static vs. interactive inspectable design
     public PlayerWeaponEquip Equips;
 
-    private const int Item = 0, Door = 1, Human = 2, Equip = 3, Inspectable = 4;
-    private readonly Transform[] active = {null, null, null, null, null};
+    private const int Item = 0, Door = 1, Human = 2, Equip = 3, Inspectable = 4, Touchable = 5;
+    private readonly Transform[] active = {null, null, null, null, null, null};
 
 	public Dictionary<string,int> Reputation = new Dictionary<string,int>();
 	public SimpleHealthBar healthBar;
@@ -124,6 +124,10 @@ public class PlayerInteractionController : MonoBehaviour
                 //these are just things that bring up text, not interactable
                 UIConfirm.gameObject.SetActive(false);
                 break;
+            case Interactable.InteractableType.Touchable:
+                // things that do things when hit E on that aren't special
+                active[Touchable] = hit.transform;
+                break;
         }
         if (GoingGreen && intermNue.GoodString.Length > 0)
         {
@@ -197,6 +201,12 @@ public class PlayerInteractionController : MonoBehaviour
                 movement.EnterConversation(dia);
                 dia.StartDialogue();
                 ResetLevel.Add(active[Human]);
+            }
+            else if (active[Touchable] != null)
+            {
+                var gobj = active[Touchable].gameObject;
+                gameObject.GetComponent<TouchedAction>().enabled = true; // unsure of how to abstract this with our mess of an interaction script
+                active[Touchable] = null;
             }
             else if (active[Equip] != null)
             {
