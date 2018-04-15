@@ -11,6 +11,8 @@ public class PlayerWeaponEquip : MonoBehaviour
     public const int Pipe = 0, AK = 1, Sniper = 2, M4 = 3, HandGun = 4;
     public static float timer;
 
+    private bool equipSwitch;
+
 	// Use this for initialization
 	void Start ()
 	{	    

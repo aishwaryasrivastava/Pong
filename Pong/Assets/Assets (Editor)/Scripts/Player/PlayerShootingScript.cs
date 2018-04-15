@@ -56,7 +56,7 @@ public class PlayerShootingScript : MonoBehaviour
             Fire();
             movement.shooting = true;
         } 
-        if (Input.GetKeyDown(KeyCode.R) && ammoCount < magazineSize && !reloading && timer <= 0 && totalAmmo > 0)
+        if ((Input.GetAxis("Reload") > 0) && ammoCount < magazineSize && !reloading && timer <= 0 && totalAmmo > 0)
         {
             reloading = true;
             timer = reloadDuration;

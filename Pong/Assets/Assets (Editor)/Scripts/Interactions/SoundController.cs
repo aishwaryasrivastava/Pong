@@ -27,7 +27,7 @@ public class SoundController : MonoBehaviour {
 		}
 		var t = guns.GetComponent<PlayerWeaponEquip>();
 		if (!t.weapons [0].activeSelf) {
-			if ((Input.GetKeyDown (KeyCode.R)) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount) {
+			if ((Input.GetAxis("Reload") > 0) && guns.activeSelf && tmp.magazineSize != tmp.ammoCount) {
 				PlayReload ();
 			}
 		}

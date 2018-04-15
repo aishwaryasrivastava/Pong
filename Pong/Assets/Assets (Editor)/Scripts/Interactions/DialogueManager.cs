@@ -92,7 +92,7 @@ public class DialogueManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.Escape))
+        if (Input.GetAxis("Cancel") > 0)
 		{
 			if (talking) EndDialogue ();
 		}

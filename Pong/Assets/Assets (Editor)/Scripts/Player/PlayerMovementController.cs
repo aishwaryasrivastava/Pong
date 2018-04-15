@@ -10,6 +10,8 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody rb;
     public Text RepText;
 
+    private bool pauseChange = false;
+
 
     public float CurrentSoundOutput;
 
@@ -48,28 +50,27 @@ public class PlayerMovementController : MonoBehaviour
             return;
         }
 
-        //        if (Input.GetKey(KeyCode.W))
         if (Input.GetAxis("Vertical") > 0)
         {
             forward += 1;
         }
-        //if (Input.GetKey(KeyCode.A))
+        
         if (Input.GetAxis("Horizontal") < 0)
         {
             rightward -= 1;
         }
-        //if (Input.GetKey(KeyCode.S))
-            if (Input.GetAxis("Vertical") < 0)
-            {
+        
+        if (Input.GetAxis("Vertical") < 0)
+        {
             forward -= 1;
         }
 
-        //if (Input.GetKey(KeyCode.D))
         if (Input.GetAxis("Horizontal") > 0)
         {
             rightward += 1;
         }
-        if (Input.GetKey(KeyCode.LeftShift) && !crouched)
+
+        if (Input.GetAxis("Run") > 0 && !crouched)
         {
             forward *= 2;
             rightward *= 2;
@@ -102,7 +103,6 @@ public class PlayerMovementController : MonoBehaviour
         if (crouched || slant) return;
         if (Math.Abs(rb.velocity.y) > 0.01) return;
 
-        //if (Input.GetKeyDown(KeyCode.Space))
         if (Input.GetAxis("Jump") > 0)
         {
             rb.velocity += JumpForce * Vector3.up;
@@ -113,7 +113,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (Math.Abs(rb.velocity.y) > 0.01 && !slant) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !crouched)
+        if (Input.GetAxis("Crouch") > 0 && !crouched)
         {
             crouched = true;
             var cameraT = Camera.main.transform;
@@ -121,7 +121,7 @@ public class PlayerMovementController : MonoBehaviour
             head.center -= new Vector3(0, crouchShift/2, 0);
             head.height -= crouchShift;
         }
-        else if (crouched && !Input.GetKey(KeyCode.LeftControl) && !slant)
+        else if (crouched && Input.GetAxis("Crouch") == 0 && !slant)
         {
             crouched = false;
             var cameraT = Camera.main.transform;
@@ -162,11 +162,18 @@ public class PlayerMovementController : MonoBehaviour
 
     private void SettingsTriggers()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetAxis("Pause") > 0)
         {
-            PauseManager.Pause();
-            RepText.text = interact.GetPopularity();
-            PauseMenu.SetActive(PauseManager.Paused);
+            if (!pauseChange)
+            {
+                pauseChange = true;
+                PauseManager.Pause();
+                RepText.text = interact.GetPopularity();
+                PauseMenu.SetActive(PauseManager.Paused);
+            }
+        } else
+        {
+            pauseChange = false;
         }
         if (Input.GetKeyDown(KeyCode.M))
         {

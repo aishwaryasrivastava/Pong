@@ -20,6 +20,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     private int ticker;
     private bool showFps = true;
+    private bool cursorChange, invChange, checkChange;
     public int dmg;
 
     public PlayerMovementController movement;
@@ -143,15 +144,27 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckInventoryControls()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetAxis("Horizontal") < 0)
         {
-            inventory.Scroll(-1);
-			sounds.PlayScroll ();
+            if (!cursorChange)
+            {
+                cursorChange = true;
+                inventory.Scroll(-1);
+                sounds.PlayScroll();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetAxis("Horizontal") > 0)
         {
-            inventory.Scroll(1);
-			sounds.PlayScroll ();
+            if (!cursorChange)
+            {
+                cursorChange = true;
+                inventory.Scroll(1);
+                sounds.PlayScroll();
+            }
+        }
+        else
+        {
+            cursorChange = false;
         }
         if (Input.GetKeyDown(KeyCode.Delete))
         {
@@ -161,84 +174,93 @@ public class PlayerInteractionController : MonoBehaviour
     }
 
     void CheckInteractionControls()
-    {      
+    {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (active[Item] != null)
-            {
-                bool mtp;
-                if (active[Item].GetComponent<Interactable>().type == Interactable.InteractableType.Removable) mtp = true;
-                else mtp = inventory.AddItem(new Pickup(active[Item].GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>()));
-                if (mtp)
-                {
-                    active[Item].gameObject.SetActive(false);
-                    ResetLevel.Add(active[Item]);
-                    sounds.PlayDing();
-                }
-            }
-            else if (active[Door] != null)
-            {
-                var tmp = active[Door].GetComponent<DoorToggle>();
-                var lockedBefore = tmp.Locked;
-                tmp.Toggle(inventory.HaveItem(tmp.code));
 
-                if (tmp.Locked) sounds.PlayLocked();
-                else
+            if (!checkChange)
+            {
+                checkChange = true;
+                if (active[Item] != null)
                 {
-                    if (tmp.Type == DoorToggle.DoorType.Slide) sounds.PlaySlide();
-                    else if (tmp.Type == DoorToggle.DoorType.Swing) sounds.PlaySwing();
+                    bool mtp;
+                    if (active[Item].GetComponent<Interactable>().type == Interactable.InteractableType.Removable) mtp = true;
+                    else mtp = inventory.AddItem(new Pickup(active[Item].GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>()));
+                    if (mtp)
+                    {
+                        active[Item].gameObject.SetActive(false);
+                        ResetLevel.Add(active[Item]);
+                        sounds.PlayDing();
+                    }
+                }
+                else if (active[Door] != null)
+                {
+                    var tmp = active[Door].GetComponent<DoorToggle>();
+                    var lockedBefore = tmp.Locked;
+                    tmp.Toggle(inventory.HaveItem(tmp.code));
 
-                    if (lockedBefore) ResetLevel.Add(active[Door]);
+                    if (tmp.Locked) sounds.PlayLocked();
+                    else
+                    {
+                        if (tmp.Type == DoorToggle.DoorType.Slide) sounds.PlaySlide();
+                        else if (tmp.Type == DoorToggle.DoorType.Swing) sounds.PlaySwing();
+
+                        if (lockedBefore) ResetLevel.Add(active[Door]);
+                    }
                 }
-            }
-            else if (active[Human] != null)
-            {
-                var a = active[Human].GetComponent<NPCScript>();
-                var b = active[Human].GetComponent<GuardScript2>();
-                if (a != null) a.TurnTowardsMe(transform.position);
-                else if (b != null) b.TurnTowardsMe(transform.position);
-                var dia = active[Human].GetComponent<DialogueManager>();
-                movement.EnterConversation(dia);
-                dia.StartDialogue();
-                ResetLevel.Add(active[Human]);
-            }
-            else if (active[Touchable] != null)
-            {
-                var gobj = active[Touchable].gameObject;
-                gameObject.GetComponent<TouchedAction>().enabled = true; // unsure of how to abstract this with our mess of an interaction script
-                active[Touchable] = null;
-            }
-            else if (active[Equip] != null)
-            {
-                var intermNue = active[Equip].transform.GetComponent<Interactable>();
-                switch (intermNue.type)
+                else if (active[Human] != null)
                 {
-                    case Interactable.InteractableType.Pipe:
-                        Equips.SetAble(PlayerWeaponEquip.Pipe);
-                        sounds.PlayDwang();
-                        break;
-                    case Interactable.InteractableType.HandGun:
-                        Equips.SetAble(PlayerWeaponEquip.HandGun);
-                        sounds.PlayEquip();
-                        break;
+                    var a = active[Human].GetComponent<NPCScript>();
+                    var b = active[Human].GetComponent<GuardScript2>();
+                    if (a != null) a.TurnTowardsMe(transform.position);
+                    else if (b != null) b.TurnTowardsMe(transform.position);
+                    var dia = active[Human].GetComponent<DialogueManager>();
+                    movement.EnterConversation(dia);
+                    dia.StartDialogue();
+                    ResetLevel.Add(active[Human]);
                 }
-                active[Equip].gameObject.SetActive(false);
-                ResetLevel.Add(active[Equip]);
-                active[Equip] = null;
+                else if (active[Touchable] != null)
+                {
+                    var gobj = active[Touchable].gameObject;
+                    gameObject.GetComponent<TouchedAction>().enabled = true; // unsure of how to abstract this with our mess of an interaction script
+                    active[Touchable] = null;
+                }
+                else if (active[Equip] != null)
+                {
+                    var intermNue = active[Equip].transform.GetComponent<Interactable>();
+                    switch (intermNue.type)
+                    {
+                        case Interactable.InteractableType.Pipe:
+                            Equips.SetAble(PlayerWeaponEquip.Pipe);
+                            sounds.PlayDwang();
+                            break;
+                        case Interactable.InteractableType.HandGun:
+                            Equips.SetAble(PlayerWeaponEquip.HandGun);
+                            sounds.PlayEquip();
+                            break;
+                    }
+                    active[Equip].gameObject.SetActive(false);
+                    ResetLevel.Add(active[Equip]);
+                    active[Equip] = null;
+                }
+                else if (active[Inspectable] != null)
+                {
+                    uiInspectable = active[Inspectable].GetComponent<InspectableInformation>().Inspectable;
+                    uiInspectable.SetActive(true);
+                    inspectingSomething = !inspectingSomething;
+                    sounds.PlayInspect();
+                }
             }
-            else if (active[Inspectable] != null)
-            {
-                uiInspectable = active[Inspectable].GetComponent<InspectableInformation>().Inspectable;
-                uiInspectable.SetActive(true);
-                inspectingSomething = !inspectingSomething;
-				sounds.PlayInspect ();
-            }
+        }
+        else
+        {
+            checkChange = false;
         }
     }
 
     public void CheckInspectionControls()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // exit code
+        if (Input.GetAxis("Cancel") > 0) // exit code
         {
             inspectingSomething = !inspectingSomething;
             uiInspectable.SetActive(false); // move these into inspectable
@@ -248,31 +270,52 @@ public class PlayerInteractionController : MonoBehaviour
         // clean this up and make the other class do it later or just make this the keypad interaction
         if (active[Inspectable].GetComponent<InspectableInformation>().type == InspectableInformation.Type.Keypad)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetAxis("Horizontal") < 0)
             {
-                active[Inspectable].GetComponent<InspectableInformation>().horMove(-1);
-				sounds.PlayPress ();
+                if (!cursorChange)
+                {
+                    cursorChange = true;
+                    active[Inspectable].GetComponent<InspectableInformation>().horMove(-1);
+                    sounds.PlayPress();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                active[Inspectable].GetComponent<InspectableInformation>().horMove(1);
-				sounds.PlayPress ();
+                if (!cursorChange)
+                {
+                    cursorChange = true;
+                    active[Inspectable].GetComponent<InspectableInformation>().horMove(1);
+                    sounds.PlayPress();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                active[Inspectable].GetComponent<InspectableInformation>().vertMove(1);
-				sounds.PlayPress ();
+                if (!cursorChange)
+                {
+                    cursorChange = true;
+                    active[Inspectable].GetComponent<InspectableInformation>().vertMove(1);
+                    sounds.PlayPress();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                active[Inspectable].GetComponent<InspectableInformation>().vertMove(-1);
-				sounds.PlayPress ();
+                if (!cursorChange)
+                {
+                    cursorChange = true;
+                    active[Inspectable].GetComponent<InspectableInformation>().vertMove(-1);
+                    sounds.PlayPress();
+                }
             }
-            if (Input.GetKeyDown(KeyCode.Return))
+            else if (Input.GetAxis("Submit") > 0)
             {
-                active[Inspectable].GetComponent<InspectableInformation>().pressKey();
-				sounds.PlayPress ();
+                if (!cursorChange)
+                {
+                    cursorChange = true;
+                    active[Inspectable].GetComponent<InspectableInformation>().pressKey();
+                    sounds.PlayPress();
+                }
             }
+            else cursorChange = false;
         }
     }
 
