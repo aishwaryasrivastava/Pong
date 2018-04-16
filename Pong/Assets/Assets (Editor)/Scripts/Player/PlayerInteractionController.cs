@@ -37,12 +37,14 @@ public class PlayerInteractionController : MonoBehaviour
 
 	public Dictionary<string,int> Reputation = new Dictionary<string,int>();
 	public SimpleHealthBar healthBar;
+    public Text healthText;
 
 	public float curHealth;
 	public float maxHealth;
     void Start()
     {
 		healthBar.UpdateBar (curHealth, maxHealth);
+        healthBar.displayText = SimpleHealthBar.DisplayText.CurrentAndMaxValues;
         fps.gameObject.SetActive(true);
 		populateReputation ();
     }
