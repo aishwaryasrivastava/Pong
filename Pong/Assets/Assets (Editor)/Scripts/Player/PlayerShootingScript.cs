@@ -10,10 +10,9 @@ public class PlayerShootingScript : MonoBehaviour
     public int totalAmmo;
     public int magazineSize;
     private float timer;
-    public float recoil;
+    public float Recoil { get; private set; }
     public int damage = 30;
     public float fireGap = 0.1f;
-    private float MaxRecoilShift = 15;
     private const float flareDuration = 0.03f;
 
     public ToggleScript ammoMcCount;
@@ -30,17 +29,16 @@ public class PlayerShootingScript : MonoBehaviour
 
     void Start()
     {
-        reloadDuration = 2f;
         reloading = false;
         ammoCount = magazineSize;
-
+        Recoil = 0;
+        timer = 0;
         magazine = transform.Find("Magazine");
         magazinePositionBackup = magazine.localPosition;
         shell = transform.Find("Shell");
         shellPositionBackup = shell.localPosition;
         flare = transform.Find("Flare").gameObject;
         flare.SetActive(false);
-
         ammoMcCount.UpdateValue(ammoCount, totalAmmo);
 		sounds = gameObject.GetComponentInParent<SoundController> ();
     }
@@ -70,10 +68,10 @@ public class PlayerShootingScript : MonoBehaviour
             timer -= Time.deltaTime;
             shell.Translate(10 * Time.deltaTime, 5 * Time.deltaTime, 0);
         }
-        if (recoil > 0)
+        if (Recoil > 0)
         {
-            Recoil(-Time.deltaTime * 20);
-            if (recoil < 0) recoil = 0;
+            DoRecoil(-Time.deltaTime * 20);
+            if (Recoil < 0) { Recoil = 0; }
         }
         if (timer <= fireGap - flareDuration)
         {
@@ -81,9 +79,9 @@ public class PlayerShootingScript : MonoBehaviour
         }
     }
 
-    private void Recoil(float shift)
+    private void DoRecoil(float shift)
     {
-        recoil += shift;
+        Recoil += shift;
         //gun.Rotate(-shift/2, 0, 0);
         transform.Translate(0, 0, -shift/200);
     }
@@ -103,9 +101,7 @@ public class PlayerShootingScript : MonoBehaviour
         ammoCount--;
         ammoMcCount.UpdateValue(ammoCount, totalAmmo);
         timer = fireGap;
-        Recoil(damage/10f);
-        
-
+        DoRecoil(damage/10f);
         if (gameObject.CompareTag ("AK")) {
 			sounds.PlayShoot ();
 		} else if (gameObject.CompareTag ("Colt")) {
@@ -146,5 +142,9 @@ public class PlayerShootingScript : MonoBehaviour
             }
             ammoMcCount.UpdateValue(ammoCount, totalAmmo);
         }
+    }
+    Vector3 RandomizedShot(Vector3 direction, float recoil)
+    {
+        return direction + (new Vector3(Random.Range(-recoil, recoil), Random.Range(-recoil, recoil), Random.Range(-recoil, recoil))) / 100;
     }
 }

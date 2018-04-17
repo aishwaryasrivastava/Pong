@@ -8,7 +8,7 @@ public class CameraRecoiler : MonoBehaviour
     public float GetCurrentRecoil()
     {
         var tmp = Checks.FirstOrDefault(g => g.isActiveAndEnabled);
-        value = tmp == null ? 0 : tmp.recoil;
+        value = tmp == null ? 0 : tmp.Recoil;
         return value;
     }
 }
