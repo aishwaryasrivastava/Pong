@@ -128,9 +128,14 @@ public class PlayerInteractionController : MonoBehaviour
                 //these are just things that bring up text, not interactable
                 UIConfirm.gameObject.SetActive(false);
                 break;
-            case Interactable.InteractableType.Touchable:
+            case Interactable.InteractableType.Triggerable:
                 // things that do things when hit E on that aren't special
                 active[Touchable] = hit.transform;
+                if (!active[Touchable].GetComponent<TriggerAction>().CheckRequirement())
+                {
+                    UIConfirm.color = new Color(1, 0, 0, 0.8f);
+                    GoingGreen = false;
+                }
                 break;
         }
         if (GoingGreen && intermNue.GoodString.Length > 0)
@@ -224,8 +229,8 @@ public class PlayerInteractionController : MonoBehaviour
                 }
                 else if (active[Touchable] != null)
                 {
-                    var gobj = active[Touchable].gameObject;
-                    gameObject.GetComponent<TouchedAction>().enabled = true; // unsure of how to abstract this with our mess of an interaction script
+                    var gobj = active[Touchable].gameObject.GetComponent<TriggerAction>();
+                    if (gobj.CheckRequirement()) gobj.Activate();
                     active[Touchable] = null;
                 }
                 else if (active[Equip] != null)
@@ -410,6 +415,11 @@ public class PlayerInteractionController : MonoBehaviour
     public string GetPopularity()
     {
         return "Current Reputation\n" + Reputation.Aggregate("", (current, set) => current + (set.Key + ": " + set.Value + "\n"));
+    }
+
+    public int GetTotalPopularity()
+    {
+        return Reputation.Values.Sum();
     }
 
 	public void TakeDamage(int damage){

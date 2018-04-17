@@ -119,6 +119,27 @@ public class Inventory : MonoBehaviour
     {
         return inventory.Any(g => g.ItemId.Equals(id));
     }
+    public bool HaveMultiItem(string id, int amount)
+    {
+        var count = inventory.Count(item => item.ItemId.Equals(id));
+        return count >= amount;
+    }
+
+    public bool HaveItemAdvanced(params string[] items)
+    {
+        foreach (var query in items)
+        {
+            if (char.IsDigit(query[0]))
+            {
+                if (!HaveMultiItem(query.Substring(1), int.Parse(query[0].ToString()))) return false;
+            }
+            else
+            {
+                if (!HaveItem(query)) return false;
+            }
+        }
+        return true;
+    }
 
     public void RemoveThis(string id)
     {

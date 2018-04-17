@@ -10,7 +10,7 @@ public class ResetLevel : MonoBehaviour
     public static void Add(Transform t)
     {
         if (!resettables.Contains(t)) resettables.Add(t);
-        Debug.Log("Adding a " + t.name + " to reset");
+        //Debug.Log("Adding a " + t.name + " to reset");
     }
 
     public static void ResetChanges()
@@ -32,6 +32,10 @@ public class ResetLevel : MonoBehaviour
                     var tmp = r.gameObject.GetComponent<ShotAtScriptHuman>();
                     if (tmp != null) tmp.ResetSelf();
 
+                }
+                else if (r.CompareTag("Redisable"))
+                {
+                    r.gameObject.SetActive(false);
                 }
                 else
                 {

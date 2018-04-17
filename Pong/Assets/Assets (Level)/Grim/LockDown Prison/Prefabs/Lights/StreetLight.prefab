@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3335054}
   - component: {fileID: 2343522}
   - component: {fileID: 6418498}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: StreetLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 3315492}
   - component: {fileID: 2334342}
   - component: {fileID: 6473530}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143372}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 7.935631, y: -0.52999973, z: -43.61}
+  m_LocalPosition: {x: 7.935631, y: -0.52999973, z: -46.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479374}
@@ -154,7 +154,7 @@ MeshCollider:
   m_GameObject: {fileID: 143372}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -194,12 +194,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4650155845762970}
   - component: {fileID: 108434442183204190}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 16
   m_IsActive: 1
 --- !u!4 &4650155845762970
 Transform:
@@ -229,7 +229,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -242,7 +242,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1572865
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

@@ -20,14 +20,10 @@ TagManager:
   - cp4
   - Guard
   - AngleFloor
-  - Item
   - DestroyableAutoReset
   - DestroyableDelete
   - Human
-  - HandGun
-  - AK
-  - Colt
-  - Rifle
+  - Redisable
   layers:
   - Default
   - TransparentFX
