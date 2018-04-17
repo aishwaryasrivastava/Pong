@@ -17295,7 +17295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
-  GoodString: Something tells me this isn't a feature yet
+  GoodString: Something tells me this might be a feature
   BadString: 
 --- !u!1001 &414505657
 Prefab:
@@ -70934,8 +70934,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1792109008}
-  m_LocalRotation: {x: -0.0075569344, y: 0.86042213, z: 0.004366565, w: 0.5095072}
-  m_LocalPosition: {x: -14.998686, y: 2, z: -32.00658}
+  m_LocalRotation: {x: 0, y: 0.86047095, z: 0, w: 0.5094995}
+  m_LocalPosition: {x: -14.993, y: 1.66, z: -32.007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2111342480}
@@ -70944,7 +70944,7 @@ Transform:
   - {fileID: 1010451435}
   m_Father: {fileID: 1107058956}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -0.87200004, y: 118.739006, z: -0.49}
+  m_LocalEulerAnglesHint: {x: 0, y: 118.739006, z: 0}
 --- !u!114 &1792109010
 MonoBehaviour:
   m_ObjectHideFlags: 0
