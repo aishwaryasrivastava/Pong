@@ -6,7 +6,7 @@ public class GuardScript3 : MonoBehaviour {
 
 	public Transform player;
 
-    public float attackDistance, runningDistance, speed, walkingSpeed;
+    public float attackDistance, runningDistance, speed, walkingSpeed, hearingDistance;
 
 	public bool found;
 	public bool damaged = false;
@@ -48,7 +48,7 @@ public class GuardScript3 : MonoBehaviour {
 	void FixedUpdate ()
 	{
         // Makes the guard turn around and check behind him every once in a while
-        if (checking)
+		if ((checking) && !found)
         {
             anim.ToIdle();
             transformUpdate(0);
@@ -57,11 +57,11 @@ public class GuardScript3 : MonoBehaviour {
             {
                 idleTime = 0;
                 checking = false;
-                turnAround();
+                //turnAround();
 
             }
         }
-        else
+		if((!checking) && (!found))
         {
 
             if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
@@ -70,7 +70,7 @@ public class GuardScript3 : MonoBehaviour {
                 timeSinceTurned = 0;
                 timeToTurn = Random.Range(500, 2000);
                 checking = true;
-                turnAround();
+                //turnAround();
             }
         }
 
@@ -136,13 +136,15 @@ public class GuardScript3 : MonoBehaviour {
 
 		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.3) && found) || (found && player.transform.position.z < 17.0f)) {
 			inRoom = true;
-		} else {
-			inRoom = false;
-		}
+		} 
 
 		if (health < 0) {
 			died = true;
 			anim.ToDied ();
+		}
+		var tmp3 = playerMan.GetComponent<PlayerMovementController> ();
+		if((tmp3.CurrentSoundOutput > 0) && (Vector3.Distance (player.position, transform.position) < hearingDistance)){
+			found = true;
 		}
 	}
 
@@ -150,8 +152,8 @@ public class GuardScript3 : MonoBehaviour {
     {
         if (collision.gameObject == friend)
         {
-            turnAround();
-
+            //turnAround();
+			checking = true;
         }
     }
     private void OnTriggerEnter(Collider other){
