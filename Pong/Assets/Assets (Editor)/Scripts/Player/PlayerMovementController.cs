@@ -265,6 +265,7 @@ public class PlayerMovementController : MonoBehaviour
 
 public static class PauseManager
 {
+    public static bool AOn = true;
     public static bool Paused { get; private set; }
     public static bool Muted { get; private set; }
     private static bool pauseMute;

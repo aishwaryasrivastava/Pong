@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.PostProcessing;
 
 public class PlayerInteractionController : MonoBehaviour
 {
@@ -351,6 +352,11 @@ public class PlayerInteractionController : MonoBehaviour
         {
             showFps = !showFps;
             fps.gameObject.SetActive(showFps);
+        }
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            var tmp = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+            tmp.ambientOcclusion.enabled = !tmp.ambientOcclusion.enabled;
         }
         ticker++;
         if (ticker > 100)

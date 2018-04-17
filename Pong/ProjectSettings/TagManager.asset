@@ -24,6 +24,10 @@ TagManager:
   - DestroyableAutoReset
   - DestroyableDelete
   - Human
+  - HandGun
+  - AK
+  - Colt
+  - Rifle
   layers:
   - Default
   - TransparentFX
@@ -33,20 +37,20 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Armory
+  - L1Hall
+  - Cells
+  - Storage
+  - L2enter
+  - Boxes
+  - Conf
+  - Bath
+  - L2Hall
+  - Kitchen
+  - Range
+  - L3enter
+  - L3
+  - Other
   - 
   - 
   - 

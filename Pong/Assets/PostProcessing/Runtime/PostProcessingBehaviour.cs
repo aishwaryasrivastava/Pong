@@ -116,7 +116,7 @@ namespace UnityEngine.PostProcessing
 
             // Prepare components
             m_DebugViews.Init(context, profile.debugViews);
-            m_AmbientOcclusion.Init(context, profile.ambientOcclusion);
+            if (PauseManager.AOn) m_AmbientOcclusion.Init(context, profile.ambientOcclusion);
             m_ScreenSpaceReflection.Init(context, profile.screenSpaceReflection);
             m_FogComponent.Init(context, profile.fog);
             m_MotionBlur.Init(context, profile.motionBlur);
@@ -164,7 +164,7 @@ namespace UnityEngine.PostProcessing
 
             // Command buffer-based effects should be set-up here
             TryExecuteCommandBuffer(m_DebugViews);
-            TryExecuteCommandBuffer(m_AmbientOcclusion);
+            if (PauseManager.AOn) TryExecuteCommandBuffer(m_AmbientOcclusion);
             TryExecuteCommandBuffer(m_ScreenSpaceReflection);
             TryExecuteCommandBuffer(m_FogComponent);
 
