@@ -178,7 +178,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     void CheckInteractionControls()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetAxis("Interact") > 0)
         {
 
             if (!checkChange)
@@ -282,7 +282,7 @@ public class PlayerInteractionController : MonoBehaviour
                     sounds.PlayPress();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetAxis("Horizontal") > 0)
             {
                 if (!cursorChange)
                 {
@@ -291,7 +291,7 @@ public class PlayerInteractionController : MonoBehaviour
                     sounds.PlayPress();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetAxis("Vertical") > 0)
             {
                 if (!cursorChange)
                 {
@@ -300,7 +300,7 @@ public class PlayerInteractionController : MonoBehaviour
                     sounds.PlayPress();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetAxis("Vertical") < 0)
             {
                 if (!cursorChange)
                 {
@@ -373,7 +373,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (movement.AmBusy()) return;
 
         
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetAxis("Inventory") > 0)
         {
             InventoryActive = !InventoryActive;
             if(InventoryActive) UIConfirm.gameObject.SetActive(false);
