@@ -20,7 +20,7 @@ public class PlayerInteractionController : MonoBehaviour
     private float timer;
 
     private int ticker;
-    private bool showFps = true;
+    private bool showFps;
     private bool cursorChange, invChange, checkChange;
     public int dmg;
 
@@ -46,7 +46,7 @@ public class PlayerInteractionController : MonoBehaviour
     {
 		healthBar.UpdateBar (curHealth, maxHealth);
         healthBar.displayText = SimpleHealthBar.DisplayText.CurrentAndMaxValues;
-        fps.gameObject.SetActive(true);
+        fps.gameObject.SetActive(showFps);
 		populateReputation ();
     }
 

@@ -94,9 +94,7 @@ public class PlayerMovementController : MonoBehaviour
         
         transform.localRotation = Quaternion.Euler(0, currentRotation.x, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(currentRotation.y-shootGun.GetCurrentRecoil(), 0, 0);
-    }
-
-    
+    } 
 
     void CheckJump()
     {
