@@ -13,10 +13,9 @@ public class PlayerShootingScript : MonoBehaviour
     public float Recoil { get; private set; }
     public int damage = 30;
     public float fireGap = 0.1f;
+    private Vector3 tmp;
     private const float flareDuration = 0.03f;
-
     public ToggleScript ammoMcCount;
-
     private RaycastHit Shot;
     private GameObject flare;
     private Transform magazine;
@@ -90,12 +89,13 @@ public class PlayerShootingScript : MonoBehaviour
     {
         flare.SetActive(true);
         shell.localPosition = shellPositionBackup;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out Shot))
+        tmp = RandomizedShot(Camera.main.transform.forward, Recoil).normalized;
+        if (Physics.Raycast(Camera.main.transform.position, tmp, out Shot))
         {
             var h = Shot.transform.GetComponent<ShotAtScript>();
             if (h != null)
             {
-                h.ShotAt(damage * Camera.main.transform.forward);
+                h.ShotAt(damage * tmp);
             }
         }
         ammoCount--;
