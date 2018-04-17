@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AISoundController : MonoBehaviour {
 
-	public AudioClip hitSound, died;
+	public AudioClip hitSound, died, hey;
 	public AudioClip[] ouch = new AudioClip[8];
 	public AudioSource source;
 	// Use this for initialization
@@ -24,5 +24,9 @@ public class AISoundController : MonoBehaviour {
 
 	public void PlayDied(){
 		source.PlayOneShot(died, lowVol);
+	}
+
+	public void PlayHey(){
+		source.PlayOneShot(hey, lowVol);
 	}
 }

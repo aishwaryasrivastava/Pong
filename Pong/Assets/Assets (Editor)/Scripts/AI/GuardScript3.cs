@@ -10,6 +10,7 @@ public class GuardScript3 : MonoBehaviour {
 
 	public bool found;
 	public bool damaged = false;
+	public bool attention = true;
 
 	public BoxCollider vision;
 
@@ -145,6 +146,12 @@ public class GuardScript3 : MonoBehaviour {
 		var tmp3 = playerMan.GetComponent<PlayerMovementController> ();
 		if((tmp3.CurrentSoundOutput > 0) && (Vector3.Distance (player.position, transform.position) < hearingDistance)){
 			found = true;
+		}
+
+		if (found && attention) {
+			attention = false;
+			var tmp4 = guard.GetComponent<AISoundController> ();
+			tmp4.PlayHey ();
 		}
 	}
 

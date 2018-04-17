@@ -14277,7 +14277,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 12}
+  m_Size: {x: 3, y: 2, z: 12}
   m_Center: {x: 0, y: 1.25, z: 6.5}
 --- !u!114 &311711597
 MonoBehaviour:
@@ -18159,6 +18159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: b59391369599c6d4bb89c7c448577202, type: 3}
   died: {fileID: 8300000, guid: 3d99ce34e6f299541b970e969f70b622, type: 3}
+  hey: {fileID: 0}
   ouch:
   - {fileID: 8300000, guid: 032a4f39620b7994aa36483d2e211ff1, type: 3}
   - {fileID: 8300000, guid: 9e4c5f2327fc67c49ac5c94471e3107a, type: 3}
@@ -33870,6 +33871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: b59391369599c6d4bb89c7c448577202, type: 3}
   died: {fileID: 8300000, guid: 3d99ce34e6f299541b970e969f70b622, type: 3}
+  hey: {fileID: 0}
   ouch:
   - {fileID: 8300000, guid: 032a4f39620b7994aa36483d2e211ff1, type: 3}
   - {fileID: 8300000, guid: 9e4c5f2327fc67c49ac5c94471e3107a, type: 3}
@@ -40534,7 +40536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: cake
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_StaticEditorFlags
@@ -43075,7 +43077,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 12}
+  m_Size: {x: 3, y: 2, z: 12}
   m_Center: {x: 0, y: 1.25, z: 6.5}
 --- !u!114 &1054176821
 MonoBehaviour:
@@ -69195,6 +69197,11 @@ Prefab:
       propertyPath: hearingDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114551561760961474, guid: b1d9f83929c99f647918de375a42e596,
+        type: 2}
+      propertyPath: hey
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a17fcca7ee164b2c9db781c0f6b0a66, type: 3}
     m_RemovedComponents:
     - {fileID: 114331111445525966, guid: b1d9f83929c99f647918de375a42e596, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b1d9f83929c99f647918de375a42e596, type: 2}
@@ -70829,6 +70836,7 @@ MonoBehaviour:
   hearingDistance: 3
   found: 0
   damaged: 0
+  attention: 1
   vision: {fileID: 0}
   target: {fileID: 1312321913}
   playerMan: {fileID: 113493812}
@@ -70856,6 +70864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: b59391369599c6d4bb89c7c448577202, type: 3}
   died: {fileID: 8300000, guid: 3d99ce34e6f299541b970e969f70b622, type: 3}
+  hey: {fileID: 8300000, guid: 6a17fcca7ee164b2c9db781c0f6b0a66, type: 3}
   ouch:
   - {fileID: 8300000, guid: 032a4f39620b7994aa36483d2e211ff1, type: 3}
   - {fileID: 8300000, guid: 9e4c5f2327fc67c49ac5c94471e3107a, type: 3}
