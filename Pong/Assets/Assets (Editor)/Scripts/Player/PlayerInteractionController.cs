@@ -198,7 +198,13 @@ public class PlayerInteractionController : MonoBehaviour
                     {
                         active[Item].gameObject.SetActive(false);
                         ResetLevel.Add(active[Item]);
-                        sounds.PlayDing();
+						if (active [Item].CompareTag ("cake")) {
+							generateHealth ();
+						}else if(active [Item].CompareTag ("airCon")){
+							sounds.PlaySlash ();
+						}else {
+							sounds.PlayDing();
+						}
                     }
                 }
                 else if (active[Door] != null)
@@ -422,15 +428,25 @@ public class PlayerInteractionController : MonoBehaviour
         return Reputation.Values.Sum();
     }
 
+	public void generateHealth(){
+		curHealth += 3;
+		sounds.PlayEat ();
+		if (curHealth > maxHealth) {
+			curHealth = maxHealth;
+		}
+		healthBar.UpdateBar (curHealth, maxHealth);
+	}
+
 	public void TakeDamage(int damage){
         if (!movement.Blocking)
         {
             curHealth -= damage;
             healthBar.UpdateBar(curHealth, maxHealth);
-            if (curHealth < 3)
-            {
-                healthBar.UpdateColor(Color.red);
-            }
+			if (curHealth < 3) {
+				healthBar.UpdateColor (Color.red);
+			} else {
+				healthBar.UpdateColor (Color.green);
+			}
         } else
         {
 
@@ -463,7 +479,7 @@ public class Pickup
         Type = t;
         AssignImage(c);
     }
-
+		
     private void AssignImage(ItemIconHolder container)
     {
         switch (Type)

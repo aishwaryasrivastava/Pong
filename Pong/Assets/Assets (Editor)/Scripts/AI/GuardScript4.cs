@@ -29,7 +29,7 @@ public class GuardScript4 : MonoBehaviour
     private Quaternion initialRot;
     private int initialPoint;
     private Vector3 Goal;
-
+	private Boolean attention = true;
     //GuardAnimHandler anim;
 	Guard4AnimHandler anim;
     private NavMeshAgent agent;
@@ -196,6 +196,11 @@ public class GuardScript4 : MonoBehaviour
                 PlayerIsGood();
             }
         }
+		if(See && attention){
+			attention = false;
+			var tmp = gameObject.GetComponent<AISoundController> ();
+			tmp.PlayHey ();
+		}
     }
 
     void PlayerInBounds()

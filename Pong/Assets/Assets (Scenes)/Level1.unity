@@ -6931,7 +6931,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113493812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.93, y: 2.42, z: 13.53}
+  m_LocalPosition: {x: 8.41, y: 2.42, z: 33.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312321918}
@@ -6989,6 +6989,7 @@ MonoBehaviour:
   dwang: {fileID: 8300000, guid: 1b7810d092d29eb419fe43017c6a3ec1, type: 3}
   scroll: {fileID: 8300000, guid: ae0801339b90a41d58f3b568a9943510, type: 3}
   delete: {fileID: 8300000, guid: f02e1cfbfa3064be0acccbbc7e750507, type: 3}
+  slash: {fileID: 8300000, guid: 811d36b4845c63a42a32f3e13ab3a5d9, type: 3}
   m4: {fileID: 8300000, guid: a8ecc0cd64941e04aa603565f2b8bada, type: 3}
   handgun: {fileID: 8300000, guid: 4d6281aa604094f04839cffa502096c0, type: 3}
   sniper: {fileID: 8300000, guid: 4992ab19c07779b4c89d607a9c83d440, type: 3}
@@ -6998,6 +6999,7 @@ MonoBehaviour:
   pass: {fileID: 8300000, guid: 311ec0e3ddc71474eb5f91f03161f401, type: 3}
   select: {fileID: 8300000, guid: 0d3b4c2d4887644c98500ea677917ff4, type: 3}
   drag: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
+  eat: {fileID: 8300000, guid: 54b23f1452679449bb996c6fea252473, type: 3}
   swing:
   - {fileID: 8300000, guid: d261d5fc8420f024fbd7b0e1d950d3ae, type: 3}
   - {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
@@ -7111,7 +7113,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 115080252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4, y: 1, z: 44.66}
+  m_LocalPosition: {x: -7.4, y: 1, z: 43.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1226539903}
@@ -14277,7 +14279,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 12}
+  m_Size: {x: 2.5, y: 2, z: 12}
   m_Center: {x: 0, y: 1.25, z: 6.5}
 --- !u!114 &311711597
 MonoBehaviour:
@@ -24199,7 +24201,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611827657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.84, y: 1, z: 43.340004}
+  m_LocalPosition: {x: 6.95, y: 1, z: 43.340004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1226539903}
@@ -33871,7 +33873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: b59391369599c6d4bb89c7c448577202, type: 3}
   died: {fileID: 8300000, guid: 3d99ce34e6f299541b970e969f70b622, type: 3}
-  hey: {fileID: 0}
+  hey: {fileID: 8300000, guid: 6a17fcca7ee164b2c9db781c0f6b0a66, type: 3}
   ouch:
   - {fileID: 8300000, guid: 032a4f39620b7994aa36483d2e211ff1, type: 3}
   - {fileID: 8300000, guid: 9e4c5f2327fc67c49ac5c94471e3107a, type: 3}
@@ -37335,7 +37337,6 @@ MonoBehaviour:
   ammoCount: 5
   totalAmmo: 0
   magazineSize: 5
-  recoil: 0
   damage: 150
   fireGap: 1.5
   ammoMcCount: {fileID: 231788140}
@@ -39829,7 +39830,6 @@ MonoBehaviour:
   ammoCount: 30
   totalAmmo: 60
   magazineSize: 30
-  recoil: 0
   damage: 35
   fireGap: 0.1
   ammoMcCount: {fileID: 231788140}
@@ -40471,6 +40471,10 @@ Prefab:
     - target: {fileID: 170596, guid: abb313b33d52f704598af68e21658af5, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 170596, guid: abb313b33d52f704598af68e21658af5, type: 2}
+      propertyPath: m_TagString
+      value: airCon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abb313b33d52f704598af68e21658af5, type: 2}
@@ -43077,7 +43081,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 12}
+  m_Size: {x: 2.5, y: 2, z: 12}
   m_Center: {x: 0, y: 1.25, z: 6.5}
 --- !u!114 &1054176821
 MonoBehaviour:
@@ -44146,7 +44150,6 @@ MonoBehaviour:
   ammoCount: 10
   totalAmmo: 20
   magazineSize: 10
-  recoil: 0
   damage: 20
   fireGap: 0.2
   ammoMcCount: {fileID: 231788140}
@@ -54015,7 +54018,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312321913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: -5.31, y: 0.75, z: -22.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 663967638}
@@ -54074,7 +54077,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e5d10eb598108a4468739dcea939e027, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.735
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -54884,7 +54887,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1342961473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.79, y: 1, z: 29.27}
+  m_LocalPosition: {x: -7.91, y: 1, z: 29.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1226539903}
@@ -64314,7 +64317,6 @@ MonoBehaviour:
   ammoCount: 35
   totalAmmo: 0
   magazineSize: 35
-  recoil: 0
   damage: 30
   fireGap: 0.09
   ammoMcCount: {fileID: 231788140}
@@ -70850,6 +70852,10 @@ MonoBehaviour:
   initialRot: {x: 0, y: 180, z: 0, w: 0}
   anim: {fileID: 0}
   myOrientation: 0
+  comeback: 0
+  checking: 0
+  inRoom: 0
+  died: 0
   health: 300
 --- !u!114 &1767305568
 MonoBehaviour:
