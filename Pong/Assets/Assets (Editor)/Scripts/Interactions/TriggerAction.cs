@@ -81,6 +81,7 @@ public class TriggerAction : MonoBehaviour
         {
             transform.Translate(0, 500, 0);
             if (Activation != null) interact.gameObject.GetComponent<AudioSource>().PlayOneShot(Activation, 0.7f);
+            ResetLevel.Add(transform);
             gameObject.SetActive(false);
         }   
         else if (Activation != null) interact.gameObject.GetComponent<AudioSource>().PlayOneShot(Activation, 0.7f);

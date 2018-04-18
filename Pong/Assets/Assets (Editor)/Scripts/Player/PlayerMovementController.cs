@@ -11,7 +11,7 @@ public class PlayerMovementController : MonoBehaviour
     public Text RepText;
 
     private bool pauseChange = false;
-
+    private bool LockedCamera;
 
     public float CurrentSoundOutput;
 
@@ -85,8 +85,13 @@ public class PlayerMovementController : MonoBehaviour
         rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
     }
 
+    public void LockCamera()
+    {
+        LockedCamera = true;
+    }
     void MoveWithMouse()
     {
+        if (LockedCamera) return;
         currentRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
         currentRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
         currentRotation.x = Mathf.Repeat(currentRotation.x, 360);
@@ -140,6 +145,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
+        if (PauseManager.Halted) return;
         SettingsTriggers();
         
 		if (slant && moving)
@@ -223,7 +229,12 @@ public class PlayerMovementController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-	    if (interact.InventoryActive || interact.inspectingSomething || (dialog != null && dialog.talking) || PauseManager.Paused)
+	    if (PauseManager.Halted)
+	    {
+	        MoveWithMouse();
+            return;
+	    }
+        if (interact.InventoryActive || interact.inspectingSomething || (dialog != null && dialog.talking) || PauseManager.Paused)
 	    {
 	        soundControl.UpdateMovementSounds(false, false, false);
             return;
@@ -263,7 +274,7 @@ public class PlayerMovementController : MonoBehaviour
 
 public static class PauseManager
 {
-    public static bool AOn = true;
+    public static bool Halted { get; private set; }
     public static bool Paused { get; private set; }
     public static bool Muted { get; private set; }
     private static bool pauseMute;
@@ -283,5 +294,10 @@ public static class PauseManager
             pauseMute = !pauseMute;
             AudioListener.volume = pauseMute ? 0 : 1;
         }
+    }
+
+    public static void Halt()
+    {
+        Halted = !Halted;
     }
 }

@@ -374,11 +374,12 @@ public class PlayerInteractionController : MonoBehaviour
     void Update()
     {
         UpdateFps();
+        if (PauseManager.Halted) return;
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return;
 
         
-        if (Input.GetAxis("Inventory") > 0)
+        if (Input.GetKeyDown(KeyCode.I))
         {
             InventoryActive = !InventoryActive;
             if(InventoryActive) UIConfirm.gameObject.SetActive(false);
