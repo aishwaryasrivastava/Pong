@@ -15,6 +15,7 @@ public class PlayerSoundControll : MonoBehaviour {
     {
         //Debug.Log(moving +" "+ running +" "+ offGround);
         var tmp = offGround || !moving;
+		var tmp2 = gameObject.GetComponentInParent<PlayerMovementController> ();
         if (tmp)
         {
             if (lastNone) return;
@@ -32,6 +33,9 @@ public class PlayerSoundControll : MonoBehaviour {
             if (lastMove && !lastRun) return;
             if (run.isPlaying) run.Stop();
             if (!walk.isPlaying) walk.Play();
+			if (tmp2.slant) {
+				walk.Stop ();
+			}
         }
         lastMove = moving;
         lastRun = running;

@@ -202,6 +202,8 @@ public class PlayerInteractionController : MonoBehaviour
 							generateHealth ();
 						}else if(active [Item].CompareTag ("airCon")){
 							sounds.PlaySlash ();
+						}else if(active [Item].CompareTag ("keys")){
+							sounds.PlayKeys ();
 						}else {
 							sounds.PlayDing();
 						}

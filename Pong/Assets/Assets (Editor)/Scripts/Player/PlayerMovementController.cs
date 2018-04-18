@@ -18,7 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     public CapsuleCollider head;
 
     public bool crouched;
-    private bool slant;
+	public bool slant;
 	private bool onfloor;
     public bool Blocking;
 
@@ -78,8 +78,9 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
-
-        moving = true;
+		if ((!crouched) || slant) {
+			moving = true;
+		}
         var tmp = MovementMult*transform.TransformDirection(new Vector3(rightward, 0, forward)).normalized;
         if (running) tmp *= 1.7f;
         rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
@@ -141,13 +142,12 @@ public class PlayerMovementController : MonoBehaviour
     void Update()
     {
         SettingsTriggers();
-        
-		if (slant && moving)
-        {
-			var tmp = gameObject.GetComponent<SoundController> ();
+		var tmp = gameObject.GetComponent<SoundController> ();
+		if (slant && moving) {
+			//var tmp = gameObject.GetComponent<SoundController> ();
 			tmp.PlayDrag ();
 		} 
-		if (slant && !moving)
+		if((slant && !moving) )
         {
 			gameObject.GetComponent<AudioSource> ().Stop ();
 

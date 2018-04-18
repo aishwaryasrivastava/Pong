@@ -25,12 +25,12 @@ public class MeleeDamage : MonoBehaviour {
     {
 		if ((guard.CompareTag ("hwG2")) || guard.CompareTag ("hwG1")) {
 			var tmp = guard.GetComponent<GuardScript3> ();
-			var tmp2 = GetComponent<Guard2AnimHandler>();
+			var tmp2 = GetComponent<Guard4AnimHandler>();
 			var tmp3 = pipe.GetComponent<PlayerMeleeScript> ();
 			if (tmp3.inAnimation) {
 				tmp.health -= 50;
 				tmp.found = true;
-				tmp2.ToDamaged();
+				tmp2.Damaged();
 			}
 		}else{
         	health--;
