@@ -34,7 +34,7 @@ public class GuardScript3 : MonoBehaviour {
     public enum orientation { Clockwise, CounterClockwise };
     public orientation myOrientation = orientation.Clockwise;
 
-    private bool comeback, checking, inRoom, died = false;
+	public bool comeback, checking, inRoom, died = false;
 
 	public int health = 150;
 
@@ -49,7 +49,7 @@ public class GuardScript3 : MonoBehaviour {
 	void FixedUpdate ()
 	{
         // Makes the guard turn around and check behind him every once in a while
-		if ((checking) && !found)
+		if ((checking) && !found && !comeback)
         {
             anim.ToIdle();
             transformUpdate(0);
@@ -62,7 +62,7 @@ public class GuardScript3 : MonoBehaviour {
 
             }
         }
-		if((!checking) && (!found))
+		if((!checking) && (!found) && !comeback)
         {
 
             if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
@@ -93,7 +93,7 @@ public class GuardScript3 : MonoBehaviour {
                     transformUpdate(walkingSpeed);
                 }
 			} else if (inRoom) {
-				inRoom = false;
+				//inRoom = false;
 
 				GameObject cp = nearestPoint ();
 
@@ -135,20 +135,22 @@ public class GuardScript3 : MonoBehaviour {
 			}
 		}
 
-		if (((player.position.x > 6.7) && found) || ((player.position.x < -10.3) && found) || (found && player.transform.position.z < 17.0f)) {
+		if (((player.position.x > 6.5) && found) || ((player.position.x < -10.6) && found) || (found && player.transform.position.z < 17.0f)) {
 			inRoom = true;
-		} 
+		} else {
+			inRoom = false;
+		}
 
 		if (health < 0) {
 			died = true;
 			anim.ToDied ();
 		}
 		var tmp3 = playerMan.GetComponent<PlayerMovementController> ();
-		if((tmp3.CurrentSoundOutput > 0) && (Vector3.Distance (player.position, transform.position) < hearingDistance)){
+		if((tmp3.CurrentSoundOutput > 0) && (Vector3.Distance (player.position, transform.position) < hearingDistance) && !inRoom && !comeback){
 			found = true;
 		}
 
-		if (found && attention) {
+		if (found && attention && !inRoom) {
 			attention = false;
 			var tmp4 = guard.GetComponent<AISoundController> ();
 			tmp4.PlayHey ();
