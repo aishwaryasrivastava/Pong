@@ -133,7 +133,7 @@ public class SoundController : MonoBehaviour {
 	}
 
 	public void PlayPass(){
-		source.PlayOneShot (pass, lowVol);
+		source.PlayOneShot (pass, 0.4f);
 	}
 
 	public void PlaySelect(){

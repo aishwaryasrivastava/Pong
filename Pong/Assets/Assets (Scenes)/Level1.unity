@@ -6996,7 +6996,7 @@ MonoBehaviour:
   handgun: {fileID: 8300000, guid: 4d6281aa604094f04839cffa502096c0, type: 3}
   sniper: {fileID: 8300000, guid: 4992ab19c07779b4c89d607a9c83d440, type: 3}
   shell: {fileID: 8300000, guid: c50dcf401ede9422da7805612256b5ac, type: 3}
-  inspect: {fileID: 8300000, guid: 745b2b0fcfd084dadb474e26ded272b9, type: 3}
+  inspect: {fileID: 8300000, guid: 54c5476c618d3461b832d0ac4b685a4f, type: 3}
   press: {fileID: 8300000, guid: 13647f37308744cc6bdde37e81838a61, type: 3}
   pass: {fileID: 8300000, guid: 311ec0e3ddc71474eb5f91f03161f401, type: 3}
   select: {fileID: 8300000, guid: 0d3b4c2d4887644c98500ea677917ff4, type: 3}
