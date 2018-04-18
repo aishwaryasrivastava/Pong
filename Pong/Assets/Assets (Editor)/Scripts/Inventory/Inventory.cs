@@ -141,9 +141,25 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public void RemoveThese(params string[] items)
+    {
+        foreach (var query in items)
+        {
+            if (char.IsDigit(query[0]))
+            {
+                for (var i = 0; i < int.Parse(query[0].ToString()); i++) RemoveThis(query.Substring(1));
+            }
+            else
+            {
+                RemoveThis(query);
+            }
+        }
+    }
+
     public void RemoveThis(string id)
     {
-        inventory.Remove(inventory.FirstOrDefault(g => g.ItemId.Equals(id)));
+        var tmp = inventory.FirstOrDefault(g => g.ItemId.Equals(id));
+        if (tmp != null) inventory.Remove(tmp);
     }
 
     public bool Full()
