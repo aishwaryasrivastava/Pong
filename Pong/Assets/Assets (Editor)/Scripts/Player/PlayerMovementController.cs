@@ -153,9 +153,9 @@ public class PlayerMovementController : MonoBehaviour
 			//var tmp = gameObject.GetComponent<SoundController> ();
 			tmp.PlayDrag ();
 		} 
-		if((slant && !moving) )
+		if((slant && !moving) || !slant)
         {
-			gameObject.GetComponent<AudioSource> ().Stop ();
+			tmp.source2.Stop ();
 
 		}
 

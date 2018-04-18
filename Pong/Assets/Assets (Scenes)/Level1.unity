@@ -6725,6 +6725,7 @@ GameObject:
   - component: {fileID: 113493821}
   - component: {fileID: 113493822}
   - component: {fileID: 113493823}
+  - component: {fileID: 113493824}
   m_Layer: 0
   m_Name: PlayerMan
   m_TagString: Player
@@ -6741,11 +6742,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: df86629879932584f8378efed3e25e4b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 280bd9ca18267c143bf649ba53a76d50, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6995,7 +6996,7 @@ MonoBehaviour:
   handgun: {fileID: 8300000, guid: 4d6281aa604094f04839cffa502096c0, type: 3}
   sniper: {fileID: 8300000, guid: 4992ab19c07779b4c89d607a9c83d440, type: 3}
   shell: {fileID: 8300000, guid: c50dcf401ede9422da7805612256b5ac, type: 3}
-  inspect: {fileID: 8300000, guid: 745b2b0fcfd084dadb474e26ded272b9, type: 3}
+  inspect: {fileID: 8300000, guid: 54c5476c618d3461b832d0ac4b685a4f, type: 3}
   press: {fileID: 8300000, guid: 13647f37308744cc6bdde37e81838a61, type: 3}
   pass: {fileID: 8300000, guid: 311ec0e3ddc71474eb5f91f03161f401, type: 3}
   select: {fileID: 8300000, guid: 0d3b4c2d4887644c98500ea677917ff4, type: 3}
@@ -7030,7 +7031,88 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   guns: {fileID: 663967637}
-  source: {fileID: 0}
+  source: {fileID: 113493813}
+  source2: {fileID: 113493824}
+--- !u!82 &113493824
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 113493812}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.215
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &113507626
 GameObject:
   m_ObjectHideFlags: 0
@@ -46489,6 +46571,10 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 34733bc38f75e7549b831309c5ddcbe2, type: 2}
+      propertyPath: m_TagString
+      value: Floor Tile
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 34733bc38f75e7549b831309c5ddcbe2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 34733bc38f75e7549b831309c5ddcbe2, type: 2}
@@ -69771,6 +69857,11 @@ Prefab:
       propertyPath: hey
       value: 
       objectReference: {fileID: 8300000, guid: 6a17fcca7ee164b2c9db781c0f6b0a66, type: 3}
+    - target: {fileID: 114842841818619820, guid: b1d9f83929c99f647918de375a42e596,
+        type: 2}
+      propertyPath: speed
+      value: 0.067
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114331111445525966, guid: b1d9f83929c99f647918de375a42e596, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b1d9f83929c99f647918de375a42e596, type: 2}
@@ -71400,7 +71491,7 @@ MonoBehaviour:
   player: {fileID: 113493820}
   attackDistance: 1.5
   runningDistance: 10
-  speed: 0.065
+  speed: 0.067
   walkingSpeed: 0.025
   hearingDistance: 3
   found: 0
@@ -83770,6 +83861,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 0.20000005, z: 1}
   m_Center: {x: -0.5000001, y: 0.100000024, z: 0.5}
+--- !u!1 &2109731654 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 34733bc38f75e7549b831309c5ddcbe2, type: 2}
+  m_PrefabInternal: {fileID: 1130435282}
+--- !u!65 &2109731657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109731654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: -0.5, y: 0.1, z: 0.5}
+--- !u!65 &2109731658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109731654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: -0.5, y: 0.1, z: 0.5}
 --- !u!1 &2111342479
 GameObject:
   m_ObjectHideFlags: 0
