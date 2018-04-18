@@ -78,12 +78,11 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
-		//if ((!crouched) || slant) {
-			moving = true;
-		//}
+		moving = true;
+
         var tmp = MovementMult*transform.TransformDirection(new Vector3(rightward, 0, forward)).normalized;
         if (running) tmp *= 1.7f;
-		if (crouched) tmp *= 0.55f;
+		if (crouched && !slant) tmp *= 0.55f;
         rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
     }
 

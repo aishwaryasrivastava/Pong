@@ -114,19 +114,19 @@ public class PlayerInteractionController : MonoBehaviour
                     GoingGreen = false;
                 }
                 break;
-            case Interactable.InteractableType.Person:
-                var tmp = hit.transform.GetComponent<PersonalInfo>();
-                if(tmp!=null)sounds.PlayVoice(tmp.serialNum);
-                active[Human] = hit.transform;
-                active[Human].GetComponent<DialogueManager>().LookingAt();
-                break;
+			case Interactable.InteractableType.Person:
+				var tmp = hit.transform.GetComponent<PersonalInfo> ();
+				if (tmp != null)sounds.PlayVoice (tmp.serialNum);
+				active [Human] = hit.transform;
+				active [Human].GetComponent<DialogueManager> ().LookingAt ();
+               	break;
             case Interactable.InteractableType.Pipe:
             case Interactable.InteractableType.HandGun:
                 active[Equip] = hit.transform;
                 break;
-            case Interactable.InteractableType.Observable:
+			case Interactable.InteractableType.Observable:
                 //these are just things that bring up text, not interactable
-                UIConfirm.gameObject.SetActive(false);
+				UIConfirm.gameObject.SetActive (false);
                 break;
             case Interactable.InteractableType.Triggerable:
                 // things that do things when hit E on that aren't special
@@ -224,7 +224,7 @@ public class PlayerInteractionController : MonoBehaviour
                         if (lockedBefore) ResetLevel.Add(active[Door]);
                     }
                 }
-                else if (active[Human] != null)
+				else if ((active[Human] != null) && active[Human].gameObject.GetComponent<PersonalInfo>().talkable)
                 {
 					sounds.PlayEnd ();
                     var a = active[Human].GetComponent<NPCScript>();
