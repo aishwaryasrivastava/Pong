@@ -5,6 +5,7 @@ using UnityEngine;
 public class PersonalInfo : MonoBehaviour {
 
 	public int serialNum;
+	public bool talkable;
 	// Use this for initialization
 	void Start () {
 		

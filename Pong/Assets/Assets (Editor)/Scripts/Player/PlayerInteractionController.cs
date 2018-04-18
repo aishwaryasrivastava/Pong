@@ -21,7 +21,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     private int ticker;
     private bool showFps;
-    private bool cursorChange, invChange, checkChange;
+    private bool cursorChangeX, cursorChangeY, invChange, checkChange, selectChange;
     public int dmg;
 
     public PlayerMovementController movement;
@@ -114,19 +114,21 @@ public class PlayerInteractionController : MonoBehaviour
                     GoingGreen = false;
                 }
                 break;
-            case Interactable.InteractableType.Person:
-                var tmp = hit.transform.GetComponent<PersonalInfo>();
-                if(tmp!=null)sounds.PlayVoice(tmp.serialNum);
-                active[Human] = hit.transform;
-                active[Human].GetComponent<DialogueManager>().LookingAt();
-                break;
+			case Interactable.InteractableType.Person:
+				var tmp = hit.transform.GetComponent<PersonalInfo> ();
+				if (tmp != null)sounds.PlayVoice (tmp.serialNum);
+				active [Human] = hit.transform;
+				active [Human].GetComponent<DialogueManager> ().LookingAt ();
+               	break;
             case Interactable.InteractableType.Pipe:
             case Interactable.InteractableType.HandGun:
+            case Interactable.InteractableType.AK:
+            case Interactable.InteractableType.Colt:
                 active[Equip] = hit.transform;
                 break;
-            case Interactable.InteractableType.Observable:
+			case Interactable.InteractableType.Observable:
                 //these are just things that bring up text, not interactable
-                UIConfirm.gameObject.SetActive(false);
+				UIConfirm.gameObject.SetActive (false);
                 break;
             case Interactable.InteractableType.Triggerable:
                 // things that do things when hit E on that aren't special
@@ -154,25 +156,25 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") < 0)
         {
-            if (!cursorChange)
+            if (!cursorChangeX)
             {
-                cursorChange = true;
+                cursorChangeX = true;
                 inventory.Scroll(-1);
                 sounds.PlayScroll();
             }
         }
         else if (Input.GetAxis("Horizontal") > 0)
         {
-            if (!cursorChange)
+            if (!cursorChangeX)
             {
-                cursorChange = true;
+                cursorChangeX = true;
                 inventory.Scroll(1);
                 sounds.PlayScroll();
             }
         }
         else
         {
-            cursorChange = false;
+            cursorChangeX = false;
         }
         if (Input.GetKeyDown(KeyCode.Delete))
         {
@@ -185,28 +187,48 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (Input.GetAxis("Interact") > 0)
         {
-
             if (!checkChange)
             {
                 checkChange = true;
                 if (active[Item] != null)
                 {
-                    bool mtp;
-                    if (active[Item].GetComponent<Interactable>().type == Interactable.InteractableType.Removable) mtp = true;
-                    else mtp = inventory.AddItem(new Pickup(active[Item].GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>()));
-                    if (mtp)
+                    if (active[Item].GetComponent<Interactable>().type ==
+                        Interactable.InteractableType.Removable)
                     {
                         active[Item].gameObject.SetActive(false);
                         ResetLevel.Add(active[Item]);
-						if (active [Item].CompareTag ("cake")) {
-							generateHealth ();
-						}else if(active [Item].CompareTag ("airCon")){
-							sounds.PlaySlash ();
-						}else if(active [Item].CompareTag ("keys")){
-							sounds.PlayKeys ();
-						}else {
-							sounds.PlayDing();
-						}
+                        if (active[Item].CompareTag("airCon"))
+                        {
+                            sounds.PlaySlash();
+                        }
+                        else
+                        {
+                            sounds.PlayDing();
+                        }
+                    }
+                    else
+                    {
+                        var tmp = new Pickup(active[Item].GetComponent<ItemAttributeInformation>(), GetComponent<ItemIconHolder>());
+                        if (inventory.AddItem(tmp))
+                        {
+                            active[Item].gameObject.SetActive(false);
+                            ResetLevel.Add(active[Item]);
+                            switch (tmp.Type)
+                            {
+                                case ItemAttributeInformation.Type.Key:
+                                case ItemAttributeInformation.Type.Keys:
+                                case ItemAttributeInformation.Type.Keycode:
+                                    sounds.PlayKeys();
+                                    break;
+                                case ItemAttributeInformation.Type.Cake:
+                                    //generateHealth ();
+                                    sounds.PlayDing();
+                                    break;
+                                default:
+                                    sounds.PlayDing();
+                                    break;
+                            }
+                        }
                     }
                 }
                 else if (active[Door] != null)
@@ -224,7 +246,7 @@ public class PlayerInteractionController : MonoBehaviour
                         if (lockedBefore) ResetLevel.Add(active[Door]);
                     }
                 }
-                else if (active[Human] != null)
+				else if ((active[Human] != null) && active[Human].gameObject.GetComponent<PersonalInfo>().talkable)
                 {
 					sounds.PlayEnd ();
                     var a = active[Human].GetComponent<NPCScript>();
@@ -289,50 +311,54 @@ public class PlayerInteractionController : MonoBehaviour
         {
             if (Input.GetAxis("Horizontal") < 0)
             {
-                if (!cursorChange)
+                if (!cursorChangeX)
                 {
-                    cursorChange = true;
+                    cursorChangeX = true;
                     active[Inspectable].GetComponent<InspectableInformation>().horMove(-1);
                     sounds.PlayPress();
                 }
             }
             else if (Input.GetAxis("Horizontal") > 0)
             {
-                if (!cursorChange)
+                if (!cursorChangeX)
                 {
-                    cursorChange = true;
+                    cursorChangeX = true;
                     active[Inspectable].GetComponent<InspectableInformation>().horMove(1);
                     sounds.PlayPress();
                 }
             }
-            else if (Input.GetAxis("Vertical") > 0)
+            else cursorChangeX = false;
+
+            if (Input.GetAxis("Vertical") > 0)
             {
-                if (!cursorChange)
+                if (!cursorChangeY)
                 {
-                    cursorChange = true;
+                    cursorChangeY = true;
                     active[Inspectable].GetComponent<InspectableInformation>().vertMove(1);
                     sounds.PlayPress();
                 }
             }
             else if (Input.GetAxis("Vertical") < 0)
             {
-                if (!cursorChange)
+                if (!cursorChangeY)
                 {
-                    cursorChange = true;
+                    cursorChangeY = true;
                     active[Inspectable].GetComponent<InspectableInformation>().vertMove(-1);
                     sounds.PlayPress();
                 }
             }
-            else if (Input.GetAxis("Submit") > 0)
+            else cursorChangeY = false;
+
+            if (Input.GetAxis("Submit") > 0)
             {
-                if (!cursorChange)
+                if (!checkChange)
                 {
-                    cursorChange = true;
+                    checkChange = true;
                     active[Inspectable].GetComponent<InspectableInformation>().pressKey();
                     sounds.PlayPress();
                 }
             }
-            else cursorChange = false;
+            else checkChange = false;
         }
     }
 
@@ -387,19 +413,21 @@ public class PlayerInteractionController : MonoBehaviour
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return;
 
-        
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetAxis("Inventory") > 0)
         {
-            InventoryActive = !InventoryActive;
-            if(InventoryActive) UIConfirm.gameObject.SetActive(false);
-            inventory.Swap(InventoryActive);
-            sounds.PlayInventory();
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            if (!invChange)
+            {
+                invChange = true;
+                InventoryActive = !InventoryActive;
+                if (InventoryActive) UIConfirm.gameObject.SetActive(false);
+                inventory.Swap(InventoryActive);
+                sounds.PlayInventory();
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Die();
-        }
+        else invChange = false;
+
+        if (Input.GetKeyDown(KeyCode.L)) Die();
 
         if (!InventoryActive && !inspectingSomething)
         {
@@ -511,11 +539,4 @@ public class Pickup
                 break;
         }
     }
-}
-
-public class Inspectable
-{
-    // will have a UI element able to toggle in front of player
-    // eg, click on keypad code in inventory to look at its code
-    // eg, keypad on wall is inspectable and will pull up a keypad ui interface
 }

@@ -24,14 +24,7 @@ TagManager:
   - DestroyableDelete
   - Human
   - Redisable
-  - HandGun
-  - AK
-  - Item
-  - Colt
-  - Rifle
-  - cake
   - airCon
-  - keys
   layers:
   - Default
   - TransparentFX

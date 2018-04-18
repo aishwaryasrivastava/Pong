@@ -8,6 +8,5 @@
 		<node option="We're friends I guess" repMin="1" text="I suppose we are"></node>
 		<node option="Who are you again?" text="Don't you have somewhere to be"></node>
 	</node>
-	<node option="I got you some cake" require="Cake" take="Cake" rep="100" text="Always a good time for cake. Thanks!"></node>
 	<node option="Take me with you" repMin="200" text="I'll see if I can send something your way from the outside"></node>
 </node>

@@ -20,7 +20,7 @@ public class ShotAtScript : MonoBehaviour
     {
         gameObject.SetActive(true);
         curHealth = health;
-        mr.material.color = Color.white;
+        if(mr != null) mr.material.color = Color.white;
     }
 
     public virtual void ShotAt(Vector3 damageVector)
@@ -38,6 +38,6 @@ public class ShotAtScript : MonoBehaviour
             }
             else gameObject.SetActive(false);            
         }
-        mr.material.color = new Color(1, (float)curHealth / health, (float)curHealth / health);
+        if(mr != null) mr.material.color = new Color(1, (float)curHealth / health, (float)curHealth / health);
     }
 }

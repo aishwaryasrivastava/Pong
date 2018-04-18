@@ -54,18 +54,16 @@ public class PlayerMovementController : MonoBehaviour
         {
             forward += 1;
         }
-        
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            rightward -= 1;
-        }
-        
-        if (Input.GetAxis("Vertical") < 0)
+        else if (Input.GetAxis("Vertical") < 0)
         {
             forward -= 1;
         }
 
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            rightward -= 1;
+        }
+        else if (Input.GetAxis("Horizontal") > 0)
         {
             rightward += 1;
         }
@@ -78,12 +76,11 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
-		//if ((!crouched) || slant) {
-			moving = true;
-		//}
+		moving = true;
+
         var tmp = MovementMult*transform.TransformDirection(new Vector3(rightward, 0, forward)).normalized;
         if (running) tmp *= 1.7f;
-		if (crouched) tmp *= 0.55f;
+		if (crouched && !slant) tmp *= 0.55f;
         rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
     }
 
@@ -94,8 +91,9 @@ public class PlayerMovementController : MonoBehaviour
     void MoveWithMouse()
     {
         if (LockedCamera) return;
-        currentRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
-        currentRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
+        var spd = MouseSensitivity * (Input.GetMouseButton(1) ? 0.5f : 1);
+        currentRotation.x += Input.GetAxis("Mouse X") * spd;
+        currentRotation.y -= Input.GetAxis("Mouse Y") * spd;
         currentRotation.x = Mathf.Repeat(currentRotation.x, 360);
         currentRotation.y = Mathf.Clamp(currentRotation.y, -80, 80);
         
@@ -126,7 +124,7 @@ public class PlayerMovementController : MonoBehaviour
             head.center -= new Vector3(0, crouchShift/2, 0);
             head.height -= crouchShift;
         }
-        else if (crouched && Input.GetAxis("Crouch") == 0 && !slant)
+        else if (crouched && Math.Abs(Input.GetAxis("Crouch")) < 0.0001f && !slant)
         {
             crouched = false;
             var cameraT = Camera.main.transform;
@@ -175,7 +173,8 @@ public class PlayerMovementController : MonoBehaviour
                 RepText.text = interact.GetPopularity();
                 PauseMenu.SetActive(PauseManager.Paused);
             }
-        } else
+        }
+        else
         {
             pauseChange = false;
         }
@@ -186,7 +185,6 @@ public class PlayerMovementController : MonoBehaviour
         if (PauseManager.Paused)
         {
             if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
-            return;
         }
     }
 
