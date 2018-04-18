@@ -9,6 +9,7 @@ public class SoundController : MonoBehaviour {
 	public AudioClip[] voice = new AudioClip[15];
 	public GameObject guns;
 	public AudioSource source;
+	public AudioSource source2;
 
 	//private float highVol = 1f;
 	private float lowVol = 0.25f;
@@ -140,8 +141,10 @@ public class SoundController : MonoBehaviour {
 	}
 
 	public void PlayDrag(){
-		if (!source.isPlaying) {
-			source.PlayOneShot (drag, lowVol);
+		var tmp = gameObject.GetComponent<PlayerMovementController> ();
+		if (!source2.isPlaying) {
+			//source.PlayOneShot (drag, lowVol);
+			source2.Play ();
 		}
 	}
 
@@ -157,7 +160,7 @@ public class SoundController : MonoBehaviour {
 
 	public void PlayKeys(){
 
-		source.PlayOneShot (keys, 0.4f);
+		source.PlayOneShot (keys, 0.6f);
 	}
 
 	public void PlayReload(){
