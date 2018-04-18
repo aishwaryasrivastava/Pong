@@ -78,11 +78,12 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         if (Math.Abs(forward) < 0.0001 && Math.Abs(rightward) < 0.0001) return;
-		if ((!crouched) || slant) {
+		//if ((!crouched) || slant) {
 			moving = true;
-		}
+		//}
         var tmp = MovementMult*transform.TransformDirection(new Vector3(rightward, 0, forward)).normalized;
         if (running) tmp *= 1.7f;
+		if (crouched) tmp *= 0.55f;
         rb.velocity = new Vector3(tmp.x, rb.velocity.y, tmp.z);
     }
 
@@ -156,7 +157,6 @@ public class PlayerMovementController : MonoBehaviour
 		if((slant && !moving) || !slant)
         {
 			tmp.source2.Stop ();
-
 		}
 
         DebugStuff();
@@ -236,13 +236,13 @@ public class PlayerMovementController : MonoBehaviour
 	    }
         if (interact.InventoryActive || interact.inspectingSomething || (dialog != null && dialog.talking) || PauseManager.Paused)
 	    {
-	        soundControl.UpdateMovementSounds(false, false, false);
+			soundControl.UpdateMovementSounds(false, false, false, false);
             return;
 	    }
 
 	    MoveWithMouse();
         SetMovementVector();
-		soundControl.UpdateMovementSounds(moving, running, jumping);
+		soundControl.UpdateMovementSounds(moving, running, jumping, crouched);
         RelaySound();
         
         if(transform.position.y < -10) //fell out of the world
