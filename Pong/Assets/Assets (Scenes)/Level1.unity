@@ -1318,6 +1318,14 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -4320,6 +4328,14 @@ Prefab:
     - target: {fileID: 1548622784010390, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -11836,6 +11852,10 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 149356, guid: d7144b3c6133fbb45808a248894e9db3, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7144b3c6133fbb45808a248894e9db3, type: 2}
   m_IsPrefabParent: 0
@@ -14004,6 +14024,14 @@ Prefab:
     - target: {fileID: 1311678457906030, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -18680,18 +18708,6 @@ MonoBehaviour:
   Idle: 1
   dead: 0
   started: 0
---- !u!65 &422636234
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 422636221}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &422915384
 Prefab:
   m_ObjectHideFlags: 0
@@ -22234,6 +22250,14 @@ Prefab:
     - target: {fileID: 1311678457906030, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -28034,6 +28058,14 @@ Prefab:
     - target: {fileID: 1409453604249100, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -34826,18 +34858,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &843171219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 843171206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &843921910
 Prefab:
   m_ObjectHideFlags: 0
@@ -35788,6 +35808,7 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 114075680393701866, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
     - {fileID: 114821920357838988, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
+    - {fileID: 65121011021451752, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b6a1ebed15b361547a23f7cb28c9afb2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &861305851 stripped
@@ -36868,6 +36889,14 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -37345,7 +37374,7 @@ GameObject:
   - component: {fileID: 899981214}
   m_Layer: 10
   m_Name: PrisonInsideWallOne
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
@@ -42358,6 +42387,14 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -43731,6 +43768,10 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3965cf9c520a0e14b884b3b9863d08c4, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3965cf9c520a0e14b884b3b9863d08c4, type: 2}
   m_IsPrefabParent: 0
@@ -45074,6 +45115,14 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -45222,7 +45271,7 @@ GameObject:
   - component: {fileID: 1079086087}
   m_Layer: 10
   m_Name: PrisonInsideWallOne
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -50773,6 +50822,14 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -51397,6 +51454,10 @@ Prefab:
     - target: {fileID: 1311678457906030, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -60679,6 +60740,10 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4985d7f3ab028924fa17e1f0c92287b3, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4985d7f3ab028924fa17e1f0c92287b3, type: 2}
   m_IsPrefabParent: 0
@@ -61078,7 +61143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155280, guid: d9ff1099c186779468df6de7f6b19744, type: 2}
       propertyPath: m_TagString
-      value: keys
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 23872822661300716, guid: d9ff1099c186779468df6de7f6b19744,
         type: 2}
@@ -63415,6 +63480,19 @@ MonoBehaviour:
   type: 3
   GoodString: This is Tom, from high school
   BadString: 
+--- !u!136 &1552392561
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552392556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1552392565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83563,6 +83641,14 @@ Prefab:
     - target: {fileID: 1187197145801140, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1783309899469776, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
