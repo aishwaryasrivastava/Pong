@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameFinale : MonoBehaviour
@@ -11,7 +13,7 @@ public class GameFinale : MonoBehaviour
     public Vector3 PlayerPos, CameraLookHere;
     public int EndingNumber;
     public float Speed;
-    private float cursor;
+    private float cursor, timer;
     private bool ReadyToGo;
     private readonly string[] Endings = 
     {
@@ -41,12 +43,22 @@ public class GameFinale : MonoBehaviour
                 u.SetActive(false);
             }
             PauseManager.Halt();
+            foreach (var a in Camera.main.gameObject.GetComponents<AudioSource>())
+            {
+                a.volume = 0;
+                a.Stop();
+            }
         }
     }
 
     void FixedUpdate()
     {
         if (!PauseManager.Halted || ReadyToGo) return;
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            return;
+        }
         cursor+=Speed;
         if (cursor >= Endings[EndingNumber-1].Length)
         {
@@ -54,6 +66,7 @@ public class GameFinale : MonoBehaviour
             return;
         }
         FinaleText.text = Endings[EndingNumber-1].Substring(0, (int) cursor);
+        if (Endings[EndingNumber - 1].EndsWith("\n")) timer += 0.8f;
     }
 
     void Update()
@@ -62,6 +75,17 @@ public class GameFinale : MonoBehaviour
         {
             //load credits probably
             Debug.Log("winner");
+            StartCoroutine(LoadAsyncScene());
         }
+    }
+
+    IEnumerator LoadAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Assets (Scenes)/Credits");
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
     }
 }
