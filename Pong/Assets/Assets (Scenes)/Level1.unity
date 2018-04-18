@@ -7589,7 +7589,7 @@ GameObject:
   - component: {fileID: 124995614}
   m_Layer: 17
   m_Name: Egg 1
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -7601,7 +7601,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 124995607}
   m_LocalRotation: {x: 0.04932527, y: 0.012340746, z: 0.7053843, w: 0.7069991}
-  m_LocalPosition: {x: 25.964, y: 2.6409998, z: -27.066}
+  m_LocalPosition: {x: 25.985, y: 2.629, z: -26.831}
   m_LocalScale: {x: 0.10000003, y: 0.15500006, z: 0.1}
   m_Children: []
   m_Father: {fileID: 46443057}
@@ -7720,7 +7720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 18
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &127427452
 Transform:
   m_ObjectHideFlags: 0
@@ -9491,7 +9491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 8
   GoodString: Something feels different about this
-  BadString: That's one big cake! They'll notice if I take it . . .
+  BadString: Probably shouldn't touch this
 --- !u!65 &176663548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9518,17 +9518,23 @@ MonoBehaviour:
   inventory: {fileID: 113493814}
   interact: {fileID: 113493815}
   score: {fileID: 1424372213}
-  UnlockMe: []
   EnableMe:
   - {fileID: 2102136305}
   - {fileID: 375146368}
   DisableMe:
   - {fileID: 1657982802}
   - {fileID: 127895910}
+  MovePlayer: 0
+  NewPlayerPosition: {x: 0, y: 0, z: 0}
+  ObjDisabled: []
   ItemsNeeded:
   - 5Cake
   RepNeeded: 0
   ScoreNeeded: 0
+  Timer: 0
+  HideOwnMesh: 0
+  Trigger: {fileID: 8300000, guid: 68d38c4d98bda7a489f8fa79ccc8222b, type: 3}
+  Activation: {fileID: 8300000, guid: 68d38c4d98bda7a489f8fa79ccc8222b, type: 3}
 --- !u!54 &176663551
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15966,9 +15972,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 6
-  GoodString: Someone was baking a cake!  I should help out . . .
-  BadString: 
+  type: 8
+  GoodString: Looks ready to bake
+  BadString: Looks like something is still missing
 --- !u!65 &355240318
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15977,10 +15983,120 @@ BoxCollider:
   m_GameObject: {fileID: 355240316}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16352117, y: 0.020081654, z: 0.16520268}
-  m_Center: {x: -0.0013488412, y: 0.0064338967, z: -0.000104004146}
+  m_Size: {x: 0.16352117, y: 0.10411276, z: 0.16520268}
+  m_Center: {x: -0.0013488412, y: 0.04844945, z: -0.000104004146}
+--- !u!114 &355240319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 355240316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01329e56fc8022e45b7015a0b0df0db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 113493814}
+  interact: {fileID: 113493815}
+  score: {fileID: 1424372213}
+  EnableMe:
+  - {fileID: 1355323603}
+  DisableMe:
+  - {fileID: 1926159256}
+  MovePlayer: 0
+  NewPlayerPosition: {x: 0, y: 0, z: 0}
+  ObjDisabled:
+  - {fileID: 124995607}
+  - {fileID: 1983177458}
+  ItemsNeeded: []
+  RepNeeded: 0
+  ScoreNeeded: 0
+  Timer: 5
+  HideOwnMesh: 1
+  Trigger: {fileID: 8300000, guid: 0c621901caf7443bb9dae7bb788aff88, type: 3}
+  Activation: {fileID: 8300000, guid: 8c6d0c7ddda21494ea09a02d01f7eead, type: 3}
+--- !u!82 &355240322
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 355240316}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &357603862
 GameObject:
   m_ObjectHideFlags: 0
@@ -18551,11 +18667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 425093352}
   - component: {fileID: 425093351}
-  - component: {fileID: 425093350}
   - component: {fileID: 425093349}
-  - component: {fileID: 425093353}
-  - component: {fileID: 425093354}
-  - component: {fileID: 425093355}
   m_Layer: 17
   m_Name: Batter
   m_TagString: Untagged
@@ -18597,18 +18709,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &425093350
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 425093348}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &425093351
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18629,45 +18729,6 @@ Transform:
   m_Father: {fileID: 598380648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &425093353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 425093348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 680ffa6c6c9dcbb469013980369e8b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flour: {fileID: 559528735}
---- !u!114 &425093354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 425093348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  GoodString: This needs placed in the oven
-  BadString: 
---- !u!114 &425093355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 425093348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f3eee68ab837224692b4ffb793e7418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 4
-  id: Batter
 --- !u!1001 &426527959
 Prefab:
   m_ObjectHideFlags: 0
@@ -22527,9 +22588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 559528736}
   - component: {fileID: 559528740}
-  - component: {fileID: 559528739}
   - component: {fileID: 559528738}
-  - component: {fileID: 559528737}
   m_Layer: 17
   m_Name: Flour
   m_TagString: Untagged
@@ -22550,20 +22609,6 @@ Transform:
   m_Father: {fileID: 598380648}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &559528737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 559528735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 6
-  GoodString: This flour looks like it could use some eggs
-  BadString: 
 --- !u!23 &559528738
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22598,18 +22643,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &559528739
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 559528735}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &559528740
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -40540,7 +40573,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_TagString
-      value: cake
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_StaticEditorFlags
@@ -55591,6 +55624,107 @@ Transform:
   m_Father: {fileID: 1235681604}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1355323603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1355323604}
+  - component: {fileID: 1355323607}
+  - component: {fileID: 1355323606}
+  - component: {fileID: 1355323605}
+  - component: {fileID: 1355323608}
+  m_Layer: 17
+  m_Name: StoveDoor (1)
+  m_TagString: Redisable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 27
+  m_IsActive: 0
+--- !u!4 &1355323604
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355323603}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1, y: 0.016999776, z: 1.0429897}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 643559636}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1355323605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355323603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  GoodString: I totally didn't break that
+  BadString: 
+--- !u!23 &1355323606
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300010, guid: 68f22e3913eeb2641afefe5592d88758,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355323603}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: b6b37450c97f1714da5e66f0cc386649, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1355323607
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300010, guid: 68f22e3913eeb2641afefe5592d88758,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355323603}
+  m_Mesh: {fileID: 4300002, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+--- !u!65 &1355323608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355323603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.937999, y: 0.9360002, z: 0.15971778}
+  m_Center: {x: 0, y: 0.4680001, z: -0.03759619}
 --- !u!1001 &1359767994
 Prefab:
   m_ObjectHideFlags: 0
@@ -76367,27 +76501,19 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
   m_PrefabInternal: {fileID: 2139010571}
---- !u!114 &1926159261
-MonoBehaviour:
+--- !u!65 &1926159257
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1926159256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01329e56fc8022e45b7015a0b0df0db6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  interact: {fileID: 0}
-  score: {fileID: 0}
-  UnlockMe: []
-  EnableMe: []
-  DisableMe: []
-  ItemsNeeded: []
-  RepNeeded: 0
-  ScoreNeeded: 0
---- !u!114 &1926159262
+  serializedVersion: 2
+  m_Size: {x: 1.937999, y: 0.936, z: 0.084525}
+  m_Center: {x: 0, y: 0.46800047, z: 0}
+--- !u!114 &1926159261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -76398,8 +76524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8cd96603c36db4f87132a5c685f350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 8
-  GoodString: I can bake dough in here
+  type: 6
+  GoodString: Could probably bake something with this
   BadString: 
 --- !u!1001 &1928867309
 Prefab:
@@ -78657,7 +78783,7 @@ GameObject:
   - component: {fileID: 1983177465}
   m_Layer: 17
   m_Name: Egg 2
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -78669,7 +78795,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1983177458}
   m_LocalRotation: {x: 0.6797147, y: 0.19490503, z: -0.19490503, w: 0.6797147}
-  m_LocalPosition: {x: 26.222, y: 2.6409998, z: -26.945}
+  m_LocalPosition: {x: 26.303, y: 2.6409998, z: -26.773}
   m_LocalScale: {x: 0.09999999, y: 0.155, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 46443057}
@@ -78755,7 +78881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
-  GoodString: Egggg haha!
+  GoodString: I should crack these
   BadString: 
 --- !u!114 &1983177465
 MonoBehaviour:
@@ -80232,15 +80358,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.397
+      value: 24.229
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.4559999
+      value: 1.803
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -14.908
+      value: -26.957
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e616e7bf46c26748a153fac2d7b1293, type: 2}
       propertyPath: m_LocalRotation.x
@@ -83923,7 +84049,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6400008, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6400000, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
       propertyPath: m_Enabled
@@ -83973,25 +84099,43 @@ Prefab:
       propertyPath: m_Layer
       value: 17
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400008, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6400012, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+    - {fileID: 6400006, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+    - {fileID: 6400004, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+    - {fileID: 6400002, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+    - {fileID: 6400000, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
+    - {fileID: 6400010, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &2139010572 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100008, guid: 68f22e3913eeb2641afefe5592d88758, type: 3}
-  m_PrefabInternal: {fileID: 2139010571}
---- !u!65 &2139010573
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2139010572}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9999999, y: 1.2482411, z: 1}
-  m_Center: {x: -0.99999994, y: 0.6241208, z: 0.5}
 --- !u!1 &2139876816
 GameObject:
   m_ObjectHideFlags: 0
