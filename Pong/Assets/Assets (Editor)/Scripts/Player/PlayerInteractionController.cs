@@ -226,6 +226,7 @@ public class PlayerInteractionController : MonoBehaviour
                 }
                 else if (active[Human] != null)
                 {
+					sounds.PlayScroll2 ();
                     var a = active[Human].GetComponent<NPCScript>();
                     var b = active[Human].GetComponent<GuardScript2>();
                     if (a != null) a.TurnTowardsMe(transform.position);

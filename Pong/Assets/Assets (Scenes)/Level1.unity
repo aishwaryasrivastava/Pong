@@ -7003,6 +7003,10 @@ MonoBehaviour:
   drag: {fileID: 8300000, guid: f7e0e47edde216f4cab0d48f3fe45d29, type: 3}
   eat: {fileID: 8300000, guid: 54b23f1452679449bb996c6fea252473, type: 3}
   keys: {fileID: 8300000, guid: d45ecdca55383b141ab6fa68f6d97495, type: 3}
+  scroll2: {fileID: 8300000, guid: cd7044bf418f642df9a2130900bd3fd5, type: 3}
+  end: {fileID: 8300000, guid: 7d32d408d94874bebbaf2e0ab55350a6, type: 3}
+  reputation: {fileID: 8300000, guid: 7d60d956e2f9b0f48887d05c8ddacb3d, type: 3}
+  item: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
   swing:
   - {fileID: 8300000, guid: d261d5fc8420f024fbd7b0e1d950d3ae, type: 3}
   - {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
@@ -18374,7 +18378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSound: {fileID: 8300000, guid: b59391369599c6d4bb89c7c448577202, type: 3}
   died: {fileID: 8300000, guid: 3d99ce34e6f299541b970e969f70b622, type: 3}
-  hey: {fileID: 0}
+  hey: {fileID: 8300000, guid: 6a17fcca7ee164b2c9db781c0f6b0a66, type: 3}
   ouch:
   - {fileID: 8300000, guid: 032a4f39620b7994aa36483d2e211ff1, type: 3}
   - {fileID: 8300000, guid: 9e4c5f2327fc67c49ac5c94471e3107a, type: 3}

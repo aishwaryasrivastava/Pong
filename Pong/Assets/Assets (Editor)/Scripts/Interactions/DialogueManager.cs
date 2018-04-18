@@ -29,9 +29,10 @@ public class DialogueManager : MonoBehaviour {
 
 	private float displayTime = 0.0f;
 	private string display = "";
+	GameObject player;
 
 	void Start () {
-		GameObject player = GameObject.Find (playerObject);
+		player = GameObject.Find (playerObject);
 		inventory = player.GetComponent<Inventory> ();
 
 		XmlDocument xmlDoc = new XmlDocument(); // xmlDoc is the new xml document.
@@ -117,10 +118,11 @@ public class DialogueManager : MonoBehaviour {
 	void OnGUI() {
 		GUI.skin.box.wordWrap = true;
 		GUI.skin.button.wordWrap = true;
-
 		if (talking)
 		{
-			if(custombutton == null) custombutton = new GUIStyle("button") {fontSize = fontSize};
+			if (custombutton == null) {
+				custombutton = new GUIStyle ("button") { fontSize = fontSize };
+			}
 		    if (extraButton == null)
 		    {
 		        extraButton = new GUIStyle("button")
@@ -146,8 +148,11 @@ public class DialogueManager : MonoBehaviour {
 				{
 					if (GUI.Button(new Rect(20, 60 + height * (count + 1), width, height), child.Option,custombutton))
 					{
+						var tmp = player.GetComponent<SoundController> ();
+						tmp.PlayScroll2 ();	
 						if (child.GiveItem != null)
 						{
+							tmp.PlayItem ();
 							inventory.AddItem(child.GiveItem);
 							setDisplayText ("Item added to inventory");
 							child.GiveItem = null;
@@ -158,6 +163,7 @@ public class DialogueManager : MonoBehaviour {
 						}
 						interact.Reputation [name] = interact.Reputation [name] + child.Rep;
 						if (child.Rep > 0) {
+							tmp.PlayReputation ();
 							setDisplayText ("Reputation increased");
 						}
 						if (!(child.sendToX==0 && child.sendToY==0 && child.sendToZ==0)) {
@@ -194,6 +200,8 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	void EndDialogue() {
+		var tmp = player.GetComponent<SoundController> ();
+		tmp.PlayEnd ();	
 		talking = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;

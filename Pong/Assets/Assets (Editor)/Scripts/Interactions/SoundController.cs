@@ -4,7 +4,7 @@ public class SoundController : MonoBehaviour {
 
 	//public AudioClip walkingSound;
 	public AudioClip inventorySound, lockedSound, ding, slideSound, swingSound, ShootingSound, reloadSound, gunEquip, dwang, scroll, delete, slash;
-	public AudioClip m4, handgun, sniper, shell, inspect, press, pass, select, drag, eat, keys;
+	public AudioClip m4, handgun, sniper, shell, inspect, press, pass, select, drag, eat, keys, scroll2, end, reputation, item;
 	public AudioClip[] swing = new AudioClip[10];
 	public AudioClip[] voice = new AudioClip[15];
 	public GameObject guns;
@@ -168,5 +168,25 @@ public class SoundController : MonoBehaviour {
 			source.Stop ();
 		}
 		source.PlayOneShot (reloadSound, 0.4f);
+	}
+
+	public void PlayScroll2(){
+
+		source.PlayOneShot (scroll2, 0.7f);
+	}
+
+	public void PlayEnd(){
+
+		source.PlayOneShot (end, 0.5f);
+	}
+
+	public void PlayReputation(){
+
+		source.PlayOneShot (reputation, 0.8f);
+	}
+
+	public void PlayItem(){
+
+		source.PlayOneShot (item, 0.5f);
 	}
 }
