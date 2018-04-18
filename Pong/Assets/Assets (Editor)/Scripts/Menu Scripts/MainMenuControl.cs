@@ -11,6 +11,7 @@ public class MainMenuControl : MonoBehaviour
     {
         load.enabled = load2.enabled = false;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     IEnumerator LoadAsyncScene()
     {

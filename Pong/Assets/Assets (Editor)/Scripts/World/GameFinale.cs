@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameFinale : MonoBehaviour
 {
+    public AudioClip music;
     public GameObject Finale;
     public GameObject[] OldUI;
     public Text FinaleText;
@@ -45,9 +46,10 @@ public class GameFinale : MonoBehaviour
             PauseManager.Halt();
             foreach (var a in Camera.main.gameObject.GetComponents<AudioSource>())
             {
-                a.volume = 0;
+                //a.volume = 0;
                 a.Stop();
             }
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(music);
         }
     }
 
@@ -71,11 +73,18 @@ public class GameFinale : MonoBehaviour
 
     void Update()
     {
-        if (ReadyToGo && Input.GetKeyDown(KeyCode.Return))
+        if (!PauseManager.Halted) return;
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            //load credits probably
-            Debug.Log("winner");
-            StartCoroutine(LoadAsyncScene());
+            if (ReadyToGo)
+            {
+                StartCoroutine(LoadAsyncScene());
+            }
+            else if (cursor > 0)
+            {
+                cursor = Endings[EndingNumber - 1].Length;
+                FinaleText.text = Endings[EndingNumber - 1];
+            }
         }
     }
 

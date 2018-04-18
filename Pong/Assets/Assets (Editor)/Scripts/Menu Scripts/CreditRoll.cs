@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -18,16 +19,28 @@ public class CreditRoll : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 pos = transform.position;
-        pos += new Vector3(0, speed, 0);
-        transform.position = pos;
+        transform.position += new Vector3(0, speed, 0);
 
         time += Time.deltaTime;
         if (time>duration)
         {
-            SceneManager.LoadSceneAsync("Assets (Scenes)/MainMenu");
+            time -= 100;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            StartCoroutine(LoadAsyncScene());
+            
         }
+    }
+
+    IEnumerator LoadAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Assets (Scenes)/MainMenu");
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
     }
 }
