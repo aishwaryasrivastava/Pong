@@ -12,7 +12,7 @@ public class SoundController : MonoBehaviour {
 	public AudioSource source2;
 
 	//private float highVol = 1f;
-	private float lowVol = 0.25f;
+	private float lowVol = 0.3f;
 
 	private bool input_down;
 	//private bool input_up;

@@ -2,7 +2,7 @@
 
 public class PlayerSoundControll : MonoBehaviour {
 
-	public AudioSource walk, run;
+	public AudioSource walk, run, crounch;
     private bool lastMove, lastRun, lastNone;
 
     void Start()
@@ -37,6 +37,8 @@ public class PlayerSoundControll : MonoBehaviour {
 				walk.Stop ();
 			}
         }
+		//Debug.Log (moving && tmp2.crouched);
+
         lastMove = moving;
         lastRun = running;
         lastNone = tmp;
