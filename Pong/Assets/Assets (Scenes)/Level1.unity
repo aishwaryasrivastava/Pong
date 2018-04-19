@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 4436723}
   - component: {fileID: 4436725}
   - component: {fileID: 4436724}
+  - component: {fileID: 4436726}
   m_Layer: 20
   m_Name: Brick-B1 (4)
   m_TagString: Untagged
@@ -188,6 +189,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 4436722}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &4436726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 4436722}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000003576279, z: 1.2}
 --- !u!1001 &8302598
 Prefab:
   m_ObjectHideFlags: 0
@@ -482,7 +495,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33dd12f3cd434e34b91482f040de17c0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33dd12f3cd434e34b91482f040de17c0, type: 3}
       propertyPath: m_LocalScale.x
@@ -1652,6 +1665,7 @@ GameObject:
   - component: {fileID: 39826545}
   - component: {fileID: 39826547}
   - component: {fileID: 39826546}
+  - component: {fileID: 39826548}
   m_Layer: 20
   m_Name: Brick-B1 (5)
   m_TagString: Untagged
@@ -1715,6 +1729,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 39826544}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &39826548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39826544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000003, z: 2.4000003}
+  m_Center: {x: 0, y: 0, z: 1.2000002}
 --- !u!1 &39944203 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 027ba65f8e1d05046b20cd9d37faf490, type: 3}
@@ -7954,6 +7980,7 @@ GameObject:
   - component: {fileID: 127979093}
   - component: {fileID: 127979095}
   - component: {fileID: 127979094}
+  - component: {fileID: 127979096}
   m_Layer: 20
   m_Name: Brick-B4
   m_TagString: Untagged
@@ -8017,6 +8044,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127979092}
   m_Mesh: {fileID: 4300030, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &127979096
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127979092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.0000009894371, z: 1.1999998}
 --- !u!1 &128700968
 GameObject:
   m_ObjectHideFlags: 0
@@ -9011,6 +9050,7 @@ GameObject:
   - component: {fileID: 168117895}
   - component: {fileID: 168117897}
   - component: {fileID: 168117896}
+  - component: {fileID: 168117898}
   m_Layer: 20
   m_Name: Brick-B1 (2)
   m_TagString: Untagged
@@ -9074,6 +9114,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 168117894}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &168117898
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 168117894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000051259997, z: 1.1999998}
 --- !u!1001 &169613724
 Prefab:
   m_ObjectHideFlags: 0
@@ -11119,7 +11171,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454458, guid: e61657471792ff947ad3b692b4137cc1, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 454458, guid: e61657471792ff947ad3b692b4137cc1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14072,6 +14124,7 @@ GameObject:
   - component: {fileID: 306417946}
   - component: {fileID: 306417948}
   - component: {fileID: 306417947}
+  - component: {fileID: 306417949}
   m_Layer: 20
   m_Name: Brick-B1 (3)
   m_TagString: Untagged
@@ -14135,6 +14188,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 306417945}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &306417949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306417945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000003576279, z: 1.2}
 --- !u!4 &307689051
 Transform:
   m_ObjectHideFlags: 0
@@ -14513,7 +14578,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454458, guid: e61657471792ff947ad3b692b4137cc1, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e61657471792ff947ad3b692b4137cc1, type: 2}
@@ -15343,6 +15408,7 @@ GameObject:
   - component: {fileID: 339954086}
   - component: {fileID: 339954088}
   - component: {fileID: 339954087}
+  - component: {fileID: 339954089}
   m_Layer: 20
   m_Name: Brick-B3
   m_TagString: Untagged
@@ -15406,6 +15472,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 339954085}
   m_Mesh: {fileID: 4300028, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &339954089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339954085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000075101855, z: 1.2000003}
 --- !u!1 &342001182
 GameObject:
   m_ObjectHideFlags: 0
@@ -21587,6 +21665,7 @@ GameObject:
   - component: {fileID: 528542685}
   - component: {fileID: 528542687}
   - component: {fileID: 528542686}
+  - component: {fileID: 528542688}
   m_Layer: 20
   m_Name: Brick-B1 (6)
   m_TagString: Untagged
@@ -21650,6 +21729,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 528542684}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &528542688
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 528542684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000003, z: 2.4000003}
+  m_Center: {x: 0, y: 0, z: 1.2000004}
 --- !u!1 &529476183
 GameObject:
   m_ObjectHideFlags: 0
@@ -24573,90 +24664,6 @@ Prefab:
     - {fileID: 6400000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &618877122
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 618877123}
-  - component: {fileID: 618877126}
-  - component: {fileID: 618877125}
-  - component: {fileID: 618877124}
-  m_Layer: 20
-  m_Name: Dirt Road (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 3
-  m_StaticEditorFlags: 24
-  m_IsActive: 1
---- !u!4 &618877123
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618877122}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.99, y: 1.355, z: -62.187}
-  m_LocalScale: {x: 5.50455, y: 0.25, z: 4.7574315}
-  m_Children: []
-  m_Father: {fileID: 798908380}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &618877124
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618877122}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 4e4960487564b584fb3a777f55734672, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!65 &618877125
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618877122}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &618877126
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618877122}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &619235928
 GameObject:
   m_ObjectHideFlags: 0
@@ -24736,6 +24743,7 @@ GameObject:
   - component: {fileID: 624796839}
   - component: {fileID: 624796841}
   - component: {fileID: 624796840}
+  - component: {fileID: 624796842}
   m_Layer: 20
   m_Name: Brick-B2
   m_TagString: Untagged
@@ -24799,6 +24807,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 624796838}
   m_Mesh: {fileID: 4300026, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &624796842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624796838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000075101855, z: 1.2000003}
 --- !u!1 &627043386
 GameObject:
   m_ObjectHideFlags: 0
@@ -26455,7 +26475,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 664005937}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.54, y: 1.4399998, z: -44}
+  m_LocalPosition: {x: 2.29, y: 1.4399998, z: -44}
   m_LocalScale: {x: 1.25, y: 0.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 1363549695}
@@ -32525,7 +32545,6 @@ Transform:
   m_Children:
   - {fileID: 1145557439}
   - {fileID: 1720379580}
-  - {fileID: 618877123}
   - {fileID: 1843492948}
   - {fileID: 1128273935}
   - {fileID: 1451299701}
@@ -38306,6 +38325,7 @@ Transform:
   - {fileID: 798908380}
   - {fileID: 475170486}
   - {fileID: 1367658092}
+  - {fileID: 2038126675}
   m_Father: {fileID: 1421226324}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47108,7 +47128,7 @@ Transform:
   m_GameObject: {fileID: 1145557438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.27, y: 1.36, z: -53}
-  m_LocalScale: {x: 5.50455, y: 0.25, z: 25.008186}
+  m_LocalScale: {x: 25, y: 0.25, z: 25}
   m_Children: []
   m_Father: {fileID: 798908380}
   m_RootOrder: 0
@@ -59734,6 +59754,7 @@ GameObject:
   - component: {fileID: 1461236035}
   - component: {fileID: 1461236037}
   - component: {fileID: 1461236036}
+  - component: {fileID: 1461236038}
   m_Layer: 20
   m_Name: Brick-B1 (7)
   m_TagString: Untagged
@@ -59797,6 +59818,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1461236034}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &1461236038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461236034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000075101855, z: 1.2000003}
 --- !u!1 &1464006861
 GameObject:
   m_ObjectHideFlags: 0
@@ -62411,7 +62444,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 402062, guid: f101e9fbd27488d428a1d05fb5012912, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 402062, guid: f101e9fbd27488d428a1d05fb5012912, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -63330,7 +63363,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 402062, guid: f101e9fbd27488d428a1d05fb5012912, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 402062, guid: f101e9fbd27488d428a1d05fb5012912, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -65332,6 +65365,7 @@ GameObject:
   - component: {fileID: 1646006354}
   - component: {fileID: 1646006356}
   - component: {fileID: 1646006355}
+  - component: {fileID: 1646006357}
   m_Layer: 20
   m_Name: Brick-B1 (8)
   m_TagString: Untagged
@@ -65395,6 +65429,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1646006353}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &1646006357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1646006353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 6.6703424, z: 2.4000003}
+  m_Center: {x: 0, y: -3.2101755, z: 1.2000003}
 --- !u!1 &1647417385 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 4c8aae59485c3df4eb14f1941fec896c, type: 3}
@@ -70877,6 +70923,7 @@ GameObject:
   - component: {fileID: 1750034419}
   - component: {fileID: 1750034421}
   - component: {fileID: 1750034420}
+  - component: {fileID: 1750034422}
   m_Layer: 20
   m_Name: Brick-B1
   m_TagString: Untagged
@@ -70940,6 +70987,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1750034418}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &1750034422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750034418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000075101855, z: 1.2}
 --- !u!1 &1751023972
 GameObject:
   m_ObjectHideFlags: 0
@@ -74960,7 +75019,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454458, guid: e61657471792ff947ad3b692b4137cc1, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 454458, guid: e61657471792ff947ad3b692b4137cc1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -77928,6 +77987,7 @@ GameObject:
   - component: {fileID: 1963368323}
   - component: {fileID: 1963368325}
   - component: {fileID: 1963368324}
+  - component: {fileID: 1963368326}
   m_Layer: 20
   m_Name: Brick-B1 (1)
   m_TagString: Untagged
@@ -77991,6 +78051,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1963368322}
   m_Mesh: {fileID: 4300038, guid: d2fd5f4f612686e498525fb729a7c83f, type: 3}
+--- !u!65 &1963368326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1963368322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.95, y: 0.25000006, z: 2.4}
+  m_Center: {x: 0, y: 0.00000051259997, z: 1.2}
 --- !u!1 &1965309334
 GameObject:
   m_ObjectHideFlags: 0
@@ -80852,6 +80924,47 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 5f2a4995ef55c3f4db87fd7cd7b2b5ef, type: 3}
   m_PrefabInternal: {fileID: 2035796726}
+--- !u!1 &2038126674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2038126675}
+  - component: {fileID: 2038126676}
+  m_Layer: 20
+  m_Name: FinaleTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2038126675
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038126674}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.89, y: 2.08, z: -51.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 948199593}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2038126676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038126674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.534184, y: 2.0844536, z: 1}
+  m_Center: {x: -0.60370183, y: 0.5422268, z: 0}
 --- !u!1 &2041528363
 GameObject:
   m_ObjectHideFlags: 0

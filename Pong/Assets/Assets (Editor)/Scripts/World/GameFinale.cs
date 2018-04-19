@@ -15,6 +15,7 @@ public class GameFinale : MonoBehaviour
     public Vector3 PlayerPos, CameraLookHere;
     public int EndingNumber;
     public float Speed;
+    public bool LockCamera;             //If enabled, locks player camera once triggered (after being set if applicable)
 
     private float timer;
     private bool ReadyToContinue;
@@ -22,19 +23,19 @@ public class GameFinale : MonoBehaviour
 
     private readonly string[][] Endings = 
     {
-        new []
+        new [] //Peaceful ending
         {
             ""
         },
-        new []
+        new [] //Violent ending
         {
             ""
         },
-        new []
+        new [] //Hole ending
         {
             ""
         },
-        new []
+        new [] //Cake ending
         {
             "You have done well to make it this far my child",
             "That look on your face tells me you do not recognize me, but perhaps that is for the best",
@@ -51,12 +52,12 @@ public class GameFinale : MonoBehaviour
             if (MovePlayer) other.transform.position = PlayerPos;
             if (MoveCamera)
             {
-                Camera.main.transform.forward = CameraLookHere - Camera.main.transform.position;
-                other.gameObject.GetComponent<PlayerMovementController>().LockCamera();
+                Camera.main.transform.forward = CameraLookHere - Camera.main.transform.position;               
                 Camera.main.GetComponent<PostProcessingBehaviour>().profile.chromaticAberration.enabled = true;
                 Camera.main.GetComponent<PostProcessingBehaviour>().profile.grain.enabled = false;
             }
             else Camera.main.GetComponent<PostProcessingBehaviour>().profile.motionBlur.enabled = true;
+            if (LockCamera) other.gameObject.GetComponent<PlayerMovementController>().LockCamera();
 
             Finale.SetActive(true);
             foreach (var u in OldUI) u.SetActive(false);
