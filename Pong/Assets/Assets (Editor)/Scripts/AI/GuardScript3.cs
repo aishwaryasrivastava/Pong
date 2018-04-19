@@ -49,33 +49,34 @@ public class GuardScript3 : MonoBehaviour {
 	void FixedUpdate ()
 	{
         // Makes the guard turn around and check behind him every once in a while
-		if ((checking) && !found && !comeback)
-        {
-            anim.ToIdle();
-            transformUpdate(0);
-            idleTime++;
-            if (idleTime > 500)
-            {
-                idleTime = 0;
-                checking = false;
-                //turnAround();
 
-            }
-        }
-		if((!checking) && (!found) && !comeback)
-        {
-
-            if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
-            else
-            {
-                timeSinceTurned = 0;
-                timeToTurn = Random.Range(500, 2000);
-                checking = true;
-                //turnAround();
-            }
-        }
 
 		if (!died) {
+			if ((checking) && (!found) && !comeback)
+			{
+				anim.ToIdle();
+				transformUpdate(0);
+				idleTime++;
+				if (idleTime > 500)
+				{
+					idleTime = 0;
+					checking = false;
+					//turnAround();
+
+				}
+			}
+			if((!checking) && (!found) && !comeback)
+			{
+
+				if (timeSinceTurned < timeToTurn) timeSinceTurned += 1;
+				else
+				{
+					timeSinceTurned = 0;
+					timeToTurn = Random.Range(500, 2000);
+					checking = true;
+					//turnAround();
+				}
+			}
 			if (found && (Vector3.Distance (player.position, transform.position) > attackDistance) && !inRoom && !damaged) {
 				anim.ToRunning ();
 				direction = player.position - transform.position;
@@ -146,7 +147,7 @@ public class GuardScript3 : MonoBehaviour {
 			anim.ToDied ();
 		}
 		var tmp3 = playerMan.GetComponent<PlayerMovementController> ();
-		if((tmp3.CurrentSoundOutput > 0) && (Vector3.Distance (player.position, transform.position) < hearingDistance) && !inRoom && !comeback){
+		if ((tmp3.CurrentSoundOutput > 0) && (Vector3.Distance (player.position, transform.position) < hearingDistance) && !inRoom && !comeback) {
 			found = true;
 		}
 
