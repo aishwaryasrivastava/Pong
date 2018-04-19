@@ -88,14 +88,14 @@ public class SoundController : MonoBehaviour {
 			}
 				break;
 		case 2: 
-			if (!source.isPlaying) {
-				source.PlayOneShot (voice [Random.Range (11, 14)], lowVol);
-			}
+			//if (!source.isPlaying) {
+				source.PlayOneShot (voice [Random.Range (11, 14)], 0.4f);
+			//}
 			break;
 		case 3: 
-			if (!source.isPlaying) {
+			//if (!source.isPlaying) {
 				source.PlayOneShot (voice [Random.Range (15, 17)], lowVol);
-			}
+			//}
 			break;
 		case 4: 
 			if (!source.isPlaying) {
