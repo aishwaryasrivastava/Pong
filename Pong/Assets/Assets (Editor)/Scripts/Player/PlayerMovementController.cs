@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 using UnityEngine.UI;
 
 public class PlayerMovementController : MonoBehaviour
@@ -184,8 +185,22 @@ public class PlayerMovementController : MonoBehaviour
         }
         if (PauseManager.Paused)
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        var tmp = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+        tmp.ambientOcclusion.enabled = true;
+        tmp.antialiasing.enabled = true;
+        tmp.vignette.enabled = true;
+        tmp.grain.enabled = true;
+        tmp.chromaticAberration.enabled = false;
+        tmp.motionBlur.enabled = true;
     }
 
     private void DebugStuff()

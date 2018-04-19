@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.IO;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,17 +15,32 @@ public class GameFinale : MonoBehaviour
     public Vector3 PlayerPos, CameraLookHere;
     public int EndingNumber;
     public float Speed;
-    private float cursor, timer;
-    private bool ReadyToGo;
-    private readonly string[] Endings = 
+
+    private float timer;
+    private bool ReadyToContinue;
+    private int StringCursor, Cursor;
+
+    private readonly string[][] Endings = 
     {
-        "",
-        "",
-        "",
-        "You have done well to make it this far my child.\n" +
-        "That look on your face tells me you do not recognize me, but perhaps that is for the best.\n" +
-        "I have been watching over you here, waiting for you to solve my riddle, and now you have.\n" +
-        "It's time to go home, Crawfis. "
+        new []
+        {
+            ""
+        },
+        new []
+        {
+            ""
+        },
+        new []
+        {
+            ""
+        },
+        new []
+        {
+            "You have done well to make it this far my child",
+            "That look on your face tells me you do not recognize me, but perhaps that is for the best",
+            "I have been watching over you here, waiting for you to solve my riddle, and now you have",
+            "It's time to go home, Crawfis"
+        }
     };
 
 
@@ -37,38 +53,51 @@ public class GameFinale : MonoBehaviour
             {
                 Camera.main.transform.forward = CameraLookHere - Camera.main.transform.position;
                 other.gameObject.GetComponent<PlayerMovementController>().LockCamera();
+                Camera.main.GetComponent<PostProcessingBehaviour>().profile.chromaticAberration.enabled = true;
+                Camera.main.GetComponent<PostProcessingBehaviour>().profile.grain.enabled = false;
             }
+            else Camera.main.GetComponent<PostProcessingBehaviour>().profile.motionBlur.enabled = true;
+
             Finale.SetActive(true);
-            foreach (var u in OldUI)
-            {
-                u.SetActive(false);
-            }
+            foreach (var u in OldUI) u.SetActive(false);
+
             PauseManager.Halt();
             foreach (var a in Camera.main.gameObject.GetComponents<AudioSource>())
             {
                 //a.volume = 0;
                 a.Stop();
             }
-            other.gameObject.GetComponent<AudioSource>().PlayOneShot(music);
+            if (music != null) other.gameObject.GetComponent<AudioSource>().PlayOneShot(music);
         }
     }
 
     void FixedUpdate()
     {
-        if (!PauseManager.Halted || ReadyToGo) return;
-        if (timer > 0)
+        if (!PauseManager.Halted || ReadyToContinue) return;
+        timer += Time.deltaTime;
+        if (timer > Speed)
         {
-            timer -= Time.deltaTime;
+            timer -= Speed;
+            Cursor++;
+        }
+        if (StringCursor >= Endings[EndingNumber - 1].Length) return;
+        if (Cursor > Endings[EndingNumber - 1][StringCursor].Length)
+        {
+            ReadyToContinue = true;
             return;
         }
-        cursor+=Speed;
-        if (cursor >= Endings[EndingNumber-1].Length)
-        {
-            ReadyToGo = true;
-            return;
-        }
-        FinaleText.text = Endings[EndingNumber-1].Substring(0, (int) cursor);
-        if (Endings[EndingNumber - 1].EndsWith("\n")) timer += 0.8f;
+        FinaleText.text = Endings[EndingNumber - 1][StringCursor].Substring(0, Cursor);
+    }
+
+    private void ResetPP()
+    {
+        var tmp = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+        tmp.ambientOcclusion.enabled = true;
+        tmp.antialiasing.enabled = true;
+        tmp.vignette.enabled = true;
+        tmp.grain.enabled = true;
+        tmp.chromaticAberration.enabled = false;
+        tmp.motionBlur.enabled = true;
     }
 
     void Update()
@@ -76,14 +105,22 @@ public class GameFinale : MonoBehaviour
         if (!PauseManager.Halted) return;
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (ReadyToGo)
+            if (ReadyToContinue)
             {
-                StartCoroutine(LoadAsyncScene());
+                StringCursor++;
+                Cursor = 0;
+                ReadyToContinue = false;
+                if (StringCursor >= Endings[EndingNumber - 1].Length)
+                {
+                    ResetPP();
+                    StartCoroutine(LoadAsyncScene());
+                }
             }
-            else if (cursor > 0)
+            else if (Cursor < Endings[EndingNumber - 1][StringCursor].Length)
             {
-                cursor = Endings[EndingNumber - 1].Length;
-                FinaleText.text = Endings[EndingNumber - 1];
+                ReadyToContinue = true;
+                Cursor = Endings[EndingNumber - 1][StringCursor].Length;
+                FinaleText.text = Endings[EndingNumber - 1][StringCursor];               
             }
         }
     }
