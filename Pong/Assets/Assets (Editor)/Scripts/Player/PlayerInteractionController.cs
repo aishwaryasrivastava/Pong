@@ -362,6 +362,8 @@ public class PlayerInteractionController : MonoBehaviour
 
     void ResetPlayerChanges()
     {
+        GameFinale.Violent = false;
+        GameFinale.Digger = false;
         transform.position = RespawnVector;
         inventory.LoadState();
         ResetLevel.ResetChanges();

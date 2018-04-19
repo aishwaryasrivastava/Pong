@@ -26,8 +26,4 @@
 		<node option="Not right now" text="Ok then, bye"></node>
 		<node option="Go Down" sendX="6" sendY="-5" sendZ="3" text="Ok then"></node>
 	</node>
-	<node option="Can I go to the tunnel again?" repMin="250" repMax="350" text="Sure">
-		<node option="Not right now" text="Ok then, bye"></node>
-		<node option="Go Down" sendX="6" sendY="-5" sendZ="11" text="Ok then"></node>
-	</node>
 </node>

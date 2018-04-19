@@ -117,7 +117,7 @@ public class NPCScript : MonoBehaviour
     {
         if (halt) return;
         if (Static) return;
-        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door") || other.collider.CompareTag("Destroyable"))
+        if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Door"))
         {
             //Debug.Log("someone hit the wall");
             HaltAndTurn();

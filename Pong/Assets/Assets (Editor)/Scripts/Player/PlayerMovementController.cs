@@ -88,6 +88,7 @@ public class PlayerMovementController : MonoBehaviour
     public void LockCamera()
     {
         LockedCamera = true;
+        rb.velocity = new Vector3();
     }
     void MoveWithMouse()
     {
@@ -199,7 +200,7 @@ public class PlayerMovementController : MonoBehaviour
         tmp.antialiasing.enabled = true;
         tmp.vignette.enabled = true;
         tmp.grain.enabled = true;
-        tmp.chromaticAberration.enabled = false;
+        tmp.depthOfField.enabled = false;
         tmp.motionBlur.enabled = true;
     }
 
@@ -287,6 +288,8 @@ public class PlayerMovementController : MonoBehaviour
 
 public static class PauseManager
 {
+    //public static bool YouAreBad;
+
     public static bool Halted { get; private set; }
     public static bool Paused { get; private set; }
     public static bool Muted { get; private set; }

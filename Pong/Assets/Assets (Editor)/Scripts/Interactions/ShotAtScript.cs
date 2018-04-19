@@ -4,6 +4,7 @@ public class ShotAtScript : MonoBehaviour
 {
     protected int curHealth;
     public int health;
+    public int resist;
 
     private Rigidbody rb;
     private MeshRenderer mr;
@@ -25,9 +26,14 @@ public class ShotAtScript : MonoBehaviour
 
     public virtual void ShotAt(Vector3 damageVector)
     {
+        var damage = (int)damageVector.magnitude + 1 - resist;
+        if (damage <= 0) return;
+
         if (curHealth == health && !CompareTag("DestroyableDelete")) ResetLevel.Add(transform);
+
         if (rb != null) rb.AddForce(damageVector / 5, ForceMode.Impulse);
-        curHealth -= (int)damageVector.magnitude + 1;
+        curHealth -= damage;
+
         if (curHealth < 0)
         {
             if (CompareTag("DestroyableAutoReset")) curHealth = health;
@@ -38,6 +44,7 @@ public class ShotAtScript : MonoBehaviour
             }
             else gameObject.SetActive(false);            
         }
-        if(mr != null) mr.material.color = new Color(1, (float)curHealth / health, (float)curHealth / health);
+
+        if (mr != null) mr.material.color = new Color(1, (float) curHealth / health, (float) curHealth / health);
     }
 }

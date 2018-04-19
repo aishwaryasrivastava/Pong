@@ -3,11 +3,5 @@
 	<node option="So how is the digging going?" repMax="350" text="Pretty good, but I'm running low on spoons.">
 		<node option="Spoons?" text="Yeah, but I need something stronger now."></node>
 	</node>
-	<node option="So how is the digging going?" repMin="350" repMax="450" text="Almost there, just need to break through this last wall.">
-	</node>
-	<node option="Will an axe help you dig?" require="axe" text="Where did you get that? That's perfect!">
-		<node option="Here you go." require="axe" take="axe" sendX="6" sendY="-5" sendZ="11" rep="100" text="Thanks, now I can make real progress."></node>
-		<node option="No it's mine." text="Ok."></node>
-	</node>
 	<node option="Go back up." sendX="-6" sendY="3" sendZ="14" text="OK"></node>
 </node>

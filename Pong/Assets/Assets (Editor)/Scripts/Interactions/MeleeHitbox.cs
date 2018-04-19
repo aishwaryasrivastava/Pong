@@ -10,9 +10,10 @@ public class MeleeHitbox : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (pipe.inAnimation && other.CompareTag("Destroyable"))
+        if (pipe.inAnimation)
         {
-            other.GetComponent<ShotAtScript>().ShotAt(10*pipe.transform.forward);
+            var t = other.GetComponent<ShotAtScript>();
+            if (t != null) t.ShotAt(10 * pipe.transform.forward);
         }
     } 
 }

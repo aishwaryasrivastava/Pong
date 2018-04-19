@@ -97,6 +97,14 @@ public class PlayerShootingScript : MonoBehaviour
             {
                 h.ShotAt(damage * tmp);
             }
+            else
+            {
+                var f = Shot.transform.GetComponent<ShotAtScriptHuman>();
+                if (f != null)
+                {
+                    f.ShotAt(damage * tmp);
+                }
+            }
         }
         ammoCount--;
         ammoMcCount.UpdateValue(ammoCount, totalAmmo);

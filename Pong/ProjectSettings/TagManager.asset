@@ -11,7 +11,6 @@ TagManager:
   - hwG1
   - hwG2
   - vision
-  - Destroyable
   - Transfer
   - Checkpoint
   - cp1
@@ -22,9 +21,9 @@ TagManager:
   - AngleFloor
   - DestroyableAutoReset
   - DestroyableDelete
-  - Human
   - Redisable
   - airCon
+  - Human
   layers:
   - Default
   - TransparentFX
