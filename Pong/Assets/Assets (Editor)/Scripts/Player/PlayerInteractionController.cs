@@ -122,8 +122,6 @@ public class PlayerInteractionController : MonoBehaviour
                	break;
             case Interactable.InteractableType.Pipe:
             case Interactable.InteractableType.HandGun:
-            case Interactable.InteractableType.AK:
-            case Interactable.InteractableType.Colt:
                 active[Equip] = hit.transform;
                 break;
 			case Interactable.InteractableType.Observable:
@@ -221,7 +219,7 @@ public class PlayerInteractionController : MonoBehaviour
                                     sounds.PlayKeys();
                                     break;
                                 case ItemAttributeInformation.Type.Cake:
-                                    //generateHealth ();
+                                    generateHealth (); //cake going into inventory = health?
                                     sounds.PlayDing();
                                     break;
                                 default:
@@ -393,11 +391,25 @@ public class PlayerInteractionController : MonoBehaviour
             showFps = !showFps;
             fps.gameObject.SetActive(showFps);
         }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            var tmp = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+            tmp.motionBlur.enabled = !tmp.motionBlur.enabled;
+        }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            var tmp = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+            tmp.grain.enabled = !tmp.grain.enabled;
+            tmp.vignette.enabled = !tmp.vignette.enabled;
+        }
         if (Input.GetKeyDown(KeyCode.F4))
         {
             var tmp = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
             tmp.ambientOcclusion.enabled = !tmp.ambientOcclusion.enabled;
+            tmp.antialiasing.enabled = !tmp.antialiasing.enabled;
         }
+        
+
         ticker++;
         if (ticker > 100)
         {

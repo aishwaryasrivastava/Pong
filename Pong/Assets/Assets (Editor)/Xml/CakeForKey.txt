@@ -9,7 +9,7 @@
 		<node option="*Pick his pocket while he's distracted*" item="2" id="cells" text="Man this is good cake"></node>
 	</node>
 	<node option="Give me an axe" text="No">
-		<node option="Please give me an axe?" repMin="50" item="0" id="axe" text="Here you go"></node>
+		<node option="Please give me an axe?" repMin="50" item="-1" id="axe" text="Here you go"></node>
 		<node option="I didn't even want an axe" text="Why would I have an axe anyway?"></node>
 	</node>
 	

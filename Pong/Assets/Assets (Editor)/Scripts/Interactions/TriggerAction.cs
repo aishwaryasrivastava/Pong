@@ -69,6 +69,7 @@ public class TriggerAction : MonoBehaviour
 
     public void Activate()
     {
+        
         if (finalized) return;
         if (!Activated)
         {
