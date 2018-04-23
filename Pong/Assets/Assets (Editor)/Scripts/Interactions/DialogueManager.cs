@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     public PlayerInteractionController interact;
     //public NPCScript owner;
     private Inventory inventory;
-    //public CanvasRenderer GuiPointer;
+    private static GameObject GuiPointer;
 
     //public GameObject itemToGive; // this will be ripped out and made a part of prisoners to whom a dialogue is attached, fine for now
 
@@ -43,6 +43,11 @@ public class DialogueManager : MonoBehaviour
         player = GameObject.Find(playerObject);
         inventory = player.GetComponent<Inventory>();
         selections = new List<int>();
+        if (GuiPointer == null)
+        {
+            GuiPointer = GameObject.Find("Dialogue Indicator");
+            GuiPointer.SetActive(false);
+        }
 
         XmlDocument xmlDoc = new XmlDocument(); // xmlDoc is the new xml document.
         xmlDoc.LoadXml(XML.text);
@@ -139,7 +144,7 @@ public class DialogueManager : MonoBehaviour
                 if (!changeSelection)
                 {
                     changeSelection = true;
-                    changeSelectionIndex(tmp > 0);
+                    changeSelectionIndex(tmp < 0);
                 }
 
             }
@@ -287,13 +292,15 @@ public class DialogueManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         currentdialog = dialog;
-        //GuiPointer.gameObject.SetActive(true);
+        GuiPointer.SetActive(true);
+        MoveIndicator(0);
     }
 
     void ContinueDialogue(int i)
     {
         selIndex = 0;
         currentdialog = currentdialog.Children()[i];
+        MoveIndicator(0);
     }
 
     void EndDialogue()
@@ -304,7 +311,7 @@ public class DialogueManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         control.LeaveConversation();
-        //GuiPointer.gameObject.SetActive(false);
+        GuiPointer.SetActive(false);
     }
 
     bool InventoryCheck(string id)
@@ -345,6 +352,11 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
-        //GuiPointer.GetComponent<RectTransform>().position.Set(20, 70 + height * (selIndex + 1), 0);
+        if (GuiPointer.activeSelf) MoveIndicator(selIndex);
+    }
+
+    private static void MoveIndicator(int i)
+    {
+        GuiPointer.transform.localPosition = new Vector3(-0.95f * Screen.width / 2, (-.175f + ((i - 3) * -0.15f))  * Screen.height, 0);
     }
 }
