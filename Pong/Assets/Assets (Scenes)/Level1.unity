@@ -54177,7 +54177,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'P to unpause
 
-    Esc to quit'
+    Esc to return to main menu'
 --- !u!222 &1301056878
 CanvasRenderer:
   m_ObjectHideFlags: 0

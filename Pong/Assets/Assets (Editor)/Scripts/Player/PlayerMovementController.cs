@@ -188,7 +188,8 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Application.Quit();
+                GameFinale.ResetPP();
+                StartCoroutine(GameFinale.LoadAsyncScene());
             }
         }
     }

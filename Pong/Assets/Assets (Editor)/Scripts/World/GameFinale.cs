@@ -91,7 +91,7 @@ public class GameFinale : MonoBehaviour
         }
     }
 
-    private void ResetPP()
+    public static void ResetPP()
     {
         var tmp = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
         tmp.ambientOcclusion.enabled = true;
@@ -147,7 +147,7 @@ public class GameFinale : MonoBehaviour
         }
     }
 
-    IEnumerator LoadAsyncScene()
+    public static IEnumerator LoadAsyncScene()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Assets (Scenes)/Credits");
         while (!asyncLoad.isDone)
