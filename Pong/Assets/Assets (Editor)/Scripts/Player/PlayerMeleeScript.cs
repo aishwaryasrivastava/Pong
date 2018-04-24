@@ -19,7 +19,7 @@ public class PlayerMeleeScript : MonoBehaviour {
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
 
-	    if (Input.GetAxis("Shoot") < 0)
+	    if (Input.GetAxis("Shoot") > 0)
 
 	    {
             if (!attackPressed)
@@ -37,7 +37,7 @@ public class PlayerMeleeScript : MonoBehaviour {
         {
             attackPressed = false;
         }
-        /**
+        /*
         if (Input.GetMouseButton(1))
         {
             animator.ToBlocking();

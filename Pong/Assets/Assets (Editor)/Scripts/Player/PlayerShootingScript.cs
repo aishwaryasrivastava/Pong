@@ -128,21 +128,18 @@ public class PlayerShootingScript : MonoBehaviour
        // return auto ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
        if (auto)
         {
-            return Input.GetAxis("Shoot") < 0;
-        } else
+            return Input.GetAxis("Shoot") > 0;
+        }
+        if (Input.GetAxis("Shoot") > 0)
         {
-            if (Input.GetAxis("Shoot") < 0)
-
+            if (!shotFired)
             {
-                if (!shotFired)
-                {
-                    return true;
-                }
+                return true;
             }
-            else
-            {
-                shotFired = false;
-            }
+        }
+        else
+        {
+            shotFired = false;
         }
         return false;
     }
