@@ -7,6 +7,7 @@ public class PlayerMeleeScript : MonoBehaviour {
     private PipeAnimationHandler animator;
     public PlayerMovementController movement;
 	public bool inAnimation;
+    private bool attackPressed;
 
     // Use this for initialization
     void Start () {
@@ -18,23 +19,32 @@ public class PlayerMeleeScript : MonoBehaviour {
         if (PauseManager.Paused) return;
         if (movement.AmBusy()) return; //Don't shoot people while in dialogue with them
 
-	    if (Input.GetMouseButtonDown(0))
+	    if (Input.GetAxis("Shoot") < 0)
+
 	    {
-	        PlayerWeaponEquip.timer = 1.1f;
-	        animator.Attack();
-			var tmp = GetComponentInParent<SoundController> ();
-			if(!tmp.source.isPlaying){
-				tmp.PlaySwingW ();
-			}
-	    }
+            if (!attackPressed)
+            {
+                attackPressed = true;
+                PlayerWeaponEquip.timer = 1.1f;
+                animator.Attack();
+                var tmp = GetComponentInParent<SoundController>();
+                if (!tmp.source.isPlaying)
+                {
+                    tmp.PlaySwingW();
+                }
+            }
+	    } else
+        {
+            attackPressed = false;
+        }
         /**
         if (Input.GetMouseButton(1))
         {
             animator.ToBlocking();
         } 
         */
-        animator.SetBlocking(Input.GetMouseButton(1));
-        movement.Blocking = Input.GetMouseButton(1);
+        animator.SetBlocking(Input.GetAxis("Shoot") > 0);
+        movement.Blocking = Input.GetAxis("Shoot") > 0;
 
 
     }

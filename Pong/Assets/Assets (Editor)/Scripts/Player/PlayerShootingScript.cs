@@ -22,6 +22,7 @@ public class PlayerShootingScript : MonoBehaviour
     private Vector3 magazinePositionBackup;
     private Transform shell;
     private Vector3 shellPositionBackup;
+    private bool shotFired;
 
     public SoundController sounds;
     public PlayerMovementController movement;
@@ -124,7 +125,26 @@ public class PlayerShootingScript : MonoBehaviour
 
     bool FireWeapon()
     {
-        return auto ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
+       // return auto ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0);
+       if (auto)
+        {
+            return Input.GetAxis("Shoot") < 0;
+        } else
+        {
+            if (Input.GetAxis("Shoot") < 0)
+
+            {
+                if (!shotFired)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                shotFired = false;
+            }
+        }
+        return false;
     }
 
     bool CanFire()
