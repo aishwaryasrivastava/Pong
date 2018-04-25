@@ -5,10 +5,6 @@
 			<node option="It's an old boot" text="You suck"></node>
 			<node option="It's an axe" rep="100" take="Axe" text="This is exactly what I need!"></node>
 		</node>
-		<node option="Is this your tunnel?" repMin="150" repMax="250" text="Keep it secret">
-			<node option="That's, interesting" text="Be more impressed"></node>
-			<node option="I'm going down" sendX="6" sendY="-5" sendZ="3" text="Ok then"></node>
-		</node>
 		<node option="I know your secret" repMin="250" repMax="350" text="I understand, come with me">
 			<node option="Not right now" text="Ok then, bye"></node>
 			<node option="Let's go" sendX="6" sendY="-5" sendZ="11" text="..."></node>

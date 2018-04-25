@@ -1,5 +1,5 @@
 <node text="We're so close. See if you can break through that last wall" option="N/A">
 	<node option="Neat place you have here." text="Flattery doesn't dig holes Crawfis"></node>
 	<node option="So how is the digging going?" text="Go take a look at the far wall for yourself"></node>
-	<node option="Go back up." sendX="-6" sendY="3" sendZ="14" text="OK"></node>
+	<node option="Go back up." sendX="-15" sendY="3" sendZ="-32" text="OK"></node>
 </node>
