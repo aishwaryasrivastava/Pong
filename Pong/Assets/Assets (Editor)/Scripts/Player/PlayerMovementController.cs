@@ -39,6 +39,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
+        PauseManager.Halted = false;
     }
 
     void SetMovementVector()
@@ -291,7 +292,7 @@ public static class PauseManager
 {
     //public static bool YouAreBad;
 
-    public static bool Halted { get; private set; }
+    public static bool Halted;
     public static bool Paused { get; private set; }
     public static bool Muted { get; private set; }
     private static bool pauseMute;
@@ -311,10 +312,5 @@ public static class PauseManager
             pauseMute = !pauseMute;
             AudioListener.volume = pauseMute ? 0 : 1;
         }
-    }
-
-    public static void Halt()
-    {
-        Halted = !Halted;
     }
 }

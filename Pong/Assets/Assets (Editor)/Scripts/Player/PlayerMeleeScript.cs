@@ -43,8 +43,8 @@ public class PlayerMeleeScript : MonoBehaviour {
             animator.ToBlocking();
         } 
         */
-        animator.SetBlocking(Input.GetAxis("Shoot") > 0);
-        movement.Blocking = Input.GetAxis("Shoot") > 0;
+        animator.SetBlocking(Input.GetAxis("Shoot2") > 0);
+        movement.Blocking = Input.GetAxis("Shoot2") > 0;
 
 
     }

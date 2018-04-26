@@ -60,7 +60,7 @@ public class GameFinale : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (PauseManager.Halted) return;
+        if (PauseManager.Halted || Current) return;
         if (other.CompareTag("Player"))
         {
             if (RequireDigger && !Digger) return;
@@ -87,7 +87,7 @@ public class GameFinale : MonoBehaviour
                 a.Stop();
             }
             if (music != null) other.gameObject.GetComponent<AudioSource>().PlayOneShot(music);
-            PauseManager.Halt();
+            PauseManager.Halted = true;
         }
     }
 
@@ -135,6 +135,7 @@ public class GameFinale : MonoBehaviour
                 else if (StringCursor >= Endings[EndingNumber - 1].Length)
                 {
                     ResetPP();
+                    
                     StartCoroutine(LoadAsyncScene());
                 }
             }
@@ -154,6 +155,6 @@ public class GameFinale : MonoBehaviour
         {
             yield return null;
         }
-
+        PauseManager.Halted = false;
     }
 }
