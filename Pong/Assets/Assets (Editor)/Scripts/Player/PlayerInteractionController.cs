@@ -116,10 +116,18 @@ public class PlayerInteractionController : MonoBehaviour
                 break;
 			case Interactable.InteractableType.Person:
 				var tmp = hit.transform.GetComponent<PersonalInfo> ();
-				if (tmp != null)sounds.PlayVoice (tmp.serialNum);
-				active [Human] = hit.transform;
-				active [Human].GetComponent<DialogueManager> ().LookingAt ();
-               	break;
+			    active[Human] = hit.transform;
+                if (tmp != null && tmp.talkable)
+			    {
+			        sounds.PlayVoice(tmp.serialNum);			       
+			        active[Human].GetComponent<DialogueManager>().LookingAt();
+			    }
+			    else
+			    {
+			        UIConfirm.color = new Color(1, 0, 0, 0.8f);
+			        GoingGreen = false;
+                }
+			    break;
             case Interactable.InteractableType.Pipe:
             case Interactable.InteractableType.HandGun:
                 active[Equip] = hit.transform;

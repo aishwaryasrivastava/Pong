@@ -6627,7 +6627,7 @@ MonoBehaviour:
   ObjDisabled: []
   ItemsNeeded: []
   RepNeeded: 0
-  ScoreNeeded: 15
+  ScoreNeeded: 18
   Timer: 0
   HideOwnMesh: 1
   Trigger: {fileID: 0}
@@ -13956,6 +13956,16 @@ Prefab:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 114891833197217886, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: BadString
+      value: Better not go in someone else's cell
+      objectReference: {fileID: 0}
+    - target: {fileID: 114201848480031896, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: code
+      value: cells2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -21041,7 +21051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   GoodString: Peter my man, how you doin'
-  BadString: 
+  BadString: I don't think he wants to talk to me
 --- !u!114 &498915304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22400,6 +22410,16 @@ Prefab:
     - target: {fileID: 1990540486745102, guid: c292071541f02479e914258e80b03aaa, type: 2}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 114891833197217886, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: BadString
+      value: Better not go in someone else's cell
+      objectReference: {fileID: 0}
+    - target: {fileID: 114201848480031896, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: code
+      value: cells2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
@@ -30027,7 +30047,13 @@ Prefab:
       propertyPath: m_Center.x
       value: -0.075302124
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114561701734465806, guid: ee556f0cac9a9db49aeedb037a2c4407,
+        type: 2}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65626521336857590, guid: ee556f0cac9a9db49aeedb037a2c4407, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ee556f0cac9a9db49aeedb037a2c4407, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &721317336 stripped
@@ -30045,6 +30071,7 @@ GameObject:
   - component: {fileID: 723149018}
   - component: {fileID: 723149020}
   - component: {fileID: 723149019}
+  - component: {fileID: 723149021}
   m_Layer: 0
   m_Name: ceiling (3)
   m_TagString: Untagged
@@ -30109,6 +30136,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 723149017}
   m_Mesh: {fileID: 4300000, guid: 9f5ca0b1d58093443854bbdff8691845, type: 3}
+--- !u!65 &723149021
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 723149017}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000014, y: 0, z: 2.0000012}
+  m_Center: {x: -1.000001, y: 0, z: 0.9999999}
 --- !u!1 &726071143
 GameObject:
   m_ObjectHideFlags: 0
@@ -31201,6 +31240,7 @@ GameObject:
   - component: {fileID: 766845288}
   - component: {fileID: 766845290}
   - component: {fileID: 766845289}
+  - component: {fileID: 766845291}
   m_Layer: 0
   m_Name: ceiling (2)
   m_TagString: Untagged
@@ -31265,6 +31305,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 766845287}
   m_Mesh: {fileID: 4300000, guid: 9f5ca0b1d58093443854bbdff8691845, type: 3}
+--- !u!65 &766845291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 766845287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000012, y: 0, z: 2.0000017}
+  m_Center: {x: -0.99999833, y: 0, z: 1.0000017}
 --- !u!1 &768200928
 GameObject:
   m_ObjectHideFlags: 0
@@ -40136,6 +40188,7 @@ GameObject:
   - component: {fileID: 977484758}
   - component: {fileID: 977484760}
   - component: {fileID: 977484759}
+  - component: {fileID: 977484761}
   m_Layer: 0
   m_Name: ceiling (2)
   m_TagString: Untagged
@@ -40200,6 +40253,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 977484757}
   m_Mesh: {fileID: 4300000, guid: 9f5ca0b1d58093443854bbdff8691845, type: 3}
+--- !u!65 &977484761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977484757}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000014, y: 0, z: 2.0000012}
+  m_Center: {x: -1.0000005, y: 0, z: 1}
 --- !u!1 &977553377
 GameObject:
   m_ObjectHideFlags: 0
@@ -44837,6 +44902,16 @@ Prefab:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 114891833197217886, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: BadString
+      value: Better not go in someone else's cell
+      objectReference: {fileID: 0}
+    - target: {fileID: 114201848480031896, guid: c292071541f02479e914258e80b03aaa,
+        type: 2}
+      propertyPath: code
+      value: cells2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c292071541f02479e914258e80b03aaa, type: 2}
   m_IsPrefabParent: 0
@@ -45852,7 +45927,7 @@ MonoBehaviour:
   ObjDisabled: []
   ItemsNeeded: []
   RepNeeded: 0
-  ScoreNeeded: 25
+  ScoreNeeded: 20
   Timer: 0
   HideOwnMesh: 1
   Trigger: {fileID: 0}
@@ -47782,6 +47857,7 @@ GameObject:
   - component: {fileID: 1151266838}
   - component: {fileID: 1151266840}
   - component: {fileID: 1151266839}
+  - component: {fileID: 1151266841}
   m_Layer: 0
   m_Name: ceiling (1)
   m_TagString: Untagged
@@ -47846,6 +47922,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1151266837}
   m_Mesh: {fileID: 4300000, guid: 9f5ca0b1d58093443854bbdff8691845, type: 3}
+--- !u!65 &1151266841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1151266837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999999, y: 0, z: 1.9999999}
+  m_Center: {x: -0.99999994, y: 0, z: 0.99999994}
 --- !u!1 &1153194370
 GameObject:
   m_ObjectHideFlags: 0
@@ -58076,6 +58164,20 @@ MonoBehaviour:
   type: 6
   GoodString: I can probably break this with something
   BadString: 
+--- !u!64 &1388561079
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1388561077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 71dba5f8b9a67a5459c81163c273f120, type: 3}
 --- !u!1 &1389623468
 GameObject:
   m_ObjectHideFlags: 0
@@ -58265,7 +58367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76fd43f72b436544b1e7324741dd9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
+  health: 125
   resist: 0
 --- !u!95 &1398506045
 Animator:
@@ -76028,6 +76130,7 @@ GameObject:
   - component: {fileID: 1876772323}
   - component: {fileID: 1876772325}
   - component: {fileID: 1876772324}
+  - component: {fileID: 1876772326}
   m_Layer: 0
   m_Name: ceiling (4)
   m_TagString: Untagged
@@ -76092,6 +76195,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1876772322}
   m_Mesh: {fileID: 4300000, guid: 9f5ca0b1d58093443854bbdff8691845, type: 3}
+--- !u!65 &1876772326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876772322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000012, y: 0, z: 2.0000017}
+  m_Center: {x: -1.0000006, y: 0, z: 0.9999994}
 --- !u!1 &1880341494
 GameObject:
   m_ObjectHideFlags: 0
@@ -77543,6 +77658,7 @@ GameObject:
   - component: {fileID: 1936196392}
   - component: {fileID: 1936196394}
   - component: {fileID: 1936196393}
+  - component: {fileID: 1936196395}
   m_Layer: 0
   m_Name: ceiling
   m_TagString: Untagged
@@ -77607,6 +77723,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1936196391}
   m_Mesh: {fileID: 4300000, guid: 9f5ca0b1d58093443854bbdff8691845, type: 3}
+--- !u!65 &1936196395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1936196391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999999, y: 0, z: 1.9999999}
+  m_Center: {x: -0.99999994, y: 0, z: 0.99999994}
 --- !u!1001 &1937032807
 Prefab:
   m_ObjectHideFlags: 0
